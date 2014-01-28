@@ -1,0 +1,3559 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass attapi
+\begin_preamble
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{eso-pic}
+\usepackage[stamp]{draftwatermark}
+\usepackage{colortbl}
+
+\SetWatermarkText{Draft}
+\SetWatermarkAngle{45}
+\SetWatermarkLightness{0.9}
+\SetWatermarkScale{.8}
+
+\date{}
+\lhead{\small{www.dedoimedo.com}}
+\rhead{\small{some text}} 
+\pagestyle{fancy}
+
+\setlength{\headheight}{0.6in}
+\setlength{\headwidth}{\textwidth}
+\fancyhead[L]{}% empty left
+\fancyhead[R]{ % right
+   \includegraphics[height=0.75in]{../common/att_logo.png}
+}
+\pagestyle{fancy}
+
+\definecolor{blue}{RGB}{79,129,189}
+\definecolor{shadebox}{RGB}{255,255,204}
+
+\cfoot{\scriptsize © 2013 AT\&T Intellectual Property. All rights reserved. AT\&T and AT\&T logo are trademarks of AT\&T Intellectual Property.}
+
+\newcommand{\attcategory}[1]{\textbf{\Large Category: \textcolor{blue}{#1}}}
+\newcommand{\attservice}[1]{\textbf{\Large Service:  \textcolor{blue}{#1}}}
+\newcommand{\attdocumentnumber}[1]{\textbf{\small Document Number: #1}}
+\newcommand{\attrevision}[1]{\textbf{\small Revision: #1}}
+\newcommand{\attrevisiondate}[1]{\textbf{\small Revision Date: #1}}
+\newcommand{\attauthor}[1]{\textbf{\small Author: #1}}
+\newcommand{\attoperation}[1]{\emph #1}
+
+
+\let\oldtabular=\tabular
+\def\tabular{\footnotesize\oldtabular}
+\end_preamble
+\options usenames,dvipsnames
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+customHeadersFooters
+enumitem
+endnotes
+tabs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman Arial
+\font_sans Arial
+\font_typewriter Arial Narrow
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement h
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle true
+\papersize letterpaper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine natbib_authoryear
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\boxbgcolor #ffff7f
+\branch Specification
+\selected 1
+\filename_suffix 1
+\color #faf0e6
+\end_branch
+\branch DeveloperDocumentation
+\selected 0
+\filename_suffix 1
+\color #faf0e6
+\end_branch
+\branch Example
+\selected 0
+\filename_suffix 1
+\color #faf0e6
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1.8in
+\rightmargin 1in
+\bottommargin 1.25in
+\secnumdepth 5
+\tocdepth 5
+\paragraph_separation skip
+\defskip bigskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\listings_params "backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},breaklines={true},frame=single,frameround=tttt,framerule={.5pt},morekeywords={GET,POST,PUT,DELETE},numbers=left,numberstyle={\tiny},otherkeywords={GET,POST,PUT,DELETE,HTTP/1.1, 200,OK,appication/xml},stringstyle={\ttfamily},tabsize=4"
+\tracking_changes true
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\author 1876666985 "bschwarz" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\series bold
+\size giant
+\color black
+AT&T Service Specification
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vskip -1in
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ATT Category
+Album
+\change_deleted 1876666985 1390198166
+?
+\change_unchanged
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Category name, i.e.
+ Messaging
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ATT Service
+Locker
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Service name, i.e.
+ SMS
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1in}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ATT Revision
+1.1.0
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Document revision
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ATT Revision Date
+1/13/2014
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Document revision date
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ATT Author
+Developer Realization Team
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Author of document
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Legal Disclaimer
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "../common/legal_disclaimer.lyx"
+
+\end_inset
+
+
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Revision History
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="3">
+<features islongtable="true" firstHeadTopDL="true" firstHeadBottomDL="true" headTopDL="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="left" valignment="middle" width="11text%">
+<column alignment="left" valignment="top" width="8text%">
+<column alignment="left" valignment="top" width="70text%">
+<row endhead="true" endfirsthead="true">
+<cell alignment="left" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Date
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Revision
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Description
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1/13/14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.0.0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+bs595r - initial version, carry over from SB spec
+\change_inserted 1876666985 1390071747
+.
+ Implements the following User Stories: US50112, US50116, US50117, US50118,
+ US50119, US50120, US50121, US50122, US50123, US50124, US50435, US50439
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1/19/2014
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.1.0 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+bs595r - made updates based on reviews.
+ Moved search functionality into the respective resources.
+ Changed token to ticket for upload.
+ Changes the name of Client Properties to Locker properties, and specifies
+ only contentEngineHostname parameter is allowed to be returned.
+ Adds HTTP method override.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Give brief introduction about the proposed service.
+ Also add here any special considerations, assumptions, and dependencies
+ for this API
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+AT&T Locker API gives authorized applications the ability to store, socialize
+ and share user content that resides on users PC and Devices.
+ This Interface Document (IA) gives on overview of Locker API, Payload structure
+, Errors returned, etc that will help a client developer build Locker client
+ application.
+ This document lists how to invoke API’s but doesn’t discuss orchestrating
+ the API’s to make a business function.
+ The Getting Started Guide and Sequence Diagrams (not included here) will
+ give a good overview of how to orchestrate these API’s to make a business
+ function.
+\end_layout
+
+\begin_layout Subsection
+Audience
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "../common/audience.lyx"
+
+\end_inset
+
+
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Provisioned Data
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 1876666985 1389990932
+In order for the developer to utilize the Locker API, the locker service
+ needs to be enabled during provisioning.
+ There is no call back operation supported by this API.
+\change_inserted 1876666985 1389990937
+In order for the developer to utilize the Locker API, Locker API needs to
+ be selected during onboarding of the Locker Application.
+ A Locker application using the Locker API cannot use other APIs.
+ The Locker Application will also be enabled for Remember Me during onboarding.
+
+\change_unchanged
+ 
+\end_layout
+
+\begin_layout Subsection
+Oauth Scope
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Describe what scope (if any) will be used for this service and how that
+ gets provisioned.
+ Include a small graphic that illustrates the desired scope provisioned
+ on developer portal.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Representation of this Messaging service on OnBoarding form
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The value for the scope parameter that needs to be passed in the Oauth API
+ method call to obtain an access token to consume this API would be “LOCKER”.
+ 
+\end_layout
+
+\begin_layout Subsection
+Provisioning: 
+\end_layout
+
+\begin_layout Standard
+N/A 
+\end_layout
+
+\begin_layout Subsection
+Notification Callback URL: 
+\end_layout
+
+\begin_layout Standard
+N/A
+\end_layout
+
+\begin_layout Subsection
+Callback URL
+\emph on
+: 
+\end_layout
+
+\begin_layout Standard
+N/A 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+RESTful Web Services Definition
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+This section defines the RESTful web services interface for the ‘Service
+ Name’ API.
+ RESTful APIs are specified in a resource oriented manner.
+ The REST operations supported by each resource are identified along with
+ their JSON and XML representation formats, request parameters, response
+ parameters, response codes and exceptions.
+ Also add here any special considerations, assumptions, and dependencies
+ for this particular API
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+AT&T Locker API gives authorized applications the ability to store, socialize
+ and share user content that resides on users PC and Devices.
+ This Interface Document (IA) gives on overview of Locker API, Payload structure
+, Errors returned, etc that will help a client developer build Locker client
+ application.
+ This document lists how to invoke API’s but doesn’t discuss orchestrating
+ the API’s to make a business function.
+ The Getting Started Guide and Sequence Diagrams (not included here) will
+ give a good overview of how to orchestrate these API’s to make a business
+ function.
+\change_inserted 1876666985 1390198814
+
+\end_layout
+
+\begin_layout Subsection*
+
+\change_inserted 1876666985 1390198815
+HTTP Method Override
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1876666985 1390198861
+If the calling client does not support HTTP DELETE, PATCH and/or PUT, the
+ client may use the following header and call the API using HTTP POST 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1876666985 1390198866
+x-http-method-override: DELETE 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1876666985 1390198850
+or 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1876666985 1390198882
+x-http-method-override: PATCH
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1876666985 1390198878
+or
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1876666985 1390204170
+x-http-method-override: PUT
+\end_layout
+
+\begin_layout Subsection*
+
+\change_inserted 1876666985 1390204171
+XML Declaration
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1876666985 1390324745
+The XML documentation declaration shall be optional for requests that have
+ an XML body, but shall be required for responses that have an XML body.
+\end_layout
+
+\begin_layout Subsection*
+
+\change_inserted 1876666985 1390325300
+Source Device IP Address
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1876666985 1390324938
+The APIGW shall retrieve the source device IP address and send that with
+ every request to the Locker enabler set in the HTTP header 
+\emph on
+device-remote-address
+\end_layout
+
+\begin_layout Subsection
+REST Operation Summary
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+This section defines the RESTful web services interface for the ‘Service
+ Name’ API.
+ RESTful APIs are specified in a resource oriented manner.
+ The REST operations supported by each resource are identified along with
+ their JSON and XML representation formats, request parameters, response
+ parameters, response codes and exceptions.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="39" columns="4">
+<features islongtable="true" firstHeadTopDL="true" firstHeadBottomDL="true" headTopDL="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="23text%">
+<column alignment="left" valignment="top" width="50text%">
+<column alignment="left" valignment="top" width="8text%">
+<column alignment="left" valignment="top" width="9text%">
+<row endhead="true" endfirsthead="true">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Operation Name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Resource URI relative to https://api.att.com
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+HTTP Verb
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Operation Type
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Media & Albums
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Create Album
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/albums
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+POST
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Get Album Listing
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/albums
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+GET
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Delete Album
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/albums/{albumId}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+DELETE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Update Album
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/albums/{albumId}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+PATCH
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Get Album Contents
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/albums/{albumId}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+GET
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Add Media to Album
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/albums/{albumId}/media 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+POST
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Get Media Listing
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/media
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+GET
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Delete Album Media
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/albums/{albumId}/media 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+DELETE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Update Media
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/media/{mediaId}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+PATCH
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Music & Playlists
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Create Playlist
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/playlists
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+POST
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Get Playlist Listing
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/playlists
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+GET
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Delete Playlist
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/playlists/{playlistId}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+DELETE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Update Playlist
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/playlists/{playlistId}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+PATCH
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Get Playlist Contents
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/playlists/{playlistId}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+GET
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Add Tracks to Playlist
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/playlists/{playlistId}/tracks
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+POST
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Get Tracks Listing
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/tracks
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+GET
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Delete Playlist Tracks
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/playlists/{playlistId}/tracks
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+DELETE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Update Track
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/tracks/{trackId}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+PATCH
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Files & Folders
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Create Folder
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/folders
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+POST
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Get Folder Listing
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/folders
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+GET
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Delete Folder
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/folders/{folderId}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+DELETE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Update Folder
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/folders/{folderId}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+PATCH
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Get Folder Contents
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/folders/{folderId}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+GET
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Add Files to Folder
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/folders/{folderId}/files
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+POST
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Get File Listing
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/files
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+GET
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Delete Folder Files
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/folders/{folderId}/files
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+DELETE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Update File
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/files/
+\change_deleted 1876666985 1390196757
+2
+\change_unchanged
+{fileId}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+PATCH
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Data
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Get Upload Ticket
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/
+\change_deleted 1876666985 1390196855
+uploadToken
+\change_inserted 1876666985 1390196856
+tickets
+\change_unchanged
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+GET
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Delete Content
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/content
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+DELETE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Get Content metadata
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/content
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+GET
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Account Management
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Get Account Information
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/account
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+GET
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_deleted 1876666985 1390198902
+
+\series bold
+\size footnotesize
+Client
+\change_inserted 1876666985 1390198903
+Locker
+\change_unchanged
+ Properties
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Get 
+\change_deleted 1876666985 1390198905
+Client
+\change_inserted 1876666985 1390198906
+Locker
+\change_unchanged
+ Properties
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+/locker/v1/properties
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+GET
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Method
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\shape italic
+Create Album
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Replicate this section, and its subordinate sections, for each of the operations
+ supported by the REST resource
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-CreateAlbum.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Get Album Listing
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Get_All_Albums.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Delete Album
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Delete_Album.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Update Album
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Update_Album.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Get Album Contents
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-List_Album_Contents.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Add Media to Album
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Add_Media_To_Album.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Get Media Listing
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-List_All_Media.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Delete Album Media
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Remove_Media_From_Album.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Update Media
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Update_Media.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Create Playlist
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Create_Playlist.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Get Playlist Listing
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Get_All_Playlists.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Delete Playlist
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Delete_Playlist.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Update Playlist
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Update_Playlist.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Get Playlist Contents
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-List_Playlist_Contents.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Add Tracks to Playlist
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Add_Tracks_To_Playlist.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Get Tracks Listing
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-List_All_Tracks.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Delete Playlist Tracks
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Remove_Tracks_From_Playlist.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Update Track
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Update_Track.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Create Folder
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Create_Folder.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Get Folder Listing
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Get_All_Folders.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Delete a Folder
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Delete_Folder.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Update Folder
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Update_Folder.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Get Folder Contents
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-List_Folder_Contents.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Add Files to Folder
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Add_Files_To_Folder.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Get Files Listing
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-List_All_Files.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Delete Folder Files
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Remove_Files_From_Folder.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Update File
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Update_File.lyx"
+
+\end_inset
+
+
+\change_deleted 1876666985 1390175662
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Get Upload Ticket
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Create_Upload_Token.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: 
+\emph on
+Delete Content
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Delete_File.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: Get Content metadata
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Get_File_Metadata.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: Get Account Information
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Get_Account_Info.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operation: Get 
+\change_deleted 1876666985 1390198930
+Client
+\change_inserted 1876666985 1390198930
+Locker
+\change_unchanged
+ Properties
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Operation-Get_Client_Properties.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Structure of Exceptions
+\end_layout
+
+\begin_layout Subsection
+RESTful Web Services Exceptions
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "../common/restful_webservice_exceptions.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Terms
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "../common/Terms.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Acronyms
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "../common/acronyms.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Approvals
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+The Approvers of this work product agree that this document is acceptable
+ and complete to the best of their knowledge and will be used by the project
+ team as an official deliverable for the project.
+ The approvers are certifying that no additional requirements have been
+ introduced and no existing requirements have been dropped.
+ It is further agreed that this document is now baselined and any changes
+ to these sections from this point forward must follow established change
+ control processes.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Assertion Checklist
+\end_layout
+
+\begin_layout Standard
+By approving below the Project Manager, CSO, Dev Ecosystem and the Project
+ Team assert that: 
+\end_layout
+
+\begin_layout Itemize
+Data elements exposed by Northbound APIs described in this document have
+ been reviewed for privacy / legal and security concerns.
+\end_layout
+
+\begin_layout Itemize
+The authentication and authorization approach meets current standards and
+ best practices.
+ 
+\end_layout
+
+\begin_layout Itemize
+The API naming and scope is aligned with the service catalog.
+\end_layout
+
+\begin_layout Itemize
+The API design conforms to all other requirements of the Northbound API
+ Practice requirements except where exceptions have been approved.
+\end_layout
+
+\begin_layout Subsection
+Approvers
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="4">
+<features islongtable="true" firstHeadTopDL="true" firstHeadBottomDL="true" headTopDL="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="8text%">
+<column alignment="left" valignment="top" width="21text%">
+<column alignment="left" valignment="top" width="17text%">
+<column alignment="left" valignment="top" width="40text%">
+<row endhead="true" endfirsthead="true">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+ATTUID
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Role
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Latest Version Approved, Approval Date and Evidence
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+bs595r
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Brett Schwarz
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Project Manager
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Solution Architect
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+CSO
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Privacy
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Legal
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+API Realization
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Dev Ecosystem
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Arch and Planning
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
