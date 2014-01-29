@@ -38,7 +38,7 @@ if (!empty($_FILES["myFile"])) {
 //        echo $_FILES["myFile"]['size'] . ' bytes</br>';
 
         if (startsWith($name, "Input") || startsWith($name, "Output") || startsWith($name, "Object")) {
-        echo '<script>window.location.href = "param_temp.php";</script>';
+        echo '<script>window.location.href = "preview.php";</script>';
             
 //header('Location: param_temp.php');
         }
@@ -52,7 +52,4 @@ if (!empty($_FILES["myFile"])) {
     echo 'something happen';
 }
 
-function startsWith($haystack, $needle) {
-    return $needle === "" || strpos($haystack, $needle) === 0;
-}
 ?>
