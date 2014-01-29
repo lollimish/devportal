@@ -11,67 +11,67 @@
                 <div class="header">Parameter</div>
             </div>
         </div>
-<div class="grid-row">
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">accept
 
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="data-type">String
+
+</span>
+                    <span class="placement">Header
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-accept
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-String
-
-
-
-
-
-
-
-No
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the format of the body of the response.
 
  Valid values are: 
 
+\end_layout
 
 
 
+\begin_layout Itemize
+
+
+
+\size footnotesize
 
 application/json
 
+\end_layout
 
 
 
+\begin_layout Itemize
+
+
+
+\size footnotesize
 
 application/xml
 
+\end_layout
 
 
 
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
 
 The default value is application/json.
 
@@ -81,17 +81,33 @@ The default value is application/json.
 
  application/json.
 
+\end_layout
 
 
 
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
 
 Normal Accept header processing rules shall be followed according to rfc2616.
 
+\end_layout
 
 
 
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
+
+\emph on
 
 Note
+
+\emph default
 
 : If there is no entity body in a normal successful response, this parameter
 
@@ -99,59 +115,39 @@ Note
 
  response message.
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Header
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">accept-encoding
 
+</span>
+                    <span class="data-type">String
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">Header
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-accept-encoding
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-String
-
-
-
-
-
-
-
-No 
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the accept encoding format.
 
@@ -161,59 +157,39 @@ Specifies the accept encoding format.
 
  Valid values are: gzip
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Header
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">authorization
 
+</span>
+                    <span class="data-type">String
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">Header
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-authorization
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-String
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the authorization type and token.
 
@@ -227,575 +203,336 @@ Specifies the authorization type and token.
 
  message with a WWW-Authenticate HTTP header.
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Header
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-length
 
+</span>
+                    <span class="data-type">Integer
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">Header
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-content-length
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-Integer
-
-
-
-
-
-
-
-No
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the length of the content in octets.
 
  This header parameter is only required for the non-streaming request.
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Header
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-type
 
+</span>
+                    <span class="data-type">String
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">Header
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-content-type
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-String
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the type of content of the body of the entity.
 
  Must be set to one of the following values:
 
+\end_layout
 
 
 
+\begin_layout Itemize
+
+
+
+\size footnotesize
 
 application/json
 
+\end_layout
 
 
 
+\begin_layout Itemize
+
+
+
+\size footnotesize
 
 application/xml
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Header
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">folderId
 
+</span>
+                    <span class="data-type">Integer
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">URI Path
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-folderId
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-Integer
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the id of the folder where the files will be placed.
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-URI Path
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">fileIds
 
+</span>
+                    <span class="data-type">Object
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">Body
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-fileIds
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-Object
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
+\size footnotesize
 
 Contains the file information to be added
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Body
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">id
 
+</span>
+                    <span class="data-type">Array
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">Body
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-id
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-Array
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the ids of the files that are to be added to the folder.
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Body
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">index
 
+</span>
+                    <span class="data-type">Integer
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">Body
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-index
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-Integer
-
-
-
-
-
-
-
-No
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the absolute position where you want to place the new files.
 
  
 
+\end_layout
 
 
 
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
 
 Default is to put at the end of the folder.
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Body
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">Data Type
 
+</span>
+                    <span class="data-type">Location
 
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-status open
-
-
-
-
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement"></span>
+                </div>
             </div>
             <div class="grid-right">
-
-
-
-
-Data Type
-
-
-
-
-
-
-
-Location
-
-
-
-
-
-
-
-Required?
-
-
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+                
             </div>
-            <div class="grid-right">
+        </div>
 
-
-
-
-AnyURI
-
-
-
-
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">AnyURI
 
 Array
 
-
-
-
-
 Base64
-
-
-
-
 
 Boolean
 
-
-
-
-
 Decimal
-
-
-
-
 
 Integer
 
-
-
-
-
 Numeric
-
-
-
-
 
 Object
 
-
-
-
-
 String
 
-
-
-
-
-
-
-Body
-
-
-
-
+</span>
+                    <span class="data-type">Body
 
 Header
 
-
-
-
-
 MIME Body
-
-
-
-
 
 Query Parameter
 
-
-
-
-
 URI Path
 
-
-
-
-
-
-
-No
-
-
-
-
-
-Yes
-
-
-
-
-
-Cond
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</span>
+                    <span class="placement"></span>
+                </div>
+            </div>
+            <div class="grid-right">
+                
+            </div>
+        </div>
 
     </div>
-</section> <section id="resources-speech-to-text-parameters" class="level-3">
+</section>
+
+ <section id="resources-speech-to-text-parameters" class="level-3">
     <header>Request Parameters</header>
     <label>
         <span class="required form-icon"></span>
@@ -808,67 +545,67 @@ Cond
                 <div class="header">Parameter</div>
             </div>
         </div>
-<div class="grid-row">
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">accept
 
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="data-type">String
+
+</span>
+                    <span class="placement">Header
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-accept
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-String
-
-
-
-
-
-
-
-No
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the format of the body of the response.
 
  Valid values are: 
 
+\end_layout
 
 
 
+\begin_layout Itemize
+
+
+
+\size footnotesize
 
 application/json
 
+\end_layout
 
 
 
+\begin_layout Itemize
+
+
+
+\size footnotesize
 
 application/xml
 
+\end_layout
 
 
 
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
 
 The default value is application/json.
 
@@ -878,17 +615,33 @@ The default value is application/json.
 
  application/json.
 
+\end_layout
 
 
 
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
 
 Normal Accept header processing rules shall be followed according to rfc2616.
 
+\end_layout
 
 
 
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
+
+\emph on
 
 Note
+
+\emph default
 
 : If there is no entity body in a normal successful response, this parameter
 
@@ -896,59 +649,39 @@ Note
 
  response message.
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Header
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">accept-encoding
 
+</span>
+                    <span class="data-type">String
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">Header
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-accept-encoding
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-String
-
-
-
-
-
-
-
-No 
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the accept encoding format.
 
@@ -958,59 +691,39 @@ Specifies the accept encoding format.
 
  Valid values are: gzip
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Header
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">authorization
 
+</span>
+                    <span class="data-type">String
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">Header
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-authorization
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-String
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the authorization type and token.
 
@@ -1024,575 +737,336 @@ Specifies the authorization type and token.
 
  message with a WWW-Authenticate HTTP header.
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Header
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-length
 
+</span>
+                    <span class="data-type">Integer
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">Header
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-content-length
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-Integer
-
-
-
-
-
-
-
-No
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the length of the content in octets.
 
  This header parameter is only required for the non-streaming request.
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Header
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-type
 
+</span>
+                    <span class="data-type">String
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">Header
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-content-type
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-String
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the type of content of the body of the entity.
 
  Must be set to one of the following values:
 
+\end_layout
 
 
 
+\begin_layout Itemize
+
+
+
+\size footnotesize
 
 application/json
 
+\end_layout
 
 
 
+\begin_layout Itemize
+
+
+
+\size footnotesize
 
 application/xml
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Header
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">folderId
 
+</span>
+                    <span class="data-type">Integer
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">URI Path
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-folderId
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-Integer
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the id of the folder where the files will be placed.
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-URI Path
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">fileIds
 
+</span>
+                    <span class="data-type">Object
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">Body
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-fileIds
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-Object
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
+\size footnotesize
 
 Contains the file information to be added
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Body
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">id
 
+</span>
+                    <span class="data-type">Array
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">Body
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-id
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-Array
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the ids of the files that are to be added to the folder.
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Body
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">index
 
+</span>
+                    <span class="data-type">Integer
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">Body
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-index
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-Integer
-
-
-
-
-
-
-
-No
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the absolute position where you want to place the new files.
 
  
 
+\end_layout
 
 
 
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
 
 Default is to put at the end of the folder.
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Body
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">Data Type
 
+</span>
+                    <span class="data-type">Location
 
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-status open
-
-
-
-
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement"></span>
+                </div>
             </div>
             <div class="grid-right">
-
-
-
-
-Data Type
-
-
-
-
-
-
-
-Location
-
-
-
-
-
-
-
-Required?
-
-
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+                
             </div>
-            <div class="grid-right">
+        </div>
 
-
-
-
-AnyURI
-
-
-
-
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">AnyURI
 
 Array
 
-
-
-
-
 Base64
-
-
-
-
 
 Boolean
 
-
-
-
-
 Decimal
-
-
-
-
 
 Integer
 
-
-
-
-
 Numeric
-
-
-
-
 
 Object
 
-
-
-
-
 String
 
-
-
-
-
-
-
-Body
-
-
-
-
+</span>
+                    <span class="data-type">Body
 
 Header
 
-
-
-
-
 MIME Body
-
-
-
-
 
 Query Parameter
 
-
-
-
-
 URI Path
 
-
-
-
-
-
-
-No
-
-
-
-
-
-Yes
-
-
-
-
-
-Cond
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</span>
+                    <span class="placement"></span>
+                </div>
+            </div>
+            <div class="grid-right">
+                
+            </div>
+        </div>
 
     </div>
-</section> <section id="resources-speech-to-text-parameters" class="level-3">
+</section>
+
+ <section id="resources-speech-to-text-parameters" class="level-3">
     <header>Request Parameters</header>
     <label>
         <span class="required form-icon"></span>
@@ -1605,67 +1079,67 @@ Cond
                 <div class="header">Parameter</div>
             </div>
         </div>
-<div class="grid-row">
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">accept
 
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="data-type">String
+
+</span>
+                    <span class="placement">Header
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-accept
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-String
-
-
-
-
-
-
-
-No
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the format of the body of the response.
 
  Valid values are: 
 
+\end_layout
 
 
 
+\begin_layout Itemize
+
+
+
+\size footnotesize
 
 application/json
 
+\end_layout
 
 
 
+\begin_layout Itemize
+
+
+
+\size footnotesize
 
 application/xml
 
+\end_layout
 
 
 
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
 
 The default value is application/json.
 
@@ -1675,17 +1149,33 @@ The default value is application/json.
 
  application/json.
 
+\end_layout
 
 
 
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
 
 Normal Accept header processing rules shall be followed according to rfc2616.
 
+\end_layout
 
 
 
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
+
+\emph on
 
 Note
+
+\emph default
 
 : If there is no entity body in a normal successful response, this parameter
 
@@ -1693,59 +1183,39 @@ Note
 
  response message.
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Header
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">accept-encoding
 
+</span>
+                    <span class="data-type">String
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">Header
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-accept-encoding
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-String
-
-
-
-
-
-
-
-No 
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the accept encoding format.
 
@@ -1755,59 +1225,39 @@ Specifies the accept encoding format.
 
  Valid values are: gzip
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Header
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">authorization
 
+</span>
+                    <span class="data-type">String
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">Header
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-authorization
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-String
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the authorization type and token.
 
@@ -1821,2025 +1271,332 @@ Specifies the authorization type and token.
 
  message with a WWW-Authenticate HTTP header.
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Header
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-length
 
+</span>
+                    <span class="data-type">Integer
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">Header
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-content-length
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-Integer
-
-
-
-
-
-
-
-No
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the length of the content in octets.
 
  This header parameter is only required for the non-streaming request.
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Header
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-type
 
+</span>
+                    <span class="data-type">String
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">Header
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-content-type
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-String
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the type of content of the body of the entity.
 
  Must be set to one of the following values:
 
+\end_layout
 
 
 
+\begin_layout Itemize
+
+
+
+\size footnotesize
 
 application/json
 
+\end_layout
 
 
 
+\begin_layout Itemize
+
+
+
+\size footnotesize
 
 application/xml
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Header
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">folderId
 
+</span>
+                    <span class="data-type">Integer
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">URI Path
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-folderId
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-Integer
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the id of the folder where the files will be placed.
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-URI Path
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">fileIds
 
+</span>
+                    <span class="data-type">Object
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">Body
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-fileIds
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-Object
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
+\size footnotesize
 
 Contains the file information to be added
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Body
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">id
 
+</span>
+                    <span class="data-type">Array
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">Body
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-id
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-Array
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the ids of the files that are to be added to the folder.
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Body
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">index
 
+</span>
+                    <span class="data-type">Integer
 
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement">Body
+</span>
+                </div>
             </div>
             <div class="grid-right">
+                \begin_inset Text
 
 
 
-
-index
-
+\begin_layout Plain Layout
 
 
 
-
-
-
-Integer
-
-
-
-
-
-
-
-No
-
-
-
-
-
-
+\size footnotesize
 
 Specifies the absolute position where you want to place the new files.
 
  
 
+\end_layout
 
 
 
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
 
 Default is to put at the end of the folder.
 
+\end_layout
 
 
 
+\end_inset
 
 
+            </div>
+        </div>
 
-Body
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">Data Type
 
+</span>
+                    <span class="data-type">Location
 
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-status open
-
-
-
-
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement"></span>
+                </div>
             </div>
             <div class="grid-right">
+                
+            </div>
+        </div>
 
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">AnyURI
 
+Array
 
+Base64
 
-Data Type
+Boolean
 
+Decimal
 
+Integer
 
+Numeric
 
+Object
 
+String
 
+</span>
+                    <span class="data-type">Body
 
-Location
+Header
 
+MIME Body
 
+Query Parameter
 
+URI Path
 
-
-
-
-Required?
-
-
-
-</div>
-
-<div class="grid-row">
-
-0
-   <div class="identifier">
-        <div class="parameter">
-             <span class="label">
-1
-             <span class="data-type">
-2
-             <span class="placement">
-3
-             </div>
+</span>
+                    <span class="placement"></span>
+                </div>
             </div>
             <div class="grid-right">
-
-
-
-
-AnyURI
-
-
-
-
-
-Array
-
-
-
-
-
-Base64
-
-
-
-
-
-Boolean
-
-
-
-
-
-Decimal
-
-
-
-
-
-Integer
-
-
-
-
-
-Numeric
-
-
-
-
-
-Object
-
-
-
-
-
-String
-
-
-
-
-
-
-
-Body
-
-
-
-
-
-Header
-
-
-
-
-
-MIME Body
-
-
-
-
-
-Query Parameter
-
-
-
-
-
-URI Path
-
-
-
-
-
-
-
-No
-
-
-
-
-
-Yes
-
-
-
-
-
-Cond
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-</section> <section id="resources-speech-to-text-parameters" class="level-3">
-    <header>Request Parameters</header>
-    <label>
-        <span class="required form-icon"></span>
-        Required Parameters
-    </label>
-
-    <div class="grid">
-        <div class="grid-row">
-            <div class="grid-left">
-                <div class="header">Parameter</div>
+                
             </div>
         </div>
-<div class="grid-row">
-
-
-
-
-
-accept
-
-
-
-
-
-
-
-String
-
-
-
-
-
-
-
-No
-
-
-
-
-
-
-
-Specifies the format of the body of the response.
-
- Valid values are: 
-
-
-
-
-
-application/json
-
-
-
-
-
-application/xml
-
-
-
-
-
-The default value is application/json.
-
- Per rfc2616: "If no Accept header field is present, then it is assumed
-
- that the client accepts all media types." By default our services return
-
- application/json.
-
-
-
-
-
-Normal Accept header processing rules shall be followed according to rfc2616.
-
-
-
-
-
-Note
-
-: If there is no entity body in a normal successful response, this parameter
-
- can still be specified to determine the format in the case of an error
-
- response message.
-
-
-
-
-
-
-
-Header
-
-
-
-</div>
-
-<div class="grid-row">
-
-
-
-
-
-accept-encoding
-
-
-
-
-
-
-
-String
-
-
-
-
-
-
-
-No 
-
-
-
-
-
-
-
-Specifies the accept encoding format.
-
- When this header is present, the gateway should compress the response to
-
- indicate the client that response is in compressed format.
-
- Valid values are: gzip
-
-
-
-
-
-
-
-Header
-
-
-
-</div>
-
-<div class="grid-row">
-
-
-
-
-
-authorization
-
-
-
-
-
-
-
-String
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
-
-Specifies the authorization type and token.
-
- "Bearer" + OAuth Token – access_token.
-
- If the authorization header is missing, the system shall return an HTTP
-
- 400 Invalid Request message.
-
- If the token is invalid the system shall return an HTTP 401 Unauthorized
-
- message with a WWW-Authenticate HTTP header.
-
-
-
-
-
-
-
-Header
-
-
-
-</div>
-
-<div class="grid-row">
-
-
-
-
-
-content-length
-
-
-
-
-
-
-
-Integer
-
-
-
-
-
-
-
-No
-
-
-
-
-
-
-
-Specifies the length of the content in octets.
-
- This header parameter is only required for the non-streaming request.
-
-
-
-
-
-
-
-Header
-
-
-
-</div>
-
-<div class="grid-row">
-
-
-
-
-
-content-type
-
-
-
-
-
-
-
-String
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
-
-Specifies the type of content of the body of the entity.
-
- Must be set to one of the following values:
-
-
-
-
-
-application/json
-
-
-
-
-
-application/xml
-
-
-
-
-
-
-
-Header
-
-
-
-</div>
-
-<div class="grid-row">
-
-
-
-
-
-folderId
-
-
-
-
-
-
-
-Integer
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
-
-Specifies the id of the folder where the files will be placed.
-
-
-
-
-
-
-
-URI Path
-
-
-
-</div>
-
-<div class="grid-row">
-
-
-
-
-
-fileIds
-
-
-
-
-
-
-
-Object
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
-
-Contains the file information to be added
-
-
-
-
-
-
-
-Body
-
-
-
-</div>
-
-<div class="grid-row">
-
-
-
-
-
-id
-
-
-
-
-
-
-
-Array
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
-
-Specifies the ids of the files that are to be added to the folder.
-
-
-
-
-
-
-
-Body
-
-
-
-</div>
-
-<div class="grid-row">
-
-
-
-
-
-index
-
-
-
-
-
-
-
-Integer
-
-
-
-
-
-
-
-No
-
-
-
-
-
-
-
-Specifies the absolute position where you want to place the new files.
-
- 
-
-
-
-
-
-Default is to put at the end of the folder.
-
-
-
-
-
-
-
-Body
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-status open
-
-
-
-
-
-<div class="grid-row">
-
-
-
-
-
-Data Type
-
-
-
-
-
-
-
-Location
-
-
-
-
-
-
-
-Required?
-
-
-
-</div>
-
-<div class="grid-row">
-
-
-
-
-
-AnyURI
-
-
-
-
-
-Array
-
-
-
-
-
-Base64
-
-
-
-
-
-Boolean
-
-
-
-
-
-Decimal
-
-
-
-
-
-Integer
-
-
-
-
-
-Numeric
-
-
-
-
-
-Object
-
-
-
-
-
-String
-
-
-
-
-
-
-
-Body
-
-
-
-
-
-Header
-
-
-
-
-
-MIME Body
-
-
-
-
-
-Query Parameter
-
-
-
-
-
-URI Path
-
-
-
-
-
-
-
-No
-
-
-
-
-
-Yes
-
-
-
-
-
-Cond
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </div>
-</section> <section id="resources-speech-to-text-parameters" class="level-3">
-    <header>Request Parameters</header>
-    <label>
-        <span class="required form-icon"></span>
-        Required Parameters
-    </label>
-
-    <div class="grid">
-        <div class="grid-row">
-            <div class="grid-left">
-                <div class="header">Parameter</div>
-            </div>
-        </div>
-<div class="grid-row">
-
-
-
-
-
-accept
-
-
-
-
-
-
-
-String
-
-
-
-
-
-
-
-No
-
-
-
-
-
-
-
-Specifies the format of the body of the response.
-
- Valid values are: 
-
-
-
-
-
-application/json
-
-
-
-
-
-application/xml
-
-
-
-
-
-The default value is application/json.
-
- Per rfc2616: "If no Accept header field is present, then it is assumed
-
- that the client accepts all media types." By default our services return
-
- application/json.
-
-
-
-
-
-Normal Accept header processing rules shall be followed according to rfc2616.
-
-
-
-
-
-Note
-
-: If there is no entity body in a normal successful response, this parameter
-
- can still be specified to determine the format in the case of an error
-
- response message.
-
-
-
-
-
-
-
-Header
-
-
-
-</div>
-
-<div class="grid-row">
-
-
-
-
-
-accept-encoding
-
-
-
-
-
-
-
-String
-
-
-
-
-
-
-
-No 
-
-
-
-
-
-
-
-Specifies the accept encoding format.
-
- When this header is present, the gateway should compress the response to
-
- indicate the client that response is in compressed format.
-
- Valid values are: gzip
-
-
-
-
-
-
-
-Header
-
-
-
-</div>
-
-<div class="grid-row">
-
-
-
-
-
-authorization
-
-
-
-
-
-
-
-String
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
-
-Specifies the authorization type and token.
-
- "Bearer" + OAuth Token – access_token.
-
- If the authorization header is missing, the system shall return an HTTP
-
- 400 Invalid Request message.
-
- If the token is invalid the system shall return an HTTP 401 Unauthorized
-
- message with a WWW-Authenticate HTTP header.
-
-
-
-
-
-
-
-Header
-
-
-
-</div>
-
-<div class="grid-row">
-
-
-
-
-
-content-length
-
-
-
-
-
-
-
-Integer
-
-
-
-
-
-
-
-No
-
-
-
-
-
-
-
-Specifies the length of the content in octets.
-
- This header parameter is only required for the non-streaming request.
-
-
-
-
-
-
-
-Header
-
-
-
-</div>
-
-<div class="grid-row">
-
-
-
-
-
-content-type
-
-
-
-
-
-
-
-String
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
-
-Specifies the type of content of the body of the entity.
-
- Must be set to one of the following values:
-
-
-
-
-
-application/json
-
-
-
-
-
-application/xml
-
-
-
-
-
-
-
-Header
-
-
-
-</div>
-
-<div class="grid-row">
-
-
-
-
-
-folderId
-
-
-
-
-
-
-
-Integer
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
-
-Specifies the id of the folder where the files will be placed.
-
-
-
-
-
-
-
-URI Path
-
-
-
-</div>
-
-<div class="grid-row">
-
-
-
-
-
-fileIds
-
-
-
-
-
-
-
-Object
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
-
-Contains the file information to be added
-
-
-
-
-
-
-
-Body
-
-
-
-</div>
-
-<div class="grid-row">
-
-
-
-
-
-id
-
-
-
-
-
-
-
-Array
-
-
-
-
-
-
-
-Yes
-
-
-
-
-
-
-
-Specifies the ids of the files that are to be added to the folder.
-
-
-
-
-
-
-
-Body
-
-
-
-</div>
-
-<div class="grid-row">
-
-
-
-
-
-index
-
-
-
-
-
-
-
-Integer
-
-
-
-
-
-
-
-No
-
-
-
-
-
-
-
-Specifies the absolute position where you want to place the new files.
-
- 
-
-
-
-
-
-Default is to put at the end of the folder.
-
-
-
-
-
-
-
-Body
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-status open
-
-
-
-
-
-<div class="grid-row">
-
-
-
-
-
-Data Type
-
-
-
-
-
-
-
-Location
-
-
-
-
-
-
-
-Required?
-
-
-
-</div>
-
-<div class="grid-row">
-
-
-
-
-
-AnyURI
-
-
-
-
-
-Array
-
-
-
-
-
-Base64
-
-
-
-
-
-Boolean
-
-
-
-
-
-Decimal
-
-
-
-
-
-Integer
-
-
-
-
-
-Numeric
-
-
-
-
-
-Object
-
-
-
-
-
-String
-
-
-
-
-
-
-
-Body
-
-
-
-
-
-Header
-
-
-
-
-
-MIME Body
-
-
-
-
-
-Query Parameter
-
-
-
-
-
-URI Path
-
-
-
-
-
-
-
-No
-
-
-
-
-
-Yes
-
-
-
-
-
-Cond
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-</section> <section id="resources-speech-to-text-parameters" class="level-3">
-    <header>Request Parameters</header>
-    <label>
-        <span class="required form-icon"></span>
-        Required Parameters
-    </label>
-
-    <div class="grid">
-        <div class="grid-row">
-            <div class="grid-left">
-                <div class="header">Parameter</div>
-            </div>
-        </div>
-<div class="grid-row">
-
-
-
-
-
-accept
-
-
-
-
-
-
-
-String
-
-
-
-
-
-
-
-No
-
-
-
-
-
-
-
-Specifies the format of the body of the response.
-
- Valid values are: 
-
-
-
-
-
-application/json
-
-
-
-
-
-application/xml
-
-
-
-
-
-The default value is application/json.
-
- Per rfc2616: "If no Accept header field is present, then it is assumed
-
- that the client accepts all media types." By default our services return
-
- application/json.
-
-
-
-
-
-Normal Accept header processing rules shall be followed according to rfc2616.
-
-
-
-
-
-Note
-
-: If there is no entity body in a normal successful response, this parameter
-
- can still be specified to determine the format in the case of an error
-
- response message.
-
-
-
-
-
-
-
-Header
-
-
-
-</div>
-
-</row>
-    </div>
-</section> <section id="resources-speech-to-text-parameters" class="level-3">
-    <header>Request Parameters</header>
-    <label>
-        <span class="required form-icon"></span>
-        Required Parameters
-    </label>
-
-    <div class="grid">
-        <div class="grid-row">
-            <div class="grid-left">
-                <div class="header">Parameter</div>
-            </div>
-        </div>
-<div class="grid-row">
-
-</div>
-
-<div class="grid-row">
-
-</div>
+</section>
 

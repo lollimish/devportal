@@ -7,100 +7,8 @@ function writehtml($content) {
     file_put_contents(HTML_FILE, $content . "\r\n", FILE_APPEND);
     echo '&nbsp;&nbsp;&nbsp;' . strtr($content, Array("<" => "&lt;", "&" => "&amp;")) . '<br>';
 }
-
-//$message = <<<'EOD'
-// <section id="resources-speech-to-text-parameters" class="level-3">
-//    <header>Request Parameters</header>
-//    <label>
-//        <span class="required form-icon"></span>
-//        Required Parameters
-//    </label>
-//
-//    <div class="grid">
-//        <div class="grid-row">
-//            <div class="grid-left">
-//                <div class="header">Parameter</div>
-//            </div>
-//        </div>
-//EOD;
-//writehtml($message);
-//chmod($htmlfile, 0664);
-
-$file_handle = fopen(UPLOAD_DIR . $_SESSION['file_name'], 'r');
-$isMianRow = 0;
-while (!feof($file_handle)) {
-
-    $line = fgets($file_handle);
-
-    if (substr($line, 0, 4) === '<row' && $isMianRow < 2) {
-        $isMianRow++;
-    }
-    //starts
-    if ($isMianRow >= 2) {
-
-        if ($line !== ' ' && substr($line, 0, 1) !== '\\' && $line !== "\r\n") {
-            //echo strtr($line, Array("<" => "&lt;", "&" => "&amp;")) . '<br>';
-            $var[] = $line;
-        }
-
-        if (substr($line, 0, 4) === '</ro') {
-            $cell = 0;
-            for($i=0; $i<count($var); $i++){
-                
-                //strtr($var[$i], Array("<" => "&lt;", "&" => "&amp;")) . '<br>';
-                //loop through array with index number and switch the value dependes on the order of the cell.
-                if(substr($var[$i], 0, 4) === '<row'){
-//                    $var[$i] = <<<'EOD'
-//        <div class="grid-row">
-//            <div class="identifier">
-//                <div class="parameter">
-//EOD;
-                }
-                if (substr($var[$i], 0, 5) === '<cell') {
-                    $cell++;
-//                    if($cell===1){
-//                        $var[$i] = '<span class="label">';
-//                    }elseif($cell===2){
-//                        $var[$i] = '<span class="data-type">';
-//                    }elseif($cell===3){
-//                        $var[$i] ='<span class="placement">';
-//                    }elseif($cell===4){
-//                        $var[$i] ='</div>
-//            </div>
-//            <div class="grid-right">';
-//                    }
-                    //index of the array
-                    echo 'index: '.$i. ', $cell: '. $cell;
-                }
-                echo strtr($var[$i], Array("<" => "&lt;", "&" => "&amp;")) . '<br>';
-            }
-            echo 'unset here';
-            unset($var);
-            BREAK;
-        }
-    }
-}
-//echo '$var';
-//foreach ($var as $value) {
-//     echo strtr($value, Array("<" => "&lt;", "&" => "&amp;")) . '<br>';
-//}
-//if ($line !== '' && substr($line, 0, 1) !== '\\' && substr($line, 0, 1) !== '<' || ( substr($line, 0, 5) === '<cell' || substr($line, 0, 4) === '<row' || substr($line, 0, 5) === '</row' || substr($line, 0, 5) === '</cel' )) {
-//            echo '&nbsp;&nbsp;&nbsp;' . strtr($line, Array("<" => "&lt;", "&" => "&amp;")) . '<br>';
-//            file_put_contents($htmlfile, $line, FILE_APPEND);
-//        }
-//$message = <<<'EOD'
-//    </div>
-//</section>
-//EOD;
-//file_put_contents($htmlfile, $message, FILE_APPEND);
-//substr($line, 0, 6) === '\begin' ||
-fclose($file_handle);
-//
-//$homepage = fopen(UPLOAD_DIR . $_SESSION['file_name'], 'r');
-//echo $homepage;
-?>
-
-<!--<section id="resources-speech-to-text-parameters" class="level-3">
+$content = <<<'EOD'
+ <section id="resources-speech-to-text-parameters" class="level-3">
     <header>Request Parameters</header>
     <label>
         <span class="required form-icon"></span>
@@ -113,23 +21,95 @@ fclose($file_handle);
                 <div class="header">Parameter</div>
             </div>
         </div>
+EOD;
+writehtml($content);
+chmod($htmlfile, 0664);
 
+$file_handle = fopen(UPLOAD_DIR . $_SESSION['file_name'], 'r');
+$isMianRow = 0;
+while (!feof($file_handle)) {
+    $line = fgets($file_handle);
+    if (substr($line, 0, 4) === '<row' && $isMianRow < 2) {
+        $isMianRow++;
+    }
+    //starts
+    if ($isMianRow >= 2) {
+        $var[] = $line;
+        if (substr($line, 0, 4) === '</ro') {
+            $cellcount = 0;
+            $cellopen[] = 0;
+            $cellclose[] = 0;
+            $parameter = '';
+            $datatype = '';
+            $req = false;
+            $reqraw = '';
+            $desc = '';
+            $loc = '';
+            for ($i = 0; $i < count($var); $i++) {
+                if (substr($var[$i], 0, 5) === '<cell') {
+                    $cellcount++;
+                    $cellopen[$cellcount] = $i;
+                }
+                if (substr($var[$i], 0, 5) === '</cel') {
+                    $cellclose[$cellcount] = $i;
+                }
+            }
+            for ($j = 1; $j <= $cellcount; $j++) {
+                for ($k = ($cellopen[$j] + 1); $k < $cellclose[$j]; $k++) {
+                    if ($j === 1 && $var[$k] !== ' ' && substr($var[$k], 0, 1) !== '\\' && $var[$k] !== "\r\n") {
+                        $parameter .= $var[$k] . "\r\n";
+                    } elseif ($j === 2 && $var[$k] !== ' ' && substr($var[$k], 0, 1) !== '\\' && $var[$k] !== "\r\n") {
+                        $datatype .= $var[$k] . "\r\n";
+                    } elseif ($j === 3 && $var[$k] !== ' ' && substr($var[$k], 0, 1) !== '\\' && $var[$k] !== "\r\n") {
+                        $reqraw .= $var[$k] . "\r\n";
+                    } elseif ($j === 4) {
+                        $desc .= $var[$k] . "\r\n";
+                    } elseif ($j === 5 && $var[$k] !== ' ' && substr($var[$k], 0, 1) !== '\\' && $var[$k] !== "\r\n") {
+                        $loc .= $var[$k];
+                    }
+                }
+            }
+            echo 'param: ' . $parameter . '<br>';
+            echo '<br>$datatype: ' . $datatype . '<br>';
+            echo '<br>$reqraw: ' . $reqraw . '<br>';
+            echo '<br>$desc: ' . $desc . '<br>';
+            echo '<br>$loc: ' . $loc . '<br>';
+            $htmlfile = 'test_output.txt';
+
+            echo 'unset here';
+            var_dump($cellopen);
+            echo '<br>';
+            var_dump($cellclose);
+            $content = <<<"EOD"
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">Accept</span>
-                    <span class="data-type">String</span>
-                    <span class="placement">Header</span>
+                    <span class="label">{$parameter}</span>
+                    <span class="data-type">{$datatype}</span>
+                    <span class="placement">{$loc}</span>
                 </div>
             </div>
             <div class="grid-right">
-                Specifies the format of the body for the response. The acceptable values for this parameter are: <ul><li>application/json</li>
-                    <li>application/xml</li>
-                    <li>application/emma+xml</li></ul>  The default value is application/json.
+                {$desc}
             </div>
         </div>
+
+EOD;
+writehtml($content);
+            unset($var);
+            //BREAK;
+        }
+    }
+}
+            $content = <<<'EOD'
     </div>
-</section>-->
+</section>
+
+EOD;
+writehtml($content);
+fclose($file_handle);
+?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
@@ -480,39 +460,539 @@ X-Arg: ClientApp=NoteTaker,ClientVersion=1.0.1,DeviceType=Android
                                                 </div>
                                             </section>
 
-                                            <section id="resources-speech-to-text-parameters" class="level-3">
-                                                <header>Request Parameters</header>
-                                                <label>
-                                                    <span class="required form-icon"></span>
-                                                    Required Parameters
-                                                </label>
+ <section id="resources-speech-to-text-parameters" class="level-3">
+    <header>Request Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
 
-                                                <div class="grid">
-                                                    <div class="grid-row">
-                                                        <div class="grid-left">
-                                                            <div class="header">Parameter</div>
-                                                        </div>
-                                                    </div>
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">accept
 
-                                                    <div class="grid-row">
-                                                        <div class="identifier">
-                                                            <div class="parameter">
-                                                                <span class="label">Accept</span>
+</span>
+                    <span class="data-type">String
 
-                                                                <span class="data-type">String</span>
-                                                                <span class="placement">Header</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="grid-right">
-                                                            Specifies the format of the body for the response. The acceptable values for this parameter are: <ul><li>application/json</li>
-                                                                <li>application/xml</li>
-                                                                <li>application/emma+xml</li></ul>  The default value is application/json.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
+</span>
+                    <span class="placement">Header
+</span>
+                </div>
+            </div>
+            <div class="grid-right">
+                \begin_inset Text
 
 
 
-                                        </section>
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
+
+Specifies the format of the body of the response.
+
+ Valid values are: 
+
+\end_layout
+
+
+
+\begin_layout Itemize
+
+
+
+\size footnotesize
+
+application/json
+
+\end_layout
+
+
+
+\begin_layout Itemize
+
+
+
+\size footnotesize
+
+application/xml
+
+\end_layout
+
+
+
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
+
+The default value is application/json.
+
+ Per rfc2616: "If no Accept header field is present, then it is assumed
+
+ that the client accepts all media types." By default our services return
+
+ application/json.
+
+\end_layout
+
+
+
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
+
+Normal Accept header processing rules shall be followed according to rfc2616.
+
+\end_layout
+
+
+
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
+
+\emph on
+
+Note
+
+\emph default
+
+: If there is no entity body in a normal successful response, this parameter
+
+ can still be specified to determine the format in the case of an error
+
+ response message.
+
+\end_layout
+
+
+
+\end_inset
+
+
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">accept-encoding
+
+</span>
+                    <span class="data-type">String
+
+</span>
+                    <span class="placement">Header
+</span>
+                </div>
+            </div>
+            <div class="grid-right">
+                \begin_inset Text
+
+
+
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
+
+Specifies the accept encoding format.
+
+ When this header is present, the gateway should compress the response to
+
+ indicate the client that response is in compressed format.
+
+ Valid values are: gzip
+
+\end_layout
+
+
+
+\end_inset
+
+
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">authorization
+
+</span>
+                    <span class="data-type">String
+
+</span>
+                    <span class="placement">Header
+</span>
+                </div>
+            </div>
+            <div class="grid-right">
+                \begin_inset Text
+
+
+
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
+
+Specifies the authorization type and token.
+
+ "Bearer" + OAuth Token – access_token.
+
+ If the authorization header is missing, the system shall return an HTTP
+
+ 400 Invalid Request message.
+
+ If the token is invalid the system shall return an HTTP 401 Unauthorized
+
+ message with a WWW-Authenticate HTTP header.
+
+\end_layout
+
+
+
+\end_inset
+
+
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-length
+
+</span>
+                    <span class="data-type">Integer
+
+</span>
+                    <span class="placement">Header
+</span>
+                </div>
+            </div>
+            <div class="grid-right">
+                \begin_inset Text
+
+
+
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
+
+Specifies the length of the content in octets.
+
+ This header parameter is only required for the non-streaming request.
+
+\end_layout
+
+
+
+\end_inset
+
+
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-type
+
+</span>
+                    <span class="data-type">String
+
+</span>
+                    <span class="placement">Header
+</span>
+                </div>
+            </div>
+            <div class="grid-right">
+                \begin_inset Text
+
+
+
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
+
+Specifies the type of content of the body of the entity.
+
+ Must be set to one of the following values:
+
+\end_layout
+
+
+
+\begin_layout Itemize
+
+
+
+\size footnotesize
+
+application/json
+
+\end_layout
+
+
+
+\begin_layout Itemize
+
+
+
+\size footnotesize
+
+application/xml
+
+\end_layout
+
+
+
+\end_inset
+
+
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">folderId
+
+</span>
+                    <span class="data-type">Integer
+
+</span>
+                    <span class="placement">URI Path
+</span>
+                </div>
+            </div>
+            <div class="grid-right">
+                \begin_inset Text
+
+
+
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
+
+Specifies the id of the folder where the files will be placed.
+
+\end_layout
+
+
+
+\end_inset
+
+
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">fileIds
+
+</span>
+                    <span class="data-type">Object
+
+</span>
+                    <span class="placement">Body
+</span>
+                </div>
+            </div>
+            <div class="grid-right">
+                \begin_inset Text
+
+
+
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
+
+Contains the file information to be added
+
+\end_layout
+
+
+
+\end_inset
+
+
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">id
+
+</span>
+                    <span class="data-type">Array
+
+</span>
+                    <span class="placement">Body
+</span>
+                </div>
+            </div>
+            <div class="grid-right">
+                \begin_inset Text
+
+
+
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
+
+Specifies the ids of the files that are to be added to the folder.
+
+\end_layout
+
+
+
+\end_inset
+
+
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">index
+
+</span>
+                    <span class="data-type">Integer
+
+</span>
+                    <span class="placement">Body
+</span>
+                </div>
+            </div>
+            <div class="grid-right">
+                \begin_inset Text
+
+
+
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
+
+Specifies the absolute position where you want to place the new files.
+
+ 
+
+\end_layout
+
+
+
+\begin_layout Plain Layout
+
+
+
+\size footnotesize
+
+Default is to put at the end of the folder.
+
+\end_layout
+
+
+
+\end_inset
+
+
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">Data Type
+
+</span>
+                    <span class="data-type">Location
+
+</span>
+                    <span class="placement"></span>
+                </div>
+            </div>
+            <div class="grid-right">
+                
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">AnyURI
+
+Array
+
+Base64
+
+Boolean
+
+Decimal
+
+Integer
+
+Numeric
+
+Object
+
+String
+
+</span>
+                    <span class="data-type">Body
+
+Header
+
+MIME Body
+
+Query Parameter
+
+URI Path
+
+</span>
+                    <span class="placement"></span>
+                </div>
+            </div>
+            <div class="grid-right">
+                
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
                                     </div>                                    </div>                                    </div>
