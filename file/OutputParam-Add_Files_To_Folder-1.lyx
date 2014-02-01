@@ -133,14 +133,16 @@ tabs-within-sections
 \begin_body
 
 \begin_layout Standard
+
+\size footnotesize
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="5">
 <features islongtable="true" firstHeadTopDL="true" firstHeadBottomDL="true" headTopDL="true" headBottomDL="true" longtabularalignment="center">
-<column alignment="left" valignment="top" width="18text%">
+<column alignment="left" valignment="top" width="23text%">
 <column alignment="left" valignment="top" width="8text%">
-<column alignment="left" valignment="top" width="9text%">
-<column alignment="left" valignment="top" width="40text%">
-<column alignment="left" valignment="top" width="11text%">
+<column alignment="left" valignment="top" width="5text%">
+<column alignment="left" valignment="top" width="41text%">
+<column alignment="left" valignment="top" width="10text%">
 <row endhead="true" endfirsthead="true">
 <cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -173,7 +175,7 @@ Data Type
 
 \series bold
 \size footnotesize
-Required?
+Req?
 \end_layout
 
 \end_inset
@@ -209,6 +211,8 @@ Location
 
 \begin_layout Plain Layout
 
+\size footnotesize
+content-type
 \end_layout
 
 \end_inset
@@ -218,6 +222,8 @@ Location
 
 \begin_layout Plain Layout
 
+\size footnotesize
+string
 \end_layout
 
 \end_inset
@@ -227,6 +233,8 @@ Location
 
 \begin_layout Plain Layout
 
+\size footnotesize
+yes
 \end_layout
 
 \end_inset
@@ -236,6 +244,29 @@ Location
 
 \begin_layout Plain Layout
 
+\size footnotesize
+Specifies the type of content of the body of the entity.
+ Must be set to one of the following values:
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+application/json
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+aplication/xml
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+Note: If there is no entity body in a normal successful response, this parameter
+ is still needed to specify the format in the case of an error response
+ message.
 \end_layout
 
 \end_inset
@@ -245,6 +276,8 @@ Location
 
 \begin_layout Plain Layout
 
+\size footnotesize
+Header
 \end_layout
 
 \end_inset
@@ -261,14 +294,15 @@ Location
 
 \size footnotesize
 \begin_inset Branch Example
-status collapsed
+status open
 
 \begin_layout Standard
 
 \size footnotesize
 \begin_inset Tabular
-<lyxtabular version="3" rows="2" columns="2">
+<lyxtabular version="3" rows="2" columns="3">
 <features islongtable="true" firstHeadTopDL="true" firstHeadBottomDL="true" headTopDL="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="20text%">
 <column alignment="left" valignment="top" width="20text%">
 <column alignment="left" valignment="top" width="20text%">
 <row endhead="true" endfirsthead="true">
@@ -277,21 +311,60 @@ status collapsed
 
 \begin_layout Plain Layout
 
+\family sans
 \series bold
+\shape up
 \size footnotesize
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
 Data Type
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
+\family sans
 \series bold
+\shape up
 \size footnotesize
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
 Location
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family sans
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Required?
 \end_layout
 
 \end_inset
@@ -304,61 +377,67 @@ Location
 \begin_layout Itemize
 
 \size footnotesize
-integer
+AnyURI
 \end_layout
 
 \begin_layout Itemize
 
 \size footnotesize
-string
+Array
 \end_layout
 
 \begin_layout Itemize
 
 \size footnotesize
-anyURI
+Base64
 \end_layout
 
 \begin_layout Itemize
 
 \size footnotesize
-boolean
+Boolean
 \end_layout
 
 \begin_layout Itemize
 
 \size footnotesize
-array
+Decimal
 \end_layout
 
 \begin_layout Itemize
 
 \size footnotesize
-object
+Integer
 \end_layout
 
 \begin_layout Itemize
 
 \size footnotesize
-numeric
+Numeric
 \end_layout
 
 \begin_layout Itemize
 
 \size footnotesize
-decimal
+Object
 \end_layout
 
 \begin_layout Itemize
 
 \size footnotesize
-base64
+String
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
+
+\begin_layout Itemize
+
+\size footnotesize
+Body
+\end_layout
 
 \begin_layout Itemize
 
@@ -369,7 +448,7 @@ Header
 \begin_layout Itemize
 
 \size footnotesize
-Body
+MIME Body
 \end_layout
 
 \begin_layout Itemize
@@ -384,10 +463,27 @@ Query Parameter
 URI Path
 \end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
 \begin_layout Itemize
 
 \size footnotesize
-MIME Body
+No
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Yes
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Cond
 \end_layout
 
 \end_inset

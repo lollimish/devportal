@@ -1,5 +1,5 @@
 <?php
-include 'parse_param.php';
+//include 'parse_lyx_param.php';
 ?>
 
 <!DOCTYPE html>
@@ -352,8 +352,11 @@ X-Arg: ClientApp=NoteTaker,ClientVersion=1.0.1,DeviceType=Android
                                                 </div>
                                             </section>
 
+
 <?php
 //get the code from the output file
-$param_sec = file_get_contents(HTML_FILE);
+$param_sec = file_get_contents('output_html/2.html');
 echo $param_sec;
 ?>
+ 
+

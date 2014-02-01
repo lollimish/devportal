@@ -133,8 +133,10 @@ tabs-within-sections
 \begin_body
 
 \begin_layout Standard
+
+\size footnotesize
 \begin_inset Tabular
-<lyxtabular version="3" rows="7" columns="5">
+<lyxtabular version="3" rows="3" columns="5">
 <features islongtable="true" firstHeadTopDL="true" firstHeadBottomDL="true" headTopDL="true" headBottomDL="true" longtabularalignment="center">
 <column alignment="left" valignment="top" width="23text%">
 <column alignment="left" valignment="top" width="8text%">
@@ -149,7 +151,7 @@ tabs-within-sections
 
 \series bold
 \size footnotesize
-Parameter
+Parameter 
 \end_layout
 
 \end_inset
@@ -210,282 +212,6 @@ Location
 \begin_layout Plain Layout
 
 \size footnotesize
-accept
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-String
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-No
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Specifies the format of the body of the response.
- Valid values are: 
-\end_layout
-
-\begin_layout Itemize
-
-\size footnotesize
-application/json
-\end_layout
-
-\begin_layout Itemize
-
-\size footnotesize
-application/xml
-\end_layout
-
-\begin_layout Plain Layout
-
-\size footnotesize
-The default value is application/json.
- Per rfc2616: "If no Accept header field is present, then it is assumed
- that the client accepts all media types." By default our services return
- application/json.
-\end_layout
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Normal Accept header processing rules shall be followed according to rfc2616.
-\end_layout
-
-\begin_layout Plain Layout
-
-\size footnotesize
-\emph on
-Note
-\emph default
-: If there is no entity body in a normal successful response, this parameter
- can still be specified to determine the format in the case of an error
- response message.
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Header
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-accept-encoding
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-String
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-No 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Specifies the accept encoding format.
- When this header is present, the gateway should compress the response to
- indicate the client that response is in compressed format.
- Valid values are: gzip
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Header
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-authorization
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-String
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Yes
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Specifies the authorization type and token.
- "Bearer" + OAuth Token – access_token.
- If the authorization header is missing, the system shall return an HTTP
- 400 Invalid Request message.
- If the token is invalid the system shall return an HTTP 401 Unauthorized
- message with a WWW-Authenticate HTTP header.
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Header
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-content-length
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Integer
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-No
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Specifies the length of the content in octets.
- This header parameter is only required for the non-streaming request.
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
-Header
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size footnotesize
 content-type
 \end_layout
 
@@ -497,7 +223,7 @@ content-type
 \begin_layout Plain Layout
 
 \size footnotesize
-String
+string
 \end_layout
 
 \end_inset
@@ -508,7 +234,7 @@ String
 \begin_layout Plain Layout
 
 \size footnotesize
-Yes
+yes
 \end_layout
 
 \end_inset
@@ -526,13 +252,24 @@ Specifies the type of content of the body of the entity.
 \begin_layout Itemize
 
 \size footnotesize
-application/json
+application/xml
 \end_layout
 
 \begin_layout Itemize
 
 \size footnotesize
-application/xml
+application/json
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\emph on
+Note
+\emph default
+: If there is no entity body in a normal successful response, this parameter
+ is still needed to specify the format in the case of an error response
+ message.
 \end_layout
 
 \end_inset
@@ -550,53 +287,63 @@ Header
 </cell>
 </row>
 <row>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-transfer-encoding
+content-encoding
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-String
+String 
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-Cond
+No
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-Specifies the encoding of the transfer of the message.
- This header parameter is only required for a streaming request, and should
- be set to chunked.
+Specifies the type of encoding used on the data.
+ Supported values are: identity or gzip
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\emph on
+Note
+\emph default
+: If there is no entity body in a normal successful response, this parameter
+ is still needed to specify the format in the case of an error response
+ message.
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -636,8 +383,17 @@ status open
 
 \begin_layout Plain Layout
 
+\family sans
 \series bold
+\shape up
 \size footnotesize
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
 Data Type
 \end_layout
 
@@ -648,8 +404,17 @@ Data Type
 
 \begin_layout Plain Layout
 
+\family sans
 \series bold
+\shape up
 \size footnotesize
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
 Location
 \end_layout
 
@@ -660,7 +425,17 @@ Location
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\family sans
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
 Required?
 \end_layout
 

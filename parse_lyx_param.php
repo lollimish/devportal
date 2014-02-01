@@ -1,10 +1,18 @@
 <?php
+
+//  php parse_lyx_param.php api/Inpram-Get_Client_Properties.lyx output_html/test6.html
+//  this page only parse lyx file for the param table
+
 include 'define.php';
 
-session_start();
-$operation_name = getOperationName($_SESSION['file_name']); //TODO parse the session name
+
+if(isset($_SESSION['file_name'])){
+    $operation_name = getOperationName($_SESSION['file_name']);
+}elseif(isset($argv[1])){
+    $operation_name = getOperationName($argv[1]); 
+}
 $content = <<<"EOD"
- <section id="{$operation_name}-parameters" class="level-3">
+ <section id="resources-{$operation_name}-parameters" class="level-3">
     <header>Request Parameters</header>
     <label>
         <span class="required form-icon"></span>
@@ -21,7 +29,7 @@ EOD;
 writehtml($content);
 chmod(HTML_FILE, 0664);
 
-$file_handle = fopen(UPLOAD_DIR . $_SESSION['file_name'], 'r');
+$file_handle = fopen(UPLOAD_FILE, 'r');
 $isMianRow = 0;
 while (!feof($file_handle)) {
     $line = fgets($file_handle);
@@ -65,7 +73,7 @@ while (!feof($file_handle)) {
                         $datatype .= $var[$k];
                     } elseif ($j === 3 && $var[$k] !== ' ' && substr($var[$k], 0, 1) !== '\\' && $var[$k] !== "\r\n") {
                         $reqraw .= $var[$k];
-                    } elseif ($j === 4) {
+                    } elseif ($j === 4 && $var[$k] !== "\r\n") {
                         $desc[] = $var[$k];
                     } elseif ($j === 5 && $var[$k] !== ' ' && substr($var[$k], 0, 1) !== '\\' && $var[$k] !== "\r\n") {
                         $loc .= $var[$k];
@@ -78,6 +86,10 @@ while (!feof($file_handle)) {
             }else{
                 $req = '';
             }
+            foreach($desc as $d){
+                echo $d .'<br>';
+            }
+            //var_dump($desc);
             //parse description to html block
             $description = parsePara($desc);
             $content = <<<"EOD"

@@ -13,12 +13,10 @@ if (!empty($_FILES["myFile"])) {
 
     // ensure a safe filename
     $name = preg_replace("/[^A-Z0-9._-]/i", "_", $myFile["name"]);
-    session_start();
-    //if (!isset($_SESSION['file_name'])) {
-        $_SESSION['file_name'] = $name;
-        $_SESSION['UPLOAD_DIR'] = UPLOAD_DIR;
-        
-    //}
+
+    $_SESSION['file_name'] = $name;
+    $_SESSION['UPLOAD_DIR'] = UPLOAD_DIR;
+
     if (startsWith($name, "Input") || startsWith($name, "Errors") || startsWith($name, "ATT") || startsWith($name, "Opera") || startsWith($name, "Output") || startsWith($name, "Object")) {
         // don't overwrite an existing file
         $i = 0;
@@ -38,8 +36,8 @@ if (!empty($_FILES["myFile"])) {
 //        echo $_FILES["myFile"]['size'] . ' bytes</br>';
 
         if (startsWith($name, "Input") || startsWith($name, "Output") || startsWith($name, "Object")) {
-        echo '<script>window.location.href = "preview.php";</script>';
-            
+            echo '<script>window.location.href = "preview.php";</script>';
+
 //header('Location: param_temp.php');
         }
         // set proper permissions on the new file
@@ -48,8 +46,7 @@ if (!empty($_FILES["myFile"])) {
         echo '<script>alert("Please follow the naming from devcontent/template.");</script>';
         echo '<script>window.location.href = "index.php";</script>';
     }
-}else{
+} else {
     echo 'something happen';
 }
-
 ?>
