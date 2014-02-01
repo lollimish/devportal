@@ -1,0 +1,33 @@
+\begin{longtable}{|>{\raggedright}p{0.23\textwidth}|>{\raggedright}p{0.08\textwidth}|>{\raggedright}p{0.05\textwidth}|>{\raggedright}p{0.41\textwidth}|>{\raggedright}p{0.1\textwidth}|}
+\hline
+\hline 
+\textbf{\footnotesize{Parameter }} & \textbf{\footnotesize{Data Type}} & \textbf{\footnotesize{Req?}} & \textbf{\footnotesize{Brief description}} & \textbf{\footnotesize{Location}}\tabularnewline
+\hline 
+\hline
+\endfirsthead
+\hline
+\hline 
+\textbf{\footnotesize{Parameter }} & \textbf{\footnotesize{Data Type}} & \textbf{\footnotesize{Req?}} & \textbf{\footnotesize{Brief description}} & \textbf{\footnotesize{Location}}\tabularnewline
+\hline 
+\hline
+\endhead
+\hline 
+{\footnotesize{accept}} & {\footnotesize{String}} & {\footnotesize{No}} & {\footnotesize{Specifies the format of the body of the response. Valid
+values are: }}{\footnotesize \par}
+\begin{itemize}
+\item {\footnotesize{application/json}}{\footnotesize \par}
+\item {\footnotesize{application/xml}}{\footnotesize \par}
+\end{itemize}
+{\footnotesize{The default value is application/json. Per rfc2616:
+\textquotedbl{}If no Accept header field is present, then it is assumed
+that the client accepts all media types.\textquotedbl{} By default
+our services return application/json.}}{\footnotesize \par}
+
+{\footnotesize{Normal Accept header processing rules shall be followed
+according to rfc2616.}}{\footnotesize \par}
+
+\emph{\footnotesize{Note}}{\footnotesize{: If there is no entity body
+in a normal successful response, this parameter can still be specified
+to determine the format in the case of an error response message.}} & {\footnotesize{Header}}\tabularnewline
+\hline 
+\end{longtable}

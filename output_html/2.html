@@ -1,50 +1,29 @@
- <section id="resources-delete-album-parameters" class="level-3">
-    <header>Request Parameters</header>
-    <label>
-        <span class="required form-icon"></span>
-        Required Parameters
-    </label>
 
-    <div class="grid">
-        <div class="grid-row">
-            <div class="grid-left">
-                <div class="header">Parameter</div>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label"> content-type </span>
-                    
-                    <span class="data-type"> string </span>
-                    <span class="placement"> Header </span>
-                </div>
-            </div>
-            <div class="grid-right">
-                 <p>Specifies the type of content of the body of the entity.Must be set to one of the following values:</p>
-<ul><li><p>application/xml</p></li>
-<li><p>application/json</p></li>
-</ul><br><p><span style="font-style: italic">Note</span>:  If there is no entity bodyin a normal successful response, this parameter is still needed tospecify the format in the case of an error response message.</p>
- 
-            </div>
-        </div>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label">content-encoding </span>
-                    
-                    <span class="data-type"> string </span>
-                    <span class="placement"> Header </span>
-                </div>
-            </div>
-            <div class="grid-right">
-                 <p>Specifies the type of encoding used on the data. Supportedvalues are: identity or gzip</p>
-<br><p><span style="font-style: italic">Note</span>:  If there is no entity bodyin a normal successful response, this parameter is still needed tospecify the format in the case of an error response message.</p>
- 
-            </div>
-        </div>
+<section id="resources-add-files-to-folder" class="level-2">
+        <header>Add files to folder</header>
 
-    </div>
-</section>
+        <section id="resources-add-files-to-folder-overview" class="level-3">
+            <header>Overview</header>
+            <p></p><p></p><p>Add a list of file into an existing folder. Adding the same file twicein a folder is allowed. A folder “Antarctica” contains File1.txt</p><p>If a user selects 3 files, File1.txt, File2.txt, File3.txt and addsthem to the folder “Antarctica”, folder “Antarctica” will contain,the following: File1.txt, File1.txt, File2.txt and File3.txt.</p><p></p>
+        </section>
+
+        <section id="resources-add-files-to-folder-oauth" class="level-3">
+            <ul class="oauth">
+                <li><span>OAuth Scope</span></li>
+                <li><p><span>Scope:</span> SPEECH</p></li>
+                <li><p><span>Model:</span> client_credentials</p></li>
+            </ul>
+            <ul class="oauth">
+                <li><span>Resource</span></li>
+                <li class="code">
+                    <div class="code-block">
+                        <span class="copy-button" data-clipboard-text="/speechToText">copy</span>
+                        <pre>/speechToText</pre>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
 

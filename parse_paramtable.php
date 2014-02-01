@@ -77,7 +77,7 @@ foreach ($paramTbl as $line) {
                 $parameter = $cell[0];
                 $datatype = $cell[1];
                 $loc = $cell[4];
-                $description = pareParagraph($cell[3]);
+                $description = parseParagraph($cell[3]);
                 $content = <<<"EOD"
         <div class="grid-row">
             <div class="identifier">

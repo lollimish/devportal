@@ -89,15 +89,18 @@ function findSection($filename, $begin_line, $end_line) {
     $output = array();
     while (!feof($file_handle)) {
         $line = fgets($file_handle);
-        if (substr($line, 0, strlen($begin_line)) === $begin_line) {
-            $foundSection = true;
-        } elseif (substr($line, 0, strlen($end_line)) === $end_line) {
-            $foundSection = false;
-            break;
-        }
         if ($foundSection) {
             $output[] = $line;
         }
+        if (substr($line, 0, strlen($begin_line)) === $begin_line) {
+            $foundSection = true;
+           
+        } 
+        if (substr($line, 0, strlen($end_line)) === $end_line) {
+            $foundSection = false;
+            break;
+        }
+        
     }
     fclose($file_handle);
     return $output;
@@ -119,7 +122,7 @@ function getItem($string) {
     $ul = str_replace($originalStr, $item, $string);
     return $ul;
 }
-
+ 
 function noCommet($string){
     $comment = getInbetweenStrings('\begin{comment}', '\end{comment}', $string);
     $originalStr = '\begin{comment}' . $comment . '\end{comment}';
@@ -128,7 +131,7 @@ function noCommet($string){
 }
 
 //parse paragraph in tex
-function pareParagraph($string) {
+function parseParagraph($string) {
 
     $string = getItem($string);
 
