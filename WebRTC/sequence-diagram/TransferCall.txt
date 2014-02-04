@@ -1,0 +1,45 @@
+@startuml
+hide footbox
+
+
+participant "<b>WebRTC App" as browser
+participant "<b>APIGW" as apig
+
+title <u> Transfer Call
+note over browser 
+1. User is registered and 
+does have a <b>session ID</b>
+2. state of call is <b>"session-open".
+end note 
+
+group <b>STEP 1 --> PUT CALL ON HOLD
+browser->apig : <b>HTTP PUT</b>   /v1/sessions/{sessionId}/calls/{callId}(sdp->a:recvonly,header:initiate-call-hold)
+note over apig 
+    modified SDP[a:recvonly] - sent 
+    to the peer
+end note
+apig-->browser :HTTP 204 No Content (state:mod-sent,modID)
+end
+note over browser,apig 
+    <b>Establish call with Transfer-Target</b> (the called party which will be connected to the first called party).
+end note
+
+group <b>STEP 2 --> Transfer the call to the target
+
+browser->apig : <b>HTTP PUT</b>   /v1/sessions/{sessionId}/calls/{callId-firstCallId}(header:initiate-call-transfer,transferTargetCallId)
+note over apig 
+    Transfer Request - sent 
+    to the peer
+end note
+apig-->browser :HTTP 204 no content 
+
+note over browser,apig 
+    1. Transfer initiate event will be received on the event channel.
+    2. Transfer terminated event will be received indicating the success or failure of call transfer.
+    
+end note
+
+
+end
+
+@enduml

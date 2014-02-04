@@ -1,0 +1,150 @@
+{\footnotesize{}}%
+\begin{longtable}{|>{\raggedright}p{0.18\textwidth}|>{\raggedright}p{0.08\textwidth}|>{\raggedright}p{0.09\textwidth}|>{\raggedright}p{0.4\textwidth}|>{\raggedright}p{0.11\textwidth}|}
+\hline
+\hline 
+\textbf{\footnotesize{Parameter }} & \textbf{\footnotesize{Data Type}} & \textbf{\footnotesize{Required?}} & \textbf{\footnotesize{Brief description}} & \textbf{\footnotesize{Location}}\tabularnewline
+\hline 
+\hline
+\endfirsthead
+\hline
+\hline 
+\textbf{\footnotesize{Parameter }} & \textbf{\footnotesize{Data Type}} & \textbf{\footnotesize{Required?}} & \textbf{\footnotesize{Brief description}} & \textbf{\footnotesize{Location}}\tabularnewline
+\hline 
+\hline
+\endhead
+\hline 
+{\footnotesize{accept}} & {\footnotesize{String}} & {\footnotesize{No}} & {\footnotesize{Specifies the format of the body of the response. The
+acceptable values for this parameter are:}}{\footnotesize \par}
+\begin{itemize}
+\item {\footnotesize{application/json}}{\footnotesize \par}
+\item {\footnotesize{application/xml}}{\footnotesize \par}
+\item {\footnotesize{application/x-www-form-urlencoded}}{\footnotesize \par}
+\end{itemize}
+{\footnotesize{The default value is application/json. }}{\footnotesize \par}
+
+{\footnotesize{Per rfc2616: \textquotedbl{}If no Accept header field
+is present, then it is assumed that the client accepts all media types.\textquotedbl{}
+By default our services return application/json.}}{\footnotesize \par}
+
+{\footnotesize{The normal Accept header processing rules shall be
+followed according to rfc2616.}}{\footnotesize \par}
+
+\emph{\footnotesize{Note}}{\footnotesize{: If there is no entity body
+in a normal successful response, this parameter is still needed to
+specify the format in the case of an error response message.}} & {\footnotesize{Header}}\tabularnewline
+\hline 
+{\footnotesize{authorization}} & {\footnotesize{String}} & {\footnotesize{Yes}} & {\footnotesize{Specifies the authorization type and token. The acceptable
+format for this parameter is the phrase \textquotedbl{}Bearer OAuth
+Token\textquotedbl{} followed by a space ( ) and an OAuth access token.
+If this parameter value is missing from the header, then the API Gateway
+returns a message with an HTTP status code of 400 Invalid Request.
+If the OAuth access token is not valid, then the API Gateway returns
+an HTTP status code of 401 Unauthorized with a WWW-Authenticate HTTP
+header.}} & {\footnotesize{Header}}\tabularnewline
+\hline 
+{\footnotesize{x-calls-action}} & {\footnotesize{String}} & {\footnotesize{Yes}} & {\footnotesize{Specifies the action for a conference session . The
+acceptable values for this parameter are:}}{\footnotesize \par}
+\begin{itemize}
+\item {\footnotesize{call-answer : The client accepts the call invitation.}}{\footnotesize \par}
+\item {\footnotesize{initiate-call-mod : The client request for change in
+media attributes, for example remove a video stream from an ongoing
+call session.}}{\footnotesize \par}
+\item {\footnotesize{initiate-call-hold : The Client request to put the
+media path in a hold state.}}{\footnotesize \par}
+\item {\footnotesize{initiate-call-transfer : The client put the call in
+a hold state, calls another number, and bridges the two parties. }}{\footnotesize \par}
+\item {\footnotesize{initiate-call-resume : The Client request to resume
+the media path which was in a hold state.}}{\footnotesize \par}
+\item {\footnotesize{initiate-call-move : The Client requests to move the
+call to different registered active endpoint. }}{\footnotesize \par}
+\item {\footnotesize{accept-call-mod : The client accepts the changes in
+media attributes, for example remove a video stream from an ongoing
+conference session.}}{\footnotesize \par}
+\item {\footnotesize{rejectCancel-call-mod : The proposal from the remote
+client to reject a media modification in an AudioVideo mod-received
+event or the Initiate WebRTC Session request from the local client
+to cancel a media modification.}}\end{itemize}
+ & {\footnotesize{Header}}\tabularnewline
+\hline 
+{\footnotesize{x-transferTargetCallId}} & {\footnotesize{String}} & {\footnotesize{Yes}} & {\footnotesize{Specifies the call identifier of the transfer target.}} & {\footnotesize{Header}}\tabularnewline
+\hline 
+{\footnotesize{x-modId}} & {\footnotesize{String}} & {\footnotesize{Conditional}} & {\footnotesize{Specifies the modification identifier for media changes.}}{\footnotesize \par}
+
+{\footnotesize{This parameter is required if the x-calls-action parameter
+is set to accept-call-mod or rejectCancel-call-mod.}} & {\footnotesize{Header}}\tabularnewline
+\hline 
+{\footnotesize{x-reject-reason}} & {\footnotesize{String}} & {\footnotesize{No}} & {\footnotesize{Specifies the reason for rejecting the session media
+changes.}}{\footnotesize \par}
+
+{\footnotesize{This parameter is only applicable if the x-calls-action
+parameter is set to rejectCancel-call-mod.}} & {\footnotesize{Header}}\tabularnewline
+\hline 
+{\footnotesize{callsMediaModifications}} & \multirow{1}{0.08\textwidth}{{\footnotesize{callsMediaModifications Object}}} & {\footnotesize{Yes}} & {\footnotesize{Contains the call media information.}} & {\footnotesize{Body}}\tabularnewline
+\hline 
+\end{longtable}{\footnotesize \par}
+
+{\footnotesize{}}{\footnotesize \par}
+
+\textbf{\footnotesize{Structure of callsMediaModifications Object}}{\footnotesize \par}
+
+{\footnotesize{}}%
+\begin{tabular}{|c|c|c|>{\centering}p{0.4\textwidth}|}
+\hline 
+\textbf{\footnotesize{Parameter}} & \textbf{\footnotesize{Data Type}} & \textbf{\footnotesize{Required?}} & \textbf{\footnotesize{Brief description}}\tabularnewline
+\hline 
+\hline 
+{\footnotesize{sdp}} & {\footnotesize{Sdp Object}} & {\footnotesize{Yes}} & {\small{Contains an SDP offer for the audio video session.}}\tabularnewline
+\hline 
+\end{tabular}{\footnotesize \par}
+
+\textbf{\footnotesize{Structure of sdp Object}}{\footnotesize \par}
+
+{\footnotesize{}}%
+\begin{longtable}{|c||c||c||>{\raggedright}p{0.4\textwidth}|}
+\hline 
+\textbf{\footnotesize{Parameter}} & \textbf{\footnotesize{Data Type}} & \textbf{\footnotesize{Required?}} & \textbf{\footnotesize{Brief description}}\tabularnewline
+\hline 
+\hline 
+{\footnotesize{m}} & {\footnotesize{String}} & {\footnotesize{Yes}} & {\small{Specifies the media description in the following format.}}{\small \par}
+
+{\small{m=<media> <port> <proto> <fmt>}}{\small \par}
+
+{\small{The <media> field is the media type. }}{\footnotesize{The
+only acceptable values for this field is:}}{\footnotesize \par}
+\begin{itemize}
+\item {\small{audio}}{\small \par}
+\end{itemize}
+{\small{The <port> field is the transport port to which the media
+stream is sent.}}{\small \par}
+
+{\small{<proto> is the transport protocol. }}{\footnotesize{The only
+acceptable values for this field is:}}{\footnotesize \par}
+\begin{itemize}
+\item {\small{TCP/RTMP}}{\small \par}
+\end{itemize}
+{\small{The <fmt> field is a media format description.}}{\small \par}
+
+{\small{The fourth and any subsequent sub-fields describe the format
+of the media. The interpretation of the media format depends on the
+value of the <proto> sub-field.}}\tabularnewline
+\hline 
+\hline 
+{\footnotesize{attributes}} & {\footnotesize{List of Strings}} & {\footnotesize{Yes}} & {\small{Contains the attributes for extending SDP. This parameter
+may be defined to be used as session-level attributes, media-level
+attributes, or both.}}{\small \par}
+
+{\small{The attribute fields may be in one of the following formats.}}{\small \par}
+
+{\small{A property attribute is simply of the form:}}{\small \par}
+\begin{itemize}
+\item {\small{a=<flag> }}{\small \par}
+\item {\small{These are binary attributes, and the presence of the attribute
+conveys that the attribute is a property of the session. Example:
+a=recvonly}}{\small \par}
+\end{itemize}
+{\small{A value attribute is of the form:}}{\small \par}
+\begin{itemize}
+\item {\small{a=<attribute>:<value>}}\end{itemize}
+\tabularnewline
+\hline 
+\end{longtable}

@@ -1,0 +1,31 @@
+@startuml
+hide footbox
+
+title <u> Move a call to different endpoint
+
+participant "<b>WebRTC App" as browser
+participant "<b>APIGW" as apig
+
+
+note over browser  
+1. User is registered and 
+does have a <b>session ID</b>
+2. state of call is <b>"session-open".
+end note 
+
+group <b> PUT CALL ON HOLD
+browser->apig : <b>HTTP PUT</b>   /v1/sessions/{sessionId}/calls/{callId}(sdp->a:recvonly,header:initiate-call-hold)
+note over apig 
+    modified SDP[a:recvonly] - sent 
+    to the peer
+end note
+apig-->browser :HTTP 204 No Content (state:mod-sent,modID)
+end
+
+note over browser,apig
+1. Other Endpoints having active session registered with same username/VTN/ICMN 
+ starts ringing.
+2. Call is moved to the end point that answers the call first.
+end note
+
+@enduml

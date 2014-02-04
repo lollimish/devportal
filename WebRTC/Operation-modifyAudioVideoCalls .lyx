@@ -1,0 +1,5298 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass attapi
+\begin_preamble
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{eso-pic}
+\usepackage[stamp]{draftwatermark}
+\usepackage{colortbl}
+
+\SetWatermarkText{Draft 1.1.2l}
+\SetWatermarkAngle{45}
+\SetWatermarkLightness{0.9}
+\SetWatermarkScale{.8}
+
+\date{}
+\lhead{\small{www.dedoimedo.com}}
+\rhead{\small{some text}} 
+\pagestyle{fancy}
+
+\setlength{\headheight}{0.6in}
+\setlength{\headwidth}{\textwidth}
+\fancyhead[L]{}% empty left
+\fancyhead[R]{ % right
+   \includegraphics[height=0.75in]{../common/att_logo.png}
+}
+\pagestyle{fancy}
+
+\definecolor{blue}{RGB}{79,129,189}
+\definecolor{shadebox}{RGB}{255,255,204}
+
+\cfoot{\scriptsize © 2014 AT\&T Intellectual Property. All rights reserved. AT\&T and AT\&T logo are trademarks of AT\&T Intellectual Property.}
+
+\newcommand{\attcategory}[1]{\textbf{\Large Category: \textcolor{blue}{#1}}}
+\newcommand{\attservice}[1]{\textbf{\Large Service:  \textcolor{blue}{#1}}}
+\newcommand{\attdocumentnumber}[1]{\textbf{\small Document Number: #1}}
+\newcommand{\attrevision}[1]{\textbf{\small Revision: #1}}
+\newcommand{\attrevisiondate}[1]{\textbf{\small Revision Date: #1}}
+\newcommand{\attauthor}[1]{\textbf{\small Author: #1}}
+
+
+\let\oldtabular=\tabular
+\def\tabular{\footnotesize\oldtabular}
+\end_preamble
+\options usenames,dvipsnames
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+customHeadersFooters
+enumitem
+endnotes
+tabs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman Arial
+\font_sans Arial
+\font_typewriter Arial Narrow
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement h
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize letterpaper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine natbib_authoryear
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\boxbgcolor #ffff7f
+\branch Specification
+\selected 0
+\filename_suffix 1
+\color #faf0e6
+\end_branch
+\branch DeveloperDocumentation
+\selected 0
+\filename_suffix 1
+\color #faf0e6
+\end_branch
+\branch Example
+\selected 0
+\filename_suffix 1
+\color #faf0e6
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1.8in
+\rightmargin 1in
+\bottommargin 1.25in
+\secnumdepth 5
+\tocdepth 5
+\paragraph_separation skip
+\defskip bigskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\listings_params "backgroundcolor={\color{shadebox}},basicstyle={\small},breaklines={true},frame=single,frameround=tttt,framerule={.5pt},morekeywords={GET,POST,PUT,DELETE},otherkeywords={GET,POST,PUT,DELETE,HTTP/1.1, 200,OK,appication/xml},stringstyle={\ttfamily},tabsize=4"
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Subsubsection
+Functional Behavior
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Describe the functional behavior provided by this operation.
+ Also add here any special considerations, assumptions, and dependencies
+ for this particular operation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The
+\series medium
+ Modify Call method shall be used during an ongoing call dialogue and provides
+ following the functionality for the client:
+\series default
+ 
+\end_layout
+
+\begin_layout Itemize
+Modifies the state of the call through session description protocol parameters.
+ 
+\end_layout
+
+\begin_layout Itemize
+Enables the client to provide features, such as call move and call transfer.
+\end_layout
+
+\begin_layout Standard
+Following scenarios shall be achieved using this method.
+\end_layout
+
+\begin_layout Itemize
+Accept or Answer calls.
+\end_layout
+
+\begin_layout Itemize
+Initiate : Calls Modifications.
+\end_layout
+
+\begin_layout Itemize
+Initiate : Calls Hold.
+\end_layout
+
+\begin_layout Itemize
+Initiate : Calls Resume.
+\end_layout
+
+\begin_layout Itemize
+Accept Calls Modifications.
+\end_layout
+
+\begin_layout Itemize
+Reject Calls
+\series bold
+ 
+\series default
+modifications .
+\end_layout
+
+\begin_layout Itemize
+Move call dialogue to different device or WebRTC or IMS registered endpoint
+ .
+ 
+\end_layout
+
+\begin_layout Itemize
+Call Transfer : The transferrer is a webRTC client and does have two call
+ dialogue in open state which can be called as transferee and transfer-target.
+ This method triggers a communication between transferee and transfer.
+\end_layout
+
+\begin_layout Standard
+The client must set the following in order to use this method.
+\end_layout
+
+\begin_layout Itemize
+The client must be registered and have a session ID allocated.
+\end_layout
+
+\begin_layout Itemize
+The client must maintain an event channel to be able to receive the result
+ of the Calls session modification invitation.
+\end_layout
+
+\begin_layout Itemize
+The client has Calls session with the state set to
+\series bold
+ 
+\series default
+session-open.
+\end_layout
+
+\begin_layout Subsubsection
+Call flow - Ongoing Call dialogue modifications
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Insert below a sequence diagram (ping pong) diagram in context to a complete
+ call flow or transaction with numbered arrows and some description explaining
+ the sequence as appropriate.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Ongoing call modification - Flow 1
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+@startuml
+\end_layout
+
+\begin_layout Plain Layout
+hide footbox
+\end_layout
+
+\begin_layout Plain Layout
+title <b><u>Ongoing call dialogue modifications</u></b>
+\end_layout
+
+\begin_layout Plain Layout
+participant "<b>WebRTC App" as browser
+\end_layout
+
+\begin_layout Plain Layout
+participant "<b>APIGW" as apig
+\end_layout
+
+\begin_layout Plain Layout
+note over browser 
+\end_layout
+
+\begin_layout Plain Layout
+1.
+ User is registered and 
+\end_layout
+
+\begin_layout Plain Layout
+does have a <b>session ID</b>
+\end_layout
+
+\begin_layout Plain Layout
+2.
+ User received an invitation for call over 
+\end_layout
+
+\begin_layout Plain Layout
+the event channel.
+\end_layout
+
+\begin_layout Plain Layout
+end note 
+\end_layout
+
+\begin_layout Plain Layout
+group 1.
+ <b>Accept/Answer an audio video calls 
+\end_layout
+
+\begin_layout Plain Layout
+browser->apig : <b>HTTP PUT</b> /v1/sessions/{sessionId}/calls/{callId}(sdp,head
+er:call-answer)
+\end_layout
+
+\begin_layout Plain Layout
+note over apig 
+\end_layout
+
+\begin_layout Plain Layout
+<b>"session-open"</b> - sent to caller
+\end_layout
+
+\begin_layout Plain Layout
+end note
+\end_layout
+
+\begin_layout Plain Layout
+apig-->browser :HTTP 204 No Content (state:accepted)
+\end_layout
+
+\begin_layout Plain Layout
+end
+\end_layout
+
+\begin_layout Plain Layout
+note over browser 
+\end_layout
+
+\begin_layout Plain Layout
+1.
+ User is registered and 
+\end_layout
+
+\begin_layout Plain Layout
+does have a <b>session ID</b>
+\end_layout
+
+\begin_layout Plain Layout
+2.
+ state of call is <b>"session-open".
+\end_layout
+
+\begin_layout Plain Layout
+end note 
+\end_layout
+
+\begin_layout Plain Layout
+group 2.
+ <b>Initiate audio video session modifications 
+\end_layout
+
+\begin_layout Plain Layout
+browser->apig : <b>HTTP PUT</b> /v1/sessions/{sessionId}/calls/{callId}(sdp,head
+er:initiate-call-mod)
+\end_layout
+
+\begin_layout Plain Layout
+note over apig 
+\end_layout
+
+\begin_layout Plain Layout
+modified SDP - sent to the peer
+\end_layout
+
+\begin_layout Plain Layout
+end note
+\end_layout
+
+\begin_layout Plain Layout
+apig-->browser :HTTP 204 No Content (state:mod-sent,modID)
+\end_layout
+
+\begin_layout Plain Layout
+end
+\end_layout
+
+\begin_layout Plain Layout
+note over browser 
+\end_layout
+
+\begin_layout Plain Layout
+1.
+ User is registered and 
+\end_layout
+
+\begin_layout Plain Layout
+does have a <b>session ID</b>
+\end_layout
+
+\begin_layout Plain Layout
+2.
+ state of call is <b>"session-open".
+\end_layout
+
+\begin_layout Plain Layout
+end note 
+\end_layout
+
+\begin_layout Plain Layout
+group 3.
+ <b>Initiate audio video call HOLD 
+\end_layout
+
+\begin_layout Plain Layout
+browser->apig : <b>HTTP PUT</b> /v1/sessions/{sessionId}/calls/{callId}(sdp->a:r
+ecvonly,header:initiate-call-hold)
+\end_layout
+
+\begin_layout Plain Layout
+note over apig 
+\end_layout
+
+\begin_layout Plain Layout
+modified SDP[a:recvonly] - sent 
+\end_layout
+
+\begin_layout Plain Layout
+to the peer 
+\end_layout
+
+\begin_layout Plain Layout
+end note
+\end_layout
+
+\begin_layout Plain Layout
+apig-->browser :HTTP 204 No Content (state:mod-sent,modID)
+\end_layout
+
+\begin_layout Plain Layout
+end
+\end_layout
+
+\begin_layout Plain Layout
+note over browser 
+\end_layout
+
+\begin_layout Plain Layout
+1.
+ User is registered and 
+\end_layout
+
+\begin_layout Plain Layout
+does have a <b>session ID</b>
+\end_layout
+
+\begin_layout Plain Layout
+2.
+ state of call is <b>"session-open".
+\end_layout
+
+\begin_layout Plain Layout
+end note 
+\end_layout
+
+\begin_layout Plain Layout
+group 4.
+ <b>Initiate audio video call RESUME 
+\end_layout
+
+\begin_layout Plain Layout
+browser->apig : <b>HTTP PUT</b> /v1/sessions/{sessionId}/calls/{callId}(sdp->a:s
+endrecv,header:initiate-call-resume)
+\end_layout
+
+\begin_layout Plain Layout
+note over apig 
+\end_layout
+
+\begin_layout Plain Layout
+modified SDP[a:sendrecv] - sent 
+\end_layout
+
+\begin_layout Plain Layout
+to the peer
+\end_layout
+
+\begin_layout Plain Layout
+end note
+\end_layout
+
+\begin_layout Plain Layout
+apig-->browser :HTTP 204 No Content (state:mod-sent,modID)
+\end_layout
+
+\begin_layout Plain Layout
+end
+\end_layout
+
+\begin_layout Plain Layout
+note over browser 
+\end_layout
+
+\begin_layout Plain Layout
+1.
+ User is registered and 
+\end_layout
+
+\begin_layout Plain Layout
+does have a <b>session ID</b>
+\end_layout
+
+\begin_layout Plain Layout
+2.
+ state of call is <b>"session-open".
+\end_layout
+
+\begin_layout Plain Layout
+end note 
+\end_layout
+
+\begin_layout Plain Layout
+group 5.
+ <b>Accept call modification 
+\end_layout
+
+\begin_layout Plain Layout
+browser->apig : <b>HTTP PUT</b> /v1/sessions/{sessionId}/calls/{callId}(modID,sd
+p,header:accept-call-mod)
+\end_layout
+
+\begin_layout Plain Layout
+note over apig 
+\end_layout
+
+\begin_layout Plain Layout
+modified SDP,modID - sent 
+\end_layout
+
+\begin_layout Plain Layout
+to the peer
+\end_layout
+
+\begin_layout Plain Layout
+end note
+\end_layout
+
+\begin_layout Plain Layout
+apig-->browser :HTTP 204 No Content (state:mod-accepted)
+\end_layout
+
+\begin_layout Plain Layout
+end
+\end_layout
+
+\begin_layout Plain Layout
+note over browser 
+\end_layout
+
+\begin_layout Plain Layout
+1.
+ User is registered and 
+\end_layout
+
+\begin_layout Plain Layout
+does have a <b>session ID</b>
+\end_layout
+
+\begin_layout Plain Layout
+2.
+ state of call is <b>"session-open".
+\end_layout
+
+\begin_layout Plain Layout
+end note 
+\end_layout
+
+\begin_layout Plain Layout
+group 6.
+ <b>Reject/Cancel call modification 
+\end_layout
+
+\begin_layout Plain Layout
+browser->apig : <b>HTTP PUT</b> /v1/sessions/{sessionId}/calls/{callId}(modID,sd
+p,header:rejectCancel-call-mod)
+\end_layout
+
+\begin_layout Plain Layout
+note over apig 
+\end_layout
+
+\begin_layout Plain Layout
+Reject modID - sent 
+\end_layout
+
+\begin_layout Plain Layout
+to the peer
+\end_layout
+
+\begin_layout Plain Layout
+end note
+\end_layout
+
+\begin_layout Plain Layout
+apig-->browser :HTTP 204 No Content
+\end_layout
+
+\begin_layout Plain Layout
+end
+\end_layout
+
+\begin_layout Plain Layout
+@enduml
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Call Modifications
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename sequence-diagram/modifyAudioVideoCalls.png
+	width 80page%
+	height 65pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Move a Call - Flow 2
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+@startuml
+\end_layout
+
+\begin_layout Plain Layout
+hide footbox
+\end_layout
+
+\begin_layout Plain Layout
+title <u> Move a call to different endpoint
+\end_layout
+
+\begin_layout Plain Layout
+participant "<b>WebRTC App" as browser
+\end_layout
+
+\begin_layout Plain Layout
+participant "<b>APIGW" as apig
+\end_layout
+
+\begin_layout Plain Layout
+note over browser 
+\end_layout
+
+\begin_layout Plain Layout
+1.
+ User is registered and 
+\end_layout
+
+\begin_layout Plain Layout
+does have a <b>session ID</b>
+\end_layout
+
+\begin_layout Plain Layout
+2.
+ state of call is <b>"session-open".
+\end_layout
+
+\begin_layout Plain Layout
+end note 
+\end_layout
+
+\begin_layout Plain Layout
+group <b> PUT CALL ON HOLD
+\end_layout
+
+\begin_layout Plain Layout
+browser->apig : <b>HTTP PUT</b> /v1/sessions/{sessionId}/calls/{callId}(sdp->a:r
+ecvonly,header:initiate-call-hold)
+\end_layout
+
+\begin_layout Plain Layout
+note over apig 
+\end_layout
+
+\begin_layout Plain Layout
+modified SDP[a:recvonly] - sent 
+\end_layout
+
+\begin_layout Plain Layout
+to the peer
+\end_layout
+
+\begin_layout Plain Layout
+end note
+\end_layout
+
+\begin_layout Plain Layout
+apig-->browser :HTTP 204 No Content (state:mod-sent,modID)
+\end_layout
+
+\begin_layout Plain Layout
+end
+\end_layout
+
+\begin_layout Plain Layout
+note over browser,apig
+\end_layout
+
+\begin_layout Plain Layout
+1.
+ Other Endpoints having active session registered with same username/VTN/ICMN
+ 
+\end_layout
+
+\begin_layout Plain Layout
+starts ringing.
+\end_layout
+
+\begin_layout Plain Layout
+2.
+ Call is moved to the end point that answers the call first.
+\end_layout
+
+\begin_layout Plain Layout
+end note
+\end_layout
+
+\begin_layout Plain Layout
+@enduml
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Move Call
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename sequence-diagram/MoveCall.png
+	width 80page%
+	height 50pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Transfer a Call - Flow 3
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+@startuml
+\end_layout
+
+\begin_layout Plain Layout
+hide footbox
+\end_layout
+
+\begin_layout Plain Layout
+participant "<b>WebRTC App" as browser
+\end_layout
+
+\begin_layout Plain Layout
+participant "<b>APIGW" as apig
+\end_layout
+
+\begin_layout Plain Layout
+title <u> Transfer Call
+\end_layout
+
+\begin_layout Plain Layout
+note over browser 
+\end_layout
+
+\begin_layout Plain Layout
+1.
+ User is registered and 
+\end_layout
+
+\begin_layout Plain Layout
+does have a <b>session ID</b>
+\end_layout
+
+\begin_layout Plain Layout
+2.
+ state of call is <b>"session-open".
+\end_layout
+
+\begin_layout Plain Layout
+end note 
+\end_layout
+
+\begin_layout Plain Layout
+group <b>STEP 1 --> PUT CALL ON HOLD
+\end_layout
+
+\begin_layout Plain Layout
+browser->apig : <b>HTTP PUT</b> /v1/sessions/{sessionId}/calls/{callId}(sdp->a:r
+ecvonly,header:initiate-call-hold)
+\end_layout
+
+\begin_layout Plain Layout
+note over apig 
+\end_layout
+
+\begin_layout Plain Layout
+modified SDP[a:recvonly] - sent 
+\end_layout
+
+\begin_layout Plain Layout
+to the peer
+\end_layout
+
+\begin_layout Plain Layout
+end note
+\end_layout
+
+\begin_layout Plain Layout
+apig-->browser :HTTP 204 No Content (state:mod-sent,modID)
+\end_layout
+
+\begin_layout Plain Layout
+end
+\end_layout
+
+\begin_layout Plain Layout
+note over browser,apig 
+\end_layout
+
+\begin_layout Plain Layout
+<b>Establish call with Transfer-Target</b> (the called party which will
+ be connected to the first called party).
+\end_layout
+
+\begin_layout Plain Layout
+end note
+\end_layout
+
+\begin_layout Plain Layout
+group <b>STEP 2 --> Transfer the call to the target
+\end_layout
+
+\begin_layout Plain Layout
+browser->apig : <b>HTTP PUT</b> /v1/sessions/{sessionId}/calls/{callId-firstCall
+Id}(header:initiate-call-transfer,transferTargetCallId)
+\end_layout
+
+\begin_layout Plain Layout
+note over apig 
+\end_layout
+
+\begin_layout Plain Layout
+Transfer Request - sent 
+\end_layout
+
+\begin_layout Plain Layout
+to the peer
+\end_layout
+
+\begin_layout Plain Layout
+end note
+\end_layout
+
+\begin_layout Plain Layout
+apig-->browser :HTTP 204 no content 
+\end_layout
+
+\begin_layout Plain Layout
+note over browser,apig 
+\end_layout
+
+\begin_layout Plain Layout
+1.
+ Transfer initiate event will be received on the event channel.
+\end_layout
+
+\begin_layout Plain Layout
+2.
+ Transfer terminated event will be received indicating the success or failure
+ of call transfer.
+\end_layout
+
+\begin_layout Plain Layout
+end note
+\end_layout
+
+\begin_layout Plain Layout
+end
+\end_layout
+
+\begin_layout Plain Layout
+@enduml
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Transfer Call
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename sequence-diagram/TransferCall.png
+	width 80page%
+	height 60pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Version Impact Summary
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Summarize the different versions of this operation that are in production
+ or deleted by the current release of this service.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset CommandInset include
+LatexCommand input
+preview true
+filename "Version_Impact_Summary.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Authentication and Authorization
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Describe OAuth model applicable to this operation.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset CommandInset include
+LatexCommand input
+preview true
+filename "Authentication_and_Authorisation.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Representation Formats
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+In the table below, describe supported representation formats for the request
+ and response body.
+ Where different versions support different formats, provide separate tables
+ and indicate which versions apply to each table.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset CommandInset include
+LatexCommand input
+preview true
+filename "Representation_Formats.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch Example
+status collapsed
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features islongtable="true" firstHeadTopDL="true" firstHeadBottomDL="true" headTopDL="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="16text%">
+<column alignment="left" valignment="top" width="70text%">
+<row endhead="true" endfirsthead="true">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Direction
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Supported Respresentation Formats
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Request
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+JSON, XML, URL Encoded
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Response
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+JSON, XML
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Input Parameters
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+In the table below, describe input parameters.
+ Where different versions support different input parameters, provide separate
+ tables and indicate which versions apply to each table.
+ The allowed values for the Location in Request column are: Header, Resource
+ URI, Body or Query Parameter.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset CommandInset include
+LatexCommand input
+preview true
+filename "InputParam--modifyAudioVideoCalls.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Request – Example (Accept/Answer Calls ) - JSON
+\end_layout
+
+\begin_layout Standard
+Request with Content-Type as JSON.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+PUT /RTC/v1/sessions/0045-ab42-89a2/calls/1234 HTTP/1.1
+\end_layout
+
+\begin_layout LyX-Code
+
+Host: api.att.com
+\end_layout
+
+\begin_layout LyX-Code
+
+Authorization: Bearer abcdef12345678
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json;charset=UTF-8
+\end_layout
+
+\begin_layout LyX-Code
+
+Accept: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+x-calls-action: call-answer
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Length: xxx
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+\noindent
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+    "callsMediaModifications": {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "sdp": [
+\end_layout
+
+\begin_layout LyX-Code
+
+            {
+\end_layout
+
+\begin_layout LyX-Code
+
+                "m": "audio 9 TCP/RTMP 8",
+\end_layout
+
+\begin_layout LyX-Code
+
+                "attributes": [
+\end_layout
+
+\begin_layout LyX-Code
+
+                    {
+\end_layout
+
+\begin_layout LyX-Code
+
+                        "a": "sendrecv"
+\end_layout
+
+\begin_layout LyX-Code
+
+                    },
+\end_layout
+
+\begin_layout LyX-Code
+
+                    {
+\end_layout
+
+\begin_layout LyX-Code
+
+                        "a": "rtpmap:8 pcmu/8000/1"
+\end_layout
+
+\begin_layout LyX-Code
+
+                    },
+\end_layout
+
+\begin_layout LyX-Code
+
+                    {
+\end_layout
+
+\begin_layout LyX-Code
+
+                        "a": "setup:active"
+\end_layout
+
+\begin_layout LyX-Code
+
+                    }
+\end_layout
+
+\begin_layout LyX-Code
+
+                ]
+\end_layout
+
+\begin_layout LyX-Code
+
+            }
+\end_layout
+
+\begin_layout LyX-Code
+
+        ]
+\end_layout
+
+\begin_layout LyX-Code
+
+    }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\begin_layout LyX-Code
+\noindent
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Request – Example (Accept/Answer Calls ) - XML
+\end_layout
+
+\begin_layout Standard
+Request with Content-Type as XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+PUT /RTC/v1/sessions/0045-ab42-89a2/calls/1234 HTTP/1.1
+\end_layout
+
+\begin_layout LyX-Code
+
+Host: api.att.com
+\end_layout
+
+\begin_layout LyX-Code
+
+Authorization: Bearer abcdef12345678
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json;charset=UTF-8
+\end_layout
+
+\begin_layout LyX-Code
+
+Accept: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+x-calls-action:call-answer
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Length: yyy
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<callsMediaModifications>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<m>audio 9 TCP/RTMP 8</m>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>sendrecv</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rtpmap:8 pcmu/8000/1</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>setup:active</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</callsMediaModifications>
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Request – Example (initiate call call session modifications ) - JSON
+\end_layout
+
+\begin_layout Standard
+Request with Content-Type as JSON.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+PUT /RTC/v1/sessions/0045-ab42-89a2/calls/1234 HTTP/1.1
+\end_layout
+
+\begin_layout LyX-Code
+
+Host: api.att.com
+\end_layout
+
+\begin_layout LyX-Code
+
+Authorization: Bearer abcdef12345678
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json;charset=UTF-8
+\end_layout
+
+\begin_layout LyX-Code
+
+Accept: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+x-calls-action: initiate-call-mod
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Length: xxx
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+\noindent
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+  "callsMediaModifications": {
+\end_layout
+
+\begin_layout LyX-Code
+
+    "sdp": [
+\end_layout
+
+\begin_layout LyX-Code
+
+      {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "m": "audio 9000 RTP/AVP 8",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "attributes": [
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "rcvonly" },
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "rtpmap:8 pcmu/8000/1" }
+\end_layout
+
+\begin_layout LyX-Code
+
+        ]
+\end_layout
+
+\begin_layout LyX-Code
+
+      },
+\end_layout
+
+\begin_layout LyX-Code
+
+      {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "m": "video 9001 RTP/AVP 98",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "attributes": [
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "rcvonly" },
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "rtpmap:98 H264/90000" },
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "fmtp:98 profile-levelid= A1438;packetization-mode=1" }
+\end_layout
+
+\begin_layout LyX-Code
+
+        ]
+\end_layout
+
+\begin_layout LyX-Code
+
+      }
+\end_layout
+
+\begin_layout LyX-Code
+
+    ]
+\end_layout
+
+\begin_layout LyX-Code
+
+  }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+\noindent
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Request – Example (initiate call call session modifications ) - XML
+\end_layout
+
+\begin_layout Standard
+Request with Content-Type as XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+PUT /RTC/v1/sessions/0045-ab42-89a2/calls/1234 HTTP/1.1
+\end_layout
+
+\begin_layout LyX-Code
+
+Host: api.att.com
+\end_layout
+
+\begin_layout LyX-Code
+
+Authorization: Bearer abcdef12345678
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml;charset=UTF-8
+\end_layout
+
+\begin_layout LyX-Code
+
+Accept: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+x-calls-action: initiate-call-mod
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Length: xxx
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<callsMediaModifications>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<m>audio 9000 RTP/AVP 8</m>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rcvonly</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rtpmap:8 pcmu/8000/1</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<m>video 9001 RTP/AVP 98</m>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rcvonly</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rtpmap:98 H264/90000</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>fmtp:98 profile-levelid= A1438;packetization-mode=1</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</callsMediaModifications>
+\end_layout
+
+\begin_layout LyX-Code
+
+	
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Request – Example (initiate call call hold ) - JSON
+\end_layout
+
+\begin_layout Standard
+Request with Content-Type as JSON.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+PUT /RTC/v1/sessions/0045-ab42-89a2/calls/1234 HTTP/1.1
+\end_layout
+
+\begin_layout LyX-Code
+
+Host: api.att.com
+\end_layout
+
+\begin_layout LyX-Code
+
+Authorization: Bearer abcdef12345678
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json;charset=UTF-8
+\end_layout
+
+\begin_layout LyX-Code
+
+Accept: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+x-calls-action: initiate-call-hold
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Length: xxx
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+\noindent
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+    "callsMediaModifications": {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "sdp": [
+\end_layout
+
+\begin_layout LyX-Code
+
+            {
+\end_layout
+
+\begin_layout LyX-Code
+
+                "m": "audio 9 TCP/RTMP 8",
+\end_layout
+
+\begin_layout LyX-Code
+
+                "attributes": [
+\end_layout
+
+\begin_layout LyX-Code
+
+                    {
+\end_layout
+
+\begin_layout LyX-Code
+
+                        "a": "recvonly"
+\end_layout
+
+\begin_layout LyX-Code
+
+                    },
+\end_layout
+
+\begin_layout LyX-Code
+
+                    {
+\end_layout
+
+\begin_layout LyX-Code
+
+                        "a": "rtpmap:8 pcmu/8000/1"
+\end_layout
+
+\begin_layout LyX-Code
+
+                    }
+\end_layout
+
+\begin_layout LyX-Code
+
+                ]
+\end_layout
+
+\begin_layout LyX-Code
+
+            }
+\end_layout
+
+\begin_layout LyX-Code
+
+        ]
+\end_layout
+
+\begin_layout LyX-Code
+
+    }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\begin_layout LyX-Code
+\noindent
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Request – Example (initiate call call hold ) - XML
+\end_layout
+
+\begin_layout Standard
+Request with Content-Type as XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+PUT /RTC/v1/sessions/0045-ab42-89a2/calls/1234 HTTP/1.1
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml;charset=UTF-8
+\end_layout
+
+\begin_layout LyX-Code
+
+Host: api.att.com
+\end_layout
+
+\begin_layout LyX-Code
+
+Authorization: Bearer abcdef12345678
+\end_layout
+
+\begin_layout LyX-Code
+
+Accept: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+x-calls-action: initiate-call-hold
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Length: xxx
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<callsMediaModifications>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<m>audio 9 TCP/RTMP 8</m>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>recvonly</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rtpmap:8 pcmu/8000/1</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</callsMediaModifications>
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Request – Example (initiate call call resume ) - JSON
+\end_layout
+
+\begin_layout Standard
+Request with Content-Type as JSON.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+PUT /RTC/v1/sessions/0045-ab42-89a2/calls/1234 HTTP/1.1
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json;charset=UTF-8
+\end_layout
+
+\begin_layout LyX-Code
+
+Host: api.att.com
+\end_layout
+
+\begin_layout LyX-Code
+
+Authorization: Bearer abcdef12345678
+\end_layout
+
+\begin_layout LyX-Code
+
+Accept: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+x-calls-action: initiate-call-resume
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Length: xxx
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+\noindent
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+    "callsMediaModifications": {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "sdp": [
+\end_layout
+
+\begin_layout LyX-Code
+
+            {
+\end_layout
+
+\begin_layout LyX-Code
+
+                "m": "audio 9 TCP/RTMP 8",
+\end_layout
+
+\begin_layout LyX-Code
+
+                "attributes": [
+\end_layout
+
+\begin_layout LyX-Code
+
+                    {
+\end_layout
+
+\begin_layout LyX-Code
+
+                        "a": "sendrecv"
+\end_layout
+
+\begin_layout LyX-Code
+
+                    },
+\end_layout
+
+\begin_layout LyX-Code
+
+                    {
+\end_layout
+
+\begin_layout LyX-Code
+
+                        "a": "rtpmap:8 pcmu/8000/1"
+\end_layout
+
+\begin_layout LyX-Code
+
+                    }
+\end_layout
+
+\begin_layout LyX-Code
+
+                ]
+\end_layout
+
+\begin_layout LyX-Code
+
+            }
+\end_layout
+
+\begin_layout LyX-Code
+
+        ]
+\end_layout
+
+\begin_layout LyX-Code
+
+    }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\begin_layout LyX-Code
+\noindent
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Request – Example (initiate call call resume ) - XML
+\end_layout
+
+\begin_layout Standard
+Request with Content-Type as XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+PUT /RTC/v1/sessions/0045-ab42-89a2/calls/1234 HTTP/1.1
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml;charset=UTF-8
+\end_layout
+
+\begin_layout LyX-Code
+
+Host: api.att.com
+\end_layout
+
+\begin_layout LyX-Code
+
+Authorization: Bearer abcdef12345678
+\end_layout
+
+\begin_layout LyX-Code
+
+Accept: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+x-calls-action: initiate-call-resume
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Length: xxx
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<callsMediaModifications>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<m>audio 9 TCP/RTMP 8</m>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>sendrecv</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rtpmap:8 pcmu/8000/1</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</callsMediaModifications>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Request – Example (Accept call Media modifications ) - JSON
+\end_layout
+
+\begin_layout Standard
+Request with Content-Type as JSON.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+PUT /RTC/v1/sessions/0045-ab42-89a2/calls/1234 HTTP/1.1
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json;charset=UTF-8
+\end_layout
+
+\begin_layout LyX-Code
+
+Host: api.att.com
+\end_layout
+
+\begin_layout LyX-Code
+
+Authorization: Bearer abcdef12345678
+\end_layout
+
+\begin_layout LyX-Code
+
+Accept: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+x-calls-action: accept-call-mod
+\end_layout
+
+\begin_layout LyX-Code
+
+x-modId:15011
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Length: xxx
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+\noindent
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+  "callsMediaModifications": {
+\end_layout
+
+\begin_layout LyX-Code
+
+    "sdp": [
+\end_layout
+
+\begin_layout LyX-Code
+
+      {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "m": "audio 9000 RTP/AVP 8",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "attributes": [
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "rcvonly" },
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "rtpmap:8 pcmu/8000/1" }
+\end_layout
+
+\begin_layout LyX-Code
+
+        ]
+\end_layout
+
+\begin_layout LyX-Code
+
+      },
+\end_layout
+
+\begin_layout LyX-Code
+
+      {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "m": "video 9001 RTP/AVP 98",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "attributes": [
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "rcvonly" },
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "rtpmap:98 H264/90000" },
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "fmtp:98 profile-levelid= A1438;packetization-mode=1" }
+\end_layout
+
+\begin_layout LyX-Code
+
+        ]
+\end_layout
+
+\begin_layout LyX-Code
+
+      }
+\end_layout
+
+\begin_layout LyX-Code
+
+    ]
+\end_layout
+
+\begin_layout LyX-Code
+
+  }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Request – Example (Accept call Media modifications ) - XML
+\end_layout
+
+\begin_layout Standard
+Request with Content-Type as XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+PUT /RTC/v1/sessions/0045-ab42-89a2/calls/1234 HTTP/1.1
+\end_layout
+
+\begin_layout LyX-Code
+
+Host: api.att.com
+\end_layout
+
+\begin_layout LyX-Code
+
+Authorization: Bearer abcdef12345678
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml;charset=UTF-8
+\end_layout
+
+\begin_layout LyX-Code
+
+Accept: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+x-calls-action: accept-call-mod
+\end_layout
+
+\begin_layout LyX-Code
+
+x-modId:15011
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Length: xxx
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<callsMediaModifications>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<m>audio 9000 RTP/AVP 8</m>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rcvonly</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rtpmap:8 pcmu/8000/1</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<m>video 9001 RTP/AVP 98</m>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rcvonly</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rtpmap:98 H264/90000</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>fmtp:98 profile-levelid= A1438;packetization-mode=1</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</callsMediaModifications>
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Request – Example (Reject/Cancel call Media modifications ) - JSON
+\end_layout
+
+\begin_layout Standard
+Request with Content-Type as JSON.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+PUT /RTC/v1/sessions/0045-ab42-89a2/calls/1234 HTTP/1.1
+\end_layout
+
+\begin_layout LyX-Code
+
+Host: api.att.com
+\end_layout
+
+\begin_layout LyX-Code
+
+Authorization: Bearer abcdef12345678
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json;charset=UTF-8
+\end_layout
+
+\begin_layout LyX-Code
+
+Accept: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+x-calls-action: rejectCancel-call-mod
+\end_layout
+
+\begin_layout LyX-Code
+
+x-modId:15011
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Length: xxx
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+\noindent
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+  "callsMediaModifications": {
+\end_layout
+
+\begin_layout LyX-Code
+
+    "sdp": [
+\end_layout
+
+\begin_layout LyX-Code
+
+      {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "m": "audio 9000 RTP/AVP 8",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "attributes": [
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "rcvonly" },
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "rtpmap:8 pcmu/8000/1" }
+\end_layout
+
+\begin_layout LyX-Code
+
+        ]
+\end_layout
+
+\begin_layout LyX-Code
+
+      },
+\end_layout
+
+\begin_layout LyX-Code
+
+      {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "m": "video 9001 RTP/AVP 98",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "attributes": [
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "rcvonly" },
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "rtpmap:98 H264/90000" },
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "fmtp:98 profile-levelid= A1438;packetization-mode=1" }
+\end_layout
+
+\begin_layout LyX-Code
+
+        ]
+\end_layout
+
+\begin_layout LyX-Code
+
+      }
+\end_layout
+
+\begin_layout LyX-Code
+
+    ]
+\end_layout
+
+\begin_layout LyX-Code
+
+  }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\begin_layout LyX-Code
+\noindent
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Request – Example (Reject/Cancel call Media modifications) - XML
+\end_layout
+
+\begin_layout Standard
+Request with Content-Type as XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+PUT /RTC/v1/sessions/0045-ab42-89a2/calls/1234 HTTP/1.1
+\end_layout
+
+\begin_layout LyX-Code
+
+Host: api.att.com
+\end_layout
+
+\begin_layout LyX-Code
+
+Authorization: Bearer abcdef12345678
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml;charset=UTF-8
+\end_layout
+
+\begin_layout LyX-Code
+
+Accept: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+x-calls-action: rejectCancel-call-mod
+\end_layout
+
+\begin_layout LyX-Code
+
+x-modId:15011
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Length: xxx
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<callsMediaModifications>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<m>audio 9000 RTP/AVP 8</m>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rcvonly</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rtpmap:8 pcmu/8000/1</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<m>video 9001 RTP/AVP 98</m>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rcvonly</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rtpmap:98 H264/90000</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>fmtp:98 profile-levelid= A1438;packetization-mode=1</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</callsMediaModifications>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Request – Example (Transfer a call ) - JSON
+\end_layout
+
+\begin_layout Standard
+Request with Content-Type as JSON.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+PUT /RTC/v1/sessions/0045-ab42-89a2/calls/1234 HTTP/1.1
+\end_layout
+
+\begin_layout LyX-Code
+
+Host: api.att.com
+\end_layout
+
+\begin_layout LyX-Code
+
+Authorization: Bearer abcdef12345678
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json;charset=UTF-8
+\end_layout
+
+\begin_layout LyX-Code
+
+Accept: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+x-calls-action: initiate-call-transfer
+\end_layout
+
+\begin_layout LyX-Code
+
+x-transferTargetCallId:1235
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Length: xxx
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+\noindent
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+  "callsMediaModifications": {
+\end_layout
+
+\begin_layout LyX-Code
+
+    "sdp": [
+\end_layout
+
+\begin_layout LyX-Code
+
+      {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "m": "audio 9000 RTP/AVP 8",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "attributes": [
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "rcvonly" },
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "rtpmap:8 pcmu/8000/1" }
+\end_layout
+
+\begin_layout LyX-Code
+
+        ]
+\end_layout
+
+\begin_layout LyX-Code
+
+      },
+\end_layout
+
+\begin_layout LyX-Code
+
+      {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "m": "video 9001 RTP/AVP 98",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "attributes": [
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "rcvonly" },
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "rtpmap:98 H264/90000" },
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "fmtp:98 profile-levelid= A1438;packetization-mode=1" }
+\end_layout
+
+\begin_layout LyX-Code
+
+        ]
+\end_layout
+
+\begin_layout LyX-Code
+
+      }
+\end_layout
+
+\begin_layout LyX-Code
+
+    ]
+\end_layout
+
+\begin_layout LyX-Code
+
+  }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\begin_layout LyX-Code
+\noindent
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Request – Example (Transfer a call) - XML
+\end_layout
+
+\begin_layout Standard
+Request with Content-Type as XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+PUT /RTC/v1/sessions/0045-ab42-89a2/calls/1234 HTTP/1.1
+\end_layout
+
+\begin_layout LyX-Code
+
+Host: api.att.com
+\end_layout
+
+\begin_layout LyX-Code
+
+Authorization: Bearer abcdef12345678
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml;charset=UTF-8
+\end_layout
+
+\begin_layout LyX-Code
+
+Accept: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+x-calls-action: initiate-call-transfer
+\end_layout
+
+\begin_layout LyX-Code
+
+x-transferTargetCallId:1235
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Length: xxx
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<callsMediaModifications>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<m>audio 9000 RTP/AVP 8</m>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rcvonly</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rtpmap:8 pcmu/8000/1</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<m>video 9001 RTP/AVP 98</m>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rcvonly</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rtpmap:98 H264/90000</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>fmtp:98 profile-levelid= A1438;packetization-mode=1</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</callsMediaModifications>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Request – Example (Move a call ) - JSON
+\end_layout
+
+\begin_layout Standard
+Request with Content-Type as JSON.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+PUT /RTC/v1/sessions/0045-ab42-89a2/calls/1234 HTTP/1.1
+\end_layout
+
+\begin_layout LyX-Code
+
+Host: api.att.com
+\end_layout
+
+\begin_layout LyX-Code
+
+Authorization: Bearer abcdef12345678
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json;charset=UTF-8
+\end_layout
+
+\begin_layout LyX-Code
+
+Accept: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+x-calls-action: initiate-call-move
+\end_layout
+
+\begin_layout LyX-Code
+
+x-transferTargetCallId:1235
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Length: xxx
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+\noindent
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+  "callsMediaModifications": {
+\end_layout
+
+\begin_layout LyX-Code
+
+    "sdp": [
+\end_layout
+
+\begin_layout LyX-Code
+
+      {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "m": "audio 9000 RTP/AVP 8",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "attributes": [
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "rcvonly" },
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "rtpmap:8 pcmu/8000/1" }
+\end_layout
+
+\begin_layout LyX-Code
+
+        ]
+\end_layout
+
+\begin_layout LyX-Code
+
+      },
+\end_layout
+
+\begin_layout LyX-Code
+
+      {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "m": "video 9001 RTP/AVP 98",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "attributes": [
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "rcvonly" },
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "rtpmap:98 H264/90000" },
+\end_layout
+
+\begin_layout LyX-Code
+
+          { "a": "fmtp:98 profile-levelid= A1438;packetization-mode=1" }
+\end_layout
+
+\begin_layout LyX-Code
+
+        ]
+\end_layout
+
+\begin_layout LyX-Code
+
+      }
+\end_layout
+
+\begin_layout LyX-Code
+
+    ]
+\end_layout
+
+\begin_layout LyX-Code
+
+  }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\begin_layout LyX-Code
+\noindent
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Request – Example (Move a cal) - XML
+\end_layout
+
+\begin_layout Standard
+Request with Content-Type as XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+PUT /RTC/v1/sessions/0045-ab42-89a2/calls/1234 HTTP/1.1
+\end_layout
+
+\begin_layout LyX-Code
+
+Host: api.att.com
+\end_layout
+
+\begin_layout LyX-Code
+
+Authorization: Bearer abcdef12345678
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml;charset=UTF-8
+\end_layout
+
+\begin_layout LyX-Code
+
+Accept: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+x-calls-action: initiate-call-move
+\end_layout
+
+\begin_layout LyX-Code
+
+x-transferTargetCallId:1235
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Length: xxx
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<callsMediaModifications>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<m>audio 9000 RTP/AVP 8</m>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rcvonly</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rtpmap:8 pcmu/8000/1</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<m>video 9001 RTP/AVP 98</m>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rcvonly</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>rtpmap:98 H264/90000</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<a>fmtp:98 profile-levelid= A1438;packetization-mode=1</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</callsMediaModifications>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Subsubsection
+Output Parameters
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+In the table below, describe output parameters.
+ Where different versions support different output parameters, provide separate
+ tables and indicate which versions apply to each table.
+ Note: ‘consent’ refers to end user consent which may need to be obtained
+ before data is returned,
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset CommandInset include
+LatexCommand input
+preview true
+filename "OutputParam--modifyAudioVideoCalls.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Accept/Answer Calls ) - JSON
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 204 No Content
+\end_layout
+
+\begin_layout LyX-Code
+
+x-state: accepted
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Accept/Answer Calls ) - (XML)
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 204 No Content
+\end_layout
+
+\begin_layout LyX-Code
+
+x-state: accepted
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (initiate call call Media modifications ) - JSON
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 204 No Content
+\end_layout
+
+\begin_layout LyX-Code
+
+x-modID: abc-1234-def-567
+\end_layout
+
+\begin_layout LyX-Code
+
+x-state: mod-sent
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (initiate call call session modifications ) - (XML)
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 204 No Content
+\end_layout
+
+\begin_layout LyX-Code
+
+x-modID: abc-1234-def-567
+\end_layout
+
+\begin_layout LyX-Code
+
+x-state: mod-sent
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (initiate call call hold ) - JSON
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 204 No Content
+\end_layout
+
+\begin_layout LyX-Code
+
+x-modID: abc-1234-def-567
+\end_layout
+
+\begin_layout LyX-Code
+
+x-state: mod-sent
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (initiate call call hold ) - (XML)
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 204 No Content
+\end_layout
+
+\begin_layout LyX-Code
+
+x-modID: abc-1234-def-567
+\end_layout
+
+\begin_layout LyX-Code
+
+x-state: mod-sent
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (initiate call call resume ) - JSON
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 204 No Content
+\end_layout
+
+\begin_layout LyX-Code
+
+x-modID: abc-1234-def-567
+\end_layout
+
+\begin_layout LyX-Code
+
+x-state: mod-sent
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (initiate call call resume ) - (XML)
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 204 No Content
+\end_layout
+
+\begin_layout LyX-Code
+
+x-modID: abc-1234-def-567
+\end_layout
+
+\begin_layout LyX-Code
+
+x-state: mod-sent
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Accept call Media modifications ) - JSON
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 204 No Content
+\end_layout
+
+\begin_layout LyX-Code
+
+x-modID: abc-1234-def-567
+\end_layout
+
+\begin_layout LyX-Code
+
+x-state: mod-accepted
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Accept call Media modifications ) - (XML)
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 204 No Content
+\end_layout
+
+\begin_layout LyX-Code
+
+x-modID: abc-1234-def-567
+\end_layout
+
+\begin_layout LyX-Code
+
+x-state: mod-accepted
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Reject/Cancel call Media modifications) - JSON
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 204 No Content
+\end_layout
+
+\begin_layout LyX-Code
+
+x-state: mod-rejectcancel
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Reject/Cancel call Media modifications) - (XML)
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 204 No Content
+\end_layout
+
+\begin_layout LyX-Code
+
+x-state: mod-sent
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Transfer a call) - JSON
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 204 No Content
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Transfer a call) - (XML)
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 204 No Content
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Move a call) - JSON
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 204 No Content
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Move a call) - (XML)
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 204 No Content
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+HTTP Status Codes
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+List expected response codes (indicate any variation that exists across
+ different versions):
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset CommandInset include
+LatexCommand input
+preview true
+filename "Appendix-HttpErrors.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Service Exceptions
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+List the service exceptions generated by the operation (indicate any variation
+ that exists across different versions):
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="4">
+<features islongtable="true" firstHeadTopDL="true" firstHeadBottomDL="true" headTopDL="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="10text%">
+<column alignment="left" valignment="top" width="33text%">
+<column alignment="left" valignment="top" width="33text%">
+<column alignment="left" valignment="top" width="10text%">
+<row endhead="true" endfirsthead="true">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+MessageId
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Text
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Variables
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Parent HTTP Code
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+SVC0001
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+A service error has occurred.
+ Error code is <Error Explanation>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Error Explanation : <content here>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+400
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+SVC0002
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Invalid input value for Message part <part name>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+part name : name of the input parameter that resulted in the error
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+400
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+SVC0003
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Invalid input value for Message part <part name>, valid values are <part
+ values>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+part value : value of input parameter that was found to be in error.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+400
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+SVC0004
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+No valid addresses provided in the Message part <part name>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+part name : name of the input parameter that resulted in the error
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+400
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+SVC8501
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Call dialogue opened in Early Media
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+NA
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+409
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+SVC8502
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Call transfer ongoing
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+NA
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+409
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+SVC8503
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Call <callId > move in progress; proceed with move before doing a <action>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+callId : Call of the end user.
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+action: this can be media modification, call transfer or call move.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+409
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+SVC8506
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Modification ongoing
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+NA
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+409
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Policy Exceptions
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+List the policy exceptions generated by the operation (indicate any variation
+ that exists across different versions):
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="4">
+<features islongtable="true" firstHeadTopDL="true" firstHeadBottomDL="true" headTopDL="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="10text%">
+<column alignment="left" valignment="top" width="33text%">
+<column alignment="left" valignment="top" width="33text%">
+<column alignment="left" valignment="top" width="10text%">
+<row endhead="true" endfirsthead="true">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+MessageId
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Text
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Variables
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Parent HTTP Code
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+POL0001
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+A policy error occurred.
+ For example, rate limit error, authentication and authorization error.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+401,403
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+POL0002
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Privacy verification failed for address <address>, request is refused
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+address : <content here>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+403
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+POL0003
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Too many addresses specified in Message part
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+403
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+POL1009
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+User has not been provisioned for %1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+System that hasn’t been provisioned
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+403
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

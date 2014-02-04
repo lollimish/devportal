@@ -1,0 +1,5706 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass attapi
+\begin_preamble
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{eso-pic}
+\usepackage[stamp]{draftwatermark}
+\usepackage{colortbl}
+
+\SetWatermarkText{DPS Internal}
+\SetWatermarkAngle{45}
+\SetWatermarkLightness{0.9}
+\SetWatermarkScale{.8}
+
+\date{}
+\lhead{\small{www.dedoimedo.com}}
+\rhead{\small{some text}} 
+\pagestyle{fancy}
+
+\setlength{\headheight}{0.6in}
+\setlength{\headwidth}{\textwidth}
+\fancyhead[L]{}% empty left
+\fancyhead[R]{ % right
+   \includegraphics[height=0.75in]{../common/att_logo.png}
+}
+\pagestyle{fancy}
+
+\definecolor{blue}{RGB}{79,129,189}
+\definecolor{shadebox}{RGB}{255,255,204}
+
+\cfoot{\scriptsize © 2013 AT\&T Intellectual Property. All rights reserved. AT\&T and AT\&T logo are trademarks of AT\&T Intellectual Property.}
+
+\newcommand{\attcategory}[1]{\textbf{\Large Category: \textcolor{blue}{#1}}}
+\newcommand{\attservice}[1]{\textbf{\Large Service:  \textcolor{blue}{#1}}}
+\newcommand{\attdocumentnumber}[1]{\textbf{\small Document Number: #1}}
+\newcommand{\attrevision}[1]{\textbf{\small Revision: #1}}
+\newcommand{\attrevisiondate}[1]{\textbf{\small Revision Date: #1}}
+\newcommand{\attauthor}[1]{\textbf{\small Author: #1}}
+
+
+\let\oldtabular=\tabular
+\def\tabular{\footnotesize\oldtabular}
+\end_preamble
+\options usenames,dvipsnames
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+customHeadersFooters
+enumitem
+endnotes
+tabs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman Arial
+\font_sans Arial
+\font_typewriter Arial Narrow
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement h
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize letterpaper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine natbib_authoryear
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\boxbgcolor #ffff7f
+\branch Specification
+\selected 0
+\filename_suffix 1
+\color #faf0e6
+\end_branch
+\branch DeveloperDocumentation
+\selected 0
+\filename_suffix 1
+\color #faf0e6
+\end_branch
+\branch Example
+\selected 0
+\filename_suffix 1
+\color #faf0e6
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1.8in
+\rightmargin 1in
+\bottommargin 1.25in
+\secnumdepth 5
+\tocdepth 5
+\paragraph_separation skip
+\defskip bigskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\listings_params "backgroundcolor={\color{shadebox}},basicstyle={\small},breaklines={true},frame=single,frameround=tttt,framerule={.5pt},morekeywords={GET,POST,PUT,DELETE},otherkeywords={GET,POST,PUT,DELETE,HTTP/1.1, 200,OK,appication/xml},stringstyle={\ttfamily},tabsize=4"
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Subsubsection
+Functional Behavior
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Describe the functional behavior provided by this operation.
+ Also add here any special considerations, assumptions, and dependencies
+ for this particular operation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The 
+\series medium
+Get Session Events method
+\series default
+ retrieves the Events during a specific session using comet long polling
+ mechanism (Please refer rfc6202 for more details).
+ The events are related to call, conference, group chat, 1-to-1 chat and
+ file transfer.
+\end_layout
+
+\begin_layout Standard
+Upon successful creation of a session, the client must request a 
+\series medium
+Get Session Events method
+\series default
+ at a regular
+\series bold
+ 
+\series default
+interval
+\series bold
+ 
+\series default
+to maintain the event channel.
+\end_layout
+
+\begin_layout Standard
+The following is list of events under different scenarios.
+\end_layout
+
+\begin_layout Paragraph
+Events during setup or tear-down of a call
+\end_layout
+
+\begin_layout Standard
+This event is received for the 
+\series medium
+Get Session Events method request
+\series default
+ and when it is available from the receiving app.
+ The type for the session is call and the state indicates the current state
+ of the call in the network.
+ 
+\end_layout
+
+\begin_layout Standard
+Event shall be generated under following circumstances.
+\end_layout
+
+\begin_layout Itemize
+When called party receives call alert: Caller receives the event.
+\end_layout
+
+\begin_layout Itemize
+When called party rejects or ends a call: Caller receives the event.
+\end_layout
+
+\begin_layout Itemize
+When called party accepts or answers the call: Caller receives the event.
+\end_layout
+
+\begin_layout Itemize
+When caller cancels the call: Called party receives the event.
+ 
+\end_layout
+
+\begin_layout Itemize
+When caller ends the call: Called party receives the event.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Events during ongoing call modifications
+\end_layout
+
+\begin_layout Standard
+This event is generated when the client initiated a media modifications
+ and should be expected under the following scenarios.
+\end_layout
+
+\begin_layout Itemize
+Media upgrade or downgrade request, for example audio to audiovideo: The
+ receiving app gets the event.
+\end_layout
+
+\begin_layout Itemize
+Call Hold Request: The receiving app receives the event.
+\end_layout
+
+\begin_layout Itemize
+Call Resume Request: The receiving app receives the event.
+\end_layout
+
+\begin_layout Paragraph
+Events during call modification completion
+\end_layout
+
+\begin_layout Standard
+This event is an indication that the call modification is complete and the
+ call can continue with initial sdp media values.
+\end_layout
+
+\begin_layout Paragraph
+Events during call move complete
+\end_layout
+
+\begin_layout Standard
+This event is an indication that the call move is complete.
+\end_layout
+
+\begin_layout Paragraph
+Events during call transfer initiation 
+\end_layout
+
+\begin_layout Standard
+This event is an indication that the client initiated a call transfer to
+ third-party and receives this event asynchronously on the event channel
+ indicating that a request is sent to the server to bridge calls.
+\end_layout
+
+\begin_layout Paragraph
+Events during call transfer completion
+\end_layout
+
+\begin_layout Standard
+This event is an indication that the client initiated a call transfer and
+ receives this event asynchronously on the event channel indicating fulfillment
+ of request in the network.
+\end_layout
+
+\begin_layout Paragraph
+Events during conference invitation
+\end_layout
+
+\begin_layout Standard
+This event is received on the event channel as a result of long polling
+ in the scenario when a Conferences invite is sent from another client.
+\end_layout
+
+\begin_layout Paragraph
+Events during conference Modification
+\end_layout
+
+\begin_layout Standard
+This event is received when conference participant requests modification
+ in the conference properties.
+ This event is similar to call modification except that the resource URL
+ and type would indicate them to belong to a conference.
+\end_layout
+
+\begin_layout Paragraph
+Events during Conference Modification completed
+\end_layout
+
+\begin_layout Standard
+This event is received when the media conference modification is terminated.This
+ event is similar to call modification except that the resource URL and
+ type would indicate them to belong to a conference.
+\end_layout
+
+\begin_layout Paragraph
+Events during 1-to-1 chat message
+\end_layout
+
+\begin_layout Standard
+This event is received over the outstanding channel requested by the recipient.
+\end_layout
+
+\begin_layout Paragraph
+Events during 1-to-1 chat message failure 
+\end_layout
+
+\begin_layout Standard
+This event is only sent when a message failed to be delivered.
+\end_layout
+
+\begin_layout Paragraph
+Events during an is-composing 1-to-1 chat message
+\end_layout
+
+\begin_layout Standard
+This event is an indication that a user started typing a message or stopped
+ typing a message.
+ Is-composing is only sent to the recipient after previously a message has
+ been sent or received to or from the same user on short intervals.
+\end_layout
+
+\begin_layout Paragraph
+Events during 1-to-1 chat media message 
+\end_layout
+
+\begin_layout Standard
+The event contains an URI from which the media can be retrieved.
+\end_layout
+
+\begin_layout Paragraph
+Events during invitation to join a chat group 
+\end_layout
+
+\begin_layout Standard
+This event is received through the event channel when a invitation is requested
+ by another client.
+\end_layout
+
+\begin_layout Paragraph
+Events during group Chat group status update
+\end_layout
+
+\begin_layout Standard
+This event is received every time a participant joins or leaves the conference
+ to update connected users on which other parties are in the conference.
+ Every client that accepted the conference and is in a connected state in
+ the conference automatically receives the conference status updates.
+\end_layout
+
+\begin_layout Paragraph
+Events during group Chat message
+\end_layout
+
+\begin_layout Standard
+This event contains the chat message sent by a chat member to the Group.
+\end_layout
+
+\begin_layout Paragraph
+Events during an is-composing message from group Chat .
+\end_layout
+
+\begin_layout Standard
+This event is passed in the event channel when an is-composing message is
+ received from a conference.
+\end_layout
+
+\begin_layout Paragraph
+Events during media chats during group Chat
+\end_layout
+
+\begin_layout Standard
+This event is passed in the event channel when a media message is received
+ from a conference.
+\end_layout
+
+\begin_layout Paragraph
+Events during File Transfer Invitation or Status
+\end_layout
+
+\begin_layout Standard
+This event is sent through the event channel every time a file transfer
+ session is initiated, changes of state or is ended.
+ The recipient receives the File transfer invitation through this event.
+ Both the sender and recipient receive updates when the File Transfer state
+ changes.
+ Both receive an event when the File Transfer is completed.
+ At the end of the File transfer, the clients do not need to end the File
+ transfer.
+ The network does this for them.
+\end_layout
+
+\begin_layout Subsubsection
+Call flow
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Insert below a sequence diagram (ping pong) diagram in context to a complete
+ call flow or transaction with numbered arrows and some description explaining
+ the sequence as appropriate.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Version Impact Summary
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Summarize the different versions of this operation that are in production
+ or deleted by the current release of this service.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset CommandInset include
+LatexCommand input
+filename "Version_Impact_Summary.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Authentication and Authorization
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Describe OAuth model applicable to this operation.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset CommandInset include
+LatexCommand input
+filename "Authentication_and_Authorisation.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Representation Formats
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+In the table below, describe supported representation formats for the request
+ and response body.
+ Where different versions support different formats, provide separate tables
+ and indicate which versions apply to each table.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset CommandInset include
+LatexCommand input
+filename "Representation_Formats.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch Example
+status collapsed
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features islongtable="true" firstHeadTopDL="true" firstHeadBottomDL="true" headTopDL="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="16text%">
+<column alignment="left" valignment="top" width="70text%">
+<row endhead="true" endfirsthead="true">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Direction
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Supported Respresentation Formats
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Request
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+JSON, XML, URL Encoded
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Response
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+JSON, XML
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Input Parameters
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+In the table below, describe input parameters.
+ Where different versions support different input parameters, provide separate
+ tables and indicate which versions apply to each table.
+ The allowed values for the Location in Request column are: Header, Resource
+ URI, Body or Query Parameter.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset CommandInset include
+LatexCommand input
+filename "InputParam-GetEvents.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Request – Example (Get Session Event(s) - JSON)
+\end_layout
+
+\begin_layout Standard
+RetrieveEvents during the session.
+ The response format is JSON.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+GET /RTC/v1/sessions/0045-ab42-89a2/events HTTP/1.1
+\end_layout
+
+\begin_layout LyX-Code
+
+authorization: Bearer abcdef12345678
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+accept: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Request – Example (Get Session Event(s) - XML)
+\end_layout
+
+\begin_layout Standard
+RetrieveEvents during the session.
+ The response format is XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+GET /RTC/v1/sessions/0045-ab42-89a2/events HTTP/1.1
+\end_layout
+
+\begin_layout LyX-Code
+
+authorization: Bearer abcdef12345678
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+accept: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Output Parameters
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+In the table below, describe output parameters.
+ Where different versions support different output parameters, provide separate
+ tables and indicate which versions apply to each table.
+ Note: ‘consent’ refers to end user consent which may need to be obtained
+ before data is returned,
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset CommandInset include
+LatexCommand input
+filename "OutputParam-getEvents.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during setup or tear-down of a call - JSON)
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session request.
+ The response format is JSON.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json 
+\end_layout
+
+\begin_layout LyX-Code
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+  "events": {
+\end_layout
+
+\begin_layout LyX-Code
+
+    "eventList": {
+\end_layout
+
+\begin_layout LyX-Code
+
+      "eventObject": {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "type": "calls",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "from": "tel:+11234567890",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "resourceURL": "/v1/session/0045-ab42-89a2/calls/15031864",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "state": "invitation-received",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "sdp": [
+\end_layout
+
+\begin_layout LyX-Code
+
+          {
+\end_layout
+
+\begin_layout LyX-Code
+
+            "m": "audio 9 RTP/AVP 8",
+\end_layout
+
+\begin_layout LyX-Code
+
+            "c": "IN IP4 128.128.128.128",
+\end_layout
+
+\begin_layout LyX-Code
+
+            "attributes": [
+\end_layout
+
+\begin_layout LyX-Code
+
+              { "a": "sendrecv" },
+\end_layout
+
+\begin_layout LyX-Code
+
+              { "a": "rtpmap:8 pcmu/8000/1" },
+\end_layout
+
+\begin_layout LyX-Code
+
+              { "a": "context-id:84657112" }
+\end_layout
+
+\begin_layout LyX-Code
+
+            ]
+\end_layout
+
+\begin_layout LyX-Code
+
+          },
+\end_layout
+
+\begin_layout LyX-Code
+
+          {
+\end_layout
+
+\begin_layout LyX-Code
+
+            "m": "video 10 RTP/AVP 98",
+\end_layout
+
+\begin_layout LyX-Code
+
+            "c": "IN IP4 128.128.128.128",
+\end_layout
+
+\begin_layout LyX-Code
+
+            "attributes": [
+\end_layout
+
+\begin_layout LyX-Code
+
+              { "a": "sendrecv" },
+\end_layout
+
+\begin_layout LyX-Code
+
+              { "a": "rtpmap:98 H264/90000" },
+\end_layout
+
+\begin_layout LyX-Code
+
+              { "a": "fmtp:98 profile-level-id=1a4db5;packetization-mode=1"
+ },
+\end_layout
+
+\begin_layout LyX-Code
+
+              { "a": "context-id:84657112" }
+\end_layout
+
+\begin_layout LyX-Code
+
+            ]
+\end_layout
+
+\begin_layout LyX-Code
+
+          }
+\end_layout
+
+\begin_layout LyX-Code
+
+        ]
+\end_layout
+
+\begin_layout LyX-Code
+
+      }
+\end_layout
+
+\begin_layout LyX-Code
+
+    }
+\end_layout
+
+\begin_layout LyX-Code
+
+  }
+\end_layout
+
+\begin_layout LyX-Code
+
+} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during setup or tear-down of a call - XML)
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session request.
+ The response format is XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<events>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<type>calls</type>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<from>tel:+11234567890</from>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<resourceURL>/v1/session/0045-ab42-89a2/calls/15031864</resourceURL>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<state>invitation-received</state>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<m>audio 9 RTP/AVP 8</m>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<c>IN IP4 128.128.128.128</c>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+						<a>sendrecv</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+					</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+						<a>rtpmap:8 pcmu/8000/1</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+					</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+						<a>context-id:84657112</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+					</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				</sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<m>video 10 RTP/AVP 98</m>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<c>IN IP4 128.128.128.128</c>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+						<a>sendrecv</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+					</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+						<a>rtpmap:98 H264/90000</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+					</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+						<a>fmtp:98 profile-level-id=1a4db5;packetization-mode=1</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+					</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+						<a>context-id:84657112</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+					</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				</sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</events>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during ongoing call modifications - JSON)
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is JSON.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+  "events": {
+\end_layout
+
+\begin_layout LyX-Code
+
+    "eventList": {
+\end_layout
+
+\begin_layout LyX-Code
+
+      "eventObject": {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "type": "calls",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "from": "tel:+11234567890",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "resourceURL": "/v1/sessions/0045-ab42-89a2/calls/15031864",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "modId": "15034",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "state": "mod-received",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "sdp": [
+\end_layout
+
+\begin_layout LyX-Code
+
+          {
+\end_layout
+
+\begin_layout LyX-Code
+
+            "m": "audio9000RTP/AVP8",
+\end_layout
+
+\begin_layout LyX-Code
+
+            "attributes": [
+\end_layout
+
+\begin_layout LyX-Code
+
+              { "a": "sendonly" },
+\end_layout
+
+\begin_layout LyX-Code
+
+              { "a": "rtpmap: 8pcmu/8000/1" }
+\end_layout
+
+\begin_layout LyX-Code
+
+            ]
+\end_layout
+
+\begin_layout LyX-Code
+
+          },
+\end_layout
+
+\begin_layout LyX-Code
+
+          {
+\end_layout
+
+\begin_layout LyX-Code
+
+            "m": "video9001RTP/AVP98",
+\end_layout
+
+\begin_layout LyX-Code
+
+            "attributes": [
+\end_layout
+
+\begin_layout LyX-Code
+
+              { "a": "sendonly" },
+\end_layout
+
+\begin_layout LyX-Code
+
+              { "a": "rtpmap: 98H264/90000" },
+\end_layout
+
+\begin_layout LyX-Code
+
+              { "a": "fmtp: 98profile-levelid=A1438;packetization-mode=1"
+ }
+\end_layout
+
+\begin_layout LyX-Code
+
+            ]
+\end_layout
+
+\begin_layout LyX-Code
+
+          }
+\end_layout
+
+\begin_layout LyX-Code
+
+        ]
+\end_layout
+
+\begin_layout LyX-Code
+
+      }
+\end_layout
+
+\begin_layout LyX-Code
+
+    }
+\end_layout
+
+\begin_layout LyX-Code
+
+  }
+\end_layout
+
+\begin_layout LyX-Code
+
+} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during ongoing call modifications - XML)
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session request.
+ The response format is XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<events>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<type>calls</type>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<from>tel:+11234567890</from>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<resourceURL>/v1/sessions/0045-ab42-89a2/calls/15031864</resourceURL>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<modId>15034</modId>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<state>mod-received</state>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<m>audio9000RTP/AVP8</m>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+						<a>sendonly</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+					</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+						<a>rtpmap: 8pcmu/8000/1</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+					</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				</sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<m>video9001RTP/AVP98</m>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+						<a>sendonly</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+					</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+						<a>rtpmap: 98H264/90000</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+					</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+						<a>fmtp: 98profile-levelid=A1438;packetization-mode=1</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+					</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				</sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</events>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during call modification completion - JSON)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is JSON.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+  "events": {
+\end_layout
+
+\begin_layout LyX-Code
+
+    "eventList": {
+\end_layout
+
+\begin_layout LyX-Code
+
+      "eventObject": {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "type": "calls",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "from": "tel:+11234567890",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "resourceURL": "/V1/sessions/0045-ab42-89a2/audiovideo/15031864",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "modId": "15034",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "state": "mod-terminated",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "reason": "success",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "sdp": [
+\end_layout
+
+\begin_layout LyX-Code
+
+          {
+\end_layout
+
+\begin_layout LyX-Code
+
+            "m": "audio 9000 RTP/AVP 8",
+\end_layout
+
+\begin_layout LyX-Code
+
+            "attributes": [
+\end_layout
+
+\begin_layout LyX-Code
+
+              { "a": "sendonly" },
+\end_layout
+
+\begin_layout LyX-Code
+
+              { "a": "rtpmap:8 pcmu/8000/1" }
+\end_layout
+
+\begin_layout LyX-Code
+
+            ]
+\end_layout
+
+\begin_layout LyX-Code
+
+          },
+\end_layout
+
+\begin_layout LyX-Code
+
+          {
+\end_layout
+
+\begin_layout LyX-Code
+
+            "m": "video 9001 RTP/AVP 98",
+\end_layout
+
+\begin_layout LyX-Code
+
+            "attributes": [
+\end_layout
+
+\begin_layout LyX-Code
+
+              { "a": "sendonly" },
+\end_layout
+
+\begin_layout LyX-Code
+
+              { "a": "rtpmap:98 H264/90000" },
+\end_layout
+
+\begin_layout LyX-Code
+
+              { "a": "fmtp:98 profile-levelid=A1438;packetization-mode=1"
+ }
+\end_layout
+
+\begin_layout LyX-Code
+
+            ]
+\end_layout
+
+\begin_layout LyX-Code
+
+          }
+\end_layout
+
+\begin_layout LyX-Code
+
+        ]
+\end_layout
+
+\begin_layout LyX-Code
+
+      }
+\end_layout
+
+\begin_layout LyX-Code
+
+    }
+\end_layout
+
+\begin_layout LyX-Code
+
+  }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during call modification completion- XML)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<events>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<type>calls</type>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<from>tel:+11234567890</from>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<resourceURL>/V1/sessions/0045-ab42-89a2/audiovideo/15031864</resourceURL>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<modId>15034</modId>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<state>mod-terminated</state>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<reason>success</reason>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<m>audio 9000 RTP/AVP 8</m>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+						<a>sendonly</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+					</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+						<a>rtpmap:8 pcmu/8000/1</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+					</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				</sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<m>video 9001 RTP/AVP 98</m>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+						<a>sendonly</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+					</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+						<a>rtpmap:98 H264/90000</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+					</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+						<a>fmtp:98 profile-levelid=A1438;packetization-mode=1</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+					</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				</sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</events>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during call move complete- JSON)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is JSON.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+  "events": {
+\end_layout
+
+\begin_layout LyX-Code
+
+    "eventList": {
+\end_layout
+
+\begin_layout LyX-Code
+
+      "eventObject": {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "type": "calls",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "from": "tel:+11234567890",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "resourceURL": "/v1/sessions/0045-ab42-89a2/calls/15031864",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "transferToCallId": "15031865",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "state": "move-terminated",
+\end_layout
+
+\begin_layout LyX-Code
+
+		"reason": "success"
+\end_layout
+
+\begin_layout LyX-Code
+
+      }
+\end_layout
+
+\begin_layout LyX-Code
+
+    }
+\end_layout
+
+\begin_layout LyX-Code
+
+  }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during call move complete - XML)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml	
+\end_layout
+
+\begin_layout LyX-Code
+
+<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<events>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<type>calls</type>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<from>tel:+11234567890</from>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<resourceURL>/v1/sessions/0045-ab42-89a2/calls/15031864</resourceURL>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<transferToCallId>15031865</transferToCallId>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<state>move-terminated</state>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<reason>success</reason>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</events>
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+	
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during call transfer initiation - JSON)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is JSON.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+  "events": {
+\end_layout
+
+\begin_layout LyX-Code
+
+    "eventList": {
+\end_layout
+
+\begin_layout LyX-Code
+
+      "eventObject": {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "type": "calls",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "from": "tel:+11234567890",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "resourceURL": "/v1/sessions/0045-ab42-89a2/calls/15031864",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "transferToCallId": "15031865",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "state": "transfer-initiated"
+\end_layout
+
+\begin_layout LyX-Code
+
+      }
+\end_layout
+
+\begin_layout LyX-Code
+
+    }
+\end_layout
+
+\begin_layout LyX-Code
+
+  }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during call transfer initiation - XML)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+	<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<events>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<type>calls</type>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<from>tel:+11234567890</from>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<resourceURL>/v1/sessions/0045-ab42-89a2/calls/15031864</resourceURL>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<transferToCallId>15031865</transferToCallId>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<state>transfer-initiated</state>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</events>
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+	
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during call transfer completion - JSON)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is JSON.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+  "events": {
+\end_layout
+
+\begin_layout LyX-Code
+
+    "eventList": {
+\end_layout
+
+\begin_layout LyX-Code
+
+      "eventObject": {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "type": "calls",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "from": "tel:+11234567890",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "resourceURL": "/v1/sessions/0045-ab42-89a2/calls/15031864",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "transferToCallId": "15031865",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "state": "transfer-terminated",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "reason": "success"
+\end_layout
+
+\begin_layout LyX-Code
+
+      }
+\end_layout
+
+\begin_layout LyX-Code
+
+    }
+\end_layout
+
+\begin_layout LyX-Code
+
+  }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during call transfer completion - XML)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+	
+\end_layout
+
+\begin_layout LyX-Code
+
+<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<events>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<type>calls</type>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<from>tel:+11234567890</from>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<resourceURL>/v1/sessions/0045-ab42-89a2/calls/15031864</resourceURL>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<transferToCallId>15031865</transferToCallId>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<state>transfer-terminated</state>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<reason>success</reason>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</events>
+\end_layout
+
+\begin_layout LyX-Code
+
+	
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during conference invitation - JSON)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is JSON.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+  "events": {
+\end_layout
+
+\begin_layout LyX-Code
+
+    "eventList": {
+\end_layout
+
+\begin_layout LyX-Code
+
+      "eventObject": {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "type": "conferences",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "from": "tel:+11234567890",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "resourceURL": "/v1/sessions/0045-ab42-89a2/conferences/15031864",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "state": "invitation-received",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "sdp": {
+\end_layout
+
+\begin_layout LyX-Code
+
+          "m": "audio 9 TCP/RTMP 8",
+\end_layout
+
+\begin_layout LyX-Code
+
+          "c": "IN IP4 128.128.128.128",
+\end_layout
+
+\begin_layout LyX-Code
+
+          "attributes": [
+\end_layout
+
+\begin_layout LyX-Code
+
+            { "a": "sendrecv" },
+\end_layout
+
+\begin_layout LyX-Code
+
+            { "a": "rtpmap:8 pcmu/8000/1" },
+\end_layout
+
+\begin_layout LyX-Code
+
+            { "a": "setup:passive" },
+\end_layout
+
+\begin_layout LyX-Code
+
+            { "a": "context-id:3974619" }
+\end_layout
+
+\begin_layout LyX-Code
+
+          ]
+\end_layout
+
+\begin_layout LyX-Code
+
+        }
+\end_layout
+
+\begin_layout LyX-Code
+
+      }
+\end_layout
+
+\begin_layout LyX-Code
+
+    }
+\end_layout
+
+\begin_layout LyX-Code
+
+  }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during conference invitation - XML)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<events>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<type>conferences</type>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<from>tel:+11234567890</from>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<resourceURL>/rest/v2/session/0045-ab42-89a2/conferences/15031864</resourceU
+RL>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<state>invitation-received</state>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<m>audio 9 TCP/RTMP 8</m>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<c>IN IP4 128.128.128.128</c>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+						<a>sendrecv</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+					</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+						<a>rtpmap:8 pcmu/8000/1</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+					</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+						<a>setup:passive</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+					</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+						<a>context-id:3974619</a>
+\end_layout
+
+\begin_layout LyX-Code
+
+					</attributes>
+\end_layout
+
+\begin_layout LyX-Code
+
+				</sdp>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</events>
+\end_layout
+
+\begin_layout LyX-Code
+
+	
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during 1-to-1 chat message - JSON)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is JSON.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+  "events": {
+\end_layout
+
+\begin_layout LyX-Code
+
+    "eventList": {
+\end_layout
+
+\begin_layout LyX-Code
+
+      "eventObject": {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "type": "chats",
+\end_layout
+
+\begin_layout LyX-Code
+
+		"subType":"session-message",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "from": "tel:+11234567890",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "contentType": "text/plain",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "body": "This is my message"
+\end_layout
+
+\begin_layout LyX-Code
+
+      }
+\end_layout
+
+\begin_layout LyX-Code
+
+    }
+\end_layout
+
+\begin_layout LyX-Code
+
+  }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during 1-to-1 chat message - XML)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<events>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<type>chats</type>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<subType>session-message</subType>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<from>tel:+11234567890</from>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<contentType>text/plain</contentType>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<body>This is my message</body>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</events>
+\end_layout
+
+\begin_layout LyX-Code
+
+	
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during 1-to-1 chat message failure - JSON)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is JSON.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+  "events": {
+\end_layout
+
+\begin_layout LyX-Code
+
+    "eventList": {
+\end_layout
+
+\begin_layout LyX-Code
+
+      "eventObject": {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "type": "chats",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "to": "tel:+11234567890",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "msgId": "dd47fb6b-dfc8-4404-8211-2eb20222cf1e",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "subType": "failure",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "reason": "Forbidden"
+\end_layout
+
+\begin_layout LyX-Code
+
+      }
+\end_layout
+
+\begin_layout LyX-Code
+
+    }
+\end_layout
+
+\begin_layout LyX-Code
+
+  }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during 1-to-1 chat message failure - XML)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<events>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<type>chats</type>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<to>tel:+11234567890</to>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<msgId>dd47fb6b-dfc8-4404-8211-2eb20222cf1e</msgId>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<subType>failure</subType>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<reason>Forbidden</reason>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</events>
+\end_layout
+
+\begin_layout LyX-Code
+
+	
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during 1-to-1 chat message 1-to-1 chat message
+ - JSON)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is JSON.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+  "events": {
+\end_layout
+
+\begin_layout LyX-Code
+
+    "eventList": {
+\end_layout
+
+\begin_layout LyX-Code
+
+      "eventObject": {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "type": "chats",
+\end_layout
+
+\begin_layout LyX-Code
+
+		"subType": "is-composing",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "contentType": "text/plain",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "refresh": "120",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "state": "active",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "from": "sip:jane@rcs.att.com"
+\end_layout
+
+\begin_layout LyX-Code
+
+      }
+\end_layout
+
+\begin_layout LyX-Code
+
+    }
+\end_layout
+
+\begin_layout LyX-Code
+
+  }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during 1-to-1 chat message 1-to-1 chat message
+ - XML)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+	<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<events>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<type>chats</type>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<subType>is-composing</subType>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<contentType>text/plain</contentType>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<refresh>120</refresh>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<state>active</state>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<from>sip:jane@rcs.att.com</from>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</events>
+\end_layout
+
+\begin_layout LyX-Code
+
+	
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during 1-to-1 chat media message - JSON)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is JSON.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+  "events": {
+\end_layout
+
+\begin_layout LyX-Code
+
+    "eventList": {
+\end_layout
+
+\begin_layout LyX-Code
+
+      "eventObject": {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "type": "chats",
+\end_layout
+
+\begin_layout LyX-Code
+
+		"subType":"media",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "from": "tel:+1234567890",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "contentType": "image/jpeg",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "resourceURL": "/v1/sessions/0045-ab42-89a2/chats/?fileRef=43235321",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "size": "51199"
+\end_layout
+
+\begin_layout LyX-Code
+
+      }
+\end_layout
+
+\begin_layout LyX-Code
+
+    }
+\end_layout
+
+\begin_layout LyX-Code
+
+  }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during 1-to-1 chat media message - XML)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+	<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<events>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<type>chats</type>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<subType>media</subType>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<from>tel:+11234567890</from>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<contentType>image/jpeg</contentType>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<resourceURL>/v1/sessions/0045-ab42-89a2/chats/?fileRef=43235321</resourceUR
+L>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<size>51199</size>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</events>
+\end_layout
+
+\begin_layout LyX-Code
+
+	
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+	
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during invitation to join a chat group - JSON)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is JSON.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+  "events": {
+\end_layout
+
+\begin_layout LyX-Code
+
+    "eventList": {
+\end_layout
+
+\begin_layout LyX-Code
+
+      "eventObject": {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "type": "groups",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "subType": "invitation",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "referredBy": "tel:+11223456789",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "confId": "357",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "subject": "Testing Group Chat With multiple participants",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "participants": "tel:+11234567890"
+\end_layout
+
+\begin_layout LyX-Code
+
+      }
+\end_layout
+
+\begin_layout LyX-Code
+
+    }
+\end_layout
+
+\begin_layout LyX-Code
+
+  }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during invitation to join a chat group - XML)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is XMLt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+	<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<events>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<type>groups</type>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<subType>invitation</subType>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<referredBy>tel:+11234567890</referredBy>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<confId>357</confId>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<subject>Testing Group Chat With multiple participants</subject>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<participants>tel:+1234567890</participants>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</events>
+\end_layout
+
+\begin_layout LyX-Code
+
+	
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+	
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during group Chat group status update - JSON)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is JSON.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+  "events": {
+\end_layout
+
+\begin_layout LyX-Code
+
+    "eventList": {
+\end_layout
+
+\begin_layout LyX-Code
+
+      "eventObject": {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "type": "groups",
+\end_layout
+
+\begin_layout LyX-Code
+
+		"subType": "info",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "userCount": "2",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "confId": "357",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "users": [
+\end_layout
+
+\begin_layout LyX-Code
+
+          {
+\end_layout
+
+\begin_layout LyX-Code
+
+            "entity": "tel:+11234567890",
+\end_layout
+
+\begin_layout LyX-Code
+
+            "status": "connected"
+\end_layout
+
+\begin_layout LyX-Code
+
+          },
+\end_layout
+
+\begin_layout LyX-Code
+
+          {
+\end_layout
+
+\begin_layout LyX-Code
+
+            "entity": "tel:+11223456789",
+\end_layout
+
+\begin_layout LyX-Code
+
+            "status": "connected"
+\end_layout
+
+\begin_layout LyX-Code
+
+          }
+\end_layout
+
+\begin_layout LyX-Code
+
+        ],
+\end_layout
+
+\begin_layout LyX-Code
+
+        "state": "full",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "reason": "<a reason>"
+\end_layout
+
+\begin_layout LyX-Code
+
+      }
+\end_layout
+
+\begin_layout LyX-Code
+
+    }
+\end_layout
+
+\begin_layout LyX-Code
+
+  }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during group Chat group status update - XML)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+	<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<events>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<type>groups</type>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<subType>info</subType>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<userCount>2</userCount>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<confId>357</confId>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<users>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<entity>tel:+11234567890</entity>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<status>connected</status>
+\end_layout
+
+\begin_layout LyX-Code
+
+				</users>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<users>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<entity>tel:+11223456789</entity>
+\end_layout
+
+\begin_layout LyX-Code
+
+					<status>connected</status>
+\end_layout
+
+\begin_layout LyX-Code
+
+				</users>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<state>full</state>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<reason>&lt;a reason&gt;</reason>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</events>
+\end_layout
+
+\begin_layout LyX-Code
+
+	
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during group Chat message - JSON)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is JSON.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+  "events": {
+\end_layout
+
+\begin_layout LyX-Code
+
+    "eventList": {
+\end_layout
+
+\begin_layout LyX-Code
+
+      "eventObject": {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "type": "groups",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "subType": "message",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "from": "tel:+11234567890",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "confId": "357",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "body": "Hello"
+\end_layout
+
+\begin_layout LyX-Code
+
+      }
+\end_layout
+
+\begin_layout LyX-Code
+
+    }
+\end_layout
+
+\begin_layout LyX-Code
+
+  }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during group Chat message - XML)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+	<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<events>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<type>groups</type>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<subType>message</subType>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<from>tel:+11234567890</from>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<confId>357</confId>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<body>Hello</body>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</events>
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during an is-composing message from group Chat
+ - JSON)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is JSON.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+  "events": {
+\end_layout
+
+\begin_layout LyX-Code
+
+    "eventList": {
+\end_layout
+
+\begin_layout LyX-Code
+
+      "eventObject": {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "type": "groups",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "subType": "is-composing",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "confId": "357",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "contentType": "text/plain",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "refresh": "120",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "state": "active",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "from": "tel:+11234567890"
+\end_layout
+
+\begin_layout LyX-Code
+
+      }
+\end_layout
+
+\begin_layout LyX-Code
+
+    }
+\end_layout
+
+\begin_layout LyX-Code
+
+  }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during an is-composing message from group Chat
+ - XML)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+	<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<events>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<type>groups</type>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<subType>is-composing</subType>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<confId>357</confId>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<contentType>text/plain</contentType>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<refresh>120</refresh>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<state>active</state>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<from>tel:+11234567890</from>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</events>
+\end_layout
+
+\begin_layout LyX-Code
+
+	
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during media chats during group Chat - JSON)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is JSON.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+  "events": {
+\end_layout
+
+\begin_layout LyX-Code
+
+    "eventList": {
+\end_layout
+
+\begin_layout LyX-Code
+
+      "eventObject": {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "type": "groups",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "subType": "media",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "from": "tel:+11234567890",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "contentType": "image/jpeg",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "resourceURL": "/v1/sessions/0045-ab42-89a2/groups/?fileRef=43235321",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "size": "2345",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "confId": "357"
+\end_layout
+
+\begin_layout LyX-Code
+
+      }
+\end_layout
+
+\begin_layout LyX-Code
+
+    }
+\end_layout
+
+\begin_layout LyX-Code
+
+  }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during media chats during group Chat - XML)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+	
+\end_layout
+
+\begin_layout LyX-Code
+
+	<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<events>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<type>groups</type>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<subType>media</subType>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<from>tel:+11234567890</from>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<contentType>image/jpeg</contentType>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<resourceURL>/v1/sessions/0045-ab42-89a2/groups/?fileRef=43235321</resourceU
+RL>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<size>2345</size>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<confId>357</confId>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</eventList>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</events>
+\end_layout
+
+\begin_layout LyX-Code
+
+	
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during File Transfer Invitation or Status - JSON)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is JSON.
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},tabsize=4"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/json
+\end_layout
+
+\begin_layout LyX-Code
+
+{
+\end_layout
+
+\begin_layout LyX-Code
+
+  "events": {
+\end_layout
+
+\begin_layout LyX-Code
+
+    "list": {
+\end_layout
+
+\begin_layout LyX-Code
+
+      "eventObject": {
+\end_layout
+
+\begin_layout LyX-Code
+
+        "type": "files",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "subType": "transfer",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "from": "tel:+11234567890",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "fileName": "image0127.jpg",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "fileSize": "103608",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "contentType": "image/jpeg",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "contentDisposition": "render",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "ftId": "15031864",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "state": "session-received",
+\end_layout
+
+\begin_layout LyX-Code
+
+        "isIncoming": "true"
+\end_layout
+
+\begin_layout LyX-Code
+
+      }
+\end_layout
+
+\begin_layout LyX-Code
+
+    }
+\end_layout
+
+\begin_layout LyX-Code
+
+  }
+\end_layout
+
+\begin_layout LyX-Code
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Response – Example (Events during File Transfer Invitation or Status - XML)
+\end_layout
+
+\begin_layout Standard
+This example shows the response to the Get Session Event request.
+ The response format is XML.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily}"
+inline false
+status open
+
+\begin_layout LyX-Code
+
+HTTP/1.1 200 OK  
+\end_layout
+
+\begin_layout LyX-Code
+
+Content-Type: application/xml
+\end_layout
+
+\begin_layout LyX-Code
+
+<?xml version="1.0" encoding="UTF-8" ?>
+\end_layout
+
+\begin_layout LyX-Code
+
+	<events>
+\end_layout
+
+\begin_layout LyX-Code
+
+		<list>
+\end_layout
+
+\begin_layout LyX-Code
+
+			<eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<type>files</type>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<subType>transfer</subType>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<from>tel:+11234567890</from>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<fileName>image0127.jpg</fileName>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<fileSize>103608</fileSize>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<contentType>image/jpeg</contentType>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<contentDisposition>render</contentDisposition>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<ftId>15031864</ftId>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<state>session-received</state>
+\end_layout
+
+\begin_layout LyX-Code
+
+				<isIncoming>true</isIncoming>
+\end_layout
+
+\begin_layout LyX-Code
+
+			</eventObject>
+\end_layout
+
+\begin_layout LyX-Code
+
+		</list>
+\end_layout
+
+\begin_layout LyX-Code
+
+	</events>
+\end_layout
+
+\begin_layout LyX-Code
+
+	
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+HTTP Status Codes
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+This section should be replaced with a .lyx file contianing this information.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+List expected response codes (indicate any variation that exists across
+ different versions):
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Please refer to the appendix for HTTP errors.
+\end_layout
+
+\begin_layout Subsubsection
+Service Exceptions
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+List the service exceptions generated by the operation (indicate any variation
+ that exists across different versions):
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="4">
+<features islongtable="true" firstHeadTopDL="true" firstHeadBottomDL="true" headTopDL="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="10text%">
+<column alignment="left" valignment="top" width="33text%">
+<column alignment="left" valignment="top" width="33text%">
+<column alignment="left" valignment="top" width="10text%">
+<row endhead="true" endfirsthead="true">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+MessageId
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Text
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Variables
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+HTTP Status Code
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+SVC0001
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+A service error has occurred.
+ Error code is <error_explanation>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+error_explanation : <content_here>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+400
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+SVC0002
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Invalid input value for Message part <part_name>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+part_name : name of the input parameter that resulted in the error.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+400
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+SVC0003
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Invalid input value for Message part <part_name>, valid values are <part_values>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+part_name : name of the input parameter that resulted in the error.
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+part_value : value of input parameter that was found to be in error.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+400
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+SVC0004
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+No valid addresses provided in the Message part <part_name>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+part_name : name of the input parameter that resulted in the error.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+400
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Policy Exceptions
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+List the policy exceptions generated by the operation (indicate any variation
+ that exists across different versions):
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="4">
+<features islongtable="true" firstHeadTopDL="true" firstHeadBottomDL="true" headTopDL="true" headBottomDL="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="10text%">
+<column alignment="left" valignment="top" width="33text%">
+<column alignment="left" valignment="top" width="33text%">
+<column alignment="left" valignment="top" width="10text%">
+<row endhead="true" endfirsthead="true">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+MessageId
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Text
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Variables
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+HTTP Status Code
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+POL0001
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+A policy error occurred.
+ For example, rate limit error, authentication and authorization error.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+401, 403
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+POL0002
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Privacy verification failed for address <address>, request is refused
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+address : <content_here>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+403
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+POL0003
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Too many addresses specified in Message part
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+403
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+POL1009
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+User has not been provisioned for %1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+1% : System that has not been provisioned
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+403
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

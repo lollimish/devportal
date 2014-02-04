@@ -9,6 +9,10 @@ if (isset($argv)) {
     $inputfile = "file/" . $_SESSION['file_name'];
     $outputfile = "test9.html";
 }
+$file = explode('.', $inputfile);
+
+//$outputfile = 'output_html/'.$file[0].'.tex';
+
 
 define("UPLOAD_DIR", 'file/');
 define("UPLOAD_FILE", $inputfile);
@@ -94,36 +98,92 @@ function findSection($filename, $begin_line, $end_line) {
         }
         if (substr($line, 0, strlen($begin_line)) === $begin_line) {
             $foundSection = true;
-           
-        } 
+        }
         if (substr($line, 0, strlen($end_line)) === $end_line) {
             $foundSection = false;
             break;
         }
-        
+    }
+    fclose($file_handle);
+    return $output;
+}
+
+//use for other doc but param @@ return array
+function findSectionInArray($array, $begin_line, $end_line) {
+
+    $foundSection = false;
+    $output = array();
+    foreach ($array as $line) {
+        if ($foundSection) {
+            $output[] = $line;
+        }
+        if (substr($line, 0, strlen($begin_line)) === $begin_line) {
+            $foundSection = true;
+        }
+        if (substr($line, 0, strlen($end_line)) === $end_line) {
+            $foundSection = false;
+            break;
+        }
+    }
+    return $output;
+}
+
+//use for other doc but param @@ return array
+function findSubSecByName($filename, $secName) {
+    $begin_line = '\subsubsection{' . $secName . '}';
+    $end_line = '\subsubsection{';
+    $file_handle = fopen($filename, 'r');
+    $foundSection = false;
+    $output = array();
+    while (!\feof($file_handle)) {
+        $line = fgets($file_handle);
+        if ($foundSection) {
+            $output[] = $line;
+        }
+        if (startsWith($line, $begin_line)) {
+            $foundSection = true;
+        }
+        if (startsWith($line, $end_line) && !startsWith($line, $begin_line)) {
+            $foundSection = false;
+        }
     }
     fclose($file_handle);
     return $output;
 }
 
 function getInbetweenStrings($startstr, $endstr, $out) {
-
     $startsAt = strpos($out, $startstr) + strlen($startstr);
     $endsAt = strpos($out, $endstr, $startsAt);
     return $result = substr($out, $startsAt, $endsAt - $startsAt);
 }
-//replace the comment html tag(return whole string)
+
+//ul
 function getItem($string) {
-    $item = getInbetweenStrings('\begin{itemize}', '\end{itemize}', $string);
-    $originalStr = '\begin{itemize}' . $item . '\end{itemize}';
-    $item = str_replace("\item ", "<li>", $item);
-    $item = str_replace("\n", "</li>\n", $item);
-    $item = '<ul>' . $item . '</ul>';
-    $ul = str_replace($originalStr, $item, $string);
-    return $ul;
+    if (strpos($string, 'begin{itemize}') !== false) {
+        $string = str_replace('\begin{itemize}', '<ul>', $string);
+        $string = str_replace('\end{itemize}', '</li></ul>', $string);
+        $string = str_replace('\item', "</li>\r\n<li>", $string);
+        return $string;
+    }
+    return $string;
 }
- 
-function noCommet($string){
+
+//ol
+function getEnumerate($string) {
+    if (strpos($string, 'begin{enumerate}') !== false) {
+        $item = getInbetweenStrings('\begin{enumerate}', '\end{enumerate}', $string);
+        $originalStr = '\begin{enumerate}' . $item . '\end{enumerate}';
+        $item = str_replace("\item ", "<li>", $item);
+        $item = str_replace("\n", "</li>\n", $item);
+        $item = '<ol>' . $item . '</ol>';
+        $ol = str_replace($originalStr, $item, $string);
+        return $ol;
+    }
+    return $string;
+}
+
+//take out comments
+function noCommet($string) {
     $comment = getInbetweenStrings('\begin{comment}', '\end{comment}', $string);
     $originalStr = '\begin{comment}' . $comment . '\end{comment}';
     $noCommet = str_replace($originalStr, '', $string);
@@ -136,4 +196,14 @@ function parseParagraph($string) {
     $string = getItem($string);
 
     return $string;
+}
+
+//get cell value when there are more than one value and separate them with a space
+function getCellValue($cell) {
+    preg_match_all('/footnotesize{(.*?)}}/s', $cell, $matches);
+    $output = '';
+    foreach ($matches[1] as $m) {
+        $output .= $m . ' ';
+    }
+    return str_replace('\_', '_', $output);
 }

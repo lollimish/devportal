@@ -1,0 +1,49 @@
+@startuml
+
+hide footbox
+
+title Cancel End Reject Audio Video Calls
+participant "<b>WebRTC App" as browser
+participant "<b>APIGW" as apig
+
+
+group Cancel a call  
+note over browser  
+1. User is registered and 
+does have a <b>session ID</b>.
+2. The client received a response
+ with state value “invitation-sent”
+ and did not receive an event indicating
+ success or failure of the invitation.
+end note
+browser->apig : DELETE /v1/sessions/sessionId/calls/{callId}
+apig-->browser :HTTP 200 Ok
+end
+
+
+group Reject a call  
+note over browser  
+1. User is registered and 
+does have a <b>session ID</b>.
+2. The client received a response
+ with state value “invitation-received”.
+end note
+browser->apig : DELETE /v1/sessions/sessionId/calls/{callId}
+apig-->browser :HTTP 200 Ok
+end
+
+group End a call  
+note over browser  
+1. User is registered and 
+does have a <b>session ID</b>.
+2. the client received prior
+ an call event with 
+the state value “accepted” or “session-open”.
+end note
+browser->apig : DELETE /v1/sessions/sessionId/calls/{callId}
+apig-->browser :HTTP 200 Ok
+end
+
+
+@enduml
+

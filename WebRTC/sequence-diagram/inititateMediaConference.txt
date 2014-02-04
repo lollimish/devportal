@@ -1,0 +1,24 @@
+@startuml
+
+hide footbox
+
+title <u>Initiate Conference
+participant "<b>WebRTC App" as browser
+participant "<b>APIGW" as apig
+
+note over browser 
+User is registered and 
+does have a <b>session ID</b>
+end note
+group create conference  
+browser->apig : POST /v1/sessions/{sessionId}/conferences(sdp)
+apig->browser :HTTP 201 Created(conf ID)
+end
+
+group Event Channel loop  
+browser->apig : GET /v1/sessions/{sessionId}/events 
+apig->browser : 200 Ok (Events Received)
+end
+
+@enduml
+

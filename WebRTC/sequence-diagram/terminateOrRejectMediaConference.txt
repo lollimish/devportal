@@ -1,0 +1,37 @@
+@startuml
+
+hide footbox
+
+title Reject/End Media Conference 
+participant "<b>WebRTC App" as browser
+participant "<b>APIGW" as apig
+
+
+group Reject a conference Invite
+
+
+note over browser  
+1. User is registered and 
+does have a <b>session ID</b>.
+2. The client received a response
+ with state value “invitation-received”.
+end note
+browser->apig : DELETE /v1/sessions/sessionId/conferences/{confId}
+
+apig-->browser :HTTP 200 Ok
+end
+
+group Terminate a conference  
+note over browser  
+1. User is registered and 
+does have a <b>session ID</b>.
+2. the client received prior
+ event with the state value “session-open”.
+end note
+browser->apig : DELETE /v1/sessions/sessionId/conferences/{confId}
+apig-->browser :HTTP 200 Ok
+end
+
+
+@enduml
+

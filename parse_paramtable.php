@@ -54,7 +54,7 @@ foreach ($paramTbl as $line) {
                 //take out notes
                 $row = str_replace('\emph{\footnotesize{Note}}{\footnotesize{:', '<br><p><span style="font-style: italic">Note</span>: ', $row);
                 
-                $row = str_replace(array("\n", '\hline', '%{}', '\emph'), '', $row);
+                $row = str_replace(array("\n", '\hline', '%{}', '\emph'), ' ', $row);
                 
                 
                 $cell = explode('&', $row);

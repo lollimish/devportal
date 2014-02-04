@@ -1,0 +1,56 @@
+@startuml
+
+hide footbox
+actor browser
+title Initiate Audio Video Calls
+participant "<b>Dev Server" as dhs
+participant "<b>APIGW" as apig
+participant "<b>SBEnabler for call management" as SB
+
+
+group Cancel a call  
+note over browser,dhs  
+1. User is registered and 
+does have a <b>session ID</b>.
+2. The client received a response
+ with state value “invitation-sent”
+ and did not receive an event indicating
+ success or failure of the invitation.
+end note
+browser->apig : DELETE /calls/{callId}
+apig->SB :<b>Cancel</b> Calls
+SB->apig : HTTP 200 Ok
+apig->browser :HTTP 200 Ok
+end
+
+
+group Reject a call  
+note over browser,dhs  
+1. User is registered and 
+does have a <b>session ID</b>.
+2. The client received a response
+ with state value “invitation-received”.
+end note
+browser->apig : DELETE /calls/{callId}
+apig->SB :<b>Reject</b> Calls
+SB->apig : HTTP 200 Ok
+apig->browser :HTTP 200 Ok
+end
+
+group Terminate a call  
+note over browser,dhs  
+1. User is registered and 
+does have a <b>session ID</b>.
+2. the client received prior
+ an AudioVideo event with 
+the state value “accepted” or “session-open”.
+end note
+browser->apig : DELETE /calls/{callId}
+apig->SB :<b>Terminate</b> Calls
+SB->apig : HTTP 200 Ok
+apig->browser :HTTP 200 Ok
+end
+
+
+@enduml
+

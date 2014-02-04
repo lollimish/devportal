@@ -1,0 +1,28 @@
+@startuml
+
+hide footbox
+
+title Add participant to a Conference
+participant "<b>WebRTC App" as browser
+participant "<b>APIGW" as apig
+
+note over browser
+1. User is registered and 
+does have a <b>session ID</b>
+2. User is participant to the confernce.
+end note
+group add participant to conference  
+browser->apig : HTTP PUT /v1/sessions/{sessionId}/conferences/{confId}/participants/{participantsID}
+note over apig
+    Conference invite send
+    out to the Participant
+end note
+apig-->browser :HTTP 202 Accepted (participantsID,state:add-pending)
+end
+
+group Event Channel loop  
+browser->apig : GET /v1/sessions/{sessionId}/events 
+apig-->browser : HTTP 200 OK Participant Accepted(state:accepted)
+end
+
+@enduml

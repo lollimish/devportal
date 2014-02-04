@@ -1,0 +1,41 @@
+@startuml
+
+hide footbox
+actor browser
+title Reject/Terminate Media Conference 
+participant "<b>Dev Server" as dhs
+participant "<b>APIGW" as apig
+participant "<b>SBEnabler for call management" as SB
+
+
+
+
+group Reject a conference Invite
+note over browser,dhs  
+1. User is registered and 
+does have a <b>session ID</b>.
+2. The client received a response
+ with state value “invitation-received”.
+end note
+browser->apig : DELETE /mediaConferences/{confId}
+apig->SB :<b>Reject</b> Conference
+SB->apig : HTTP 200 Ok
+apig->browser :HTTP 200 Ok
+end
+
+group Terminate a conference  
+note over browser,dhs  
+1. User is registered and 
+does have a <b>session ID</b>.
+2. the client received prior
+ event with the state value “session-open”.
+end note
+browser->apig : DELETE /mediaConferences/{confId}
+apig->SB :<b>Terminate</b> Conference
+SB->apig : HTTP 200 Ok
+apig->browser :HTTP 200 Ok
+end
+
+
+@enduml
+

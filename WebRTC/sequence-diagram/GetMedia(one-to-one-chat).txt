@@ -1,0 +1,32 @@
+
+
+@startuml
+
+' Author: rajender saini (rs662h@att.com)
+' Date : 12/21/2013
+' project : WebRTC REST API
+
+
+title Get Message Media (one-to-one chat) Sequence
+
+participant "Endpoint A" as EPA
+participant "AT&T API Gateway" as Gateway
+
+
+autonumber
+EPA -> Gateway: POST /sessions (AT,services,E911Id) 
+
+
+
+autonumber 2
+
+loop Long polling | Web Sockets 
+EPA->Gateway: GET /sessions/{sessionId}/events 
+Gateway-->EPA:200 OK (event{type=media-message, from, contentType, url, size})
+end
+
+EPA -> Gateway:GET /sessions/{sessionId}/messages  (x-file-Ref)
+Gateway-->EPA: 200 | OK (Binary data in body)
+
+
+@enduml

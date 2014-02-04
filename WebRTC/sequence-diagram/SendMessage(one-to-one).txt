@@ -1,0 +1,54 @@
+@startuml
+
+title Send message Sequence
+
+participant "Endpoint A" as EPA
+participant "AT&T API Gateway" as GW
+participant "Endpoint B" as EPB
+hide footbox
+note over EPA, EPB
+1. EndPoints are registered with Gateway
+2. EndPoints have established event channel to get notification of network events. 
+end note
+autonumber 
+loop Long polling 
+EPA->GW: GET /sessions/{sessionId}/events 
+end
+
+alt Send Text Chat
+EPA -> GW: POST /sessions/{sessionId}/chats (msg)
+end
+
+autonumber 2
+note over EPA:Media content sent\n in HTTP body
+alt Send Media Chat Message 
+EPA -> GW:POST /sessions/{sessionId}/chats
+end
+
+
+autonumber 2
+alt Send Is-Composing Notification
+EPA -> GW:POST /sessions/{sessionId}/chats(state, refresh)
+end
+
+GW-->EPA: 202 | Accepted (<b>msgId</b>)
+
+autonumber 2
+loop Long polling
+EPB->GW: GET /sessions/{sessionId}/events
+alt Receive Chat Event
+GW-->EPB: 200 OK event{@type=chats, subType=session-chat,from,contentType,body,type}
+end
+
+autonumber 3
+alt Receive Media Chat Event
+GW-->EPB:200 OK  event(@type=chats, subType=media,from,mediaUrl}
+end
+
+autonumber 3
+alt Receive Is-Composing Chat Event
+GW-->EPB:200 OK  event{@type=chats, subType=is-composing,from,url,size}
+end
+end
+
+@enduml

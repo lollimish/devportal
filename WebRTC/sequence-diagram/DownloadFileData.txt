@@ -1,0 +1,32 @@
+@startuml
+
+title Download File Data Sequence
+
+' Diagram for Get File Data Sequence
+' Rajender Saini
+' WebRTC Api
+
+
+participant "Endpoint A" as EPA
+participant "AT&T API Gateway" as Gateway
+
+note over EPA, Gateway
+1. Endpoint have valid session established with gateway.
+2. Endpoint have established event channel to get notification of network events. 
+
+end note
+
+loop Long polling 
+EPA->Gateway: GET /sessions/{sessionId}/events
+Gateway-->EPA: 200 OK (events)
+
+note over Gateway, EPA
+A. Endpoint A receives file transfer session-open event on event
+   channel with following details.
+   event(type=files, subType=transfer, state=session-open)
+end note
+end
+
+EPA->Gateway: GET /sessions/{sessionId}/files/{fileId}
+Gateway-->EPA: 200 OK (content in body)
+@enduml
