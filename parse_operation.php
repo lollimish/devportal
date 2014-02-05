@@ -1,60 +1,57 @@
 <?php
+
 //php parse_operation.php api/Operation-Add_Files_To_Folder.tex output_html/2.html
+//php parse_operation.php webrtc/Operation-AcceptRejectJoinchatGroup.tex output_html/op.html
 include 'define.php';
 
 
-if (isset($_SESSION['file_name'])) {
-    $filename = $_SESSION['file_name'];
-} elseif (isset($argv[1])) {
-    $filename = $argv[1];
-}
-
-$operation_name = getOperationName($filename);
-$operation_title = ucfirst(str_replace('-', ' ',$operation_name));
+if (!file_exists(TEX_FILE)) {
+    echo "input file is not exist\n";
+} else {
+    $operation_name = getOperationName(TEX_FILE);
+    $operation_title = ucfirst(str_replace('-', ' ', $operation_name));
 //echo $operation_title;
-$funcBehav = array();
-$authTable = array();
-//find function behavior
-//$begin_line = '\subsubsection{Functional Behavior}';
-//$end_line = '\subsubsection{Call flow}';
-//$funcBehav = findSection($filename, $begin_line, $end_line);
-
-$funcBehav = findSubSecByName($filename, 'Functional Behavior');
-$overview= '';
-foreach($funcBehav as $line){
-    $overview .= $line;
-    
-}
-$overview = noCommet($overview);
-$overview = getItem($overview);
-
-$overview = str_replace(array("\n\n"), '</p><p>', $overview);
-$overview = str_replace(array("\n",'\subsubsection{Call flow}'), '', $overview);
+    $funcBehav = array();
+    $authTable = array();
+    $funcBehav = findSubSecByName(TEX_FILE, 'Functional Behavior');
+    $overview = '';
+    foreach ($funcBehav as $line) {
+        $overview .= $line;
+    }
+    $overview = noCommet($overview);
+    $overview = getItem($overview);
+    $overview = str_replace(array("\n\n"), '</p><p>', $overview);
+    $overview = str_replace(array("\n", '\subsubsection{Call flow}'), '', $overview);
 
 //auth secion
-$authTable = findSubSecByName($filename, 'Authentication and Authorization');
-$begin_line = '\endhead';
-$end_line = '\end{longtable';
-$tbl = findSectionInArray($authTable, $begin_line, $end_line);
-$scope = '';
-$model = '';
-$authTbl = '';
-foreach($tbl as $line){
-    $authTbl .= $line;
-}
-$authTbl = noCommet($authTbl);
-$authTbl = str_replace(array("\n", '\hline', '%{}', '\emph', ' '), '', $authTbl);
-$cell = explode('&', $authTbl);
-//get model
-//preg_match_all('/footnotesize{(.*?)}}/s', $cell[0], $matches);
-//foreach($matches[1] as $m){
-//    $model .= $m . ' ';
-//}
-//$model = str_replace('\_','_', $model);
-$model =  getCellValue($cell[0]);
-$scope =  $cell[2];
-echo var_dump($cell[0]);
-$content = <<<"EOD"
+    $scope = '';
+    $model = '';
+    $authTbl = '';
+    $authTable = findSubSecByName(TEX_FILE, 'Authentication and Authorization');
+    $begin_line = '\endhead';
+    $end_line = '\end{longtable';
+    $tbl = findSectionInArray($authTable, $begin_line, $end_line);
+
+    foreach ($tbl as $line) {
+        $authTbl .= $line;
+    }
+    $row = explode('\hline', $authTbl);
+    for ($i = 1; $i < count($row) - 1; $i++) {
+        $row[$i] = noCommet($row[$i]);
+
+        $row[$i] = str_replace(array("\n", '\hline', '%{}', '\emph', ' ', '\end{longtable}'), '', $row[$i]);
+        $cell[$i] = explode('&', $row[$i]);
+        $model .= trim(getCellValue($cell[$i][0])) . ' ';
+    }
+    $scope = getCellValue($cell[1][2]);
+
+//get request examples
+    $requestExample = array();
+    $requestExample = getExample(TEX_FILE, 'Request');
+//echo var_dump($requestExample);
+
+
+    $content = <<<"EOD"
 
  
 
@@ -82,10 +79,48 @@ $content = <<<"EOD"
                 </li>
             </ul>
         </section>
+                
+        <section id="resources-send-message-examples" class="level-3">
+            <header>Request Examples</header>
+            <div class="tabs">
+            <ul class="tab_nav">
+EOD;
+    writehtml($content);
+    $tablist = '';
+    for ($i = 1; $i <= count($requestExample); $i++) {
+        $selected = $i === 1 ? "class=\"selected\"" : "";
+        $tablist .= "<li><a href=\"#" . $requestExample[$i]['id'] . "\"" . $selected . ">" . $requestExample[$i]['name'] . "</a></li>\n";
+    }
+//echo 'tablist: ' .$tablist;
+    writehtml($tablist);
+
+    $content = <<<"EOD"
+        
+            </ul>
+        
+EOD;
+    writehtml($content);
+    $codeendTags = <<<"EOD"
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+EOD;
+    for ($i = 1; $i <= count($requestExample); $i++) {
+        writehtml(codeHeadTags($requestExample[$i]['id']));
+        writehtml($requestExample[$i]['code']);
+        writehtml($codeendTags);
+    }
+
+
+    $content = <<<"EOD"
+           
+        </section><!--end of example-->
 
 
 EOD;
-writehtml($content);
-chmod(HTML_FILE, 0664);
-
-
+    writehtml($content);
+    
+}

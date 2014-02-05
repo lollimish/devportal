@@ -1,0 +1,330 @@
+%% LyX 2.0.6 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[12pt,english,usenames,dvipsnames]{article}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{fontspec}
+\setmainfont[Mapping=tex-text]{Arial}
+\setsansfont[Mapping=tex-text]{Arial}
+\setmonofont{Arial Narrow}
+\usepackage{listings}
+\lstset{backgroundcolor={\color{shadebox}},
+basicstyle={\small},
+breaklines={true},
+frame=single,
+frameround=tttt,
+framerule={.5pt},
+morekeywords={GET,POST,PUT,DELETE},
+otherkeywords={GET,POST,PUT,DELETE,HTTP/1.1, 200,OK,appication/xml},
+stringstyle={\ttfamily},
+tabsize=4}
+\usepackage[letterpaper]{geometry}
+\geometry{verbose,tmargin=1.8in,bmargin=1.25in,lmargin=1in,rmargin=1in}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\setlength{\parskip}{\bigskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{color}
+\usepackage{array}
+\usepackage{verbatim}
+\usepackage{longtable}
+\usepackage{graphicx}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\usepackage{enumitem}		% customizable list environments
+\newlength{\lyxlabelwidth}      % auxiliary length 
+\numberwithin{table}{section}
+\newenvironment{lyxcode}
+{\par\begin{list}{}{
+\setlength{\rightmargin}{\leftmargin}
+\setlength{\listparindent}{0pt}% needed for AMS classes
+\raggedright
+\setlength{\itemsep}{0pt}
+\setlength{\parsep}{0pt}
+\normalfont\ttfamily}%
+ \item[]}
+{\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{eso-pic}
+\usepackage[stamp]{draftwatermark}
+\usepackage{colortbl}
+
+\SetWatermarkText{Draft 1.1.2l}
+\SetWatermarkAngle{45}
+\SetWatermarkLightness{0.9}
+\SetWatermarkScale{.8}
+
+\date{}
+\lhead{\small{www.dedoimedo.com}}
+\rhead{\small{some text}} 
+\pagestyle{fancy}
+
+\setlength{\headheight}{0.6in}
+\setlength{\headwidth}{\textwidth}
+\fancyhead[L]{}% empty left
+\fancyhead[R]{ % right
+   \includegraphics[height=0.75in]{../common/att_logo.png}
+}
+\pagestyle{fancy}
+
+\definecolor{blue}{RGB}{79,129,189}
+\definecolor{shadebox}{RGB}{255,255,204}
+
+\cfoot{\scriptsize © 2014 AT\&T Intellectual Property. All rights reserved. AT\&T and AT\&T logo are trademarks of AT\&T Intellectual Property.}
+
+\newcommand{\attcategory}[1]{\textbf{\Large Category: \textcolor{blue}{#1}}}
+\newcommand{\attservice}[1]{\textbf{\Large Service:  \textcolor{blue}{#1}}}
+\newcommand{\attdocumentnumber}[1]{\textbf{\small Document Number: #1}}
+\newcommand{\attrevision}[1]{\textbf{\small Revision: #1}}
+\newcommand{\attrevisiondate}[1]{\textbf{\small Revision Date: #1}}
+\newcommand{\attauthor}[1]{\textbf{\small Author: #1}}
+
+
+\let\oldtabular=\tabular
+\def\tabular{\footnotesize\oldtabular}
+
+\makeatother
+
+\usepackage{xunicode}
+\usepackage{polyglossia}
+\setdefaultlanguage{english}
+\begin{document}
+
+\subsubsection{Functional Behavior}
+
+\begin{comment}
+Describe the functional behavior provided by this operation. Also
+add here any special considerations, assumptions, and dependencies
+for this particular operation
+\end{comment}
+
+
+The Modify Group Chat method performs the following actions.
+\begin{itemize}
+\item Accept : The invitation to join a group chat is accepted.
+\item Reject : The invitation to join a group chat is rejected.
+\item Join : An on-going group chat conversation is joined.
+\end{itemize}
+Note: The endpoint needs to be registered with AT\&T network before
+accepting or rejecting an invitation to join a group.
+
+Note: The endpoint also needs to establish an event channel to receive
+notification of possible failures and other status updates from the
+AT\&T network.
+
+Note: The endpoint must have received an invitation with a group identifier
+for this request to succeed.
+
+Note: A network configurable parameter limits the maximum number of
+participants that is able to be added to the group. Refer to parameters
+appendix for more details on global netwrok settings
+
+\pagebreak{}
+
+
+\subsubsection{Call flow}
+
+\begin{comment}
+Insert below a sequence diagram (ping pong) diagram in context to
+a complete call flow or transaction with numbered arrows and some
+description explaining the sequence as appropriate.
+\end{comment}
+
+
+\includegraphics[width=0.6\paperwidth,height=0.4\paperheight]{sequence-diagram/AcceptRejectJoinGroup}
+
+\pagebreak{}
+
+
+\subsubsection{Version Impact Summary}
+
+\begin{comment}
+Summarize the different versions of this operation that are in production
+or deleted by the current release of this service. 
+\end{comment}
+
+
+{\footnotesize{\input{Version_Impact_Summary.tex}}}{\footnotesize \par}
+
+
+\subsubsection{Authentication and Authorization}
+
+\begin{comment}
+Describe OAuth model applicable to this operation.
+\end{comment}
+
+
+{\footnotesize{\input{Authentication_and_Authorisation.tex}}}{\footnotesize \par}
+
+
+\subsubsection{Representation Formats}
+
+\begin{comment}
+In the table below, describe supported representation formats for
+the request and response body. Where different versions support different
+formats, provide separate tables and indicate which versions apply
+to each table. 
+\end{comment}
+
+
+{\footnotesize{\input{Representation_Formats.tex}}}{\footnotesize \par}
+
+
+
+
+
+
+\subsubsection{Input Parameters}
+
+\begin{comment}
+In the table below, describe input parameters. Where different versions
+support different input parameters, provide separate tables and indicate
+which versions apply to each table. The allowed values for the Location
+in Request column are: Header, Resource URI, Body or Query Parameter.
+\end{comment}
+
+
+{\footnotesize{\input{InputParam-AcceptRejectJoinchatGroup.tex}}}{\footnotesize \par}
+
+
+\paragraph{Request – Example (Accept invitation to join a chat group - XML)\protect \\
+}
+
+
+
+This demostrates how to accept invitation to join a group using xml.
+
+\begin{lstlisting}[backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}]
+PUT  /RTC/v1/sessions/4ba569b5-290d-4f1f-b3af-255731383204/groups/j7q5bL HTTP/1.1 
+Host: api.att.com
+authorization: Bearer abcdef12345678
+accept: application/xml
+content-type: application/xml
+x-invitation: accept
+\end{lstlisting}
+
+
+
+\paragraph{Request – Example (Accept invitation to join a chat group - JSON)\protect \\
+}
+
+This demostrates how to accept invitation to join a group using JSON.
+
+\begin{lstlisting}[backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}]
+PUT  /RTC/v1/sessions/4ba569b5-290d-4f1f-b3af-255731383204/groups/j7q5bL HTTP/1.1
+Host: api.att.com
+authorization: Bearer 38C2399A23999 
+accept: application/json
+content-length: 300
+content-type: application/json
+x-invitation: accept
+\end{lstlisting}
+
+
+
+\paragraph{Request – Example (Reject invitation to join a chat group - XML)}
+
+This demostrates how to accept invitation to join a group using xml.
+
+\begin{lstlisting}[backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}]
+PUT  /RTC/v1/sessions/4ba569b5-290d-4f1f-b3af-255731383204/groups/j7q5bL HTTP/1.1 
+Host: api.att.com
+authorization: Bearer abcdef12345678
+accept: application/xml
+content-type: application/xml
+x-invitation: decline
+\end{lstlisting}
+
+
+
+\paragraph{Request – Example (Reject invitation to join a chat group- JSON)}
+
+This demostrates how to reject invitation to join a group using JSON.
+
+\begin{lstlisting}[backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}]
+PUT  /RTC/v1/sessions/4ba569b5-290d-4f1f-b3af-255731383204/groups/j7q5bL HTTP/1.1
+Host: api.att.com
+authorization: Bearer 38C2399A23999 
+accept: application/json
+content-length: 300
+x-invitation: decline
+\end{lstlisting}
+
+
+
+\paragraph{Request – Example (Join ongoing chat conversation - JSON)}
+
+This demostrates how to reject invitation to join a group using JSON.
+
+\begin{lstlisting}[backgroundcolor={\color{shadebox}},basicstyle={\footnotesize\ttfamily},frame=single,framerule={.5pt}]
+PUT /RTC/v1/sessions/4ba569b5-290d-4f1f-b3af-255731383204/chatGroups/j7q5bL HTTP/1.1
+Host: api.att.com
+authorization: Bearer 38C2399A23999 
+accept: application/json
+content-length: 300
+content-type: application/json
+x-invitation: join
+\end{lstlisting}
+
+
+
+\subsubsection{Output Parameters}
+
+\begin{comment}
+In the table below, describe output parameters. Where different versions
+support different output parameters, provide separate tables and indicate
+which versions apply to each table. Note: ‘consent’ refers to end
+user consent which may need to be obtained before data is returned,
+\end{comment}
+
+
+{\footnotesize{\input{OutputParam-AcceptRejectJoinchatGroup.tex}}}{\footnotesize \par}
+
+
+\paragraph{Response – Example (Accept invitation to join a chat group - XML)\protect \\
+}
+
+This shows the response to a accept/reject invitation to join a chat
+group XML format.
+
+\texttt{}
+\begin{lstlisting}[basicstyle={\footnotesize\ttfamily},tabsize=4]
+HTTP/1.1 204 No Content
+Content-Type: application/xml 
+Content-Length: 100 
+Date: Tue, 04 Dec 2013 02:51:59 GMT
+\end{lstlisting}
+
+
+
+\paragraph{Response – Example (Joining ongoing group conversation - XML)\protect \\
+}
+
+This shows the response to joining ongoing group conversation XML
+format.
+
+\texttt{}
+\begin{lstlisting}[basicstyle={\footnotesize\ttfamily},tabsize=4]
+HTTP/1.1 202 Accepted
+Content-Type: application/xml 
+Content-Length: 100 
+Date: Tue, 04 Dec 2013 02:51:59 GMT
+\end{lstlisting}
+
+
+\input{Errors-AcceptRejectJoinchatGroup.tex}
+\end{document}

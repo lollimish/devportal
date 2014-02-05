@@ -15,8 +15,10 @@ $file = explode('.', $inputfile);
 
 
 define("UPLOAD_DIR", 'file/');
-define("UPLOAD_FILE", $inputfile);
+define("TEX_FILE", $inputfile);
 define("HTML_FILE", $outputfile);
+
+
 
 //override if it's there
 if (file_exists(HTML_FILE)) {
@@ -24,8 +26,6 @@ if (file_exists(HTML_FILE)) {
 }
 
 function writehtml($content) {
-
-
     file_put_contents(HTML_FILE, $content . "\r\n", FILE_APPEND);
 }
 
@@ -91,20 +91,22 @@ function findSection($filename, $begin_line, $end_line) {
     $file_handle = fopen($filename, 'r');
     $foundSection = false;
     $output = array();
-    while (!feof($file_handle)) {
-        $line = fgets($file_handle);
-        if ($foundSection) {
-            $output[] = $line;
+    if ($file_handle) {
+        while (!feof($file_handle)) {
+            $line = fgets($file_handle);
+            if ($foundSection) {
+                $output[] = $line;
+            }
+            if (substr($line, 0, strlen($begin_line)) === $begin_line) {
+                $foundSection = true;
+            }
+            if (substr($line, 0, strlen($end_line)) === $end_line) {
+                $foundSection = false;
+                break;
+            }
         }
-        if (substr($line, 0, strlen($begin_line)) === $begin_line) {
-            $foundSection = true;
-        }
-        if (substr($line, 0, strlen($end_line)) === $end_line) {
-            $foundSection = false;
-            break;
-        }
+        fclose($file_handle);
     }
-    fclose($file_handle);
     return $output;
 }
 
@@ -200,10 +202,59 @@ function parseParagraph($string) {
 
 //get cell value when there are more than one value and separate them with a space
 function getCellValue($cell) {
-    preg_match_all('/footnotesize{(.*?)}}/s', $cell, $matches);
-    $output = '';
-    foreach ($matches[1] as $m) {
-        $output .= $m . ' ';
+    if (startsWith($cell, '{\footnotesize')) {
+        preg_match_all('/footnotesize{(.*?)}}/s', $cell, $matches);
+        $output = '';
+        foreach ($matches[1] as $m) {
+            $output .= $m . ' ';
+        }
+        return str_replace('\_', '_', $output);
     }
-    return str_replace('\_', '_', $output);
+    return $cell;
+}
+
+function getExample($filename, $type) {
+    $file_handle = fopen($filename, 'r');
+    $output = array();
+    $start = false;
+    $count = 1;
+    while (!\feof($file_handle)) {
+        $line = fgets($file_handle);
+        if (startsWith($line, '\paragraph{' . $type)) {
+            $output[$count]['name'] = strtolower($line);
+            if (strpos(strtolower($output[$count]['name']), 'xml') !== false) {
+                $format = '-XML';
+            } elseif (strpos(strtolower($output[$count]['name']), 'json') !== false) {
+                $format = '-JSON';
+            } else {
+                $format = '';
+            }
+            $output[$count]['name'] = trim(getInbetweenStrings('(', ')', $line)) . $format;
+            $output[$count]['id'] = id($output[$count]['name']);
+            $start = true;
+        }
+        if ($start && !startsWith($line, '\begin{lstlisting}') && !startsWith($line, '\end{lstlisting}') && !startsWith($line, '\paragraph')) {
+            $output[$count]['code'] .= htmlspecialchars($line);
+        }
+        if (startsWith($line, '\end{lstlisting}') && $start) {
+            $count++;
+            $start = false;
+        }
+    }
+    fclose($file_handle);
+    return $output;
+}
+
+function id($string) {
+    $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+    return strtolower(preg_replace('/[^A-Za-z0-9\-]/', '-', $string)); // Removes special chars.
+}
+
+function codeHeadTags($id) {
+    $tags = "       <div id=\"$id\" class=\"code\">\n";
+    $tags .= '            <div class="code">' . "\n";
+    $tags .= '                <div class="code-block">' . "\n";
+    $tags .= '                    <span class="copy-button">copy</span>' . "\n";
+    $tags .= '                    <pre>' . "\n";
+    return $tags;
 }

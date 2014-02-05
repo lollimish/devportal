@@ -209,154 +209,18 @@
 
 
 
-
-                                        <!--Start content-->                 
-                                        <section id="resources-speech-to-text" class="level-2">
-                                            <header>Speech To Text</header>
-
-                                            <section id="resources-speech-to-text-overview" class="level-3">
-                                                <header>Overview</header>
-                                                <p>
-                                                    The Speech To Text method transcribes audio data files into text-based output. The Speech API applies an API-specific lexicon and transcribes the original text into an enhanced text output. The original and the enhanced text outputs are both returned as separate parameter values in the response. The supported audio formats are: </p><ul><li>16-bit PCM WAV, linear coding, single channel, 8 kHz sampling</li>
-                                                    <li>16-bit PCM WAV, ulaw coding, single channel, 8 kHz sampling</li>
-                                                    <li>16-bit PCM WAV, linear coding, single channel, 16 kHz sampling</li>
-
-                                            </section>
-
-                                            <section id="resources-speech-to-text-oauth" class="level-3">
-                                                <ul class="oauth">
-                                                    <li><span>OAuth Scope</span></li>
-                                                    <li><p><span>Scope:</span> SPEECH</p></li>
-                                                    <li><p><span>Model:</span> client_credentials</p></li>
-                                                </ul>
-                                                <ul class="oauth">
-                                                    <li><span>Resource</span></li>
-                                                    <li class="code">
-                                                        <div class="code-block">
-                                                            <span class="copy-button" data-clipboard-text="/speechToText">copy</span>
-                                                            <pre>/speechToText</pre>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </section>
-
-                                            <section id="resources-speech-to-text-examples" class="level-3">
-                                                <header>Examples</header>
-                                                <div class="tabs">
-                                                    <ul class="tab_nav">
-                                                        <li>
-                                                            <a href="#speech-to-text-non-streaming-0">Non-Streaming</a>
-                                                        </li><li>
-                                                            <a href="#speech-to-text-streaming-1">Streaming</a>
-                                                        </li>
-                                                    </ul>
-                                                    <div id="speech-to-text-non-streaming-0" class="code">
-                                                        <div class="code">
-                                                            <h2 class="code-caption">Request</h2>
-                                                            <div class="code-block">
-                                                                <span class="copy-button">copy</span>
-                                                                <pre>POST /speech/v3/SpeechToText HTTP/1.1
-Host: api.att.com
-Authorization: Bearer 38C2399A23999
-Accept: application/xml
-Content-length: 5655
-Connection: keep-alive
-Content-Type: audio/amr
-X-SpeechContext: BusinessSearch
-X-Arg: ClientApp=NoteTaker,ClientVersion=1.0.1,DeviceType=Android
-
-{{...audio data...}}</pre>
-                                                            </div>
-                                                        </div>
-                                                        <div class="code">
-                                                            <h2 class="code-caption">Response</h2>
-                                                            <div class="code-block">
-                                                                <span class="copy-button">copy</span>
-                                                                <pre>{
-    "Recognition": {
-        "Status": "Ok",
-        "ResponseId": "3125ae74122628f44d265c231f8fc926",
-        "NBest": [
-            {
-                "Hypothesis": "bookstores in glendale california",
-                "LanguageId": "en-us",
-                "Confidence": 0.9,
-                "Grade": "accept",
-                "ResultText": "bookstores in Glendale, CA",
-                "Words": [
-                    "bookstores",
-                    "in",
-                    "glendale",
-                    "california"
-                ],
-                "WordScores": [
-                    0.92,
-                    0.73,
-                    0.81,
-                    0.96
-                ]
-            }
-        ]
-    }
-}</pre>
-                                                            </div>
-                                                        </div>
-                                                    </div><div id="speech-to-text-streaming-1" class="code">
-                                                        <div class="code">
-                                                            <h2 class="code-caption">Request</h2>
-                                                            <div class="code-block">
-                                                                <span class="copy-button">copy</span>
-                                                                <pre>POST /speech/v3/SpeechToText HTTP/1.1
-Host: api.att.com
-Authorization: Bearer 38C2399A23999
-Accept: application/xml
-Transfer-Encoding: chunked
-Connection: keep-alive
-Content-Type: audio/amr
-X-SpeechContext: BusinessSearch
-X-Arg: ClientApp=NoteTaker,ClientVersion=1.0.1,DeviceType=Android
-
-200
-{{...audio data...}}
-200
-{{...audio data...}}
-200
-{{...audio data...}}
-0</pre>
-                                                            </div>
-                                                        </div>
-                                                        <div class="code">
-                                                            <h2 class="code-caption">Response</h2>
-                                                            <div class="code-block">
-                                                                <span class="copy-button">copy</span>
-                                                                <pre>&lt;Recognition&gt;
-    &lt;Status&gt;Ok&lt;/Status&gt;
-    &lt;ResponseId&gt;3125ae74122628f44d265c231f8fc926&lt;/ResponseId&gt;
-    &lt;NBest&gt;
-        &lt;Hypothesis&gt;bookstores in glendale california&lt;/Hypothesis&gt;
-        &lt;LanguageId&gt;en-us&lt;/LanguageId&gt;
-        &lt;Confidence&gt;0.9&lt;/Confidence&gt;
-        &lt;Grade&gt;accept&lt;/Grade&gt;
-        &lt;ResultText&gt;bookstores in Glendale, CA&lt;/ResultText&gt;
-        &lt;Words&gt;
-            &lt;Word Score="0.92"&gt;bookstores&lt;/Word&gt;
-            &lt;Word Score="0.73"&gt;in&lt;/Word&gt;
-            &lt;Word Score="0.81"&gt;glendale&lt;/Word&gt;
-            &lt;Word Score="0.96"&gt;california&lt;/Word&gt;
-        &lt;/Words&gt;
-    &lt;/NBest&gt;
-&lt;/Recognition&gt;</pre>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
+ 
 
 
 <?php
-//get the code from the output file
-$param_sec = file_get_contents('output_html/2.html');
-echo $param_sec;
-?>
- 
+//param
+                                    $param_sec = file_get_contents('output_html/op.html');
+                                    echo $param_sec;
+                                    ?>
 
+
+<?php
+//param
+                                    $param_sec = file_get_contents('output_html/param.html');
+                                    echo $param_sec;
+                                    ?>

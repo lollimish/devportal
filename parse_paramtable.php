@@ -2,14 +2,7 @@
 //php parse_paramtable.php api/OutputParam-Delete_Album.tex output_html/2.html
 include 'define.php';
 
-
-if (isset($_SESSION['file_name'])) {
-    $filename = $_SESSION['file_name'];
-} elseif (isset($argv[1])) {
-    $filename = $argv[1];
-}
-
-$operation_name = getOperationName($filename);
+$operation_name = getOperationName(TEX_FILE);
 $content = <<<"EOD"
  <section id="resources-{$operation_name}-parameters" class="level-3">
     <header>Request Parameters</header>
@@ -31,7 +24,7 @@ chmod(HTML_FILE, 0664);
 //getting the parameter table section
 $begin_line = '\endhead';
 $end_line = '\end{longtable';
-$paramTbl = findSection($filename, $begin_line, $end_line);
+$paramTbl = findSection(TEX_FILE, $begin_line, $end_line);
 $rowopen = false;
 $row = '';
 $count = 0;
