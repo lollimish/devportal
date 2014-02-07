@@ -1,0 +1,93 @@
+
+ 
+
+<section id="resources-" class="level-2">
+        <header></header>
+
+        <section id="resources--overview" class="level-3">
+            <header>Overview</header>
+            <p></p><p></p><p>Remove a file (meaning Media, Track or Object) belonging to a userfrom the digital locker.</p><p></p>
+        </section>
+
+        <section id="resources--oauth" class="level-3">
+            <ul class="oauth">
+                <li><span>OAuth Scope</span></li>
+                <li><p><span>Scope:</span> LOCKER </p></li>
+                <li><p><span>Model:</span> OAuth authorization_code </p></li>
+            </ul>
+            <ul class="oauth">
+                <li><span>Resource</span></li>
+                <li class="code">
+                    <div class="code-block">
+                        <span class="copy-button" data-clipboard-text="/speechToText">copy</span>
+                        <pre>/speechToText</pre>
+                    </div>
+                </li>
+            </ul>
+        </section>
+                
+        <section id="resources--examples" class="level-3">
+            <header>Request Examples</header>
+            <div class="tabs">
+            <ul class="tab_nav">
+<li><a href="#delete-content"class="selected">delete content</a></li>
+
+        
+            </ul>
+        
+       <div id="delete-content" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+
+
+This demonstrates how to delete content.
+
+DELETE /locker/v1/content?ids=62588%2C55888 HTTP/1.1 
+host: api.att.com
+authorization: Bearer abcdef12345678
+accept: application/xml
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+            
+            <header>Response Examples</header>
+                        <div class="tabs">
+                        <ul class="tab_nav">
+<li><a href="#my-first-response-example-in-xml-xml"class="selected">My First Response Example in XML-XML</a></li>
+
+        
+            </ul>
+        
+       <div id="my-first-response-example-in-xml-xml" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+This shows the response to a profile creation in XML format.
+
+\texttt{}
+HTTP/1.1 204 OK
+content-length: 0
+date: Thu, 04 Jun 2010 02:51:59 GMT
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+           
+        </section><!--end of example-->
+

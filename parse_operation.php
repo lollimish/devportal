@@ -1,126 +1,19 @@
 <?php
 
-//php parse_operation.php api/Operation-Add_Files_To_Folder.tex output_html/2.html
-//php parse_operation.php webrtc/Operation-AcceptRejectJoinchatGroup.tex output_html/op.html
-include 'define.php';
+//php parse_operation.php ../apis/webrtc/Operation-AcceptRejectJoinchatGroup.tex html/op.html
+//php parse_operation.php ../apis/locker/Operation-Add_Files_To_Folder.tex html/op.html
 
+if (isset($argv)) {
+    $inputfile = $argv[1];
+    $outputfile = $argv[2];
+}
 
-if (!file_exists(TEX_FILE)) {
+include 'functions.php';
+include 'func_parse_operation.php';
+
+if (!file_exists($inputfile)) {
     echo "input file is not exist\n";
 } else {
-    $operation_name = getOperationName(TEX_FILE);
-    $operation_title = ucfirst(str_replace('-', ' ', $operation_name));
-//echo $operation_title;
-    $funcBehav = array();
-    $authTable = array();
-    $funcBehav = findSubSecByName(TEX_FILE, 'Functional Behavior');
-    $overview = '';
-    foreach ($funcBehav as $line) {
-        $overview .= $line;
-    }
-    $overview = noCommet($overview);
-    $overview = getItem($overview);
-    $overview = str_replace(array("\n\n"), '</p><p>', $overview);
-    $overview = str_replace(array("\n", '\subsubsection{Call flow}'), '', $overview);
-
-//auth secion
-    $scope = '';
-    $model = '';
-    $authTbl = '';
-    $authTable = findSubSecByName(TEX_FILE, 'Authentication and Authorization');
-    $begin_line = '\endhead';
-    $end_line = '\end{longtable';
-    $tbl = findSectionInArray($authTable, $begin_line, $end_line);
-
-    foreach ($tbl as $line) {
-        $authTbl .= $line;
-    }
-    $row = explode('\hline', $authTbl);
-    for ($i = 1; $i < count($row) - 1; $i++) {
-        $row[$i] = noCommet($row[$i]);
-
-        $row[$i] = str_replace(array("\n", '\hline', '%{}', '\emph', ' ', '\end{longtable}'), '', $row[$i]);
-        $cell[$i] = explode('&', $row[$i]);
-        $model .= trim(getCellValue($cell[$i][0])) . ' ';
-    }
-    $scope = getCellValue($cell[1][2]);
-
-//get request examples
-    $requestExample = array();
-    $requestExample = getExample(TEX_FILE, 'Request');
-//echo var_dump($requestExample);
-
-
-    $content = <<<"EOD"
-
- 
-
-<section id="resources-{$operation_name}" class="level-2">
-        <header>{$operation_title}</header>
-
-        <section id="resources-{$operation_name}-overview" class="level-3">
-            <header>Overview</header>
-            <p>{$overview}</p>
-        </section>
-
-        <section id="resources-{$operation_name}-oauth" class="level-3">
-            <ul class="oauth">
-                <li><span>OAuth Scope</span></li>
-                <li><p><span>Scope:</span> {$scope}</p></li>
-                <li><p><span>Model:</span> {$model}</p></li>
-            </ul>
-            <ul class="oauth">
-                <li><span>Resource</span></li>
-                <li class="code">
-                    <div class="code-block">
-                        <span class="copy-button" data-clipboard-text="/speechToText">copy</span>
-                        <pre>/speechToText</pre>
-                    </div>
-                </li>
-            </ul>
-        </section>
-                
-        <section id="resources-send-message-examples" class="level-3">
-            <header>Request Examples</header>
-            <div class="tabs">
-            <ul class="tab_nav">
-EOD;
-    writehtml($content);
-    $tablist = '';
-    for ($i = 1; $i <= count($requestExample); $i++) {
-        $selected = $i === 1 ? "class=\"selected\"" : "";
-        $tablist .= "<li><a href=\"#" . $requestExample[$i]['id'] . "\"" . $selected . ">" . $requestExample[$i]['name'] . "</a></li>\n";
-    }
-//echo 'tablist: ' .$tablist;
-    writehtml($tablist);
-
-    $content = <<<"EOD"
-        
-            </ul>
-        
-EOD;
-    writehtml($content);
-    $codeendTags = <<<"EOD"
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
-EOD;
-    for ($i = 1; $i <= count($requestExample); $i++) {
-        writehtml(codeHeadTags($requestExample[$i]['id']));
-        writehtml($requestExample[$i]['code']);
-        writehtml($codeendTags);
-    }
-
-
-    $content = <<<"EOD"
-           
-        </section><!--end of example-->
-
-
-EOD;
-    writehtml($content);
-    
+    parse_operation($inputfile, $outputfile);
 }
+

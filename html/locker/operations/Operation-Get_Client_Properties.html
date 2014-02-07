@@ -1,0 +1,140 @@
+
+ 
+
+<section id="resources-" class="level-2">
+        <header></header>
+
+        <section id="resources--overview" class="level-3">
+            <header>Overview</header>
+            <p></p><p></p><p>The operation will retrieve properties that will assist the applicationduring setup. </p><p></p>
+        </section>
+
+        <section id="resources--oauth" class="level-3">
+            <ul class="oauth">
+                <li><span>OAuth Scope</span></li>
+                <li><p><span>Scope:</span> LOCKER </p></li>
+                <li><p><span>Model:</span> OAuth client_credentials </p></li>
+            </ul>
+            <ul class="oauth">
+                <li><span>Resource</span></li>
+                <li class="code">
+                    <div class="code-block">
+                        <span class="copy-button" data-clipboard-text="/speechToText">copy</span>
+                        <pre>/speechToText</pre>
+                    </div>
+                </li>
+            </ul>
+        </section>
+                
+        <section id="resources--examples" class="level-3">
+            <header>Request Examples</header>
+            <div class="tabs">
+            <ul class="tab_nav">
+<li><a href="#get-a-locker-properties"class="selected">Get a locker properties</a></li>
+
+        
+            </ul>
+        
+       <div id="get-a-locker-properties" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+
+
+This demonstrates how to get locker properties, and specifying the
+response to be in XML.
+
+GET /locker/v1/properties?version=1&amp;userAgent=WinPhone HTTP/1.1 
+host: api.att.com
+authorization: Bearer abcdef12345678
+accept: application/xml
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+            
+            <header>Response Examples</header>
+                        <div class="tabs">
+                        <ul class="tab_nav">
+<li><a href="#response-to-a-locker-properties-request-in-xml-xml"class="selected">Response to a locker properties request in XML-XML</a></li>
+<li><a href="#response-to-a-client-properties-request-in-json-json">Response to a client properties request in JSON-JSON</a></li>
+
+        
+            </ul>
+        
+       <div id="response-to-a-locker-properties-request-in-xml-xml" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+This shows the response to a locker properties request in XML format
+
+\texttt{}
+HTTP/1.1 200 OK
+content-type: application/xml 
+content-length: 929 
+date: Thu, 04 Jun 2010 02:51:59 GMT
+
+&lt;lockerProperties&gt;
+  &lt;count&gt;1&lt;/count&gt;
+    &lt;property&gt;
+      &lt;name&gt;contentEngineHostname&lt;/name&gt;
+      &lt;value&gt;content.att.com&lt;/value&gt;
+    &lt;/property&gt;
+  &lt;/properties&gt;
+&lt;/lockerProperties&gt;
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="response-to-a-client-properties-request-in-json-json" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+This shows the response to a client properties request in JSON format
+
+HTTP/1.1 200 OK 
+content-type: application/json 
+content-length: 624 
+date: Thu, 04 Jun 2010 02:51:59 GMT
+
+{
+  &quot;clientProperties&quot;: {
+    &quot;count&quot;: &quot;4&quot;,
+    &quot;properties&quot;: {
+      &quot;property&quot;: [
+        {
+          &quot;name&quot;: &quot;contentEngineHostname&quot;,
+          &quot;value&quot;: &quot;content.att.com&quot;
+        }
+      ]
+    }
+  }
+}
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+           
+        </section><!--end of example-->
+

@@ -1,0 +1,176 @@
+
+ 
+
+<section id="resources-" class="level-2">
+        <header></header>
+
+        <section id="resources--overview" class="level-3">
+            <header>Overview</header>
+            <p></p><p></p><p>Creates a new folder for a user.</p><p></p>
+        </section>
+
+        <section id="resources--oauth" class="level-3">
+            <ul class="oauth">
+                <li><span>OAuth Scope</span></li>
+                <li><p><span>Scope:</span> LOCKER </p></li>
+                <li><p><span>Model:</span> OAuth authorization_code </p></li>
+            </ul>
+            <ul class="oauth">
+                <li><span>Resource</span></li>
+                <li class="code">
+                    <div class="code-block">
+                        <span class="copy-button" data-clipboard-text="/speechToText">copy</span>
+                        <pre>/speechToText</pre>
+                    </div>
+                </li>
+            </ul>
+        </section>
+                
+        <section id="resources--examples" class="level-3">
+            <header>Request Examples</header>
+            <div class="tabs">
+            <ul class="tab_nav">
+<li><a href="#create-a-folder-using-xml-body-xml"class="selected">Create a folder using XML body-XML</a></li>
+<li><a href="#create-a-folder-using-json-body-json">Create a folder using JSON body-JSON</a></li>
+
+        
+            </ul>
+        
+       <div id="create-a-folder-using-xml-body-xml" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+
+
+This demonstrates how to create a folder with a description.
+
+POST /locker/v1/folders HTTP/1.1 
+Host: api.att.com
+content-type: application/xml
+authorization: Bearer 38C2399A23999
+accept: application/xml
+
+&lt;folder&gt;
+      &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
+      &lt;description&gt;Cuz i need space&lt;/description&gt;
+&lt;/folder&gt;
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="create-a-folder-using-json-body-json" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+This demonstrates how to create a folder with a description.. The
+response format will be in JSON.
+
+POST /locker/v1/folders HTTP/1.1 
+Host: api.att.com
+content-type: application/json
+authorization: Bearer 38C2399A23999
+accept: application/json
+
+{
+    &quot;folder&quot;: {
+      &quot;name&quot;: &quot;Bunch of random Files Folder&quot;,
+      &quot;description&quot;: &quot;Cuz i need space&quot;
+    }
+}
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+            
+            <header>Response Examples</header>
+                        <div class="tabs">
+                        <ul class="tab_nav">
+<li><a href="#xml-xml"class="selected">XML-XML</a></li>
+<li><a href="#json-json">JSON-JSON</a></li>
+
+        
+            </ul>
+        
+       <div id="xml-xml" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+This shows the response to a folder creation in XML format.
+
+\texttt{}
+HTTP/1.1 201 Created
+Date: Wed, 27 Apr 2011 14:11:31 GMT
+content-length: 223
+content-type: application/xml
+location: https://api.att.com/locker/v1/folders/856
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;folder&gt;
+    &lt;count&gt;0&lt;/count&gt;
+    &lt;creationDate&gt;05-05-2011 14:17:27 +0000&lt;/creationDate&gt;
+    &lt;description&gt;Cuz i need space&lt;/description&gt;
+    &lt;id&gt;856&lt;/id&gt;
+    &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
+    &lt;size&gt;0&lt;/size&gt;
+&lt;/folder&gt;
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="json-json" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+This shows the response to a folder creation in JSON format
+
+HTTP/1.1 201 Created
+Date: Wed, 27 Apr 2011 14:11:31 GMT
+content-length: 223
+content-type: application/json
+location: https://api.att.com/locker/v1/folders/856
+
+{
+    &quot;folder&quot;: {
+      &quot;count&quot;: 0,
+      &quot;creationDate&quot;: &quot;05-05-2011 14:17:27 +0000&quot;,
+      &quot;name&quot;: &quot;Bunch of random Files Folder&quot;,
+      &quot;description&quot;: &quot;Cuz i need space&quot;,
+      &quot;id&quot;: 856,
+      &quot;size&quot;: 0
+    }
+}
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+           
+        </section><!--end of example-->
+

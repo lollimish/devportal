@@ -305,7 +305,7 @@ span{
 }
 
 .api-docs #document-area #api-docs-content .main .level-2 .level-3> p:before{
-    content: '- ';
+    content: '';
 }
 
 api-docs #document-area #api-docs-content .main .level-2 .level-3 p {

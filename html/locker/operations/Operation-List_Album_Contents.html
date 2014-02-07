@@ -1,0 +1,305 @@
+
+ 
+
+<section id="resources-" class="level-2">
+        <header></header>
+
+        <section id="resources--overview" class="level-3">
+            <header>Overview</header>
+            <p></p><p></p><p>Get the entries of a album belonging to the specific user. </p><p></p>
+        </section>
+
+        <section id="resources--oauth" class="level-3">
+            <ul class="oauth">
+                <li><span>OAuth Scope</span></li>
+                <li><p><span>Scope:</span> LOCKER </p></li>
+                <li><p><span>Model:</span> OAuth authorization_code </p></li>
+            </ul>
+            <ul class="oauth">
+                <li><span>Resource</span></li>
+                <li class="code">
+                    <div class="code-block">
+                        <span class="copy-button" data-clipboard-text="/speechToText">copy</span>
+                        <pre>/speechToText</pre>
+                    </div>
+                </li>
+            </ul>
+        </section>
+                
+        <section id="resources--examples" class="level-3">
+            <header>Request Examples</header>
+            <div class="tabs">
+            <ul class="tab_nav">
+<li><a href="#get-album-listing"class="selected">Get album listing</a></li>
+
+        
+            </ul>
+        
+       <div id="get-album-listing" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+This demonstrates how to get album contents using GET with query parameters,
+and specifying the response to be in JSON.
+
+GET /locker/v1/albums/22323232?limit=20&amp;offset=10&amp;filter=all&amp;order=asc HTTP/1.1 
+host: api.att.com
+authorization: Bearer 38C2399A23999
+accept: application/json
+accept-encoding: gzip
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+            
+            <header>Response Examples</header>
+                        <div class="tabs">
+                        <ul class="tab_nav">
+<li><a href="#album-content-listing-in-xml-xml"class="selected">album Content Listing in XML-XML</a></li>
+<li><a href="#album-content-listing-in-json-json">album Content Listing in JSON-JSON</a></li>
+
+        
+            </ul>
+        
+       <div id="album-content-listing-in-xml-xml" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+This shows the response to a Get content listing request in XML format.
+
+\texttt{}
+HTTP/1.1 200 OK
+content-type: application/xml 
+content-length: 539
+date: Thu, 04 Jun 2010 02:51:59 GMT
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;content&gt;
+    &lt;count&gt;1&lt;/count&gt;
+    &lt;mediaList&gt;
+        &lt;media&gt;
+            &lt;accessBlocked&gt;false&lt;/accessBlocked&gt;
+            &lt;albums&gt;
+                &lt;album&gt;
+                    &lt;count&gt;1&lt;/count&gt;
+                    &lt;creationDate&gt;Wed, 27 Apr 2011 17:34:33 GMT&lt;/creationDate&gt;
+                    &lt;description&gt;rename album descriptionl&lt;/description&gt;
+                    &lt;id&gt;157&lt;/id&gt;
+                    &lt;name&gt;rename album&lt;/name&gt;
+                    &lt;previews&gt;
+                        &lt;preview&gt;
+                            &lt;format&gt;jpg&lt;/format&gt;
+                            &lt;height&gt;240&lt;/height&gt;
+                            &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;amp;preview=320x240xjpg&lt;/url&gt;
+                            &lt;width&gt;320&lt;/width&gt;
+                        &lt;/preview&gt;
+                        &lt;preview&gt;
+                            &lt;format&gt;jpg&lt;/format&gt;
+                            &lt;height&gt;90&lt;/height&gt;
+                            &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;amp;preview=120x90xjpg&lt;/url&gt;
+                            &lt;width&gt;120&lt;/width&gt;
+                        &lt;/preview&gt;
+                        &lt;preview&gt;
+                            &lt;format&gt;jpg&lt;/format&gt;
+                            &lt;height&gt;480&lt;/height&gt;
+                            &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;amp;preview=640x480xjpg&lt;/url&gt;
+                            &lt;width&gt;640&lt;/width&gt;
+                        &lt;/preview&gt;
+                    &lt;/previews&gt;
+                    &lt;size&gt;21564&lt;/size&gt;
+                &lt;/album&gt;
+            &lt;/albums&gt;
+            &lt;av&gt;
+                &lt;status&gt;ok&lt;/status&gt;
+            &lt;/av&gt;
+            &lt;contentSize&gt;21564&lt;/contentSize&gt;
+            &lt;creationDate&gt;Mon, 25 Apr 2011 22:31:19 GMT&lt;/creationDate&gt;
+            &lt;description&gt;UPDATING DESCRIPTION&lt;/description&gt;
+            &lt;extension&gt;jpg&lt;/extension&gt;
+            &lt;format&gt;jpeg; charset=binary&lt;/format&gt;
+            &lt;id&gt;54&lt;/id&gt;
+            &lt;metadataList&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;ColorSpace&lt;/name&gt;
+                    &lt;value&gt;RGB&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Compression&lt;/name&gt;
+                    &lt;value&gt;JPEG&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Dimension&lt;/name&gt;
+                    &lt;value&gt;640x422&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Geometry&lt;/name&gt;
+                    &lt;value&gt;raster&lt;/value&gt;
+                &lt;/metadata&gt;
+            &lt;/metadataList&gt;
+            &lt;name&gt;epic diving fail.jpg&lt;/name&gt;
+            &lt;previews&gt;
+                &lt;preview&gt;
+                    &lt;format&gt;jpg&lt;/format&gt;
+                    &lt;height&gt;240&lt;/height&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;amp;preview=320x240xjpg&lt;/url&gt;
+                    &lt;width&gt;320&lt;/width&gt;
+                &lt;/preview&gt;
+                &lt;preview&gt;
+                    &lt;format&gt;jpg&lt;/format&gt;
+                    &lt;height&gt;90&lt;/height&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;amp;preview=120x90xjpg&lt;/url&gt;
+                    &lt;width&gt;120&lt;/width&gt;
+                &lt;/preview&gt;
+                &lt;preview&gt;
+                    &lt;format&gt;jpg&lt;/format&gt;
+                    &lt;height&gt;480&lt;/height&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;amp;preview=640x480xjpg&lt;/url&gt;
+                    &lt;width&gt;640&lt;/width&gt;
+                &lt;/preview&gt;
+            &lt;/previews&gt;
+            &lt;shareCodes/&gt;
+            &lt;sharingBlocked&gt;false&lt;/sharingBlocked&gt;
+            &lt;tags/&gt;
+            &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&lt;/url&gt;
+        &lt;/media&gt;
+    &lt;/mediaList&gt;
+    &lt;total&gt;1&lt;/total&gt;
+&lt;/content&gt;
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="album-content-listing-in-json-json" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+This shows the response to a profile creation in JSON format
+
+HTTP/1.1 200 OK 
+content-type: application/json 
+content-length: 624 
+date: Thu, 04 Jun 2010 02:51:59 GMT
+
+{
+  &quot;content&quot;: {
+    &quot;count&quot;: 1,
+    &quot;mediaList&quot;: {
+      &quot;media&quot;: {
+        &quot;accessBlocked&quot;: false,
+        &quot;albums&quot;: {
+          &quot;album&quot;: {
+            &quot;count&quot;: 1,
+            &quot;creationDate&quot;: &quot;Wed, 27 Apr 2011 17:34:33 GMT&quot;,
+            &quot;description&quot;: &quot;rename album descriptionl&quot;,
+            &quot;id&quot;: 157,
+            &quot;name&quot;: &quot;rename album&quot;,
+            &quot;previews&quot;: {
+              &quot;preview&quot;: [
+                {
+                  &quot;format&quot;: &quot;jpg&quot;,
+                  &quot;height&quot;: 240,
+                  &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;preview=320x240xjpg&quot;,
+                  &quot;width&quot;: &quot;320&quot;
+                },
+                {
+                  &quot;format&quot;: &quot;jpg&quot;,
+                  &quot;height&quot;: 90,
+                  &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;preview=120x90xjpg&quot;,
+                  &quot;width&quot;: 120
+                },
+                {
+                  &quot;format&quot;: &quot;jpg&quot;,
+                  &quot;height&quot;: 480,
+                  &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;preview=640x480xjpg&quot;,
+                  &quot;width&quot;: 640
+                }
+              ]
+            },
+            &quot;size&quot;: 21564
+          }
+        },
+        &quot;av&quot;: { &quot;status&quot;: &quot;ok&quot; },
+        &quot;contentSize&quot;: 21564,
+        &quot;creationDate&quot;: &quot;Mon, 25 Apr 2011 22:31:19 GMT&quot;,
+        &quot;description&quot;: &quot;UPDATING DESCRIPTION&quot;,
+        &quot;extension&quot;: &quot;jpg&quot;,
+        &quot;format&quot;: &quot;jpeg; charset=binary&quot;,
+        &quot;id&quot;: 54,
+        &quot;metadataList&quot;: {
+          &quot;metadata&quot;: [
+            {
+              &quot;name&quot;: &quot;ColorSpace&quot;,
+              &quot;value&quot;: &quot;RGB&quot;
+            },
+            {
+              &quot;name&quot;: &quot;Compression&quot;,
+              &quot;value&quot;: &quot;JPEG&quot;
+            },
+            {
+              &quot;name&quot;: &quot;Dimension&quot;,
+              &quot;value&quot;: &quot;640x422&quot;
+            },
+            {
+              &quot;name&quot;: &quot;Geometry&quot;,
+              &quot;value&quot;: &quot;raster&quot;
+            }
+          ]
+        },
+        &quot;name&quot;: &quot;epic diving fail.jpg&quot;,
+        &quot;previews&quot;: {
+          &quot;preview&quot;: [
+            {
+              &quot;format&quot;: &quot;jpg&quot;,
+              &quot;height&quot;: 240,
+              &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;preview=320x240xjpg&quot;,
+              &quot;width&quot;: &quot;320&quot;
+            },
+            {
+              &quot;format&quot;: &quot;jpg&quot;,
+              &quot;height&quot;: 90,
+              &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;preview=120x90xjpg&quot;,
+              &quot;width&quot;: 120
+            },
+            {
+              &quot;format&quot;: &quot;jpg&quot;,
+              &quot;height&quot;: 480,
+              &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;preview=640x480xjpg&quot;,
+              &quot;width&quot;: 640
+            }
+          ]
+        },
+        &quot;sharingBlocked&quot;: false,
+        &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&quot;
+      }
+    },
+    &quot;total&quot;: 1
+  }
+}
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+           
+        </section><!--end of example-->
+

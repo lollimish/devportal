@@ -140,7 +140,7 @@
                         <div class="sub-header-container">
                             <div class="sub-header">
                                 <div class="container"> 
-                                    <h1>Preview "<?= $operation_name ?>"</h1>
+                                    <h1>Preview </h1>
 
                                     <nav>
                                         <ul>
@@ -184,15 +184,33 @@
                                     <aside>
                                         <div class="fixed-scroll">
                                             <div id="toc">
-                                                <ul class="level-1">
-                                                    <li class="highlighted" id="nav_introduction"><a href="#">1.Introduction</a></li>
-                                                    <li id="nav_authorization"><a href="#">2. OAuth</a></li>
-                                                    <li id="nav_resources"> <a href="#">3. Resources</a>
-                                                    </li>
-                                                    <li id="nav_quickstart"><a href="#">4. Quickstart</a></li>
-                                                    <li id="nav_sample-apps"><a href="#">5. Sample Apps</a></li>
-                                                </ul>
-                                            </div>
+            <ul class="level-1">
+                <li class="highlighted" id="nav_introduction"><a href="#introduction">1. Introduction</a></li>
+                <li id="nav_authorization"><a href="#authorization">2. OAuth</a></li>
+                <li id="nav_resources"> <a href="#resources">3. Resources</a>
+                    <ul class="level-2">
+                        <li id="nav_resources-create-message-index"><a href="#resources-create-message-index">Create Message Index</a></li>
+                        <li id="nav_resources-delete-message"><a href="#resources-delete-message">Delete Message</a></li>
+                        <li id="nav_resources-delete-messages"><a href="#resources-delete-messages">Delete Messages</a></li>
+                        <li id="nav_resources-get-message"><a href="#resources-get-message">Get Message</a></li>
+                        <li id="nav_resources-get-message-content"><a href="#resources-get-message-content">Get Message Content</a></li>
+                        <li id="nav_resources-get-message-index-info"><a href="#resources-get-message-index-info">Get Message Index Info</a></li>
+                        <li id="nav_resources-get-message-list"><a href="#resources-get-message-list">Get Message List</a></li>
+                        <li id="nav_resources-get-messages-delta"><a href="#resources-get-messages-delta">Get Messages Delta</a></li>
+                        <li id="nav_resources-get-notification-connection-details"><a href="#resources-get-notification-connection-details">Get Notification Connection Details</a></li>
+                        <li id="nav_resources-send-message"><a href="#resources-send-message">Send Message</a></li>
+                        <li id="nav_resources-update-message"><a href="#resources-update-message">Update Message</a></li>
+                        <li id="nav_resources-update-messages"><a href="#resources-update-messages">Update Messages</a></li>
+                    </ul>
+                </li>
+                <li id="nav_quickstart"><a href="#quickstart">4. Quickstart</a></li>
+                <li id="nav_sample-apps"><a href="#sample-apps">5. Sample Apps</a></li>
+                <li id="sdks-plugins-link"><a href="/sdks-plugins?api=in-app-messaging" target="sdksWindow">6. SDKs & Plugins</a></li>
+                <li id="nav_faqs"><a href="/support/faqs/in-app-messaging-api-faqs" target="faqsWindow">7. FAQs</a></li>
+                <li id="errors-link"><a href="/apis/errors?api=in-app-messaging" target="errorsWindow">8. Errors</a></li>
+            </ul>
+        </div>
+
                                         </div>
                                     </aside>
                                     <!-- End Content: Left Nav -->
@@ -207,20 +225,96 @@
                                         <!-- Content Sections -->
                                         <!-- TODO Need to modify api-doc-html-item.ftl to use a different variable -->
 
-
+<?php
+//intro
+                                    $param_sec = file_get_contents('html/intro.html');
+                                    echo $param_sec;
+                                    ?>
 
  
-
+<section id="authorization" class="level-1">
+    <header>2. OAuth</header> 
+    <section id="oauth-authorization-overview" class="level-2">
+        <p>The APIs provided by AT&T use the OAuth 2.0 framework, and an OAuth access token must be included in each request to the API Gateway. To obtain an OAuth access token, use the App Key and App Secret from the My Apps section after registering and signing into your API Platform account.</p>
+    </section>
+    
+    <?php
+//intro
+                                    $param_sec = file_get_contents('html/oauth.html');
+                                    echo $param_sec;
+                                    ?>
+    
+    
+    <section id="oauth-authorization-authorization-code" class="level-2">
+            <header>Authorization Code</header>
+        <p>To obtain user consent authorization run the following command from the Web browser and replace "{{APP_KEY}}" and "{{API_SCOPES}}" with the App Key and the API scopes that you wish to access as follows.</p>
+        <div class="code">
+            <h2 class="code-caption">Get User Authorization method using the HTTP request:</h2>
+            <div class="code-block">
+                <span data-clipboard-text="https://api.att.com/oauth/authorize?client_id={{APP_KEY}}&scope={{API_SCOPES}}&redirect_uri={{REDIRECT_URI}}" class="copy-button">copy</span>
+                <pre>https://api.att.com/oauth/authorize?client_id={{APP_KEY}}&scope={{API_SCOPES}}&redirect_uri={{REDIRECT_URI}}</pre>
+            </div>
+        </div>
+        <p>A successful response from the API Gateway opens the User Consent Authorization page.</p>
+        <p>After the user has completed the User Consent Authorization page, the API Gateway sends a response.</p>
+        <p>Extract the value from "{{OAUTH_AUTHORIZATION_CODE}}" to use in the Get Access Token request to the API Gateway.</p>
+        <div class="code">
+            <h2 class="code-caption">Response URI for successful OAuth Authorization Code:</h2>
+            <pre>https://{{YOUR_OAUTH_URI}}?code={{OAUTH_AUTHORIZATION_CODE}} </pre>
+        </div>
+        <p>After obtaining the OAuth authorization code run the following command from the Command Line Interface window and replace "{{APP_KEY}}", "{{APP_SECRET}}", and "{{OAUTH_AUTHORIZATION_CODE}}" with the App Key, App Secret, and the OAuth authorization code as follows.</p>
+        <div class="code">
+            <h2 class="code-caption">Get Access Token method using the cURL command:</h2>
+                <div class="code-block">
+                    <span data-clipboard-text="curl &quot;https://api.att.com/oauth/token&quot; --insecure --header &quot;Accept: application/x-www-form-urlencoded&quot; --header &quot;Content-Type: application/x-www-form-urlencoded&quot; --data &quot;grant_type=authorization_code&client_id={{APP_KEY}}&amp;client_secret={{APP_SECRET}}&amp;code={{OAUTH_AUTHORIZATION_CODE}}&quot;" class="copy-button">copy</span>
+                    <pre>curl &quot;https://api.att.com/oauth/token&quot; \
+        --insecure \
+        --header &quot;Accept: application/x-www-form-urlencoded&quot; \
+        --header &quot;Content-Type: application/x-www-form-urlencoded&quot; \
+        --data &quot;grant_type=authorization_code&client_id={{APP_KEY}}&amp;client_secret={{APP_SECRET}}&amp;code={{OAUTH_AUTHORIZATION_CODE}}&quot; </pre>
+            </div>
+        </div>
+    </section>    
+        <section id="oauth-authorization-oauth-access-token-response" class="level-2">
+        <header>Client Credential</header>
+        <p>A successful response from the API Gateway contains an OAuth access token, the expiration period, and a refresh token as displayed in the following example.</p>
+        <div class="code">
+            <h2 class="code-caption">Response from the API Gateway for the Get Access Token method:</h2>
+            <div class="code-block">
+                <span data-clipboard-text="{
+        "access_token":"09876ZYXWV",
+        "token_type": "bearer",
+        "expires_in":"{{EXPIRATION_PERIOD}}",
+        "refresh_token":"{{REFRESH_TOKEN}}"" class="copy-button">copy</span>
+            <pre>{
+        "access_token":"09876ZYXWV",
+        "token_type": "bearer",
+        "expires_in":"{{EXPIRATION_PERIOD}}",
+        "refresh_token":"{{REFRESH_TOKEN}}"
+    }</pre>
+            </div>
+        </div>
+        <p>Extract the value from "{{OAUTH_ACCESS_TOKEN}}" to use in the Authorization parameter for requests to the API Gateway. When sending an request to the API Gateway a successfully constructed Authorization parameter looks like the following.</p>
+        <div class="code">
+            <h2 class="code-caption">Authorization parameter for the HTTP header:</h2>
+            <div class="code-block">
+                <span data-clipboard-text="Authorization: Bearer {{OAUTH_ACCESS_TOKEN}}" class="copy-button">copy</span>
+            <pre>Authorization: Bearer {{OAUTH_ACCESS_TOKEN}} </pre>
+            </div>
+        </div>
+        <p>For more information about refresh_token and other authentication options, <a href="/apis/oauth-2/docs/v1"target="apiWindow">OAuth 2.0 API</a>.</p>
+    </section>
+</section> 
 
 <?php
-//param
-                                    $param_sec = file_get_contents('output_html/op.html');
+//operation
+                                    $param_sec = file_get_contents('html/op.html');
                                     echo $param_sec;
                                     ?>
 
 
 <?php
 //param
-                                    $param_sec = file_get_contents('output_html/param.html');
+                                    $param_sec = file_get_contents('html/param.html');
                                     echo $param_sec;
                                     ?>

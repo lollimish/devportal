@@ -1,0 +1,132 @@
+
+ 
+
+<section id="resources-" class="level-2">
+        <header></header>
+
+        <section id="resources--overview" class="level-3">
+            <header>Overview</header>
+            <p></p><p></p><p>Add a list of file into an existing folder. Adding the same file twicein a folder is allowed. A folder “Antarctica” contains File1.txt</p><p>If a user selects 3 files, File1.txt, File2.txt, File3.txt and addsthem to the folder “Antarctica”, folder “Antarctica” will contain,the following: File1.txt, File1.txt, File2.txt and File3.txt.</p><p></p>
+        </section>
+
+        <section id="resources--oauth" class="level-3">
+            <ul class="oauth">
+                <li><span>OAuth Scope</span></li>
+                <li><p><span>Scope:</span> LOCKER </p></li>
+                <li><p><span>Model:</span> OAuth authorization_code </p></li>
+            </ul>
+            <ul class="oauth">
+                <li><span>Resource</span></li>
+                <li class="code">
+                    <div class="code-block">
+                        <span class="copy-button" data-clipboard-text="/speechToText">copy</span>
+                        <pre>/speechToText</pre>
+                    </div>
+                </li>
+            </ul>
+        </section>
+                
+        <section id="resources--examples" class="level-3">
+            <header>Request Examples</header>
+            <div class="tabs">
+            <ul class="tab_nav">
+<li><a href="#add-files-to-a-folder-in-xml-xml"class="selected">Add files to a folder in XML-XML</a></li>
+<li><a href="#add-files-to-a-folder-in-json-json">Add files to a folder in JSON-JSON</a></li>
+
+        
+            </ul>
+        
+       <div id="add-files-to-a-folder-in-xml-xml" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+
+
+This demonstrates how to add a file to a folder, and specifying the
+request to be in XML.
+
+POST /locker/v1/folders/3433435/files HTTP/1.1 
+Host: api.att.com
+content-type: application/xml
+authorization: Bearer abcdef12345678
+accept: application/xml
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;fileIds&gt;
+    &lt;id&gt;112&lt;/id&gt;
+    &lt;id&gt;125&lt;/id&gt;
+    &lt;index&gt;1&lt;/index&gt;  	
+&lt;/fileIds&gt;
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="add-files-to-a-folder-in-json-json" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+This demonstrates how to add a file to a folder, and specifying the
+request to be in JSON.
+
+POST /locker/v1/folders/3433435/files HTTP/1.1 
+Host: api.att.com
+content-type: application/json
+authorization: Bearer abcdef12345678
+accept: application/json
+
+{
+  &quot;fileIds&quot;: {
+    &quot;id&quot;: [112,125],
+    &quot;index&quot;: 1
+  }
+}
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+            
+            <header>Response Examples</header>
+                        <div class="tabs">
+                        <ul class="tab_nav">
+<li><a href="#response-to-adding-files-to-a-folder"class="selected">Response to adding files to a folder</a></li>
+
+        
+            </ul>
+        
+       <div id="response-to-adding-files-to-a-folder" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+This shows the response to a an add file to folder request.
+
+\texttt{}
+HTTP/1.1 204 No Content
+Date: Thu, 04 Jun 2010 02:51:59 GMT
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+           
+        </section><!--end of example-->
+

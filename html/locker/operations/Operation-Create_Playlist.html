@@ -1,0 +1,175 @@
+
+ 
+
+<section id="resources-" class="level-2">
+        <header></header>
+
+        <section id="resources--overview" class="level-3">
+            <header>Overview</header>
+            <p></p>
+        </section>
+
+        <section id="resources--oauth" class="level-3">
+            <ul class="oauth">
+                <li><span>OAuth Scope</span></li>
+                <li><p><span>Scope:</span> LOCKER </p></li>
+                <li><p><span>Model:</span> OAuth authorization_code </p></li>
+            </ul>
+            <ul class="oauth">
+                <li><span>Resource</span></li>
+                <li class="code">
+                    <div class="code-block">
+                        <span class="copy-button" data-clipboard-text="/speechToText">copy</span>
+                        <pre>/speechToText</pre>
+                    </div>
+                </li>
+            </ul>
+        </section>
+                
+        <section id="resources--examples" class="level-3">
+            <header>Request Examples</header>
+            <div class="tabs">
+            <ul class="tab_nav">
+<li><a href="#xml-xml"class="selected">XML-XML</a></li>
+<li><a href="#json-json">JSON-JSON</a></li>
+
+        
+            </ul>
+        
+       <div id="xml-xml" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+This demonstrates how to create a playlist. The response format will
+be in XML.
+
+POST /locker/v1/playlists HTTP/1.1 
+host: api.att.com
+authorization: bearer abcdef12345678
+accept: application/xml
+content-type: application/xml
+
+&lt;playlist&gt;
+      &lt;name&gt;Favorite Music&lt;/name&gt;
+      &lt;description&gt;Old School&lt;/description&gt;
+&lt;/playlist&gt;
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="json-json" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+This demonstrates how to create an playlist. The response format will
+be in JSON.
+
+POST /locker/v1/playlists HTTP/1.1 
+host: api.att.com 
+authorization: bearer abcdef12345678
+accept: application/json
+content-type: application/json
+
+{
+  &quot;playlist&quot;: {
+    &quot;name&quot;: &quot;Favorite Music&quot;,
+    &quot;description&quot;: &quot;Old School&quot;
+  }
+}
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+            
+            <header>Response Examples</header>
+                        <div class="tabs">
+                        <ul class="tab_nav">
+<li><a href="#xml-xml"class="selected">XML-XML</a></li>
+<li><a href="#json-json">JSON-JSON</a></li>
+
+        
+            </ul>
+        
+       <div id="xml-xml" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+This shows the response to an playlist creation in XML format.
+
+\texttt{}
+HTTP/1.1 201 Created
+date: Wed, 27 Apr 2013 14:11:31 GMT
+content-length: 223
+content-type: application/xml
+location: https://api.att.com/locker/v1/playlists/735
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;playlist&gt;
+    &lt;count&gt;0&lt;/count&gt;
+    &lt;creationDate&gt;Wed, 04 May 2013 14:43:03 GMT&lt;/creationDate&gt;
+    &lt;description&gt;Old School&lt;/description&gt;
+    &lt;id&gt;735&lt;/id&gt;
+    &lt;name&gt;Favorite Music&lt;/name&gt;
+    &lt;size&gt;0&lt;/size&gt;
+&lt;/playlist&gt;
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="json-json" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+This shows the response to an playlist creation in JSON format
+
+HTTP/1.1 201 Created
+date: Wed, 27 Apr 2013 14:11:31 GMT
+content-length: 223
+content-type: application/json
+location: https://api.att.com/locker/v1/playlists/735
+
+{
+  &quot;playlist&quot;: {
+    &quot;count&quot;: 0,
+    &quot;creationDate&quot;: &quot;Wed, 04 May 2013 14:43:03 GMT&quot;,
+    &quot;description&quot;: &quot;Old School&quot;,
+    &quot;id&quot;: 735,
+    &quot;name&quot;: &quot;Favorite Music&quot;,
+    &quot;size&quot;: 0
+  }
+}
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+           
+        </section><!--end of example-->
+

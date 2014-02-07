@@ -1,6 +1,28 @@
 <?php
-//php parse_paramtable.php api/OutputParam-Delete_Album.tex output_html/2.html
-include 'define.php';
+//php parse_paramtable.php ../apis/locker/InputParam-Add_Tracks_To_Playlist.tex html/param.html
+
+include 'functions.php';
+
+if (isset($argv)) {
+    $inputfile = $argv[1];
+    $outputfile = $argv[2];
+} else {
+    $inputfile = "file/" . $_SESSION['file_name'];
+    $outputfile = "test9.html";
+}
+
+$file = explode('.', $inputfile);
+
+//$outputfile = 'output_html/'.$file[0].'.tex';
+
+define("UPLOAD_DIR", 'file/');
+define("TEX_FILE", $inputfile);
+define("HTML_FILE", $outputfile);
+
+//override if it's there
+if (file_exists(HTML_FILE)) {
+    unlink(HTML_FILE);
+}
 
 $operation_name = getOperationName(TEX_FILE);
 $content = <<<"EOD"
