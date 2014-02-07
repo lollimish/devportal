@@ -5,7 +5,7 @@ function parse_operation($inputfile, $outputfile) {
     }
     $operation_name = getOperationName($inputfile);
     $operation_title = ucfirst(str_replace('-', ' ', $operation_name));
-//echo $operation_title;
+
     $funcBehav = array();
     $authTable = array();
     $funcBehav = findSubSecByName($inputfile, 'Functional Behavior');
@@ -41,11 +41,7 @@ function parse_operation($inputfile, $outputfile) {
     $scope = getCellValue($cell[1][2]);
 
 //get request examples
-    $requestExample = array();
     $requestExample = getExample($inputfile, 'Request');
-//echo var_dump($requestExample);
-
-
     $content = <<<"EOD"
 
  

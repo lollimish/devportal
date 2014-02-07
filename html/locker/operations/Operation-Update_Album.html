@@ -1,15 +1,15 @@
 
  
 
-<section id="resources-" class="level-2">
-        <header></header>
+<section id="resources-update-album" class="level-2">
+        <header>Update album</header>
 
-        <section id="resources--overview" class="level-3">
+        <section id="resources-update-album-overview" class="level-3">
             <header>Overview</header>
             <p></p><p></p><p>Modifies the information of a specific album belonging to the specifieduser. If a user attempts to update a album instance with name of analready existing album instance, service will throw an exception. </p><p></p>
         </section>
 
-        <section id="resources--oauth" class="level-3">
+        <section id="resources-update-album-oauth" class="level-3">
             <ul class="oauth">
                 <li><span>OAuth Scope</span></li>
                 <li><p><span>Scope:</span> LOCKER </p></li>
@@ -26,17 +26,19 @@
             </ul>
         </section>
                 
-        <section id="resources--examples" class="level-3">
+        <section id="resources-update-album-examples" class="level-3">
             <header>Request Examples</header>
             <div class="tabs">
             <ul class="tab_nav">
-<li><a href="#update-a-album---xml-xml"class="selected">Update a album - XML-XML</a></li>
-<li><a href="#update-a-album---json-json">Update a album - JSON-JSON</a></li>
+<li><a href="#update-a-album---xml"class="selected">Update a album - XML</a></li>
+<li><a href="#update-a-album---json">Update a album - JSON</a></li>
+<li><a href="#update-album---xml">Update album - XML</a></li>
+<li><a href="#update-album---json">Update album - JSON</a></li>
 
         
             </ul>
         
-       <div id="update-a-album---xml-xml" class="code">
+       <div id="update-a-album---xml" class="code">
             <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -70,12 +72,33 @@ accept: application/xml
                     </div>
                 </div>
         
-       <div id="update-a-album---json-json" class="code">
+       <div id="update-a-album---json" class="code">
             <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
 
+}
+
+
+
+This demonstrates how to update a album, and specifying the response
+to be in XML.
+
+PATCH /locker/v1/albums/3223232 HTTP/1.1 
+host: api.att.com
+content-type: application/xml
+authorization: Bearer 38C2399A23999
+accept: application/xml
+
+&lt;album&gt;
+      &lt;name&gt;rename album&lt;/name&gt;
+      &lt;description&gt;rename album description&lt;/description&gt;
+      &lt;reorder&gt;
+          &lt;indexes&gt;1&lt;/indexes&gt;
+          &lt;after&gt;1&lt;/after&gt;
+      &lt;/reorder&gt;
+&lt;/album&gt;
 }
 
 This demonstrates how to update a album, the response format will
@@ -104,22 +127,54 @@ accept: application/json
                     </div>
                 </div>
         
-            
-            <header>Response Examples</header>
-                        <div class="tabs">
-                        <ul class="tab_nav">
-<li><a href="#update-album---xml-xml"class="selected">Update album - XML-XML</a></li>
-<li><a href="#update-album---json-json">Update album - JSON-JSON</a></li>
-
-        
-            </ul>
-        
-       <div id="update-album---xml-xml" class="code">
+       <div id="update-album---xml" class="code">
             <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
 
+}
+
+
+
+This demonstrates how to update a album, and specifying the response
+to be in XML.
+
+PATCH /locker/v1/albums/3223232 HTTP/1.1 
+host: api.att.com
+content-type: application/xml
+authorization: Bearer 38C2399A23999
+accept: application/xml
+
+&lt;album&gt;
+      &lt;name&gt;rename album&lt;/name&gt;
+      &lt;description&gt;rename album description&lt;/description&gt;
+      &lt;reorder&gt;
+          &lt;indexes&gt;1&lt;/indexes&gt;
+          &lt;after&gt;1&lt;/after&gt;
+      &lt;/reorder&gt;
+&lt;/album&gt;
+}
+
+This demonstrates how to update a album, the response format will
+be in JSON.
+
+PATCH /locker/v1/albums/3223232 HTTP/1.1 
+host: api.att.com
+content-type: application/json
+authorization: Bearer 38C2399A23999
+accept: application/json
+
+{
+  &quot;album&quot;: {
+    &quot;name&quot;: &quot;rename album&quot;,
+    &quot;description&quot;: &quot;rename album description&quot;,
+    &quot;reorder&quot;: {
+      &quot;indexes&quot;: 1,
+      &quot;after&quot;: 1
+    }
+  }
+}
 }
 
 This shows the response to a Update album in XML format.
@@ -146,12 +201,341 @@ content-type: application/xml
                     </div>
                 </div>
         
-       <div id="update-album---json-json" class="code">
+       <div id="update-album---json" class="code">
             <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
 
+}
+
+
+
+This demonstrates how to update a album, and specifying the response
+to be in XML.
+
+PATCH /locker/v1/albums/3223232 HTTP/1.1 
+host: api.att.com
+content-type: application/xml
+authorization: Bearer 38C2399A23999
+accept: application/xml
+
+&lt;album&gt;
+      &lt;name&gt;rename album&lt;/name&gt;
+      &lt;description&gt;rename album description&lt;/description&gt;
+      &lt;reorder&gt;
+          &lt;indexes&gt;1&lt;/indexes&gt;
+          &lt;after&gt;1&lt;/after&gt;
+      &lt;/reorder&gt;
+&lt;/album&gt;
+}
+
+This demonstrates how to update a album, the response format will
+be in JSON.
+
+PATCH /locker/v1/albums/3223232 HTTP/1.1 
+host: api.att.com
+content-type: application/json
+authorization: Bearer 38C2399A23999
+accept: application/json
+
+{
+  &quot;album&quot;: {
+    &quot;name&quot;: &quot;rename album&quot;,
+    &quot;description&quot;: &quot;rename album description&quot;,
+    &quot;reorder&quot;: {
+      &quot;indexes&quot;: 1,
+      &quot;after&quot;: 1
+    }
+  }
+}
+}
+
+This shows the response to a Update album in XML format.
+
+\texttt{}
+HTTP/1.1 200 OK
+date: Wed, 27 Apr 2011 14:11:31 GMT
+content-length: 223
+content-type: application/xml
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;album&gt;
+    &lt;count&gt;0&lt;/count&gt;
+    &lt;creationDate&gt;05-05-2011 14:17:27 +0000&lt;/creationDate&gt;
+    &lt;description&gt;rename album description&lt;/description&gt;
+    &lt;id&gt;856&lt;/id&gt;
+    &lt;name&gt;rename album&lt;/name&gt;
+    &lt;size&gt;0&lt;/size&gt;
+&lt;/album&gt;
+}
+
+This shows the response to a Update album in JSON format
+
+HTTP/1.1 200 OK
+date: Wed, 27 Apr 2011 14:11:31 GMT
+content-length: 223
+content-type: application/json
+
+{
+    &quot;album&quot;: {
+      &quot;count&quot;: 0,
+      &quot;creationDate&quot;: &quot;05-05-2011 14:17:27 +0000&quot;,
+      &quot;name&quot;: &quot;rename album&quot;,
+      &quot;description&quot;: &quot;rename album description&quot;,
+      &quot;id&quot;: 856,
+      &quot;size&quot;: 0
+    }
+}
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+            
+            <header>Response Examples</header>
+                        <div class="tabs">
+                        <ul class="tab_nav">
+<li><a href="#update-a-album---xml"class="selected">Update a album - XML</a></li>
+<li><a href="#update-a-album---json">Update a album - JSON</a></li>
+<li><a href="#update-album---xml">Update album - XML</a></li>
+<li><a href="#update-album---json">Update album - JSON</a></li>
+
+        
+            </ul>
+        
+       <div id="update-a-album---xml" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+
+
+This demonstrates how to update a album, and specifying the response
+to be in XML.
+
+PATCH /locker/v1/albums/3223232 HTTP/1.1 
+host: api.att.com
+content-type: application/xml
+authorization: Bearer 38C2399A23999
+accept: application/xml
+
+&lt;album&gt;
+      &lt;name&gt;rename album&lt;/name&gt;
+      &lt;description&gt;rename album description&lt;/description&gt;
+      &lt;reorder&gt;
+          &lt;indexes&gt;1&lt;/indexes&gt;
+          &lt;after&gt;1&lt;/after&gt;
+      &lt;/reorder&gt;
+&lt;/album&gt;
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="update-a-album---json" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+
+
+This demonstrates how to update a album, and specifying the response
+to be in XML.
+
+PATCH /locker/v1/albums/3223232 HTTP/1.1 
+host: api.att.com
+content-type: application/xml
+authorization: Bearer 38C2399A23999
+accept: application/xml
+
+&lt;album&gt;
+      &lt;name&gt;rename album&lt;/name&gt;
+      &lt;description&gt;rename album description&lt;/description&gt;
+      &lt;reorder&gt;
+          &lt;indexes&gt;1&lt;/indexes&gt;
+          &lt;after&gt;1&lt;/after&gt;
+      &lt;/reorder&gt;
+&lt;/album&gt;
+}
+
+This demonstrates how to update a album, the response format will
+be in JSON.
+
+PATCH /locker/v1/albums/3223232 HTTP/1.1 
+host: api.att.com
+content-type: application/json
+authorization: Bearer 38C2399A23999
+accept: application/json
+
+{
+  &quot;album&quot;: {
+    &quot;name&quot;: &quot;rename album&quot;,
+    &quot;description&quot;: &quot;rename album description&quot;,
+    &quot;reorder&quot;: {
+      &quot;indexes&quot;: 1,
+      &quot;after&quot;: 1
+    }
+  }
+}
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="update-album---xml" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+
+
+This demonstrates how to update a album, and specifying the response
+to be in XML.
+
+PATCH /locker/v1/albums/3223232 HTTP/1.1 
+host: api.att.com
+content-type: application/xml
+authorization: Bearer 38C2399A23999
+accept: application/xml
+
+&lt;album&gt;
+      &lt;name&gt;rename album&lt;/name&gt;
+      &lt;description&gt;rename album description&lt;/description&gt;
+      &lt;reorder&gt;
+          &lt;indexes&gt;1&lt;/indexes&gt;
+          &lt;after&gt;1&lt;/after&gt;
+      &lt;/reorder&gt;
+&lt;/album&gt;
+}
+
+This demonstrates how to update a album, the response format will
+be in JSON.
+
+PATCH /locker/v1/albums/3223232 HTTP/1.1 
+host: api.att.com
+content-type: application/json
+authorization: Bearer 38C2399A23999
+accept: application/json
+
+{
+  &quot;album&quot;: {
+    &quot;name&quot;: &quot;rename album&quot;,
+    &quot;description&quot;: &quot;rename album description&quot;,
+    &quot;reorder&quot;: {
+      &quot;indexes&quot;: 1,
+      &quot;after&quot;: 1
+    }
+  }
+}
+}
+
+This shows the response to a Update album in XML format.
+
+\texttt{}
+HTTP/1.1 200 OK
+date: Wed, 27 Apr 2011 14:11:31 GMT
+content-length: 223
+content-type: application/xml
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;album&gt;
+    &lt;count&gt;0&lt;/count&gt;
+    &lt;creationDate&gt;05-05-2011 14:17:27 +0000&lt;/creationDate&gt;
+    &lt;description&gt;rename album description&lt;/description&gt;
+    &lt;id&gt;856&lt;/id&gt;
+    &lt;name&gt;rename album&lt;/name&gt;
+    &lt;size&gt;0&lt;/size&gt;
+&lt;/album&gt;
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="update-album---json" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+
+
+This demonstrates how to update a album, and specifying the response
+to be in XML.
+
+PATCH /locker/v1/albums/3223232 HTTP/1.1 
+host: api.att.com
+content-type: application/xml
+authorization: Bearer 38C2399A23999
+accept: application/xml
+
+&lt;album&gt;
+      &lt;name&gt;rename album&lt;/name&gt;
+      &lt;description&gt;rename album description&lt;/description&gt;
+      &lt;reorder&gt;
+          &lt;indexes&gt;1&lt;/indexes&gt;
+          &lt;after&gt;1&lt;/after&gt;
+      &lt;/reorder&gt;
+&lt;/album&gt;
+}
+
+This demonstrates how to update a album, the response format will
+be in JSON.
+
+PATCH /locker/v1/albums/3223232 HTTP/1.1 
+host: api.att.com
+content-type: application/json
+authorization: Bearer 38C2399A23999
+accept: application/json
+
+{
+  &quot;album&quot;: {
+    &quot;name&quot;: &quot;rename album&quot;,
+    &quot;description&quot;: &quot;rename album description&quot;,
+    &quot;reorder&quot;: {
+      &quot;indexes&quot;: 1,
+      &quot;after&quot;: 1
+    }
+  }
+}
+}
+
+This shows the response to a Update album in XML format.
+
+\texttt{}
+HTTP/1.1 200 OK
+date: Wed, 27 Apr 2011 14:11:31 GMT
+content-length: 223
+content-type: application/xml
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;album&gt;
+    &lt;count&gt;0&lt;/count&gt;
+    &lt;creationDate&gt;05-05-2011 14:17:27 +0000&lt;/creationDate&gt;
+    &lt;description&gt;rename album description&lt;/description&gt;
+    &lt;id&gt;856&lt;/id&gt;
+    &lt;name&gt;rename album&lt;/name&gt;
+    &lt;size&gt;0&lt;/size&gt;
+&lt;/album&gt;
 }
 
 This shows the response to a Update album in JSON format

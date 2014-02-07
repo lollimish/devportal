@@ -42,9 +42,9 @@ function echohtml($htmlblock) {
 }
 
 function getOperationName($filename) {
-    $temp = explode(".", $filename);
-    $temp = explode("-", $temp[0]);
-    $opname = str_replace('_', '-', $temp[1]);
+    $temp1 = explode(".", $filename);
+    $temp = explode("-", $temp1[count($temp1) - 2]);
+    $opname = str_replace('_', '-', $temp[count($temp) - 1]);
     return strtolower($opname);
 }
 
@@ -203,23 +203,19 @@ function getExample($filename, $type) {
     $output = array();
     $start = false;
     $count = 1;
+    $code = '';
     while (!\feof($file_handle)) {
         $line = fgets($file_handle);
-        if (startsWith($line, '\paragraph{' . $type)) {
-            $output[$count]['name'] = strtolower($line);
-            if (strpos(strtolower($output[$count]['name']), 'xml') !== false) {
-                $format = '-XML';
-            } elseif (strpos(strtolower($output[$count]['name']), 'json') !== false) {
-                $format = '-JSON';
-            } else {
-                $format = '';
-            }
-            $output[$count]['name'] = trim(getInbetweenStrings('(', ')', $line)) . $format;
-            $output[$count]['id'] = id($output[$count]['name']);
+        if (startsWith($line, '\paragraph{', $type)) {
+            $name = trim(getInbetweenStrings('(', ')', $line));
+            $output[$count]['name'] = $name;
+            $output[$count]['id'] = id($name);
             $start = true;
         }
         if ($start && !startsWith($line, '\begin{lstlisting}') && !startsWith($line, '\end{lstlisting}') && !startsWith($line, '\paragraph')) {
-            $output[$count]['code'] .= htmlspecialchars($line);
+            $code .= htmlspecialchars($line);
+
+            $output[$count]['code'] = $code;
         }
         if (startsWith($line, '\end{lstlisting}') && $start) {
             $count++;
@@ -315,12 +311,12 @@ function getRefFile($opfile) {
 //            break;
 //    }
     while (!\feof($file_handle)) {
-        $refFiles = array('input'=>'', 'output'=>'', 'object'=>array(), 'error'=>array());
+        $refFiles = array('input' => '', 'output' => '', 'object' => array(), 'error' => array());
         $line = fgets($file_handle);
         preg_match_all('/input{InputParam(.*?).tex}/s', $line, $input);
-        foreach($input[1] as $m){
-         $refFiles['input'] .= $m;   
-        }   
+        foreach ($input[1] as $m) {
+            $refFiles['input'] .= $m;
+        }
     }
     return $opfile;
 }

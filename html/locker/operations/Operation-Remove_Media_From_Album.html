@@ -1,15 +1,15 @@
 
  
 
-<section id="resources-" class="level-2">
-        <header></header>
+<section id="resources-remove-media-from-album" class="level-2">
+        <header>Remove media from album</header>
 
-        <section id="resources--overview" class="level-3">
+        <section id="resources-remove-media-from-album-overview" class="level-3">
             <header>Overview</header>
             <p></p><p></p><p>Remove media from an album belonging to a user. </p><p></p>
         </section>
 
-        <section id="resources--oauth" class="level-3">
+        <section id="resources-remove-media-from-album-oauth" class="level-3">
             <ul class="oauth">
                 <li><span>OAuth Scope</span></li>
                 <li><p><span>Scope:</span> LOCKER </p></li>
@@ -26,11 +26,12 @@
             </ul>
         </section>
                 
-        <section id="resources--examples" class="level-3">
+        <section id="resources-remove-media-from-album-examples" class="level-3">
             <header>Request Examples</header>
             <div class="tabs">
             <ul class="tab_nav">
 <li><a href="#delete-2-media-from-an-album"class="selected">Delete 2 media from an album</a></li>
+<li><a href="#successful-re">Successful re</a></li>
 
         
             </ul>
@@ -58,14 +59,70 @@ accept: application/xml
                     </div>
                 </div>
         
+       <div id="successful-re" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+
+
+This demonstrates how to delete 2 media from an album.
+
+DELETE /locker/v1/albums/2234456/media?mediaIds=62588%2C55888 HTTP/1.1 
+host: api.att.com
+authorization: Bearer abcdef12345678
+accept: application/xml
+album)\protect \\
+}
+
+This shows the response to deleting media from a album
+
+\texttt{}
+HTTP/1.1 204 No Content
+content-length: 0
+date: Thu, 04 Jun 2010 02:51:59 GMT
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
             
             <header>Response Examples</header>
                         <div class="tabs">
                         <ul class="tab_nav">
-<li><a href="#successful-re"class="selected">Successful re</a></li>
+<li><a href="#delete-2-media-from-an-album"class="selected">Delete 2 media from an album</a></li>
+<li><a href="#successful-re">Successful re</a></li>
 
         
             </ul>
+        
+       <div id="delete-2-media-from-an-album" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+
+
+This demonstrates how to delete 2 media from an album.
+
+DELETE /locker/v1/albums/2234456/media?mediaIds=62588%2C55888 HTTP/1.1 
+host: api.att.com
+authorization: Bearer abcdef12345678
+accept: application/xml
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
         
        <div id="successful-re" class="code">
             <div class="code">
@@ -73,6 +130,16 @@ accept: application/xml
                     <span class="copy-button">copy</span>
                     <pre>
 
+}
+
+
+
+This demonstrates how to delete 2 media from an album.
+
+DELETE /locker/v1/albums/2234456/media?mediaIds=62588%2C55888 HTTP/1.1 
+host: api.att.com
+authorization: Bearer abcdef12345678
+accept: application/xml
 album)\protect \\
 }
 

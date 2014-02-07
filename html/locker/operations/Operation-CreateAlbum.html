@@ -1,15 +1,15 @@
 
  
 
-<section id="resources-" class="level-2">
-        <header></header>
+<section id="resources-createalbum" class="level-2">
+        <header>Createalbum</header>
 
-        <section id="resources--overview" class="level-3">
+        <section id="resources-createalbum-overview" class="level-3">
             <header>Overview</header>
             <p></p>
         </section>
 
-        <section id="resources--oauth" class="level-3">
+        <section id="resources-createalbum-oauth" class="level-3">
             <ul class="oauth">
                 <li><span>OAuth Scope</span></li>
                 <li><p><span>Scope:</span> LOCKER </p></li>
@@ -26,17 +26,19 @@
             </ul>
         </section>
                 
-        <section id="resources--examples" class="level-3">
+        <section id="resources-createalbum-examples" class="level-3">
             <header>Request Examples</header>
             <div class="tabs">
             <ul class="tab_nav">
-<li><a href="#xml-xml"class="selected">XML-XML</a></li>
-<li><a href="#json-json">JSON-JSON</a></li>
+<li><a href="#xml"class="selected">XML</a></li>
+<li><a href="#json">JSON</a></li>
+<li><a href="#xml">XML</a></li>
+<li><a href="#json">JSON</a></li>
 
         
             </ul>
         
-       <div id="xml-xml" class="code">
+       <div id="xml" class="code">
             <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -65,11 +67,27 @@ content-type: application/xml
                     </div>
                 </div>
         
-       <div id="json-json" class="code">
+       <div id="json" class="code">
             <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
+
+}
+
+This demonstrates how to create an album The response format will
+be in XML.
+
+POST /locker/v1/albums HTTP/1.1 
+Host: api.att.com
+authorization: bearer abcdef12345678
+accept: application/xml
+content-type: application/xml
+
+&lt;album&gt;
+      &lt;name&gt;somealbum&lt;/name&gt;
+      &lt;description&gt;Old School&lt;/description&gt;
+&lt;/album&gt;
 
 }
 
@@ -95,22 +113,45 @@ content-type: application/json
                     </div>
                 </div>
         
-            
-            <header>Response Examples</header>
-                        <div class="tabs">
-                        <ul class="tab_nav">
-<li><a href="#xml-xml"class="selected">XML-XML</a></li>
-<li><a href="#json-json">JSON-JSON</a></li>
-
-        
-            </ul>
-        
-       <div id="xml-xml" class="code">
+       <div id="xml" class="code">
             <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
 
+}
+
+This demonstrates how to create an album The response format will
+be in XML.
+
+POST /locker/v1/albums HTTP/1.1 
+Host: api.att.com
+authorization: bearer abcdef12345678
+accept: application/xml
+content-type: application/xml
+
+&lt;album&gt;
+      &lt;name&gt;somealbum&lt;/name&gt;
+      &lt;description&gt;Old School&lt;/description&gt;
+&lt;/album&gt;
+
+}
+
+This demonstrates how to create an album. The response format will
+be in JSON.
+
+POST /locker/v1/albums HTTP/1.1 
+Host: api.att.com 
+authorization: bearer abcdef12345678
+accept: application/json
+content-type: application/json
+
+{
+  &quot;album&quot;: {
+    &quot;name&quot;: &quot;somealbum&quot;,
+    &quot;description&quot;: &quot;Old School&quot;
+  }
+}
 }
 
 This shows the response to an album creation in XML format.exception
@@ -139,12 +180,307 @@ location: https://api.att.com/locker/v1/albums/735
                     </div>
                 </div>
         
-       <div id="json-json" class="code">
+       <div id="json" class="code">
             <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
 
+}
+
+This demonstrates how to create an album The response format will
+be in XML.
+
+POST /locker/v1/albums HTTP/1.1 
+Host: api.att.com
+authorization: bearer abcdef12345678
+accept: application/xml
+content-type: application/xml
+
+&lt;album&gt;
+      &lt;name&gt;somealbum&lt;/name&gt;
+      &lt;description&gt;Old School&lt;/description&gt;
+&lt;/album&gt;
+
+}
+
+This demonstrates how to create an album. The response format will
+be in JSON.
+
+POST /locker/v1/albums HTTP/1.1 
+Host: api.att.com 
+authorization: bearer abcdef12345678
+accept: application/json
+content-type: application/json
+
+{
+  &quot;album&quot;: {
+    &quot;name&quot;: &quot;somealbum&quot;,
+    &quot;description&quot;: &quot;Old School&quot;
+  }
+}
+}
+
+This shows the response to an album creation in XML format.exception
+
+\texttt{}
+HTTP/1.1 201 Created
+date: Wed, 27 Apr 2013 14:11:31 GMT
+content-length: 223
+content-type: application/xml
+location: https://api.att.com/locker/v1/albums/735
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;album&gt;
+    &lt;count&gt;0&lt;/count&gt;
+    &lt;creationDate&gt;Wed, 04 May 2013 14:43:03 GMT&lt;/creationDate&gt;
+    &lt;description&gt;Old School&lt;/description&gt;
+    &lt;id&gt;735&lt;/id&gt;
+    &lt;name&gt;somealbum&lt;/name&gt;
+    &lt;previews/&gt;
+    &lt;size&gt;0&lt;/size&gt;
+&lt;/album&gt;
+}
+
+This shows the response to an album creation in JSON format
+
+HTTP/1.1 201 Created
+date: Wed, 27 Apr 2013 14:11:31 GMT
+content-length: 223
+content-type: application/json
+location: https://api.att.com/locker/v1/albums/735
+
+{
+  &quot;album&quot;: {
+    &quot;count&quot;: 0,
+    &quot;creationDate&quot;: &quot;Wed, 04 May 2013 14:43:03 GMT&quot;,
+    &quot;description&quot;: &quot;Old School&quot;,
+    &quot;id&quot;: 735,
+    &quot;name&quot;: &quot;somealbum&quot;,
+    &quot;size&quot;: 0
+  }
+}
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+            
+            <header>Response Examples</header>
+                        <div class="tabs">
+                        <ul class="tab_nav">
+<li><a href="#xml"class="selected">XML</a></li>
+<li><a href="#json">JSON</a></li>
+<li><a href="#xml">XML</a></li>
+<li><a href="#json">JSON</a></li>
+
+        
+            </ul>
+        
+       <div id="xml" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+This demonstrates how to create an album The response format will
+be in XML.
+
+POST /locker/v1/albums HTTP/1.1 
+Host: api.att.com
+authorization: bearer abcdef12345678
+accept: application/xml
+content-type: application/xml
+
+&lt;album&gt;
+      &lt;name&gt;somealbum&lt;/name&gt;
+      &lt;description&gt;Old School&lt;/description&gt;
+&lt;/album&gt;
+
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="json" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+This demonstrates how to create an album The response format will
+be in XML.
+
+POST /locker/v1/albums HTTP/1.1 
+Host: api.att.com
+authorization: bearer abcdef12345678
+accept: application/xml
+content-type: application/xml
+
+&lt;album&gt;
+      &lt;name&gt;somealbum&lt;/name&gt;
+      &lt;description&gt;Old School&lt;/description&gt;
+&lt;/album&gt;
+
+}
+
+This demonstrates how to create an album. The response format will
+be in JSON.
+
+POST /locker/v1/albums HTTP/1.1 
+Host: api.att.com 
+authorization: bearer abcdef12345678
+accept: application/json
+content-type: application/json
+
+{
+  &quot;album&quot;: {
+    &quot;name&quot;: &quot;somealbum&quot;,
+    &quot;description&quot;: &quot;Old School&quot;
+  }
+}
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="xml" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+This demonstrates how to create an album The response format will
+be in XML.
+
+POST /locker/v1/albums HTTP/1.1 
+Host: api.att.com
+authorization: bearer abcdef12345678
+accept: application/xml
+content-type: application/xml
+
+&lt;album&gt;
+      &lt;name&gt;somealbum&lt;/name&gt;
+      &lt;description&gt;Old School&lt;/description&gt;
+&lt;/album&gt;
+
+}
+
+This demonstrates how to create an album. The response format will
+be in JSON.
+
+POST /locker/v1/albums HTTP/1.1 
+Host: api.att.com 
+authorization: bearer abcdef12345678
+accept: application/json
+content-type: application/json
+
+{
+  &quot;album&quot;: {
+    &quot;name&quot;: &quot;somealbum&quot;,
+    &quot;description&quot;: &quot;Old School&quot;
+  }
+}
+}
+
+This shows the response to an album creation in XML format.exception
+
+\texttt{}
+HTTP/1.1 201 Created
+date: Wed, 27 Apr 2013 14:11:31 GMT
+content-length: 223
+content-type: application/xml
+location: https://api.att.com/locker/v1/albums/735
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;album&gt;
+    &lt;count&gt;0&lt;/count&gt;
+    &lt;creationDate&gt;Wed, 04 May 2013 14:43:03 GMT&lt;/creationDate&gt;
+    &lt;description&gt;Old School&lt;/description&gt;
+    &lt;id&gt;735&lt;/id&gt;
+    &lt;name&gt;somealbum&lt;/name&gt;
+    &lt;previews/&gt;
+    &lt;size&gt;0&lt;/size&gt;
+&lt;/album&gt;
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="json" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+This demonstrates how to create an album The response format will
+be in XML.
+
+POST /locker/v1/albums HTTP/1.1 
+Host: api.att.com
+authorization: bearer abcdef12345678
+accept: application/xml
+content-type: application/xml
+
+&lt;album&gt;
+      &lt;name&gt;somealbum&lt;/name&gt;
+      &lt;description&gt;Old School&lt;/description&gt;
+&lt;/album&gt;
+
+}
+
+This demonstrates how to create an album. The response format will
+be in JSON.
+
+POST /locker/v1/albums HTTP/1.1 
+Host: api.att.com 
+authorization: bearer abcdef12345678
+accept: application/json
+content-type: application/json
+
+{
+  &quot;album&quot;: {
+    &quot;name&quot;: &quot;somealbum&quot;,
+    &quot;description&quot;: &quot;Old School&quot;
+  }
+}
+}
+
+This shows the response to an album creation in XML format.exception
+
+\texttt{}
+HTTP/1.1 201 Created
+date: Wed, 27 Apr 2013 14:11:31 GMT
+content-length: 223
+content-type: application/xml
+location: https://api.att.com/locker/v1/albums/735
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;album&gt;
+    &lt;count&gt;0&lt;/count&gt;
+    &lt;creationDate&gt;Wed, 04 May 2013 14:43:03 GMT&lt;/creationDate&gt;
+    &lt;description&gt;Old School&lt;/description&gt;
+    &lt;id&gt;735&lt;/id&gt;
+    &lt;name&gt;somealbum&lt;/name&gt;
+    &lt;previews/&gt;
+    &lt;size&gt;0&lt;/size&gt;
+&lt;/album&gt;
 }
 
 This shows the response to an album creation in JSON format

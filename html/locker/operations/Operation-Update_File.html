@@ -1,15 +1,15 @@
 
  
 
-<section id="resources-" class="level-2">
-        <header></header>
+<section id="resources-update-file" class="level-2">
+        <header>Update file</header>
 
-        <section id="resources--overview" class="level-3">
+        <section id="resources-update-file-overview" class="level-3">
             <header>Overview</header>
             <p></p><p></p><p>Modifies the information of a specific file belonging to the specifieduser. If a user attempts to update a file instance with a file instancewith the same name, the original file instance is not overwritten.The new file instance is updated with the word copy appended to thename. The original file instance will be preserved. </p><p></p>
         </section>
 
-        <section id="resources--oauth" class="level-3">
+        <section id="resources-update-file-oauth" class="level-3">
             <ul class="oauth">
                 <li><span>OAuth Scope</span></li>
                 <li><p><span>Scope:</span> LOCKER </p></li>
@@ -26,17 +26,19 @@
             </ul>
         </section>
                 
-        <section id="resources--examples" class="level-3">
+        <section id="resources-update-file-examples" class="level-3">
             <header>Request Examples</header>
             <div class="tabs">
             <ul class="tab_nav">
-<li><a href="#update-a-file-using-xml-xml"class="selected">Update a file using XML-XML</a></li>
-<li><a href="#update-a-file-using-json-json">Update a file using JSON-JSON</a></li>
+<li><a href="#update-a-file-using-xml"class="selected">Update a file using XML</a></li>
+<li><a href="#update-a-file-using-json">Update a file using JSON</a></li>
+<li><a href="#my-first-response-example-in-xml">My First Response Example in XML</a></li>
+<li><a href="#my-second-example-response-in-json">My second example response in JSON</a></li>
 
         
             </ul>
         
-       <div id="update-a-file-using-xml-xml" class="code">
+       <div id="update-a-file-using-xml" class="code">
             <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -64,12 +66,27 @@ content-type: application/xml
                     </div>
                 </div>
         
-       <div id="update-a-file-using-json-json" class="code">
+       <div id="update-a-file-using-json" class="code">
             <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
 
+}
+
+
+
+This demonstrates how to update a file using XML.
+
+PATCH /locker/v1/files/2234456 HTTP/1.1 
+Host: api.att.com
+authorization: Bearer abcdef12345678
+accept: application/xml
+content-type: application/xml
+
+&lt;file&gt;
+      &lt;description&gt;I LIKE THIS NEW DESCRIPTION better.&lt;/description&gt;
+&lt;/file&gt;
 }
 
 This demonstrates how to update a file using JSON.
@@ -92,22 +109,42 @@ accept: application/json
                     </div>
                 </div>
         
-            
-            <header>Response Examples</header>
-                        <div class="tabs">
-                        <ul class="tab_nav">
-<li><a href="#my-first-response-example-in-xml-xml"class="selected">My First Response Example in XML-XML</a></li>
-<li><a href="#my-second-example-response-in-json-json">My second example response in JSON-JSON</a></li>
-
-        
-            </ul>
-        
-       <div id="my-first-response-example-in-xml-xml" class="code">
+       <div id="my-first-response-example-in-xml" class="code">
             <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
 
+}
+
+
+
+This demonstrates how to update a file using XML.
+
+PATCH /locker/v1/files/2234456 HTTP/1.1 
+Host: api.att.com
+authorization: Bearer abcdef12345678
+accept: application/xml
+content-type: application/xml
+
+&lt;file&gt;
+      &lt;description&gt;I LIKE THIS NEW DESCRIPTION better.&lt;/description&gt;
+&lt;/file&gt;
+}
+
+This demonstrates how to update a file using JSON.
+
+PATCH /locker/v1/files/2234456 HTTP/1.1 
+Host: api.att.com
+content-type: application/json
+authorization: Bearer 38C2399A23999
+accept: application/json
+
+{
+  &quot;file&quot;: { 
+      &quot;name&quot;: &quot;my_new_file_name&quot;
+  }
+}
 }
 
 This shows the response to a file update in XML format.
@@ -155,12 +192,365 @@ content-type: application/xml
                     </div>
                 </div>
         
-       <div id="my-second-example-response-in-json-json" class="code">
+       <div id="my-second-example-response-in-json" class="code">
             <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
 
+}
+
+
+
+This demonstrates how to update a file using XML.
+
+PATCH /locker/v1/files/2234456 HTTP/1.1 
+Host: api.att.com
+authorization: Bearer abcdef12345678
+accept: application/xml
+content-type: application/xml
+
+&lt;file&gt;
+      &lt;description&gt;I LIKE THIS NEW DESCRIPTION better.&lt;/description&gt;
+&lt;/file&gt;
+}
+
+This demonstrates how to update a file using JSON.
+
+PATCH /locker/v1/files/2234456 HTTP/1.1 
+Host: api.att.com
+content-type: application/json
+authorization: Bearer 38C2399A23999
+accept: application/json
+
+{
+  &quot;file&quot;: { 
+      &quot;name&quot;: &quot;my_new_file_name&quot;
+  }
+}
+}
+
+This shows the response to a file update in XML format.
+
+\texttt{}
+HTTP/1.1 200 OK
+Date: Wed, 27 Apr 2011 14:11:31 GMT
+content-length:539
+content-type: application/xml
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;file&gt;
+    &lt;accessBlocked&gt;false&lt;/accessBlocked&gt;
+    &lt;av&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+    &lt;/av&gt;
+    &lt;contentSize&gt;269&lt;/contentSize&gt;
+    &lt;creationDate&gt;Mon, 25 Apr 2011 19:30:55 GMT&lt;/creationDate&gt;
+    &lt;description&gt;UPDATING DESCRIPTION&lt;/description&gt;
+    &lt;extension&gt;txt&lt;/extension&gt;
+    &lt;format&gt;plain; charset=us-ascii&lt;/format&gt;
+    &lt;id&gt;39&lt;/id&gt;
+    &lt;metadataList/&gt;
+    &lt;name&gt;guids.txt&lt;/name&gt;
+    &lt;previews/&gt;
+    &lt;collections&gt;
+        &lt;folder&gt;
+            &lt;count&gt;1&lt;/count&gt;
+            &lt;creationDate&gt;Wed, 27 Apr 2011 19:58:10 GMT&lt;/creationDate&gt;
+            &lt;description&gt;I LIKE THIS NEW DESCRIPTION better.&lt;/description&gt;
+            &lt;id&gt;20&lt;/id&gt;
+            &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
+            &lt;size&gt;269&lt;/size&gt;
+        &lt;/folder&gt;
+    &lt;/collections&gt;
+    &lt;shareCodes/&gt;
+    &lt;sharingBlocked&gt;false&lt;/sharingBlocked&gt;
+    &lt;tags/&gt;
+    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/object/?content_id=39&amp;amp;ticket=e8fca2ab-ee7f-404b-981d-ae792abd1585&lt;/url&gt;
+&lt;/file&gt;
+}
+
+This shows the response to a file update in JSON format.
+
+HTTP/1.1 200 OK 
+content-type: application/json 
+content-length: 624 
+Date: Thu, 04 Jun 2010 02:51:59 GMT
+
+{
+  &quot;file&quot;: {
+    &quot;accessBlocked&quot;: false,
+    &quot;av&quot;: { &quot;status&quot;: &quot;ok&quot; },
+    &quot;contentSize&quot;: 269,
+    &quot;creationDate&quot;: &quot;Mon, 25 Apr 2011 19:30:55 GMT&quot;,
+    &quot;description&quot;: &quot;UPDATING DESCRIPTION&quot;,
+    &quot;extension&quot;: &quot;txt&quot;,
+    &quot;format&quot;: &quot;plain; charset=us-ascii&quot;,
+    &quot;id&quot;: 39,
+    &quot;name&quot;: &quot;guids.txt&quot;,
+    &quot;collections&quot;: {
+      &quot;folder&quot;: {
+        &quot;count&quot;: 1,
+        &quot;creationDate&quot;: &quot;Wed, 27 Apr 2011 19:58:10 GMT&quot;,
+        &quot;description&quot;: &quot;I LIKE THIS NEW DESCRIPTION better.&quot;,
+        &quot;id&quot;: 20,
+        &quot;name&quot;: &quot;Bunch of random Files Folder&quot;,
+        &quot;size&quot;: 269
+      }
+    },
+    &quot;sharingBlocked&quot;: false,
+    &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/object/?content_id=39&amp;ticket=e8fca2ab-ee7f-404b-981d-ae792abd1585&quot;
+  }
+}
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+            
+            <header>Response Examples</header>
+                        <div class="tabs">
+                        <ul class="tab_nav">
+<li><a href="#update-a-file-using-xml"class="selected">Update a file using XML</a></li>
+<li><a href="#update-a-file-using-json">Update a file using JSON</a></li>
+<li><a href="#my-first-response-example-in-xml">My First Response Example in XML</a></li>
+<li><a href="#my-second-example-response-in-json">My second example response in JSON</a></li>
+
+        
+            </ul>
+        
+       <div id="update-a-file-using-xml" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+
+
+This demonstrates how to update a file using XML.
+
+PATCH /locker/v1/files/2234456 HTTP/1.1 
+Host: api.att.com
+authorization: Bearer abcdef12345678
+accept: application/xml
+content-type: application/xml
+
+&lt;file&gt;
+      &lt;description&gt;I LIKE THIS NEW DESCRIPTION better.&lt;/description&gt;
+&lt;/file&gt;
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="update-a-file-using-json" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+
+
+This demonstrates how to update a file using XML.
+
+PATCH /locker/v1/files/2234456 HTTP/1.1 
+Host: api.att.com
+authorization: Bearer abcdef12345678
+accept: application/xml
+content-type: application/xml
+
+&lt;file&gt;
+      &lt;description&gt;I LIKE THIS NEW DESCRIPTION better.&lt;/description&gt;
+&lt;/file&gt;
+}
+
+This demonstrates how to update a file using JSON.
+
+PATCH /locker/v1/files/2234456 HTTP/1.1 
+Host: api.att.com
+content-type: application/json
+authorization: Bearer 38C2399A23999
+accept: application/json
+
+{
+  &quot;file&quot;: { 
+      &quot;name&quot;: &quot;my_new_file_name&quot;
+  }
+}
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="my-first-response-example-in-xml" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+
+
+This demonstrates how to update a file using XML.
+
+PATCH /locker/v1/files/2234456 HTTP/1.1 
+Host: api.att.com
+authorization: Bearer abcdef12345678
+accept: application/xml
+content-type: application/xml
+
+&lt;file&gt;
+      &lt;description&gt;I LIKE THIS NEW DESCRIPTION better.&lt;/description&gt;
+&lt;/file&gt;
+}
+
+This demonstrates how to update a file using JSON.
+
+PATCH /locker/v1/files/2234456 HTTP/1.1 
+Host: api.att.com
+content-type: application/json
+authorization: Bearer 38C2399A23999
+accept: application/json
+
+{
+  &quot;file&quot;: { 
+      &quot;name&quot;: &quot;my_new_file_name&quot;
+  }
+}
+}
+
+This shows the response to a file update in XML format.
+
+\texttt{}
+HTTP/1.1 200 OK
+Date: Wed, 27 Apr 2011 14:11:31 GMT
+content-length:539
+content-type: application/xml
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;file&gt;
+    &lt;accessBlocked&gt;false&lt;/accessBlocked&gt;
+    &lt;av&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+    &lt;/av&gt;
+    &lt;contentSize&gt;269&lt;/contentSize&gt;
+    &lt;creationDate&gt;Mon, 25 Apr 2011 19:30:55 GMT&lt;/creationDate&gt;
+    &lt;description&gt;UPDATING DESCRIPTION&lt;/description&gt;
+    &lt;extension&gt;txt&lt;/extension&gt;
+    &lt;format&gt;plain; charset=us-ascii&lt;/format&gt;
+    &lt;id&gt;39&lt;/id&gt;
+    &lt;metadataList/&gt;
+    &lt;name&gt;guids.txt&lt;/name&gt;
+    &lt;previews/&gt;
+    &lt;collections&gt;
+        &lt;folder&gt;
+            &lt;count&gt;1&lt;/count&gt;
+            &lt;creationDate&gt;Wed, 27 Apr 2011 19:58:10 GMT&lt;/creationDate&gt;
+            &lt;description&gt;I LIKE THIS NEW DESCRIPTION better.&lt;/description&gt;
+            &lt;id&gt;20&lt;/id&gt;
+            &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
+            &lt;size&gt;269&lt;/size&gt;
+        &lt;/folder&gt;
+    &lt;/collections&gt;
+    &lt;shareCodes/&gt;
+    &lt;sharingBlocked&gt;false&lt;/sharingBlocked&gt;
+    &lt;tags/&gt;
+    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/object/?content_id=39&amp;amp;ticket=e8fca2ab-ee7f-404b-981d-ae792abd1585&lt;/url&gt;
+&lt;/file&gt;
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="my-second-example-response-in-json" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+
+
+This demonstrates how to update a file using XML.
+
+PATCH /locker/v1/files/2234456 HTTP/1.1 
+Host: api.att.com
+authorization: Bearer abcdef12345678
+accept: application/xml
+content-type: application/xml
+
+&lt;file&gt;
+      &lt;description&gt;I LIKE THIS NEW DESCRIPTION better.&lt;/description&gt;
+&lt;/file&gt;
+}
+
+This demonstrates how to update a file using JSON.
+
+PATCH /locker/v1/files/2234456 HTTP/1.1 
+Host: api.att.com
+content-type: application/json
+authorization: Bearer 38C2399A23999
+accept: application/json
+
+{
+  &quot;file&quot;: { 
+      &quot;name&quot;: &quot;my_new_file_name&quot;
+  }
+}
+}
+
+This shows the response to a file update in XML format.
+
+\texttt{}
+HTTP/1.1 200 OK
+Date: Wed, 27 Apr 2011 14:11:31 GMT
+content-length:539
+content-type: application/xml
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;file&gt;
+    &lt;accessBlocked&gt;false&lt;/accessBlocked&gt;
+    &lt;av&gt;
+        &lt;status&gt;ok&lt;/status&gt;
+    &lt;/av&gt;
+    &lt;contentSize&gt;269&lt;/contentSize&gt;
+    &lt;creationDate&gt;Mon, 25 Apr 2011 19:30:55 GMT&lt;/creationDate&gt;
+    &lt;description&gt;UPDATING DESCRIPTION&lt;/description&gt;
+    &lt;extension&gt;txt&lt;/extension&gt;
+    &lt;format&gt;plain; charset=us-ascii&lt;/format&gt;
+    &lt;id&gt;39&lt;/id&gt;
+    &lt;metadataList/&gt;
+    &lt;name&gt;guids.txt&lt;/name&gt;
+    &lt;previews/&gt;
+    &lt;collections&gt;
+        &lt;folder&gt;
+            &lt;count&gt;1&lt;/count&gt;
+            &lt;creationDate&gt;Wed, 27 Apr 2011 19:58:10 GMT&lt;/creationDate&gt;
+            &lt;description&gt;I LIKE THIS NEW DESCRIPTION better.&lt;/description&gt;
+            &lt;id&gt;20&lt;/id&gt;
+            &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
+            &lt;size&gt;269&lt;/size&gt;
+        &lt;/folder&gt;
+    &lt;/collections&gt;
+    &lt;shareCodes/&gt;
+    &lt;sharingBlocked&gt;false&lt;/sharingBlocked&gt;
+    &lt;tags/&gt;
+    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/object/?content_id=39&amp;amp;ticket=e8fca2ab-ee7f-404b-981d-ae792abd1585&lt;/url&gt;
+&lt;/file&gt;
 }
 
 This shows the response to a file update in JSON format.

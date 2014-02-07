@@ -1,15 +1,15 @@
 
  
 
-<section id="resources-" class="level-2">
-        <header></header>
+<section id="resources-list-all-files" class="level-2">
+        <header>List all files</header>
 
-        <section id="resources--overview" class="level-3">
+        <section id="resources-list-all-files-overview" class="level-3">
             <header>Overview</header>
             <p></p><p></p><p>Gets a file list for a particular user</p><p></p>
         </section>
 
-        <section id="resources--oauth" class="level-3">
+        <section id="resources-list-all-files-oauth" class="level-3">
             <ul class="oauth">
                 <li><span>OAuth Scope</span></li>
                 <li><p><span>Scope:</span> LOCKER </p></li>
@@ -26,11 +26,13 @@
             </ul>
         </section>
                 
-        <section id="resources--examples" class="level-3">
+        <section id="resources-list-all-files-examples" class="level-3">
             <header>Request Examples</header>
             <div class="tabs">
             <ul class="tab_nav">
 <li><a href="#get-a-file-listing"class="selected">Get a file listing</a></li>
+<li><a href="#get-file-listing-in-xml">Get file listing in XML</a></li>
+<li><a href="#get-file-listing-in-json">Get file listing in JSON</a></li>
 
         
             </ul>
@@ -58,22 +60,22 @@ accept: application/xml
                     </div>
                 </div>
         
-            
-            <header>Response Examples</header>
-                        <div class="tabs">
-                        <ul class="tab_nav">
-<li><a href="#get-file-listing-in-xml-xml"class="selected">Get file listing in XML-XML</a></li>
-<li><a href="#get-file-listing-in-json-json">Get file listing in JSON-JSON</a></li>
-
-        
-            </ul>
-        
-       <div id="get-file-listing-in-xml-xml" class="code">
+       <div id="get-file-listing-in-xml" class="code">
             <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
 
+}
+
+
+
+This demonstrates how to get a file listing.
+
+GET /locker/v1/files?limit=20&amp;offset=10&amp;orderBy=author&amp;order=desc HTTP/1.1 
+Host: api.att.com
+authorization: Bearer abcdef12345678
+accept: application/xml
 }
 
 This shows the response to a Get file listing in XML format.
@@ -131,12 +133,297 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
                     </div>
                 </div>
         
-       <div id="get-file-listing-in-json-json" class="code">
+       <div id="get-file-listing-in-json" class="code">
             <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
 
+}
+
+
+
+This demonstrates how to get a file listing.
+
+GET /locker/v1/files?limit=20&amp;offset=10&amp;orderBy=author&amp;order=desc HTTP/1.1 
+Host: api.att.com
+authorization: Bearer abcdef12345678
+accept: application/xml
+}
+
+This shows the response to a Get file listing in XML format.
+
+\texttt{}
+HTTP/1.1 200 OK
+content-type: application/xml 
+content-length: 929 
+date: Thu, 04 Jun 2010 02:51:59 GMT
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;content&gt;
+    &lt;count&gt;1&lt;/count&gt;
+    &lt;files&gt;
+        &lt;file&gt;
+            &lt;accessBlocked&gt;false&lt;/accessBlocked&gt;
+            &lt;av&gt;
+                &lt;status&gt;ok&lt;/status&gt;
+            &lt;/av&gt;
+            &lt;contentSize&gt;19152&lt;/contentSize&gt;
+            &lt;creationDate&gt;05-02-2011 14:07:57 +0000&lt;/creationDate&gt;
+            &lt;description&gt;UPDATING DESCRIPTION&lt;/description&gt;
+            &lt;extension&gt;xlsx&lt;/extension&gt;
+            &lt;format&gt;vnd.openxmlformats-officedocument.spreadsheetml.sheet&lt;/format&gt;
+            &lt;id&gt;112&lt;/id&gt;
+            &lt;metadataList&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Author&lt;/name&gt;
+                    &lt;value&gt;Jackie Fong&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Software&lt;/name&gt;
+                    &lt;value&gt;Microsoft Excel&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Year&lt;/name&gt;
+                    &lt;value&gt;2010&lt;/value&gt;
+                &lt;/metadata&gt;
+            &lt;/metadataList&gt;
+            &lt;name&gt;3sScope.xlsx&lt;/name&gt;
+            &lt;previews/&gt;
+            &lt;collections/&gt;
+            &lt;shareCodes/&gt;
+            &lt;sharingBlocked&gt;false&lt;/sharingBlocked&gt;
+            &lt;tags/&gt;
+            &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/object/?content_id=112&amp;amp;ticket=1b0a8ae1-c17e-45d1-84bc-e110e1323434&lt;/url&gt;
+        &lt;/file&gt;
+    &lt;/files&gt;
+    &lt;total&gt;1&lt;/total&gt;
+&lt;/content&gt;
+}
+
+This shows the response to a Get file listing in JSON format
+
+HTTP/1.1 200 OK 
+content-type: application/json 
+content-length: 624 
+date: Thu, 04 Jun 2010 02:51:59 GMT
+
+{
+  &quot;content&quot;: {
+    &quot;count&quot;: 1,
+    &quot;files&quot;: {
+      &quot;file&quot;: {
+        &quot;accessBlocked&quot;: false,
+        &quot;av&quot;: { &quot;status&quot;: &quot;ok&quot; },
+        &quot;creationDate&quot;: &quot;05-02-2011 14:07:57 +0000&quot;,
+        &quot;description&quot;: &quot;UPDATING DESCRIPTION&quot;,
+        &quot;extension&quot;: &quot;xlsx&quot;,
+        &quot;format&quot;: &quot;vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;,
+        &quot;id&quot;: &quot;112&quot;,
+        &quot;metadataList&quot;: {
+          &quot;metadata&quot;: [
+            {
+              &quot;name&quot;: &quot;Author&quot;,
+              &quot;value&quot;: &quot;Jackie Fong&quot;
+            },
+            {
+              &quot;name&quot;: &quot;Software&quot;,
+              &quot;value&quot;: &quot;Microsoft Excel&quot;
+            },
+            {
+              &quot;name&quot;: &quot;Year&quot;,
+              &quot;value&quot;: &quot;2010&quot;
+            }
+          ]
+        },
+        &quot;name&quot;: &quot;3sScope.xlsx&quot;,
+        &quot;sharingBlocked&quot;: &quot;false&quot;,
+        &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/object/?content_id=112&amp;ticket=1b0a8ae1-c17e-45d1-84bc-e110e1323434&quot;
+      }
+    },
+    &quot;total&quot;: 1
+  }
+}
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+            
+            <header>Response Examples</header>
+                        <div class="tabs">
+                        <ul class="tab_nav">
+<li><a href="#get-a-file-listing"class="selected">Get a file listing</a></li>
+<li><a href="#get-file-listing-in-xml">Get file listing in XML</a></li>
+<li><a href="#get-file-listing-in-json">Get file listing in JSON</a></li>
+
+        
+            </ul>
+        
+       <div id="get-a-file-listing" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+
+
+This demonstrates how to get a file listing.
+
+GET /locker/v1/files?limit=20&amp;offset=10&amp;orderBy=author&amp;order=desc HTTP/1.1 
+Host: api.att.com
+authorization: Bearer abcdef12345678
+accept: application/xml
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="get-file-listing-in-xml" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+
+
+This demonstrates how to get a file listing.
+
+GET /locker/v1/files?limit=20&amp;offset=10&amp;orderBy=author&amp;order=desc HTTP/1.1 
+Host: api.att.com
+authorization: Bearer abcdef12345678
+accept: application/xml
+}
+
+This shows the response to a Get file listing in XML format.
+
+\texttt{}
+HTTP/1.1 200 OK
+content-type: application/xml 
+content-length: 929 
+date: Thu, 04 Jun 2010 02:51:59 GMT
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;content&gt;
+    &lt;count&gt;1&lt;/count&gt;
+    &lt;files&gt;
+        &lt;file&gt;
+            &lt;accessBlocked&gt;false&lt;/accessBlocked&gt;
+            &lt;av&gt;
+                &lt;status&gt;ok&lt;/status&gt;
+            &lt;/av&gt;
+            &lt;contentSize&gt;19152&lt;/contentSize&gt;
+            &lt;creationDate&gt;05-02-2011 14:07:57 +0000&lt;/creationDate&gt;
+            &lt;description&gt;UPDATING DESCRIPTION&lt;/description&gt;
+            &lt;extension&gt;xlsx&lt;/extension&gt;
+            &lt;format&gt;vnd.openxmlformats-officedocument.spreadsheetml.sheet&lt;/format&gt;
+            &lt;id&gt;112&lt;/id&gt;
+            &lt;metadataList&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Author&lt;/name&gt;
+                    &lt;value&gt;Jackie Fong&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Software&lt;/name&gt;
+                    &lt;value&gt;Microsoft Excel&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Year&lt;/name&gt;
+                    &lt;value&gt;2010&lt;/value&gt;
+                &lt;/metadata&gt;
+            &lt;/metadataList&gt;
+            &lt;name&gt;3sScope.xlsx&lt;/name&gt;
+            &lt;previews/&gt;
+            &lt;collections/&gt;
+            &lt;shareCodes/&gt;
+            &lt;sharingBlocked&gt;false&lt;/sharingBlocked&gt;
+            &lt;tags/&gt;
+            &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/object/?content_id=112&amp;amp;ticket=1b0a8ae1-c17e-45d1-84bc-e110e1323434&lt;/url&gt;
+        &lt;/file&gt;
+    &lt;/files&gt;
+    &lt;total&gt;1&lt;/total&gt;
+&lt;/content&gt;
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="get-file-listing-in-json" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+
+
+This demonstrates how to get a file listing.
+
+GET /locker/v1/files?limit=20&amp;offset=10&amp;orderBy=author&amp;order=desc HTTP/1.1 
+Host: api.att.com
+authorization: Bearer abcdef12345678
+accept: application/xml
+}
+
+This shows the response to a Get file listing in XML format.
+
+\texttt{}
+HTTP/1.1 200 OK
+content-type: application/xml 
+content-length: 929 
+date: Thu, 04 Jun 2010 02:51:59 GMT
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;content&gt;
+    &lt;count&gt;1&lt;/count&gt;
+    &lt;files&gt;
+        &lt;file&gt;
+            &lt;accessBlocked&gt;false&lt;/accessBlocked&gt;
+            &lt;av&gt;
+                &lt;status&gt;ok&lt;/status&gt;
+            &lt;/av&gt;
+            &lt;contentSize&gt;19152&lt;/contentSize&gt;
+            &lt;creationDate&gt;05-02-2011 14:07:57 +0000&lt;/creationDate&gt;
+            &lt;description&gt;UPDATING DESCRIPTION&lt;/description&gt;
+            &lt;extension&gt;xlsx&lt;/extension&gt;
+            &lt;format&gt;vnd.openxmlformats-officedocument.spreadsheetml.sheet&lt;/format&gt;
+            &lt;id&gt;112&lt;/id&gt;
+            &lt;metadataList&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Author&lt;/name&gt;
+                    &lt;value&gt;Jackie Fong&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Software&lt;/name&gt;
+                    &lt;value&gt;Microsoft Excel&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Year&lt;/name&gt;
+                    &lt;value&gt;2010&lt;/value&gt;
+                &lt;/metadata&gt;
+            &lt;/metadataList&gt;
+            &lt;name&gt;3sScope.xlsx&lt;/name&gt;
+            &lt;previews/&gt;
+            &lt;collections/&gt;
+            &lt;shareCodes/&gt;
+            &lt;sharingBlocked&gt;false&lt;/sharingBlocked&gt;
+            &lt;tags/&gt;
+            &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/object/?content_id=112&amp;amp;ticket=1b0a8ae1-c17e-45d1-84bc-e110e1323434&lt;/url&gt;
+        &lt;/file&gt;
+    &lt;/files&gt;
+    &lt;total&gt;1&lt;/total&gt;
+&lt;/content&gt;
 }
 
 This shows the response to a Get file listing in JSON format

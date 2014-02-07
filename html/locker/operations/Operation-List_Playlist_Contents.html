@@ -1,15 +1,15 @@
 
  
 
-<section id="resources-" class="level-2">
-        <header></header>
+<section id="resources-list-playlist-contents" class="level-2">
+        <header>List playlist contents</header>
 
-        <section id="resources--overview" class="level-3">
+        <section id="resources-list-playlist-contents-overview" class="level-3">
             <header>Overview</header>
             <p></p><p></p><p>Get the entries of a playlist belonging to the specific user. </p><p></p>
         </section>
 
-        <section id="resources--oauth" class="level-3">
+        <section id="resources-list-playlist-contents-oauth" class="level-3">
             <ul class="oauth">
                 <li><span>OAuth Scope</span></li>
                 <li><p><span>Scope:</span> LOCKER </p></li>
@@ -26,11 +26,13 @@
             </ul>
         </section>
                 
-        <section id="resources--examples" class="level-3">
+        <section id="resources-list-playlist-contents-examples" class="level-3">
             <header>Request Examples</header>
             <div class="tabs">
             <ul class="tab_nav">
 <li><a href="#get-playlist-listing"class="selected">Get playlist listing</a></li>
+<li><a href="#playlist-content-listing-in-xml">playlist Content Listing in XML</a></li>
+<li><a href="#playlist-content-listing-in-json">playlist Content Listing in JSON</a></li>
 
         
             </ul>
@@ -58,22 +60,22 @@ accept-encoding: gzip
                     </div>
                 </div>
         
-            
-            <header>Response Examples</header>
-                        <div class="tabs">
-                        <ul class="tab_nav">
-<li><a href="#playlist-content-listing-in-xml-xml"class="selected">playlist Content Listing in XML-XML</a></li>
-<li><a href="#playlist-content-listing-in-json-json">playlist Content Listing in JSON-JSON</a></li>
-
-        
-            </ul>
-        
-       <div id="playlist-content-listing-in-xml-xml" class="code">
+       <div id="playlist-content-listing-in-xml" class="code">
             <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
 
+}
+
+This demonstrates how to get playlist contents using GET with query
+parameters, and specifying the response to be in JSON.
+
+GET /locker/v1/playlists/22323232?limit=20&amp;offset=10&amp;order=asc HTTP/1.1 
+host: api.att.com
+authorization: Bearer 38C2399A23999
+accept: application/json
+accept-encoding: gzip
 }
 
 This shows the response to a Playlist listing request in XML format.
@@ -208,12 +210,609 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
                     </div>
                 </div>
         
-       <div id="playlist-content-listing-in-json-json" class="code">
+       <div id="playlist-content-listing-in-json" class="code">
             <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
 
+}
+
+This demonstrates how to get playlist contents using GET with query
+parameters, and specifying the response to be in JSON.
+
+GET /locker/v1/playlists/22323232?limit=20&amp;offset=10&amp;order=asc HTTP/1.1 
+host: api.att.com
+authorization: Bearer 38C2399A23999
+accept: application/json
+accept-encoding: gzip
+}
+
+This shows the response to a Playlist listing request in XML format.
+
+\texttt{}
+HTTP/1.1 200 OK
+content-type: application/xml 
+content-length: 539
+date: Thu, 04 Jun 2010 02:51:59 GMT
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;content&gt;
+    &lt;count&gt;1&lt;/count&gt;
+    &lt;total&gt;1&lt;/total&gt;
+    &lt;tracks&gt;
+        &lt;track&gt;
+            &lt;accessBlocked&gt;false&lt;/accessBlocked&gt;
+            &lt;av&gt;
+                &lt;status&gt;ok&lt;/status&gt;
+            &lt;/av&gt;
+            &lt;contentSize&gt;4102272&lt;/contentSize&gt;
+            &lt;creationDate&gt;05-02-2011 14:06:49 +0000&lt;/creationDate&gt;
+            &lt;description&gt;&lt;/description&gt;
+            &lt;extension&gt;mp3&lt;/extension&gt;
+            &lt;format&gt;mpeg&lt;/format&gt;
+            &lt;id&gt;109&lt;/id&gt;
+            &lt;metadataList&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Album&lt;/name&gt;
+                    &lt;value&gt;Final Fantasy VIII Piano Collection&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Artist&lt;/name&gt;
+                    &lt;value&gt;FF8&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;AudioBitrate&lt;/name&gt;
+                    &lt;value&gt;160&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;AudioCodec&lt;/name&gt;
+                    &lt;value&gt;MPEG Audio&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Author&lt;/name&gt;
+                    &lt;value&gt;FF8&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Drm&lt;/name&gt;
+                    &lt;value&gt;0&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Duration&lt;/name&gt;
+                    &lt;value&gt;206.316&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Genre&lt;/name&gt;
+                    &lt;value&gt;Game&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Title&lt;/name&gt;
+                    &lt;value&gt;Eyes on Me&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;TrackNumber&lt;/name&gt;
+                    &lt;value&gt;02&lt;/value&gt;
+                &lt;/metadata&gt;
+            &lt;/metadataList&gt;
+            &lt;name&gt;I love M&amp;amp;M's.mp3&lt;/name&gt;
+            &lt;collections&gt;
+                &lt;playlists&gt;
+                    &lt;count&gt;1&lt;/count&gt;
+                    &lt;creationDate&gt;05-04-2011 18:48:47 +0000&lt;/creationDate&gt;
+                    &lt;description&gt;Old School&lt;/description&gt;
+                    &lt;id&gt;797&lt;/id&gt;
+                    &lt;name&gt;Album&lt;/name&gt;
+                    &lt;size&gt;4102272&lt;/size&gt;
+                &lt;/playlists&gt;
+            &lt;/collections&gt;
+            &lt;previews&gt;
+                &lt;preview&gt;
+                    &lt;format&gt;jpg&lt;/format&gt;
+                    &lt;height&gt;240&lt;/height&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;amp;preview=320x240xjpg&lt;/url&gt;
+                    &lt;width&gt;320&lt;/width&gt;
+                &lt;/preview&gt;
+                &lt;preview&gt;
+                    &lt;format&gt;jpg&lt;/format&gt;
+                    &lt;height&gt;90&lt;/height&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;amp;preview=120x90xjpg&lt;/url&gt;
+                    &lt;width&gt;120&lt;/width&gt;
+                &lt;/preview&gt;
+                &lt;preview&gt;
+                    &lt;format&gt;jpg&lt;/format&gt;
+                    &lt;height&gt;480&lt;/height&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;amp;preview=640x480xjpg&lt;/url&gt;
+                    &lt;width&gt;640&lt;/width&gt;
+                &lt;/preview&gt;
+                &lt;preview&gt;
+                    &lt;bitrate&gt;1536k&lt;/bitrate&gt;
+                    &lt;channels&gt;2&lt;/channels&gt;
+                    &lt;format&gt;wav&lt;/format&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;amp;preview=1536kx2xwav&lt;/url&gt;
+                &lt;/preview&gt;
+                &lt;preview&gt;
+                    &lt;bitrate&gt;302k&lt;/bitrate&gt;
+                    &lt;channels&gt;1&lt;/channels&gt;
+                    &lt;format&gt;aac&lt;/format&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;amp;preview=32kx1xaac&lt;/url&gt;
+                &lt;/preview&gt;
+                &lt;preview&gt;
+                    &lt;bitrate&gt;64k&lt;/bitrate&gt;
+                    &lt;channels&gt;2&lt;/channels&gt;
+                    &lt;format&gt;aac&lt;/format&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;amp;preview=64kx2xaac&lt;/url&gt;
+                &lt;/preview&gt;
+            &lt;/previews&gt;
+            &lt;shareCodes/&gt;
+            &lt;sharingBlocked&gt;false&lt;/sharingBlocked&gt;
+            &lt;streamUrl&gt;
+                rtsp://streaming.att-integration4.sdc.f-secure.com/ae34af29-8623-47f2-9fa6-ab47867d87c1/109_pc.3gp
+            &lt;/streamUrl&gt;
+            &lt;tags/&gt;
+            &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&lt;/url&gt;
+        &lt;/track&gt;
+    &lt;/tracks&gt;
+&lt;/content&gt;
+}
+
+This shows the response to a playlist listing request in JSON format
+
+HTTP/1.1 200 OK 
+content-type: application/json 
+content-length: 624 
+date: Thu, 04 Jun 2010 02:51:59 GMT
+
+{
+  &quot;content&quot;: {
+    &quot;count&quot;: 1,
+    &quot;total&quot;: 1,
+    &quot;tracks&quot;: {
+      &quot;track&quot;: {
+        &quot;accessBlocked&quot;: false,
+        &quot;av&quot;: { &quot;status&quot;: &quot;ok&quot; },
+        &quot;contentSize&quot;: 4102272,
+        &quot;creationDate&quot;: &quot;05-02-2011 14:06:49 +0000&quot;,
+        &quot;extension&quot;: &quot;mp3&quot;,
+        &quot;format&quot;: &quot;mpeg&quot;,
+        &quot;id&quot;: 109,
+        &quot;metadataList&quot;: {
+          &quot;metadata&quot;: [
+            {
+              &quot;name&quot;: &quot;Album&quot;,
+              &quot;value&quot;: &quot;Final Fantasy VIII Piano Collection&quot;
+            },
+            {
+              &quot;name&quot;: &quot;Artist&quot;,
+              &quot;value&quot;: &quot;FF8&quot;
+            },
+            {
+              &quot;name&quot;: &quot;AudioBitrate&quot;,
+              &quot;value&quot;: &quot;160&quot;
+            },
+            {
+              &quot;name&quot;: &quot;AudioCodec&quot;,
+              &quot;value&quot;: &quot;MPEG Audio&quot;
+            },
+            {
+              &quot;name&quot;: &quot;Author&quot;,
+              &quot;value&quot;: &quot;FF8&quot;
+            },
+            {
+              &quot;name&quot;: &quot;Drm&quot;,
+              &quot;value&quot;: &quot;0&quot;
+            },
+            {
+              &quot;name&quot;: &quot;Duration&quot;,
+              &quot;value&quot;: &quot;206.316&quot;
+            },
+            {
+              &quot;name&quot;: &quot;Genre&quot;,
+              &quot;value&quot;: &quot;Game&quot;
+            },
+            {
+              &quot;name&quot;: &quot;Title&quot;,
+              &quot;value&quot;: &quot;Eyes on Me&quot;
+            },
+            {
+              &quot;name&quot;: &quot;TrackNumber&quot;,
+              &quot;value&quot;: &quot;02&quot;
+            }
+          ]
+        },
+        &quot;name&quot;: &quot;I love M&amp;M's.mp3&quot;,
+        &quot;collections&quot;: {
+          &quot;playlists&quot;: {
+            &quot;count&quot;: 1,
+            &quot;creationDate&quot;: &quot;05-04-2011 18:48:47 +0000&quot;,
+            &quot;description&quot;: &quot;Old School&quot;,
+            &quot;id&quot;: 797,
+            &quot;name&quot;: &quot;Album&quot;,
+            &quot;size&quot;: 4102272
+          }
+        },
+        &quot;previews&quot;: {
+          &quot;preview&quot;: [
+            {
+              &quot;format&quot;: &quot;jpg&quot;,
+              &quot;height&quot;: 240,
+              &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;preview=320x240xjpg&quot;,
+              &quot;width&quot;: &quot;320&quot;
+            },
+            {
+              &quot;format&quot;: &quot;jpg&quot;,
+              &quot;height&quot;: 90,
+              &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;preview=120x90xjpg&quot;,
+              &quot;width&quot;: 120
+            },
+            {
+              &quot;format&quot;: &quot;jpg&quot;,
+              &quot;height&quot;: 480,
+              &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;preview=640x480xjpg&quot;,
+              &quot;width&quot;: &quot;640&quot;
+            },
+            {
+              &quot;bitrate&quot;: &quot;1536k&quot;,
+              &quot;channels&quot;: &quot;2&quot;,
+              &quot;format&quot;: &quot;wav&quot;,
+              &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;preview=1536kx2xwav&quot;
+            },
+            {
+              &quot;bitrate&quot;: &quot;32k&quot;,
+              &quot;channels&quot;: &quot;1&quot;,
+              &quot;format&quot;: &quot;aac&quot;,
+              &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;preview=32kx1xaac&quot;
+            },
+            {
+              &quot;bitrate&quot;: &quot;64k&quot;,
+              &quot;channels&quot;: 2,
+              &quot;format&quot;: &quot;aac&quot;,
+              &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;preview=64kx2xaac&quot;
+            }
+          ]
+        },
+        &quot;sharingBlocked&quot;: false,
+        &quot;streamUrl&quot;: &quot;
+                rtsp://streaming.att-integration4.sdc.f-secure.com/ae34af29-8623-47f2-9fa6-ab47867d87c1/109_pc.3gp
+            &quot;,
+        &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&quot;
+      }
+    }
+  }
+}
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+            
+            <header>Response Examples</header>
+                        <div class="tabs">
+                        <ul class="tab_nav">
+<li><a href="#get-playlist-listing"class="selected">Get playlist listing</a></li>
+<li><a href="#playlist-content-listing-in-xml">playlist Content Listing in XML</a></li>
+<li><a href="#playlist-content-listing-in-json">playlist Content Listing in JSON</a></li>
+
+        
+            </ul>
+        
+       <div id="get-playlist-listing" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+This demonstrates how to get playlist contents using GET with query
+parameters, and specifying the response to be in JSON.
+
+GET /locker/v1/playlists/22323232?limit=20&amp;offset=10&amp;order=asc HTTP/1.1 
+host: api.att.com
+authorization: Bearer 38C2399A23999
+accept: application/json
+accept-encoding: gzip
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="playlist-content-listing-in-xml" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+This demonstrates how to get playlist contents using GET with query
+parameters, and specifying the response to be in JSON.
+
+GET /locker/v1/playlists/22323232?limit=20&amp;offset=10&amp;order=asc HTTP/1.1 
+host: api.att.com
+authorization: Bearer 38C2399A23999
+accept: application/json
+accept-encoding: gzip
+}
+
+This shows the response to a Playlist listing request in XML format.
+
+\texttt{}
+HTTP/1.1 200 OK
+content-type: application/xml 
+content-length: 539
+date: Thu, 04 Jun 2010 02:51:59 GMT
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;content&gt;
+    &lt;count&gt;1&lt;/count&gt;
+    &lt;total&gt;1&lt;/total&gt;
+    &lt;tracks&gt;
+        &lt;track&gt;
+            &lt;accessBlocked&gt;false&lt;/accessBlocked&gt;
+            &lt;av&gt;
+                &lt;status&gt;ok&lt;/status&gt;
+            &lt;/av&gt;
+            &lt;contentSize&gt;4102272&lt;/contentSize&gt;
+            &lt;creationDate&gt;05-02-2011 14:06:49 +0000&lt;/creationDate&gt;
+            &lt;description&gt;&lt;/description&gt;
+            &lt;extension&gt;mp3&lt;/extension&gt;
+            &lt;format&gt;mpeg&lt;/format&gt;
+            &lt;id&gt;109&lt;/id&gt;
+            &lt;metadataList&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Album&lt;/name&gt;
+                    &lt;value&gt;Final Fantasy VIII Piano Collection&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Artist&lt;/name&gt;
+                    &lt;value&gt;FF8&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;AudioBitrate&lt;/name&gt;
+                    &lt;value&gt;160&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;AudioCodec&lt;/name&gt;
+                    &lt;value&gt;MPEG Audio&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Author&lt;/name&gt;
+                    &lt;value&gt;FF8&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Drm&lt;/name&gt;
+                    &lt;value&gt;0&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Duration&lt;/name&gt;
+                    &lt;value&gt;206.316&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Genre&lt;/name&gt;
+                    &lt;value&gt;Game&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Title&lt;/name&gt;
+                    &lt;value&gt;Eyes on Me&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;TrackNumber&lt;/name&gt;
+                    &lt;value&gt;02&lt;/value&gt;
+                &lt;/metadata&gt;
+            &lt;/metadataList&gt;
+            &lt;name&gt;I love M&amp;amp;M's.mp3&lt;/name&gt;
+            &lt;collections&gt;
+                &lt;playlists&gt;
+                    &lt;count&gt;1&lt;/count&gt;
+                    &lt;creationDate&gt;05-04-2011 18:48:47 +0000&lt;/creationDate&gt;
+                    &lt;description&gt;Old School&lt;/description&gt;
+                    &lt;id&gt;797&lt;/id&gt;
+                    &lt;name&gt;Album&lt;/name&gt;
+                    &lt;size&gt;4102272&lt;/size&gt;
+                &lt;/playlists&gt;
+            &lt;/collections&gt;
+            &lt;previews&gt;
+                &lt;preview&gt;
+                    &lt;format&gt;jpg&lt;/format&gt;
+                    &lt;height&gt;240&lt;/height&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;amp;preview=320x240xjpg&lt;/url&gt;
+                    &lt;width&gt;320&lt;/width&gt;
+                &lt;/preview&gt;
+                &lt;preview&gt;
+                    &lt;format&gt;jpg&lt;/format&gt;
+                    &lt;height&gt;90&lt;/height&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;amp;preview=120x90xjpg&lt;/url&gt;
+                    &lt;width&gt;120&lt;/width&gt;
+                &lt;/preview&gt;
+                &lt;preview&gt;
+                    &lt;format&gt;jpg&lt;/format&gt;
+                    &lt;height&gt;480&lt;/height&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;amp;preview=640x480xjpg&lt;/url&gt;
+                    &lt;width&gt;640&lt;/width&gt;
+                &lt;/preview&gt;
+                &lt;preview&gt;
+                    &lt;bitrate&gt;1536k&lt;/bitrate&gt;
+                    &lt;channels&gt;2&lt;/channels&gt;
+                    &lt;format&gt;wav&lt;/format&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;amp;preview=1536kx2xwav&lt;/url&gt;
+                &lt;/preview&gt;
+                &lt;preview&gt;
+                    &lt;bitrate&gt;302k&lt;/bitrate&gt;
+                    &lt;channels&gt;1&lt;/channels&gt;
+                    &lt;format&gt;aac&lt;/format&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;amp;preview=32kx1xaac&lt;/url&gt;
+                &lt;/preview&gt;
+                &lt;preview&gt;
+                    &lt;bitrate&gt;64k&lt;/bitrate&gt;
+                    &lt;channels&gt;2&lt;/channels&gt;
+                    &lt;format&gt;aac&lt;/format&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;amp;preview=64kx2xaac&lt;/url&gt;
+                &lt;/preview&gt;
+            &lt;/previews&gt;
+            &lt;shareCodes/&gt;
+            &lt;sharingBlocked&gt;false&lt;/sharingBlocked&gt;
+            &lt;streamUrl&gt;
+                rtsp://streaming.att-integration4.sdc.f-secure.com/ae34af29-8623-47f2-9fa6-ab47867d87c1/109_pc.3gp
+            &lt;/streamUrl&gt;
+            &lt;tags/&gt;
+            &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&lt;/url&gt;
+        &lt;/track&gt;
+    &lt;/tracks&gt;
+&lt;/content&gt;
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="playlist-content-listing-in-json" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+This demonstrates how to get playlist contents using GET with query
+parameters, and specifying the response to be in JSON.
+
+GET /locker/v1/playlists/22323232?limit=20&amp;offset=10&amp;order=asc HTTP/1.1 
+host: api.att.com
+authorization: Bearer 38C2399A23999
+accept: application/json
+accept-encoding: gzip
+}
+
+This shows the response to a Playlist listing request in XML format.
+
+\texttt{}
+HTTP/1.1 200 OK
+content-type: application/xml 
+content-length: 539
+date: Thu, 04 Jun 2010 02:51:59 GMT
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;content&gt;
+    &lt;count&gt;1&lt;/count&gt;
+    &lt;total&gt;1&lt;/total&gt;
+    &lt;tracks&gt;
+        &lt;track&gt;
+            &lt;accessBlocked&gt;false&lt;/accessBlocked&gt;
+            &lt;av&gt;
+                &lt;status&gt;ok&lt;/status&gt;
+            &lt;/av&gt;
+            &lt;contentSize&gt;4102272&lt;/contentSize&gt;
+            &lt;creationDate&gt;05-02-2011 14:06:49 +0000&lt;/creationDate&gt;
+            &lt;description&gt;&lt;/description&gt;
+            &lt;extension&gt;mp3&lt;/extension&gt;
+            &lt;format&gt;mpeg&lt;/format&gt;
+            &lt;id&gt;109&lt;/id&gt;
+            &lt;metadataList&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Album&lt;/name&gt;
+                    &lt;value&gt;Final Fantasy VIII Piano Collection&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Artist&lt;/name&gt;
+                    &lt;value&gt;FF8&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;AudioBitrate&lt;/name&gt;
+                    &lt;value&gt;160&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;AudioCodec&lt;/name&gt;
+                    &lt;value&gt;MPEG Audio&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Author&lt;/name&gt;
+                    &lt;value&gt;FF8&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Drm&lt;/name&gt;
+                    &lt;value&gt;0&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Duration&lt;/name&gt;
+                    &lt;value&gt;206.316&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Genre&lt;/name&gt;
+                    &lt;value&gt;Game&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Title&lt;/name&gt;
+                    &lt;value&gt;Eyes on Me&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;TrackNumber&lt;/name&gt;
+                    &lt;value&gt;02&lt;/value&gt;
+                &lt;/metadata&gt;
+            &lt;/metadataList&gt;
+            &lt;name&gt;I love M&amp;amp;M's.mp3&lt;/name&gt;
+            &lt;collections&gt;
+                &lt;playlists&gt;
+                    &lt;count&gt;1&lt;/count&gt;
+                    &lt;creationDate&gt;05-04-2011 18:48:47 +0000&lt;/creationDate&gt;
+                    &lt;description&gt;Old School&lt;/description&gt;
+                    &lt;id&gt;797&lt;/id&gt;
+                    &lt;name&gt;Album&lt;/name&gt;
+                    &lt;size&gt;4102272&lt;/size&gt;
+                &lt;/playlists&gt;
+            &lt;/collections&gt;
+            &lt;previews&gt;
+                &lt;preview&gt;
+                    &lt;format&gt;jpg&lt;/format&gt;
+                    &lt;height&gt;240&lt;/height&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;amp;preview=320x240xjpg&lt;/url&gt;
+                    &lt;width&gt;320&lt;/width&gt;
+                &lt;/preview&gt;
+                &lt;preview&gt;
+                    &lt;format&gt;jpg&lt;/format&gt;
+                    &lt;height&gt;90&lt;/height&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;amp;preview=120x90xjpg&lt;/url&gt;
+                    &lt;width&gt;120&lt;/width&gt;
+                &lt;/preview&gt;
+                &lt;preview&gt;
+                    &lt;format&gt;jpg&lt;/format&gt;
+                    &lt;height&gt;480&lt;/height&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;amp;preview=640x480xjpg&lt;/url&gt;
+                    &lt;width&gt;640&lt;/width&gt;
+                &lt;/preview&gt;
+                &lt;preview&gt;
+                    &lt;bitrate&gt;1536k&lt;/bitrate&gt;
+                    &lt;channels&gt;2&lt;/channels&gt;
+                    &lt;format&gt;wav&lt;/format&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;amp;preview=1536kx2xwav&lt;/url&gt;
+                &lt;/preview&gt;
+                &lt;preview&gt;
+                    &lt;bitrate&gt;302k&lt;/bitrate&gt;
+                    &lt;channels&gt;1&lt;/channels&gt;
+                    &lt;format&gt;aac&lt;/format&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;amp;preview=32kx1xaac&lt;/url&gt;
+                &lt;/preview&gt;
+                &lt;preview&gt;
+                    &lt;bitrate&gt;64k&lt;/bitrate&gt;
+                    &lt;channels&gt;2&lt;/channels&gt;
+                    &lt;format&gt;aac&lt;/format&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&amp;amp;preview=64kx2xaac&lt;/url&gt;
+                &lt;/preview&gt;
+            &lt;/previews&gt;
+            &lt;shareCodes/&gt;
+            &lt;sharingBlocked&gt;false&lt;/sharingBlocked&gt;
+            &lt;streamUrl&gt;
+                rtsp://streaming.att-integration4.sdc.f-secure.com/ae34af29-8623-47f2-9fa6-ab47867d87c1/109_pc.3gp
+            &lt;/streamUrl&gt;
+            &lt;tags/&gt;
+            &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/track/?content_id=109&amp;amp;ticket=ae34af29-8623-47f2-9fa6-ab47867d87c1&lt;/url&gt;
+        &lt;/track&gt;
+    &lt;/tracks&gt;
+&lt;/content&gt;
 }
 
 This shows the response to a playlist listing request in JSON format

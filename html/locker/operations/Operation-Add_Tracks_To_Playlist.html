@@ -1,15 +1,15 @@
 
  
 
-<section id="resources-" class="level-2">
-        <header></header>
+<section id="resources-add-tracks-to-playlist" class="level-2">
+        <header>Add tracks to playlist</header>
 
-        <section id="resources--overview" class="level-3">
+        <section id="resources-add-tracks-to-playlist-overview" class="level-3">
             <header>Overview</header>
             <p></p><p></p><p>Insert a track into a playlist belonging to a user. Adding the sametrack twice in the same playlist is allowed. Considering the followingscenario: A playlist “Antarctica” contains Song1.mp3</p><p>If a user selects 3 tracks, Song1.mp3, Song2.mp3, Song3.mp3 and addsthem to the playlist “Antarctica”. Playlist “Antarctica” will contain,the following: Song1.mp3, Song1.mp3, Song2.mp3 and Song3.mp3. </p><p></p>
         </section>
 
-        <section id="resources--oauth" class="level-3">
+        <section id="resources-add-tracks-to-playlist-oauth" class="level-3">
             <ul class="oauth">
                 <li><span>OAuth Scope</span></li>
                 <li><p><span>Scope:</span> LOCKER </p></li>
@@ -26,17 +26,18 @@
             </ul>
         </section>
                 
-        <section id="resources--examples" class="level-3">
+        <section id="resources-add-tracks-to-playlist-examples" class="level-3">
             <header>Request Examples</header>
             <div class="tabs">
             <ul class="tab_nav">
-<li><a href="#add-tracks-to-an-playlist-in-xml-xml"class="selected">Add tracks to an playlist in XML-XML</a></li>
-<li><a href="#add-tracks-to-an-playlist-in-json-json">Add tracks to an playlist in JSON-JSON</a></li>
+<li><a href="#add-tracks-to-an-playlist-in-xml"class="selected">Add tracks to an playlist in XML</a></li>
+<li><a href="#add-tracks-to-an-playlist-in-json">Add tracks to an playlist in JSON</a></li>
+<li><a href="#add-tracks-to-an-playlist-in-xml">Add tracks to an playlist in XML</a></li>
 
         
             </ul>
         
-       <div id="add-tracks-to-an-playlist-in-xml-xml" class="code">
+       <div id="add-tracks-to-an-playlist-in-xml" class="code">
             <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -67,12 +68,30 @@ accept: application/xml
                     </div>
                 </div>
         
-       <div id="add-tracks-to-an-playlist-in-json-json" class="code">
+       <div id="add-tracks-to-an-playlist-in-json" class="code">
             <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
 
+}
+
+
+
+This demonstrates how to add tracks to an playlist, and specifying
+the request to be in XML.
+
+POST /locker/v1/playlists/3433435/tracks HTTP/1.1 
+host: api.att.com
+content-type: application/xml
+authorization: Bearer abcdef12345678
+accept: application/xml
+
+&lt;trackIds&gt;
+    &lt;id&gt;112&lt;/id&gt;
+    &lt;id&gt;125&lt;/id&gt;
+    &lt;index&gt;1&lt;/index&gt;  	
+&lt;/trackIds&gt;
 }
 
 This demonstrates how to add tracks to an playlist, and specifying
@@ -97,21 +116,192 @@ accept: application/json
                     </div>
                 </div>
         
-            
-            <header>Response Examples</header>
-                        <div class="tabs">
-                        <ul class="tab_nav">
-<li><a href="#add-tracks-to-an-playlist-in-xml-xml"class="selected">Add tracks to an playlist in XML-XML</a></li>
-
-        
-            </ul>
-        
-       <div id="add-tracks-to-an-playlist-in-xml-xml" class="code">
+       <div id="add-tracks-to-an-playlist-in-xml" class="code">
             <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
 
+}
+
+
+
+This demonstrates how to add tracks to an playlist, and specifying
+the request to be in XML.
+
+POST /locker/v1/playlists/3433435/tracks HTTP/1.1 
+host: api.att.com
+content-type: application/xml
+authorization: Bearer abcdef12345678
+accept: application/xml
+
+&lt;trackIds&gt;
+    &lt;id&gt;112&lt;/id&gt;
+    &lt;id&gt;125&lt;/id&gt;
+    &lt;index&gt;1&lt;/index&gt;  	
+&lt;/trackIds&gt;
+}
+
+This demonstrates how to add tracks to an playlist, and specifying
+the request to be in JSON.
+
+POST /locker/v1/folders/3433435/files HTTP/1.1 
+Host: api.att.com
+content-type: application/json
+authorization: Bearer abcdef12345678
+accept: application/json
+
+{
+  &quot;trackIds&quot;: {
+    &quot;id&quot;: [112,125],
+    &quot;index&quot;: 1
+  }
+}
+}
+
+This shows the response to an add tracks to playlist request.
+
+\texttt{}
+HTTP/1.1 204 No Content
+date: Thu, 04 Jun 2010 02:51:59 GMT
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+            
+            <header>Response Examples</header>
+                        <div class="tabs">
+                        <ul class="tab_nav">
+<li><a href="#add-tracks-to-an-playlist-in-xml"class="selected">Add tracks to an playlist in XML</a></li>
+<li><a href="#add-tracks-to-an-playlist-in-json">Add tracks to an playlist in JSON</a></li>
+<li><a href="#add-tracks-to-an-playlist-in-xml">Add tracks to an playlist in XML</a></li>
+
+        
+            </ul>
+        
+       <div id="add-tracks-to-an-playlist-in-xml" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+
+
+This demonstrates how to add tracks to an playlist, and specifying
+the request to be in XML.
+
+POST /locker/v1/playlists/3433435/tracks HTTP/1.1 
+host: api.att.com
+content-type: application/xml
+authorization: Bearer abcdef12345678
+accept: application/xml
+
+&lt;trackIds&gt;
+    &lt;id&gt;112&lt;/id&gt;
+    &lt;id&gt;125&lt;/id&gt;
+    &lt;index&gt;1&lt;/index&gt;  	
+&lt;/trackIds&gt;
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="add-tracks-to-an-playlist-in-json" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+
+
+This demonstrates how to add tracks to an playlist, and specifying
+the request to be in XML.
+
+POST /locker/v1/playlists/3433435/tracks HTTP/1.1 
+host: api.att.com
+content-type: application/xml
+authorization: Bearer abcdef12345678
+accept: application/xml
+
+&lt;trackIds&gt;
+    &lt;id&gt;112&lt;/id&gt;
+    &lt;id&gt;125&lt;/id&gt;
+    &lt;index&gt;1&lt;/index&gt;  	
+&lt;/trackIds&gt;
+}
+
+This demonstrates how to add tracks to an playlist, and specifying
+the request to be in JSON.
+
+POST /locker/v1/folders/3433435/files HTTP/1.1 
+Host: api.att.com
+content-type: application/json
+authorization: Bearer abcdef12345678
+accept: application/json
+
+{
+  &quot;trackIds&quot;: {
+    &quot;id&quot;: [112,125],
+    &quot;index&quot;: 1
+  }
+}
+
+    
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="add-tracks-to-an-playlist-in-xml" class="code">
+            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+
+}
+
+
+
+This demonstrates how to add tracks to an playlist, and specifying
+the request to be in XML.
+
+POST /locker/v1/playlists/3433435/tracks HTTP/1.1 
+host: api.att.com
+content-type: application/xml
+authorization: Bearer abcdef12345678
+accept: application/xml
+
+&lt;trackIds&gt;
+    &lt;id&gt;112&lt;/id&gt;
+    &lt;id&gt;125&lt;/id&gt;
+    &lt;index&gt;1&lt;/index&gt;  	
+&lt;/trackIds&gt;
+}
+
+This demonstrates how to add tracks to an playlist, and specifying
+the request to be in JSON.
+
+POST /locker/v1/folders/3433435/files HTTP/1.1 
+Host: api.att.com
+content-type: application/json
+authorization: Bearer abcdef12345678
+accept: application/json
+
+{
+  &quot;trackIds&quot;: {
+    &quot;id&quot;: [112,125],
+    &quot;index&quot;: 1
+  }
+}
 }
 
 This shows the response to an add tracks to playlist request.
