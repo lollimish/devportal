@@ -139,9 +139,13 @@ function findSecByName($filename, $secName) {
 }
 
 function getInbetweenStrings($startstr, $endstr, $out) {
-    $startsAt = strpos($out, $startstr) + strlen($startstr);
-    $endsAt = strpos($out, $endstr, $startsAt);
-    return $result = substr($out, $startsAt, $endsAt - $startsAt);
+    if (strpos($out, $startstr) !== false && strpos($out, $endstr) !== false) {
+        $startsAt = strpos($out, $startstr) + strlen($startstr);
+        $endsAt = strpos($out, $endstr, $startsAt);
+        return $result = substr($out, $startsAt, $endsAt - $startsAt);
+    } else {
+        return '';
+    }
 }
 
 //ul
@@ -295,28 +299,16 @@ function rrmdir($dir) {
 }
 
 function getRefFile($opfile) {
+    $refFiles = array();
     $file_handle = fopen($opfile, 'r');
-//    switch($type){
-//        case 'in':
-//            $prefix = 'InputParam';
-//            break;
-//        case 'out':
-//            $prefix = 'OutputParam';
-//            break;
-//        case 'obj':
-//            $prefix = 'Object';
-//            break;
-//        case 'err':
-//            $prefix = 'Errors';
-//            break;
-//    }
     while (!\feof($file_handle)) {
-        $refFiles = array('input' => '', 'output' => '', 'object' => array(), 'error' => array());
         $line = fgets($file_handle);
-        preg_match_all('/input{InputParam(.*?).tex}/s', $line, $input);
-        foreach ($input[1] as $m) {
-            $refFiles['input'] .= $m;
+        if(StartsWith($line, '{\footnotesize{\input{InputParam')){
+            $refFiles['input'] = trim(getInbetweenStrings('input{', '}', $line));;
+        }
+        if(StartsWith($line, '{\footnotesize{\input{OutputParam')){
+            $refFiles['output'] = trim(getInbetweenStrings('input{', '}', $line));;
         }
     }
-    return $opfile;
+    return $refFiles;
 }

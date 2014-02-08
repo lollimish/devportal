@@ -5,6 +5,7 @@ include 'functions.php';
 include 'func_parse_introduction.php';
 include 'func_parse_oauth.php';
 include 'func_parse_operation.php';
+include 'func_parse_paramTable.php';
 
 
 $api = $argv[1];
@@ -30,12 +31,15 @@ if (!file_exists("../apis/$api/ATT-$api-Service-Specification.tex")) {
     foreach ($operations[0] as $op) {
         //parse_operation($inputfile, $outputfile);         
         if (file_exists("../apis/$api/$op")) {
-            $op_filename = substr($op, 0, strlen($op)-3).'html';
-            parse_operation("../apis/$api/$op", "html/$api/operations/$op_filename");
+            $op_filename = substr($op, 0, strlen($op) - 3) . 'html';
+            $outputfile = "html/$api/operations/$op_filename";
+            parse_operation("../apis/$api/$op", $outputfile);
             //TODO: input param
             $file = getRefFile("../apis/$api/$op");
-            
+            parse_paramTable("../apis/$api/".$file['input'], $outputfile);
+
             //TODO: output param
+            parse_paramTable("../apis/$api/".$file['output'], $outputfile);
         }
     }
 }

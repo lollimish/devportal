@@ -499,3 +499,238 @@ location: https://api.att.com/locker/v1/playlists/735
            
         </section><!--end of example-->
 
+ <section id="resources-create-playlist-parameters" class="level-3">
+    <header>Request Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   accept </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the format of the body of the response. Valid values are: </p>
+ <ul> </li>
+<li> <p>application/json</p>
+ </li>
+<li> <p>application/xml</p>
+ </li></ul> <p>The default value is application/json. Per rfc2616: \textquotedbl{}If no Accept header field is present, then it is assumed that the client accepts all media types.\textquotedbl{} By default our services return application/json.</p>
+  <p>Normal Accept header processing rules shall be followed according to rfc2616.</p>
+  <br><p><span style="font-style: italic">Note</span>:  If there is no entity body in a normal successful response, this parameter can still be specified to determine the format in the case of an error response message..</p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">accept-encoding </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the accept encoding format. When this header is present, the gateway should compress the response to indicate the client that response is in compressed format. Valid values are: gzip</p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">authorization </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the authorization type and token. \textquotedbl{}Bearer\textquotedbl{} + OAuth Token – access\_token. If the authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-length </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the length of the content in octets.</p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-type </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the type of content of the body of the entity. Must be set to one of the following values:</p>
+ <ul> </li>
+<li> <p>application/json</p>
+ </li>
+<li> <p>application/xml</p>
+</li></ul>  
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">playlist </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Object </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Contains the request information for creating a playlist</p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">name </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the name of playlist</p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">description </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the description of the playlist</p>
+ 
+            </div>
+        </div>
+
+    </div>
+</section>
+
+ <section id="resources-create-playlist-parameters" class="level-3">
+    <header>Request Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   content-type </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the type of content of the body of the entity. Must be set to one of the following values:</p>
+ <ul> </li>
+<li> <p>applciation/json</p>
+ </li>
+<li> <p>application/xml</p>
+</li></ul>  
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-encoding </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the type of encoding used on the data. Supported values are: identity or gzip</p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">location </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> AnyURI </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the location of the newly created resource. This URI can be used to interact with the newly created resource. See Get Playlist Contents for how the URI is structured.</p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">playlist  </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Object </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Contains the response information for creating a playlist</p>
+ 
+            </div>
+        </div>
+
+    </div>
+</section>
+

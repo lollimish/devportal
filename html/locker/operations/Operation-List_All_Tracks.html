@@ -1399,3 +1399,327 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
            
         </section><!--end of example-->
 
+ <section id="resources-list-all-tracks-parameters" class="level-3">
+    <header>Request Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   accept </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the format of the body of the response. Valid values are: </p>
+ <ul> </li>
+<li> <p>application/json</p>
+ </li>
+<li> <p>application/xml</p>
+ </li></ul> <p>The default value is application/json. Per rfc2616: \textquotedbl{}If no Accept header field is present, then it is assumed that the client accepts all media types.\textquotedbl{} By default our services return application/json.</p>
+  <p>Normal Accept header processing rules shall be followed according to rfc2616.</p>
+  <br><p><span style="font-style: italic">Note</span>:  If there is no entity body in a normal successful response, this parameter can still be specified to determine the format in the case of an error response message.</p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">accept-encoding </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the accept encoding format. When this header is present, the gateway should compress the response to indicate the client that response is in compressed format. Valid values are: gzip</p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">authorization </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the authorization type and token. \textquotedbl{}Bearer\textquotedbl{} + OAuth Token – access\_token. If the authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">query </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Query Parameter    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>URL encoded search query. We recommend using the UTF-8 encoding scheme to obtain the bytes for unsafe characters. This is in keeping with the following W3 recommendation: http://www.w3.org/TR/html40/appendix/notes.html\#non-ascii-chars</p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">before </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Query Parameter    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Files added before or exactly at timestamp, if empty no lower time limit for search period, example: 2010-07-30 </p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">after </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Query Parameter    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Files added after or exactly at timestamp, if empty no lower time limit for search period, example: 2010-07-30 </p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">limit </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> Query Parameter    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the max number of results returned.</p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">offset </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> Query Parameter    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the scroll set pointer on the results collection.</p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">orderBy </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Query Parameter    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the sorting criteria. Valid values are: name, creationdate, contentsize, author</p>
+  <p>Default: name</p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">order </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Query Parameter    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the sorting order. Valid values are: asc, desc</p>
+  <p>Default: asc</p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">isCompressed </span>
+                    
+                    <span class="data-type"> Boolean </span>
+                    <span class="placement"> Query Parameter    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies that the result set will only contain the name of the media instead of the full details if set to true. Otherwise default result set.</p>
+ 
+            </div>
+        </div>
+
+    </div>
+</section>
+
+ <section id="resources-list-all-tracks-parameters" class="level-3">
+    <header>Request Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   content-type </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the type of content of the body of the entity. Must be set to one of the following values:</p>
+ <ul> </li>
+<li> <p>applciation/json</p>
+ </li>
+<li> <p>application/xml</p>
+</li></ul>  
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-encoding </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the type of encoding used on the data. Supported values are: identity or gzip</p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Object </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the object that contains the response info.</p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">total </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the total number of tracks in a user’s account</p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">count </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the number of tracks returned in the response</p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">tracks </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Object </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the object that contains the tracks list.</p>
+ 
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">track  </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Object </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the object that contains the tracks information</p>
+ 
+            </div>
+        </div>
+
+    </div>
+</section>
+
