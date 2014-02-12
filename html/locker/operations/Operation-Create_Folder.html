@@ -32,24 +32,15 @@
             <ul class="tab_nav">
 <li><a href="#create-a-folder-using-xml-body"class="selected">Create a folder using XML body</a></li>
 <li><a href="#create-a-folder-using-json-body">Create a folder using JSON body</a></li>
-<li><a href="#xml">XML</a></li>
-<li><a href="#json">JSON</a></li>
 
         
             </ul>
         
        <div id="create-a-folder-using-xml-body" class="code">
-            <div class="code">
+          <p>This demonstrates how to create a folder with a description. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-
-
-This demonstrates how to create a folder with a description.
-
 POST /locker/v1/folders HTTP/1.1 
 Host: api.att.com
 content-type: application/xml
@@ -60,40 +51,16 @@ accept: application/xml
       &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
       &lt;description&gt;Cuz i need space&lt;/description&gt;
 &lt;/folder&gt;
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
        <div id="create-a-folder-using-json-body" class="code">
-            <div class="code">
+          <p>This demonstrates how to create a folder with a description.. The response format will be in JSON. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-
-
-This demonstrates how to create a folder with a description.
-
-POST /locker/v1/folders HTTP/1.1 
-Host: api.att.com
-content-type: application/xml
-authorization: Bearer 38C2399A23999
-accept: application/xml
-
-&lt;folder&gt;
-      &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
-      &lt;description&gt;Cuz i need space&lt;/description&gt;
-&lt;/folder&gt;
-}
-
-This demonstrates how to create a folder with a description.. The
-response format will be in JSON.
-
 POST /locker/v1/folders HTTP/1.1 
 Host: api.att.com
 content-type: application/json
@@ -106,296 +73,25 @@ accept: application/json
       &quot;description&quot;: &quot;Cuz i need space&quot;
     }
 }
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
-       <div id="xml" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-
-
-This demonstrates how to create a folder with a description.
-
-POST /locker/v1/folders HTTP/1.1 
-Host: api.att.com
-content-type: application/xml
-authorization: Bearer 38C2399A23999
-accept: application/xml
-
-&lt;folder&gt;
-      &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
-      &lt;description&gt;Cuz i need space&lt;/description&gt;
-&lt;/folder&gt;
-}
-
-This demonstrates how to create a folder with a description.. The
-response format will be in JSON.
-
-POST /locker/v1/folders HTTP/1.1 
-Host: api.att.com
-content-type: application/json
-authorization: Bearer 38C2399A23999
-accept: application/json
-
-{
-    &quot;folder&quot;: {
-      &quot;name&quot;: &quot;Bunch of random Files Folder&quot;,
-      &quot;description&quot;: &quot;Cuz i need space&quot;
-    }
-}
-}
-
-This shows the response to a folder creation in XML format.
-
-\texttt{}
-HTTP/1.1 201 Created
-Date: Wed, 27 Apr 2011 14:11:31 GMT
-content-length: 223
-content-type: application/xml
-location: https://api.att.com/locker/v1/folders/856
-
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
-&lt;folder&gt;
-    &lt;count&gt;0&lt;/count&gt;
-    &lt;creationDate&gt;05-05-2011 14:17:27 +0000&lt;/creationDate&gt;
-    &lt;description&gt;Cuz i need space&lt;/description&gt;
-    &lt;id&gt;856&lt;/id&gt;
-    &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
-    &lt;size&gt;0&lt;/size&gt;
-&lt;/folder&gt;
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
-       <div id="json" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-
-
-This demonstrates how to create a folder with a description.
-
-POST /locker/v1/folders HTTP/1.1 
-Host: api.att.com
-content-type: application/xml
-authorization: Bearer 38C2399A23999
-accept: application/xml
-
-&lt;folder&gt;
-      &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
-      &lt;description&gt;Cuz i need space&lt;/description&gt;
-&lt;/folder&gt;
-}
-
-This demonstrates how to create a folder with a description.. The
-response format will be in JSON.
-
-POST /locker/v1/folders HTTP/1.1 
-Host: api.att.com
-content-type: application/json
-authorization: Bearer 38C2399A23999
-accept: application/json
-
-{
-    &quot;folder&quot;: {
-      &quot;name&quot;: &quot;Bunch of random Files Folder&quot;,
-      &quot;description&quot;: &quot;Cuz i need space&quot;
-    }
-}
-}
-
-This shows the response to a folder creation in XML format.
-
-\texttt{}
-HTTP/1.1 201 Created
-Date: Wed, 27 Apr 2011 14:11:31 GMT
-content-length: 223
-content-type: application/xml
-location: https://api.att.com/locker/v1/folders/856
-
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
-&lt;folder&gt;
-    &lt;count&gt;0&lt;/count&gt;
-    &lt;creationDate&gt;05-05-2011 14:17:27 +0000&lt;/creationDate&gt;
-    &lt;description&gt;Cuz i need space&lt;/description&gt;
-    &lt;id&gt;856&lt;/id&gt;
-    &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
-    &lt;size&gt;0&lt;/size&gt;
-&lt;/folder&gt;
-}
-
-This shows the response to a folder creation in JSON format
-
-HTTP/1.1 201 Created
-Date: Wed, 27 Apr 2011 14:11:31 GMT
-content-length: 223
-content-type: application/json
-location: https://api.att.com/locker/v1/folders/856
-
-{
-    &quot;folder&quot;: {
-      &quot;count&quot;: 0,
-      &quot;creationDate&quot;: &quot;05-05-2011 14:17:27 +0000&quot;,
-      &quot;name&quot;: &quot;Bunch of random Files Folder&quot;,
-      &quot;description&quot;: &quot;Cuz i need space&quot;,
-      &quot;id&quot;: 856,
-      &quot;size&quot;: 0
-    }
-}
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
-            
-            <header>Response Examples</header>
+            </div>
+<header>Response Examples</header>
                         <div class="tabs">
                         <ul class="tab_nav">
-<li><a href="#create-a-folder-using-xml-body"class="selected">Create a folder using XML body</a></li>
-<li><a href="#create-a-folder-using-json-body">Create a folder using JSON body</a></li>
-<li><a href="#xml">XML</a></li>
+<li><a href="#xml"class="selected">XML</a></li>
 <li><a href="#json">JSON</a></li>
 
-        
             </ul>
         
-       <div id="create-a-folder-using-xml-body" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-
-
-This demonstrates how to create a folder with a description.
-
-POST /locker/v1/folders HTTP/1.1 
-Host: api.att.com
-content-type: application/xml
-authorization: Bearer 38C2399A23999
-accept: application/xml
-
-&lt;folder&gt;
-      &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
-      &lt;description&gt;Cuz i need space&lt;/description&gt;
-&lt;/folder&gt;
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
-       <div id="create-a-folder-using-json-body" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-
-
-This demonstrates how to create a folder with a description.
-
-POST /locker/v1/folders HTTP/1.1 
-Host: api.att.com
-content-type: application/xml
-authorization: Bearer 38C2399A23999
-accept: application/xml
-
-&lt;folder&gt;
-      &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
-      &lt;description&gt;Cuz i need space&lt;/description&gt;
-&lt;/folder&gt;
-}
-
-This demonstrates how to create a folder with a description.. The
-response format will be in JSON.
-
-POST /locker/v1/folders HTTP/1.1 
-Host: api.att.com
-content-type: application/json
-authorization: Bearer 38C2399A23999
-accept: application/json
-
-{
-    &quot;folder&quot;: {
-      &quot;name&quot;: &quot;Bunch of random Files Folder&quot;,
-      &quot;description&quot;: &quot;Cuz i need space&quot;
-    }
-}
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
        <div id="xml" class="code">
-            <div class="code">
+          <p>This shows the response to a folder creation in XML format. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-
-
-This demonstrates how to create a folder with a description.
-
-POST /locker/v1/folders HTTP/1.1 
-Host: api.att.com
-content-type: application/xml
-authorization: Bearer 38C2399A23999
-accept: application/xml
-
-&lt;folder&gt;
-      &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
-      &lt;description&gt;Cuz i need space&lt;/description&gt;
-&lt;/folder&gt;
-}
-
-This demonstrates how to create a folder with a description.. The
-response format will be in JSON.
-
-POST /locker/v1/folders HTTP/1.1 
-Host: api.att.com
-content-type: application/json
-authorization: Bearer 38C2399A23999
-accept: application/json
-
-{
-    &quot;folder&quot;: {
-      &quot;name&quot;: &quot;Bunch of random Files Folder&quot;,
-      &quot;description&quot;: &quot;Cuz i need space&quot;
-    }
-}
-}
-
-This shows the response to a folder creation in XML format.
-
-\texttt{}
 HTTP/1.1 201 Created
 Date: Wed, 27 Apr 2011 14:11:31 GMT
 content-length: 223
@@ -411,76 +107,16 @@ location: https://api.att.com/locker/v1/folders/856
     &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
     &lt;size&gt;0&lt;/size&gt;
 &lt;/folder&gt;
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
        <div id="json" class="code">
-            <div class="code">
+          <p>This shows the response to a folder creation in JSON format </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-
-
-This demonstrates how to create a folder with a description.
-
-POST /locker/v1/folders HTTP/1.1 
-Host: api.att.com
-content-type: application/xml
-authorization: Bearer 38C2399A23999
-accept: application/xml
-
-&lt;folder&gt;
-      &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
-      &lt;description&gt;Cuz i need space&lt;/description&gt;
-&lt;/folder&gt;
-}
-
-This demonstrates how to create a folder with a description.. The
-response format will be in JSON.
-
-POST /locker/v1/folders HTTP/1.1 
-Host: api.att.com
-content-type: application/json
-authorization: Bearer 38C2399A23999
-accept: application/json
-
-{
-    &quot;folder&quot;: {
-      &quot;name&quot;: &quot;Bunch of random Files Folder&quot;,
-      &quot;description&quot;: &quot;Cuz i need space&quot;
-    }
-}
-}
-
-This shows the response to a folder creation in XML format.
-
-\texttt{}
-HTTP/1.1 201 Created
-Date: Wed, 27 Apr 2011 14:11:31 GMT
-content-length: 223
-content-type: application/xml
-location: https://api.att.com/locker/v1/folders/856
-
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
-&lt;folder&gt;
-    &lt;count&gt;0&lt;/count&gt;
-    &lt;creationDate&gt;05-05-2011 14:17:27 +0000&lt;/creationDate&gt;
-    &lt;description&gt;Cuz i need space&lt;/description&gt;
-    &lt;id&gt;856&lt;/id&gt;
-    &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
-    &lt;size&gt;0&lt;/size&gt;
-&lt;/folder&gt;
-}
-
-This shows the response to a folder creation in JSON format
-
 HTTP/1.1 201 Created
 Date: Wed, 27 Apr 2011 14:11:31 GMT
 content-length: 223
@@ -497,17 +133,14 @@ location: https://api.att.com/locker/v1/folders/856
       &quot;size&quot;: 0
     }
 }
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
-           
         </section><!--end of example-->
 
- <section id="resources-create-folder-parameters" class="level-3">
+<section id="resources-create-folder-parameters" class="level-3">
     <header>Request Parameters</header>
     <label>
         <span class="required form-icon"></span>
@@ -541,7 +174,6 @@ location: https://api.att.com/locker/v1/folders/856
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -556,7 +188,6 @@ location: https://api.att.com/locker/v1/folders/856
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -572,7 +203,6 @@ location: https://api.att.com/locker/v1/folders/856
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -587,7 +217,6 @@ location: https://api.att.com/locker/v1/folders/856
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -607,7 +236,6 @@ location: https://api.att.com/locker/v1/folders/856
 </li></ul>  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -623,7 +251,6 @@ location: https://api.att.com/locker/v1/folders/856
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -639,7 +266,6 @@ location: https://api.att.com/locker/v1/folders/856
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -654,12 +280,8 @@ location: https://api.att.com/locker/v1/folders/856
  
             </div>
         </div>
-
-    </div>
-</section>
-
- <section id="resources-create-folder-parameters" class="level-3">
-    <header>Request Parameters</header>
+</div>
+    <header>Require Parameters</header>
     <label>
         <span class="required form-icon"></span>
         Required Parameters
@@ -690,7 +312,6 @@ location: https://api.att.com/locker/v1/folders/856
 </li></ul>  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -706,7 +327,6 @@ location: https://api.att.com/locker/v1/folders/856
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -722,7 +342,5 @@ location: https://api.att.com/locker/v1/folders/856
  
             </div>
         </div>
-
-    </div>
+</div>
 </section>
-

@@ -1,24 +1,28 @@
-<?php
+<<?php
+
 function parse_introduction($inputfile, $outputfile) {
     if (file_exists($outputfile)) {
         unlink($outputfile);
     }
     $intro = array();
     $introduction = '';
-    $intro = findSecByName($inputfile, 'Introduction');
-    
+    $intro = findSecByName($inputfile, 'Introduction', '\subsection{Audience}');
+//    var_dump($intro);
     foreach ($intro as $line) {
-        $introduction .= $line;
+        if (!startsWith($line, '\subsection{Audience}') && !startsWith($line, '\input')) {
+            $line = '<p>'.$line.'<p>';
+            $introduction .= $line;
+        }
     }
-    $introduction = noCommet($introduction);
+    //echo $introduction;
     $introduction = getItem($introduction);
-    $introduction = str_replace(array("\n\n"), "</p>\n<p>", $introduction);
-    
+    $introduction = str_replace('\&', "&", $introduction);
     $content = <<<"EOD"
         
 <section id="introduction" class="level-1">
     <header>1. Introduction</header>
     <section id="introduction-overview" class="level-2">
+    <header>Overview</header>
         
 EOD;
 
@@ -35,19 +39,35 @@ EOD;
     writehtml($content, $outputfile);
     $rest = array();
     $restful = '';
-    $rest = findSecByName($inputfile, 'RESTful Web Services Definition');
+    $rest = findSecByName($inputfile, 'RESTful Web Services Definition', '\subsection{REST Operation Summary}');
+    //var_dump($rest);
+    $count = 0;
     foreach ($rest as $line) {
+        
+        if (startsWith($line, '\subsection*')) {
+            $count++;
+            if($count === 1){
+                $line = str_replace("\\subsection*{", "<section class=\"level-3\">\n<header>", $line);
+            }
+            $line = str_replace("\\subsection*{", "</section>\n<section class=\"level-3\">\n<header>", $line);
+            $line = str_replace('}', "</header>\n", $line);
+            
+            //echo $line;
+        }
         if (!startsWith($line, '\subsection{REST Operation Summary}')) {
+            $line = '<p>'.$line.'<p>';
             $restful .= $line;
         } else {
             break;
         }
     }
-    $restful = noCommet($restful);
+    //echo $restful;
     $restful = getItem($restful);
-    $restful = str_replace(array("\n\n"), "</p>\n<p>", $restful);
+
+    $restful = str_replace(array("\n\n"), "<br>", $restful);
+    //$restful = str_replace(array('<p></p>',"<p>\t", "<p>\n\n"), "", $restful);
     writehtml($restful, $outputfile);
-    writehtml("</section>", $outputfile);
+    writehtml("</section></section>", $outputfile);
 
     //Provisioning
     $content = <<<"EOD"
@@ -60,8 +80,11 @@ EOD;
     writehtml($content, $outputfile);
     $prov = array();
     $provisioning = '';
-    $prov = findSubSecByName($inputfile, 'Oauth Scope');
+    $prov = findSubSecByName($inputfile, 'Provisioning: ');
+    //var_dump($prov);
+    
     foreach ($prov as $line) {
+        $line = '<p>'.$line.'<p>';
         $provisioning .= $line;
     }
     $provisioning = noCommet($provisioning);

@@ -32,23 +32,15 @@
             <ul class="tab_nav">
 <li><a href="#xml"class="selected">XML</a></li>
 <li><a href="#json">JSON</a></li>
-<li><a href="#xml">XML</a></li>
-<li><a href="#json">JSON</a></li>
 
         
             </ul>
         
        <div id="xml" class="code">
-            <div class="code">
+          <p>This demonstrates how to create an album The response format will be in XML. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-This demonstrates how to create an album The response format will
-be in XML.
-
 POST /locker/v1/albums HTTP/1.1 
 Host: api.att.com
 authorization: bearer abcdef12345678
@@ -60,40 +52,16 @@ content-type: application/xml
       &lt;description&gt;Old School&lt;/description&gt;
 &lt;/album&gt;
 
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
        <div id="json" class="code">
-            <div class="code">
+          <p>This demonstrates how to create an album. The response format will be in JSON. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-This demonstrates how to create an album The response format will
-be in XML.
-
-POST /locker/v1/albums HTTP/1.1 
-Host: api.att.com
-authorization: bearer abcdef12345678
-accept: application/xml
-content-type: application/xml
-
-&lt;album&gt;
-      &lt;name&gt;somealbum&lt;/name&gt;
-      &lt;description&gt;Old School&lt;/description&gt;
-&lt;/album&gt;
-
-}
-
-This demonstrates how to create an album. The response format will
-be in JSON.
-
 POST /locker/v1/albums HTTP/1.1 
 Host: api.att.com 
 authorization: bearer abcdef12345678
@@ -106,298 +74,25 @@ content-type: application/json
     &quot;description&quot;: &quot;Old School&quot;
   }
 }
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
-       <div id="xml" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-This demonstrates how to create an album The response format will
-be in XML.
-
-POST /locker/v1/albums HTTP/1.1 
-Host: api.att.com
-authorization: bearer abcdef12345678
-accept: application/xml
-content-type: application/xml
-
-&lt;album&gt;
-      &lt;name&gt;somealbum&lt;/name&gt;
-      &lt;description&gt;Old School&lt;/description&gt;
-&lt;/album&gt;
-
-}
-
-This demonstrates how to create an album. The response format will
-be in JSON.
-
-POST /locker/v1/albums HTTP/1.1 
-Host: api.att.com 
-authorization: bearer abcdef12345678
-accept: application/json
-content-type: application/json
-
-{
-  &quot;album&quot;: {
-    &quot;name&quot;: &quot;somealbum&quot;,
-    &quot;description&quot;: &quot;Old School&quot;
-  }
-}
-}
-
-This shows the response to an album creation in XML format.exception
-
-\texttt{}
-HTTP/1.1 201 Created
-date: Wed, 27 Apr 2013 14:11:31 GMT
-content-length: 223
-content-type: application/xml
-location: https://api.att.com/locker/v1/albums/735
-
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
-&lt;album&gt;
-    &lt;count&gt;0&lt;/count&gt;
-    &lt;creationDate&gt;Wed, 04 May 2013 14:43:03 GMT&lt;/creationDate&gt;
-    &lt;description&gt;Old School&lt;/description&gt;
-    &lt;id&gt;735&lt;/id&gt;
-    &lt;name&gt;somealbum&lt;/name&gt;
-    &lt;previews/&gt;
-    &lt;size&gt;0&lt;/size&gt;
-&lt;/album&gt;
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
-       <div id="json" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-This demonstrates how to create an album The response format will
-be in XML.
-
-POST /locker/v1/albums HTTP/1.1 
-Host: api.att.com
-authorization: bearer abcdef12345678
-accept: application/xml
-content-type: application/xml
-
-&lt;album&gt;
-      &lt;name&gt;somealbum&lt;/name&gt;
-      &lt;description&gt;Old School&lt;/description&gt;
-&lt;/album&gt;
-
-}
-
-This demonstrates how to create an album. The response format will
-be in JSON.
-
-POST /locker/v1/albums HTTP/1.1 
-Host: api.att.com 
-authorization: bearer abcdef12345678
-accept: application/json
-content-type: application/json
-
-{
-  &quot;album&quot;: {
-    &quot;name&quot;: &quot;somealbum&quot;,
-    &quot;description&quot;: &quot;Old School&quot;
-  }
-}
-}
-
-This shows the response to an album creation in XML format.exception
-
-\texttt{}
-HTTP/1.1 201 Created
-date: Wed, 27 Apr 2013 14:11:31 GMT
-content-length: 223
-content-type: application/xml
-location: https://api.att.com/locker/v1/albums/735
-
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
-&lt;album&gt;
-    &lt;count&gt;0&lt;/count&gt;
-    &lt;creationDate&gt;Wed, 04 May 2013 14:43:03 GMT&lt;/creationDate&gt;
-    &lt;description&gt;Old School&lt;/description&gt;
-    &lt;id&gt;735&lt;/id&gt;
-    &lt;name&gt;somealbum&lt;/name&gt;
-    &lt;previews/&gt;
-    &lt;size&gt;0&lt;/size&gt;
-&lt;/album&gt;
-}
-
-This shows the response to an album creation in JSON format
-
-HTTP/1.1 201 Created
-date: Wed, 27 Apr 2013 14:11:31 GMT
-content-length: 223
-content-type: application/json
-location: https://api.att.com/locker/v1/albums/735
-
-{
-  &quot;album&quot;: {
-    &quot;count&quot;: 0,
-    &quot;creationDate&quot;: &quot;Wed, 04 May 2013 14:43:03 GMT&quot;,
-    &quot;description&quot;: &quot;Old School&quot;,
-    &quot;id&quot;: 735,
-    &quot;name&quot;: &quot;somealbum&quot;,
-    &quot;size&quot;: 0
-  }
-}
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
-            
-            <header>Response Examples</header>
+            </div>
+<header>Response Examples</header>
                         <div class="tabs">
                         <ul class="tab_nav">
 <li><a href="#xml"class="selected">XML</a></li>
 <li><a href="#json">JSON</a></li>
-<li><a href="#xml">XML</a></li>
-<li><a href="#json">JSON</a></li>
 
-        
             </ul>
         
        <div id="xml" class="code">
-            <div class="code">
+          <p>This shows the response to an album creation in XML format.exception </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-This demonstrates how to create an album The response format will
-be in XML.
-
-POST /locker/v1/albums HTTP/1.1 
-Host: api.att.com
-authorization: bearer abcdef12345678
-accept: application/xml
-content-type: application/xml
-
-&lt;album&gt;
-      &lt;name&gt;somealbum&lt;/name&gt;
-      &lt;description&gt;Old School&lt;/description&gt;
-&lt;/album&gt;
-
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
-       <div id="json" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-This demonstrates how to create an album The response format will
-be in XML.
-
-POST /locker/v1/albums HTTP/1.1 
-Host: api.att.com
-authorization: bearer abcdef12345678
-accept: application/xml
-content-type: application/xml
-
-&lt;album&gt;
-      &lt;name&gt;somealbum&lt;/name&gt;
-      &lt;description&gt;Old School&lt;/description&gt;
-&lt;/album&gt;
-
-}
-
-This demonstrates how to create an album. The response format will
-be in JSON.
-
-POST /locker/v1/albums HTTP/1.1 
-Host: api.att.com 
-authorization: bearer abcdef12345678
-accept: application/json
-content-type: application/json
-
-{
-  &quot;album&quot;: {
-    &quot;name&quot;: &quot;somealbum&quot;,
-    &quot;description&quot;: &quot;Old School&quot;
-  }
-}
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
-       <div id="xml" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-This demonstrates how to create an album The response format will
-be in XML.
-
-POST /locker/v1/albums HTTP/1.1 
-Host: api.att.com
-authorization: bearer abcdef12345678
-accept: application/xml
-content-type: application/xml
-
-&lt;album&gt;
-      &lt;name&gt;somealbum&lt;/name&gt;
-      &lt;description&gt;Old School&lt;/description&gt;
-&lt;/album&gt;
-
-}
-
-This demonstrates how to create an album. The response format will
-be in JSON.
-
-POST /locker/v1/albums HTTP/1.1 
-Host: api.att.com 
-authorization: bearer abcdef12345678
-accept: application/json
-content-type: application/json
-
-{
-  &quot;album&quot;: {
-    &quot;name&quot;: &quot;somealbum&quot;,
-    &quot;description&quot;: &quot;Old School&quot;
-  }
-}
-}
-
-This shows the response to an album creation in XML format.exception
-
-\texttt{}
 HTTP/1.1 201 Created
 date: Wed, 27 Apr 2013 14:11:31 GMT
 content-length: 223
@@ -414,77 +109,16 @@ location: https://api.att.com/locker/v1/albums/735
     &lt;previews/&gt;
     &lt;size&gt;0&lt;/size&gt;
 &lt;/album&gt;
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
        <div id="json" class="code">
-            <div class="code">
+          <p>This shows the response to an album creation in JSON format </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-This demonstrates how to create an album The response format will
-be in XML.
-
-POST /locker/v1/albums HTTP/1.1 
-Host: api.att.com
-authorization: bearer abcdef12345678
-accept: application/xml
-content-type: application/xml
-
-&lt;album&gt;
-      &lt;name&gt;somealbum&lt;/name&gt;
-      &lt;description&gt;Old School&lt;/description&gt;
-&lt;/album&gt;
-
-}
-
-This demonstrates how to create an album. The response format will
-be in JSON.
-
-POST /locker/v1/albums HTTP/1.1 
-Host: api.att.com 
-authorization: bearer abcdef12345678
-accept: application/json
-content-type: application/json
-
-{
-  &quot;album&quot;: {
-    &quot;name&quot;: &quot;somealbum&quot;,
-    &quot;description&quot;: &quot;Old School&quot;
-  }
-}
-}
-
-This shows the response to an album creation in XML format.exception
-
-\texttt{}
-HTTP/1.1 201 Created
-date: Wed, 27 Apr 2013 14:11:31 GMT
-content-length: 223
-content-type: application/xml
-location: https://api.att.com/locker/v1/albums/735
-
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
-&lt;album&gt;
-    &lt;count&gt;0&lt;/count&gt;
-    &lt;creationDate&gt;Wed, 04 May 2013 14:43:03 GMT&lt;/creationDate&gt;
-    &lt;description&gt;Old School&lt;/description&gt;
-    &lt;id&gt;735&lt;/id&gt;
-    &lt;name&gt;somealbum&lt;/name&gt;
-    &lt;previews/&gt;
-    &lt;size&gt;0&lt;/size&gt;
-&lt;/album&gt;
-}
-
-This shows the response to an album creation in JSON format
-
 HTTP/1.1 201 Created
 date: Wed, 27 Apr 2013 14:11:31 GMT
 content-length: 223
@@ -501,17 +135,14 @@ location: https://api.att.com/locker/v1/albums/735
     &quot;size&quot;: 0
   }
 }
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
-           
         </section><!--end of example-->
 
- <section id="resources-createalbum-parameters" class="level-3">
+<section id="resources-createalbum-parameters" class="level-3">
     <header>Request Parameters</header>
     <label>
         <span class="required form-icon"></span>
@@ -545,7 +176,6 @@ location: https://api.att.com/locker/v1/albums/735
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -560,7 +190,6 @@ location: https://api.att.com/locker/v1/albums/735
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -576,7 +205,6 @@ location: https://api.att.com/locker/v1/albums/735
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -592,7 +220,6 @@ location: https://api.att.com/locker/v1/albums/735
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -612,7 +239,6 @@ location: https://api.att.com/locker/v1/albums/735
 </li></ul>  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -628,7 +254,6 @@ location: https://api.att.com/locker/v1/albums/735
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -644,7 +269,6 @@ location: https://api.att.com/locker/v1/albums/735
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -659,12 +283,8 @@ location: https://api.att.com/locker/v1/albums/735
  
             </div>
         </div>
-
-    </div>
-</section>
-
- <section id="resources-create-album-parameters" class="level-3">
-    <header>Request Parameters</header>
+</div>
+    <header>Require Parameters</header>
     <label>
         <span class="required form-icon"></span>
         Required Parameters
@@ -690,7 +310,6 @@ location: https://api.att.com/locker/v1/albums/735
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -711,7 +330,6 @@ location: https://api.att.com/locker/v1/albums/735
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -727,7 +345,6 @@ location: https://api.att.com/locker/v1/albums/735
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -743,7 +360,151 @@ location: https://api.att.com/locker/v1/albums/735
  
             </div>
         </div>
+</div>
+    <header>Preview Object Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
 
-    </div>
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   format  </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String  </span>
+                    <span class="placement"> body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the format of preview </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">url  </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> AnyURI  </span>
+                    <span class="placement"> body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the download url </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">width  </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer  </span>
+                    <span class="placement"> body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the width of preview (image/video) </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">height  </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer  </span>
+                    <span class="placement"> body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the height of preview (image/video) </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">bitrate  </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer  </span>
+                    <span class="placement"> body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the preview bitrate (audio) </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">channels  </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer  </span>
+                    <span class="placement"> body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the audio channels (audio) </p>
+ 
+            </div>
+        </div>
+</div>
+    <header>Property Object Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   name </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the name of the property.</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">value  </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the value of the property.</p>
+ 
+            </div>
+        </div>
+</div>
 </section>
-

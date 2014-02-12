@@ -1,17 +1,14 @@
 <?php
 
 //php htmlForCrafter.php locker
+
 include 'functions.php';
 include 'func_parse_introduction.php';
 include 'func_parse_oauth.php';
 include 'func_parse_operation.php';
 include 'func_parse_paramTable.php';
 
-
 $api = $argv[1];
-
-echo $api;
-
 if (!file_exists("../apis/$api/ATT-$api-Service-Specification.tex")) {
     echo '@@';
 } else {
@@ -27,19 +24,33 @@ if (!file_exists("../apis/$api/ATT-$api-Service-Specification.tex")) {
     parse_oauth($inputfile, "html/$api/oauth/oauth.html");
 
     $operations[] = allOperationsFileNames($inputfile);
-    //var_dump($operations);
     foreach ($operations[0] as $op) {
-        //parse_operation($inputfile, $outputfile);         
         if (file_exists("../apis/$api/$op")) {
             $op_filename = substr($op, 0, strlen($op) - 3) . 'html';
             $outputfile = "html/$api/operations/$op_filename";
             parse_operation("../apis/$api/$op", $outputfile);
-            //TODO: input param
-            $file = getRefFile("../apis/$api/$op");
-            parse_paramTable("../apis/$api/".$file['input'], $outputfile);
 
-            //TODO: output param
-            parse_paramTable("../apis/$api/".$file['output'], $outputfile);
+            //parameter head
+            $operation_name = getOperationName("../apis/$api/$op");
+            $content = "<section id=\"resources-{$operation_name}-parameters\" class=\"level-3\">";
+            writehtml($content, $outputfile);
+            //Input param
+            $file = getRefFile("../apis/$api/$op");
+            parse_paramTable("../apis/$api/" . $file['input'], $outputfile);
+            $object = getObjFile("../apis/$api/" . $file['input']);
+            foreach ($object as $obj) {
+                parse_paramTable("../apis/$api/" . $obj, $outputfile);
+            }
+            unset($object);
+            
+            //Output param
+            parse_paramTable("../apis/$api/" . $file['output'], $outputfile);
+            $object = getObjFile("../apis/$api/" . $file['output']);
+            foreach ($object as $obj) {
+                parse_paramTable("../apis/$api/" . $obj, $outputfile);
+            }
+            unset($object);
+            writehtml('</section>', $outputfile);
         }
     }
 }

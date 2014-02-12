@@ -2,10 +2,23 @@
 
 function parse_paramtable($inputfile, $outputfile) {
     //append to outputfile
-    $operation_name = getOperationName($inputfile);
+    
+    $type = '';
+    if (strpos($inputfile, 'Input') !== false) {
+        $type = 'Request';
+    } elseif (strpos($inputfile, 'Output') !== false) {
+        $type = 'Require';
+    }elseif(strpos($inputfile, 'Object') !== false) {
+        $path = explode('/', $inputfile);
+        $file = explode('.', $path[count($path)-1]);
+        if(startsWith($file[0], 'Object-content_')){
+            $type = ucfirst(substr($file[0],15))." Object";
+        }else{
+            $type = $file[0];
+        }
+    }
     $content = <<<"EOD"
- <section id="resources-{$operation_name}-parameters" class="level-3">
-    <header>Request Parameters</header>
+    <header>{$type} Parameters</header>
     <label>
         <span class="required form-icon"></span>
         Required Parameters
@@ -46,12 +59,8 @@ EOD;
                     $row = noCommet($row);
                     //take out notes
                     $row = str_replace('\emph{\footnotesize{Note}}{\footnotesize{:', '<br><p><span style="font-style: italic">Note</span>: ', $row);
-
                     $row = str_replace(array("\n", '\hline', '%{}', '\emph'), ' ', $row);
-
-
                     $cell = explode('&', $row);
-
                     for ($c = 0; $c < 5; $c++) {
                         $cell[$c] = str_replace(array('\tabularnewline'), '', $cell[$c]);
                         if ($c !== 3) {
@@ -85,7 +94,6 @@ EOD;
                 {$description}
             </div>
         </div>
-
 EOD;
                     writehtml($content, $outputfile);
                     $row = '';
@@ -94,14 +102,6 @@ EOD;
         }
     }
 
+    writehtml('</div>', $outputfile);
 
-
-//writehtml($test);
-
-    $content = <<<'EOD'
-    </div>
-</section>
-
-EOD;
-    writehtml($content, $outputfile);
 }

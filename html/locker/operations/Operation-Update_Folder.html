@@ -32,30 +32,15 @@
             <ul class="tab_nav">
 <li><a href="#update-a-folder---xml"class="selected">Update a folder - XML</a></li>
 <li><a href="#update-a-folder---json">Update a folder - JSON</a></li>
-<li><a href="#update-folder---xml">Update Folder - XML</a></li>
-<li><a href="#update-folder---json">Update Folder - JSON</a></li>
 
         
             </ul>
         
        <div id="update-a-folder---xml" class="code">
-            <div class="code">
+          <p>This demonstrates how to update a folder, and specifying the response to be in XML.% \begin{comment} Need to determine if PATCH is correct here, and whether frameworks support it \end{comment} </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-
-
-This demonstrates how to update a folder, and specifying the response
-to be in XML.%
-\begin{comment}
-Need to determine if PATCH is correct here, and whether frameworks
-support it
-\end{comment}
-
-
 PATCH /locker/v1/folders/3223232 HTTP/1.1 
 Host: api.att.com
 content-type: application/xml
@@ -65,45 +50,16 @@ accept: application/xml
 &lt;folder&gt;
       &lt;description&gt;I LIKE THIS NEW DESCRIPTION better.&lt;/description&gt;
 &lt;/folder&gt;
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
        <div id="update-a-folder---json" class="code">
-            <div class="code">
+          <p>This demonstrates how to update a folder, the response format will be in JSON. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-
-
-This demonstrates how to update a folder, and specifying the response
-to be in XML.%
-\begin{comment}
-Need to determine if PATCH is correct here, and whether frameworks
-support it
-\end{comment}
-
-
-PATCH /locker/v1/folders/3223232 HTTP/1.1 
-Host: api.att.com
-content-type: application/xml
-authorization: Bearer 38C2399A23999
-accept: application/xml
-
-&lt;folder&gt;
-      &lt;description&gt;I LIKE THIS NEW DESCRIPTION better.&lt;/description&gt;
-&lt;/folder&gt;
-}
-
-This demonstrates how to update a folder, the response format will
-be in JSON.
-
 PATCH /locker/v1/folders/3223232 HTTP/1.1 
 Host: api.att.com
 content-type: application/json
@@ -115,314 +71,25 @@ accept: application/json
       &quot;description&quot;: &quot;I LIKE THIS NEW DESCRIPTION better.&quot;
   }
 }
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
-       <div id="update-folder---xml" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-
-
-This demonstrates how to update a folder, and specifying the response
-to be in XML.%
-\begin{comment}
-Need to determine if PATCH is correct here, and whether frameworks
-support it
-\end{comment}
-
-
-PATCH /locker/v1/folders/3223232 HTTP/1.1 
-Host: api.att.com
-content-type: application/xml
-authorization: Bearer 38C2399A23999
-accept: application/xml
-
-&lt;folder&gt;
-      &lt;description&gt;I LIKE THIS NEW DESCRIPTION better.&lt;/description&gt;
-&lt;/folder&gt;
-}
-
-This demonstrates how to update a folder, the response format will
-be in JSON.
-
-PATCH /locker/v1/folders/3223232 HTTP/1.1 
-Host: api.att.com
-content-type: application/json
-authorization: Bearer 38C2399A23999
-accept: application/json
-
-{
-  &quot;folder&quot;: { 
-      &quot;description&quot;: &quot;I LIKE THIS NEW DESCRIPTION better.&quot;
-  }
-}
-}
-
-This shows the response to an Update Folder in XML format.
-
-\texttt{}
-HTTP/1.1 200 OK
-date: Wed, 27 Apr 2011 14:11:31 GMT
-content-length: 223
-content-type: application/xml
-
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
-&lt;folder&gt;
-    &lt;count&gt;0&lt;/count&gt;
-    &lt;creationDate&gt;05-05-2011 14:17:27 +0000&lt;/creationDate&gt;
-    &lt;description&gt;Cuz i need space&lt;/description&gt;
-    &lt;id&gt;856&lt;/id&gt;
-    &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
-    &lt;size&gt;0&lt;/size&gt;
-&lt;/folder&gt;
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
-       <div id="update-folder---json" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-
-
-This demonstrates how to update a folder, and specifying the response
-to be in XML.%
-\begin{comment}
-Need to determine if PATCH is correct here, and whether frameworks
-support it
-\end{comment}
-
-
-PATCH /locker/v1/folders/3223232 HTTP/1.1 
-Host: api.att.com
-content-type: application/xml
-authorization: Bearer 38C2399A23999
-accept: application/xml
-
-&lt;folder&gt;
-      &lt;description&gt;I LIKE THIS NEW DESCRIPTION better.&lt;/description&gt;
-&lt;/folder&gt;
-}
-
-This demonstrates how to update a folder, the response format will
-be in JSON.
-
-PATCH /locker/v1/folders/3223232 HTTP/1.1 
-Host: api.att.com
-content-type: application/json
-authorization: Bearer 38C2399A23999
-accept: application/json
-
-{
-  &quot;folder&quot;: { 
-      &quot;description&quot;: &quot;I LIKE THIS NEW DESCRIPTION better.&quot;
-  }
-}
-}
-
-This shows the response to an Update Folder in XML format.
-
-\texttt{}
-HTTP/1.1 200 OK
-date: Wed, 27 Apr 2011 14:11:31 GMT
-content-length: 223
-content-type: application/xml
-
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
-&lt;folder&gt;
-    &lt;count&gt;0&lt;/count&gt;
-    &lt;creationDate&gt;05-05-2011 14:17:27 +0000&lt;/creationDate&gt;
-    &lt;description&gt;Cuz i need space&lt;/description&gt;
-    &lt;id&gt;856&lt;/id&gt;
-    &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
-    &lt;size&gt;0&lt;/size&gt;
-&lt;/folder&gt;
-}
-
-This shows the response to an Update Folder in JSON format
-
-HTTP/1.1 200 OK
-date: Wed, 27 Apr 2011 14:11:31 GMT
-content-length: 223
-content-type: application/json
-
-{
-    &quot;folder&quot;: {
-      &quot;count&quot;: 0,
-      &quot;creationDate&quot;: &quot;05-05-2011 14:17:27 +0000&quot;,
-      &quot;name&quot;: &quot;Bunch of random Files Folder&quot;,
-      &quot;description&quot;: &quot;Cuz i need space&quot;,
-      &quot;id&quot;: 856,
-      &quot;size&quot;: 0
-    }
-}
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
-            
-            <header>Response Examples</header>
+            </div>
+<header>Response Examples</header>
                         <div class="tabs">
                         <ul class="tab_nav">
-<li><a href="#update-a-folder---xml"class="selected">Update a folder - XML</a></li>
-<li><a href="#update-a-folder---json">Update a folder - JSON</a></li>
-<li><a href="#update-folder---xml">Update Folder - XML</a></li>
+<li><a href="#update-folder---xml"class="selected">Update Folder - XML</a></li>
 <li><a href="#update-folder---json">Update Folder - JSON</a></li>
 
-        
             </ul>
         
-       <div id="update-a-folder---xml" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-
-
-This demonstrates how to update a folder, and specifying the response
-to be in XML.%
-\begin{comment}
-Need to determine if PATCH is correct here, and whether frameworks
-support it
-\end{comment}
-
-
-PATCH /locker/v1/folders/3223232 HTTP/1.1 
-Host: api.att.com
-content-type: application/xml
-authorization: Bearer 38C2399A23999
-accept: application/xml
-
-&lt;folder&gt;
-      &lt;description&gt;I LIKE THIS NEW DESCRIPTION better.&lt;/description&gt;
-&lt;/folder&gt;
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
-       <div id="update-a-folder---json" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-
-
-This demonstrates how to update a folder, and specifying the response
-to be in XML.%
-\begin{comment}
-Need to determine if PATCH is correct here, and whether frameworks
-support it
-\end{comment}
-
-
-PATCH /locker/v1/folders/3223232 HTTP/1.1 
-Host: api.att.com
-content-type: application/xml
-authorization: Bearer 38C2399A23999
-accept: application/xml
-
-&lt;folder&gt;
-      &lt;description&gt;I LIKE THIS NEW DESCRIPTION better.&lt;/description&gt;
-&lt;/folder&gt;
-}
-
-This demonstrates how to update a folder, the response format will
-be in JSON.
-
-PATCH /locker/v1/folders/3223232 HTTP/1.1 
-Host: api.att.com
-content-type: application/json
-authorization: Bearer 38C2399A23999
-accept: application/json
-
-{
-  &quot;folder&quot;: { 
-      &quot;description&quot;: &quot;I LIKE THIS NEW DESCRIPTION better.&quot;
-  }
-}
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
        <div id="update-folder---xml" class="code">
-            <div class="code">
+          <p>This shows the response to an Update Folder in XML format. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-
-
-This demonstrates how to update a folder, and specifying the response
-to be in XML.%
-\begin{comment}
-Need to determine if PATCH is correct here, and whether frameworks
-support it
-\end{comment}
-
-
-PATCH /locker/v1/folders/3223232 HTTP/1.1 
-Host: api.att.com
-content-type: application/xml
-authorization: Bearer 38C2399A23999
-accept: application/xml
-
-&lt;folder&gt;
-      &lt;description&gt;I LIKE THIS NEW DESCRIPTION better.&lt;/description&gt;
-&lt;/folder&gt;
-}
-
-This demonstrates how to update a folder, the response format will
-be in JSON.
-
-PATCH /locker/v1/folders/3223232 HTTP/1.1 
-Host: api.att.com
-content-type: application/json
-authorization: Bearer 38C2399A23999
-accept: application/json
-
-{
-  &quot;folder&quot;: { 
-      &quot;description&quot;: &quot;I LIKE THIS NEW DESCRIPTION better.&quot;
-  }
-}
-}
-
-This shows the response to an Update Folder in XML format.
-
-\texttt{}
 HTTP/1.1 200 OK
 date: Wed, 27 Apr 2011 14:11:31 GMT
 content-length: 223
@@ -437,79 +104,16 @@ content-type: application/xml
     &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
     &lt;size&gt;0&lt;/size&gt;
 &lt;/folder&gt;
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
        <div id="update-folder---json" class="code">
-            <div class="code">
+          <p>This shows the response to an Update Folder in JSON format </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-
-
-This demonstrates how to update a folder, and specifying the response
-to be in XML.%
-\begin{comment}
-Need to determine if PATCH is correct here, and whether frameworks
-support it
-\end{comment}
-
-
-PATCH /locker/v1/folders/3223232 HTTP/1.1 
-Host: api.att.com
-content-type: application/xml
-authorization: Bearer 38C2399A23999
-accept: application/xml
-
-&lt;folder&gt;
-      &lt;description&gt;I LIKE THIS NEW DESCRIPTION better.&lt;/description&gt;
-&lt;/folder&gt;
-}
-
-This demonstrates how to update a folder, the response format will
-be in JSON.
-
-PATCH /locker/v1/folders/3223232 HTTP/1.1 
-Host: api.att.com
-content-type: application/json
-authorization: Bearer 38C2399A23999
-accept: application/json
-
-{
-  &quot;folder&quot;: { 
-      &quot;description&quot;: &quot;I LIKE THIS NEW DESCRIPTION better.&quot;
-  }
-}
-}
-
-This shows the response to an Update Folder in XML format.
-
-\texttt{}
-HTTP/1.1 200 OK
-date: Wed, 27 Apr 2011 14:11:31 GMT
-content-length: 223
-content-type: application/xml
-
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
-&lt;folder&gt;
-    &lt;count&gt;0&lt;/count&gt;
-    &lt;creationDate&gt;05-05-2011 14:17:27 +0000&lt;/creationDate&gt;
-    &lt;description&gt;Cuz i need space&lt;/description&gt;
-    &lt;id&gt;856&lt;/id&gt;
-    &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
-    &lt;size&gt;0&lt;/size&gt;
-&lt;/folder&gt;
-}
-
-This shows the response to an Update Folder in JSON format
-
 HTTP/1.1 200 OK
 date: Wed, 27 Apr 2011 14:11:31 GMT
 content-length: 223
@@ -525,17 +129,14 @@ content-type: application/json
       &quot;size&quot;: 0
     }
 }
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
-           
         </section><!--end of example-->
 
- <section id="resources-update-folder-parameters" class="level-3">
+<section id="resources-update-folder-parameters" class="level-3">
     <header>Request Parameters</header>
     <label>
         <span class="required form-icon"></span>
@@ -569,7 +170,6 @@ content-type: application/json
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -584,7 +184,6 @@ content-type: application/json
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -600,7 +199,6 @@ content-type: application/json
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -615,7 +213,6 @@ content-type: application/json
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -635,7 +232,6 @@ content-type: application/json
 </li></ul>  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -651,7 +247,6 @@ content-type: application/json
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -667,7 +262,6 @@ content-type: application/json
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -682,7 +276,6 @@ content-type: application/json
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -697,7 +290,6 @@ content-type: application/json
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -712,12 +304,51 @@ content-type: application/json
  
             </div>
         </div>
+</div>
+    <header>Reorder Object Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
 
-    </div>
-</section>
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   indexes%  % \begin{comment} are these Integers or Strings?? \end{comment} {} </span>
+                    <span class="required form-icon"></span>
 
- <section id="resources-update-folder-parameters" class="level-3">
-    <header>Request Parameters</header>
+                    <span class="data-type"> Array </span>
+                    <span class="placement"> body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the indexes of the files that need to move.</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">after%  {\footnotesize \par}  % \begin{comment} are these Integers or Strings?? \end{comment} {} </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the index where the files should be moved after.</p>
+ 
+            </div>
+        </div>
+</div>
+    <header>Require Parameters</header>
     <label>
         <span class="required form-icon"></span>
         Required Parameters
@@ -748,7 +379,6 @@ content-type: application/json
 </li></ul>  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -763,7 +393,6 @@ content-type: application/json
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -779,7 +408,5 @@ content-type: application/json
  
             </div>
         </div>
-
-    </div>
+</div>
 </section>
-

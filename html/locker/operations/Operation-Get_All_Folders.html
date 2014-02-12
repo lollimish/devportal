@@ -31,238 +31,38 @@
             <div class="tabs">
             <ul class="tab_nav">
 <li><a href="#get-folders-based-on-query-parameters"class="selected">Get folders based on query parameters</a></li>
-<li><a href="#xml">XML</a></li>
-<li><a href="#json">JSON</a></li>
 
         
             </ul>
         
        <div id="get-folders-based-on-query-parameters" class="code">
-            <div class="code">
+          <p>This demonstrates how to get folders using GET, and specifying the response to be in XML. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-
-
-This demonstrates how to get folders using GET, and specifying the
-response to be in XML.
-
 GET /locker/v1/folders?limit=100&amp;offset=15&amp;orderBy=name&amp;order=asc HTTP/1.1 
 Host: api.att.com
 authorization: Bearer abcdef12345678
 accept: application/xml
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
-       <div id="xml" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-
-
-This demonstrates how to get folders using GET, and specifying the
-response to be in XML.
-
-GET /locker/v1/folders?limit=100&amp;offset=15&amp;orderBy=name&amp;order=asc HTTP/1.1 
-Host: api.att.com
-authorization: Bearer abcdef12345678
-accept: application/xml
-}
-
-This shows the response to a Get All Folders in XML format.
-
-\texttt{}
-HTTP/1.1 200 OK
-Connection: close
-Date: Wed, 27 Apr 2011 14:11:31 GMT
-Content-Length: 223
-Content-Type: application/xml
-
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
-&lt;folders&gt;
-    &lt;folderCount&gt;2&lt;/folderCount&gt;
-    &lt;folder&gt;
-        &lt;count&gt;0&lt;/count&gt;
-        &lt;creationDate&gt;05-02-2011 19:11:44 +0000&lt;/creationDate&gt;
-        &lt;description&gt;Cuz i need space&lt;/description&gt;
-        &lt;id&gt;527&lt;/id&gt;
-        &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
-        &lt;size&gt;0&lt;/size&gt;
-    &lt;/folder&gt;
-    &lt;folder&gt;
-        &lt;count&gt;0&lt;/count&gt;
-        &lt;creationDate&gt;05-05-2011 14:17:27 +0000&lt;/creationDate&gt;
-        &lt;description&gt;Cuz i need space&lt;/description&gt;
-        &lt;id&gt;856&lt;/id&gt;
-        &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
-        &lt;size&gt;0&lt;/size&gt;
-    &lt;/folder&gt;
-    &lt;total&gt;2&lt;/total&gt;
-&lt;/folders&gt;
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
-       <div id="json" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-
-
-This demonstrates how to get folders using GET, and specifying the
-response to be in XML.
-
-GET /locker/v1/folders?limit=100&amp;offset=15&amp;orderBy=name&amp;order=asc HTTP/1.1 
-Host: api.att.com
-authorization: Bearer abcdef12345678
-accept: application/xml
-}
-
-This shows the response to a Get All Folders in XML format.
-
-\texttt{}
-HTTP/1.1 200 OK
-Connection: close
-Date: Wed, 27 Apr 2011 14:11:31 GMT
-Content-Length: 223
-Content-Type: application/xml
-
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
-&lt;folders&gt;
-    &lt;folderCount&gt;2&lt;/folderCount&gt;
-    &lt;folder&gt;
-        &lt;count&gt;0&lt;/count&gt;
-        &lt;creationDate&gt;05-02-2011 19:11:44 +0000&lt;/creationDate&gt;
-        &lt;description&gt;Cuz i need space&lt;/description&gt;
-        &lt;id&gt;527&lt;/id&gt;
-        &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
-        &lt;size&gt;0&lt;/size&gt;
-    &lt;/folder&gt;
-    &lt;folder&gt;
-        &lt;count&gt;0&lt;/count&gt;
-        &lt;creationDate&gt;05-05-2011 14:17:27 +0000&lt;/creationDate&gt;
-        &lt;description&gt;Cuz i need space&lt;/description&gt;
-        &lt;id&gt;856&lt;/id&gt;
-        &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
-        &lt;size&gt;0&lt;/size&gt;
-    &lt;/folder&gt;
-    &lt;total&gt;2&lt;/total&gt;
-&lt;/folders&gt;
-}
-
-This shows the response to a Get All Folders in JSON format.
-
-HTTP/1.1 200 OK 
-Content-Type: application/json 
-Content-Length: 624 
-Date: Thu, 04 Jun 2010 02:51:59 GMT
-
-{
-  &quot;folders&quot;: {
-    &quot;folderCount&quot;: 2,
-    &quot;folder&quot;: [
-      {
-        &quot;count&quot;: 0,
-        &quot;creationDate&quot;: &quot;05-02-2011 19:11:44 +0000&quot;,
-        &quot;description&quot;: &quot;Cuz i need space&quot;,
-        &quot;id&quot;: 527,
-        &quot;name&quot;: &quot;Bunch of random Files Folder&quot;,
-        &quot;size&quot;: 0
-      },
-      {
-        &quot;count&quot;: 0,
-        &quot;creationDate&quot;: &quot;05-05-2011 14:17:27 +0000&quot;,
-        &quot;description&quot;: &quot;More space&quot;,
-        &quot;id&quot;: 856,
-        &quot;name&quot;: &quot;More Bunch of random Files Folder&quot;,
-        &quot;size&quot;: 0
-      }
-    ],
-    &quot;total&quot;: 2
-  }
-}
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
-            
-            <header>Response Examples</header>
+            </div>
+<header>Response Examples</header>
                         <div class="tabs">
                         <ul class="tab_nav">
-<li><a href="#get-folders-based-on-query-parameters"class="selected">Get folders based on query parameters</a></li>
-<li><a href="#xml">XML</a></li>
+<li><a href="#xml"class="selected">XML</a></li>
 <li><a href="#json">JSON</a></li>
 
-        
             </ul>
         
-       <div id="get-folders-based-on-query-parameters" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-
-
-This demonstrates how to get folders using GET, and specifying the
-response to be in XML.
-
-GET /locker/v1/folders?limit=100&amp;offset=15&amp;orderBy=name&amp;order=asc HTTP/1.1 
-Host: api.att.com
-authorization: Bearer abcdef12345678
-accept: application/xml
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
        <div id="xml" class="code">
-            <div class="code">
+          <p>This shows the response to a Get All Folders in XML format. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-
-
-This demonstrates how to get folders using GET, and specifying the
-response to be in XML.
-
-GET /locker/v1/folders?limit=100&amp;offset=15&amp;orderBy=name&amp;order=asc HTTP/1.1 
-Host: api.att.com
-authorization: Bearer abcdef12345678
-accept: application/xml
-}
-
-This shows the response to a Get All Folders in XML format.
-
-\texttt{}
 HTTP/1.1 200 OK
 Connection: close
 Date: Wed, 27 Apr 2011 14:11:31 GMT
@@ -290,66 +90,16 @@ Content-Type: application/xml
     &lt;/folder&gt;
     &lt;total&gt;2&lt;/total&gt;
 &lt;/folders&gt;
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
        <div id="json" class="code">
-            <div class="code">
+          <p>This shows the response to a Get All Folders in JSON format. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-
-
-This demonstrates how to get folders using GET, and specifying the
-response to be in XML.
-
-GET /locker/v1/folders?limit=100&amp;offset=15&amp;orderBy=name&amp;order=asc HTTP/1.1 
-Host: api.att.com
-authorization: Bearer abcdef12345678
-accept: application/xml
-}
-
-This shows the response to a Get All Folders in XML format.
-
-\texttt{}
-HTTP/1.1 200 OK
-Connection: close
-Date: Wed, 27 Apr 2011 14:11:31 GMT
-Content-Length: 223
-Content-Type: application/xml
-
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
-&lt;folders&gt;
-    &lt;folderCount&gt;2&lt;/folderCount&gt;
-    &lt;folder&gt;
-        &lt;count&gt;0&lt;/count&gt;
-        &lt;creationDate&gt;05-02-2011 19:11:44 +0000&lt;/creationDate&gt;
-        &lt;description&gt;Cuz i need space&lt;/description&gt;
-        &lt;id&gt;527&lt;/id&gt;
-        &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
-        &lt;size&gt;0&lt;/size&gt;
-    &lt;/folder&gt;
-    &lt;folder&gt;
-        &lt;count&gt;0&lt;/count&gt;
-        &lt;creationDate&gt;05-05-2011 14:17:27 +0000&lt;/creationDate&gt;
-        &lt;description&gt;Cuz i need space&lt;/description&gt;
-        &lt;id&gt;856&lt;/id&gt;
-        &lt;name&gt;Bunch of random Files Folder&lt;/name&gt;
-        &lt;size&gt;0&lt;/size&gt;
-    &lt;/folder&gt;
-    &lt;total&gt;2&lt;/total&gt;
-&lt;/folders&gt;
-}
-
-This shows the response to a Get All Folders in JSON format.
-
 HTTP/1.1 200 OK 
 Content-Type: application/json 
 Content-Length: 624 
@@ -379,17 +129,14 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
     &quot;total&quot;: 2
   }
 }
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
-           
         </section><!--end of example-->
 
- <section id="resources-get-all-folders-parameters" class="level-3">
+<section id="resources-get-all-folders-parameters" class="level-3">
     <header>Request Parameters</header>
     <label>
         <span class="required form-icon"></span>
@@ -423,7 +170,6 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -439,7 +185,6 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -456,7 +201,6 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
 % \begin{comment} Made it required, so no more default \end{comment} {} 
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -472,7 +216,6 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -488,7 +231,6 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -504,12 +246,8 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
 %  {} 
             </div>
         </div>
-
-    </div>
-</section>
-
- <section id="resources-get-all-folders-parameters" class="level-3">
-    <header>Request Parameters</header>
+</div>
+    <header>Require Parameters</header>
     <label>
         <span class="required form-icon"></span>
         Required Parameters
@@ -540,7 +278,6 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
 </li></ul>  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -556,7 +293,6 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -572,7 +308,6 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -588,7 +323,6 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -604,7 +338,5 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
-    </div>
+</div>
 </section>
-

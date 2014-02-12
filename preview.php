@@ -227,7 +227,8 @@
 
 <?php
 //intro
-                                    $param_sec = file_get_contents('html/intro.html');
+//                                    $param_sec = file_get_contents('html/intro.html');
+                                    $param_sec = file_get_contents('html/locker/introductions/introduction.html');
                                     echo $param_sec;
                                     ?>
 
@@ -240,7 +241,7 @@
     
     <?php
 //intro
-                                    $param_sec = file_get_contents('html/oauth.html');
+                                    $param_sec = file_get_contents('html/locker/oauth/oauth.html');
                                     echo $param_sec;
                                     ?>
     
@@ -308,7 +309,7 @@
 
 <?php
 //operation
-                                    $param_sec = file_get_contents('html/op.html');
+                                    $param_sec = file_get_contents('html/locker/operations/Operation-CreateAlbum.html');
                                     echo $param_sec;
                                     ?>
 
@@ -316,5 +317,5 @@
 <?php
 //param
                                     $param_sec = file_get_contents('html/param.html');
-                                    echo $param_sec;
+                                    //echo $param_sec;
                                     ?>

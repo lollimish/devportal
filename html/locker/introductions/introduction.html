@@ -2,66 +2,32 @@
 <section id="introduction" class="level-1">
     <header>1. Introduction</header>
     <section id="introduction-overview" class="level-2">
+    <header>Overview</header>
         
-</p>
-<p></p>
-<p>AT\&T Locker API gives authorized applications the ability to store,
-socialize and share user content that resides on users PC and Devices.
-This Interface Document (IA) gives on overview of Locker API, Payload
-structure, Errors returned, etc that will help a client developer
-build Locker client application. This document lists how to invoke
-API’s but doesn’t discuss orchestrating the API’s to make a business
-function. The Getting Started Guide and Sequence Diagrams (not included
-here) will give a good overview of how to orchestrate these API’s
-to make a business function.</p>
-<p>
-\subsection{Audience}</p>
-<p>\input{../common/audience.tex}\pagebreak{}</p>
-<p>
-\section{Provisioned Data}
-
+<p>AT&T Locker API gives authorized applications the ability to store,socialize and share user content that resides on users PC and Devices.This Interface Document (IA) gives on overview of Locker API, Payloadstructure, Errors returned, etc that will help a client developerbuild Locker client application. This document lists how to invokeAPI’s but doesn’t discuss orchestrating the API’s to make a businessfunction. The Getting Started Guide and Sequence Diagrams (not includedhere) will give a good overview of how to orchestrate these API’sto make a business function.<p>
 </section>
         
     <section id="introduction-considerations" class="level-2">
     <header>Considerations</header>
         
-</p>
-<p>
-AT\&T Locker API gives authorized applications the ability to store,
-socialize and share user content that resides on users PC and Devices.
-This Interface Document (IA) gives on overview of Locker API, Payload
-structure, Errors returned, etc that will help a client developer
-build Locker client application. This document lists how to invoke
-API’s but doesn’t discuss orchestrating the API’s to make a business
-function. The Getting Started Guide and Sequence Diagrams (not included
-here) will give a good overview of how to orchestrate these API’s
-to make a business function.</p>
-<p>
-\subsection*{HTTP Method Override}</p>
-<p>If the calling client does not support HTTP DELETE, PATCH and/or PUT,
-the client may use the following header and call the API using HTTP
-POST </p>
-<p>x-http-method-override: DELETE </p>
-<p>or </p>
-<p>x-http-method-override: PATCH</p>
-<p>or</p>
-<p>x-http-method-override: PUT</p>
-<p>
-\subsection*{XML Declaration}</p>
-<p>The XML documentation declaration shall be optional for requests that
-have an XML body, but shall be required for responses that have an
-XML body.</p>
-<p>
-\subsection*{Source Device IP Address}</p>
-<p>The APIGW shall retrieve the source device IP address and send that
-with every request to the Locker enabler set in the HTTP header \emph{device-remote-address}</p>
-<p>
-
-</section>
+<p>AT\&T Locker API gives authorized applications the ability to store,socialize and share user content that resides on users PC and Devices.This Interface Document (IA) gives on overview of Locker API, Payloadstructure, Errors returned, etc that will help a client developerbuild Locker client application. This document lists how to invokeAPI’s but doesn’t discuss orchestrating the API’s to make a businessfunction. The Getting Started Guide and Sequence Diagrams (not includedhere) will give a good overview of how to orchestrate these API’sto make a business function.<p><p><section class="level-3">
+<header>HTTP Method Override</header>
+<p><p>If the calling client does not support HTTP DELETE, PATCH and/or PUT,the client may use the following header and call the API using HTTPPOST <p><p>x-http-method-override: DELETE <p><p>or <p><p>x-http-method-override: PATCH<p><p>or<p><p>x-http-method-override: PUT<p><p></section>
+<section class="level-3">
+<header>XML Declaration</header>
+<p><p>The XML documentation declaration shall be optional for requests thathave an XML body, but shall be required for responses that have anXML body.<p><p></section>
+<section class="level-3">
+<header>Source Device IP Address</header>
+<p><p>The APIGW shall retrieve the source device IP address and send thatwith every request to the Locker enabler set in the HTTP header \emph{device-remote-address}<p>
+</section></section>
         
     <section id="introduction-provisioning" class="level-2">
     <header>Provisioning</header>
         
-
+<p>
+<p><p>N/A 
+<p><p>
+<p><p>
+<p>
 </section>
 </section>

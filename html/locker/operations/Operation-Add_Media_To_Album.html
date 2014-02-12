@@ -32,24 +32,15 @@
             <ul class="tab_nav">
 <li><a href="#add-media-to-an-album-in-xml"class="selected">Add media to an album in XML</a></li>
 <li><a href="#add-media-to-an-album-in-json">Add media to an album in JSON</a></li>
-<li><a href="#add-media-to-an-album-in-xml">Add media to an album in XML</a></li>
 
         
             </ul>
         
        <div id="add-media-to-an-album-in-xml" class="code">
-            <div class="code">
+          <p>This demonstrates how to add media to an album, and specifying the request to be in XML. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-
-
-This demonstrates how to add media to an album, and specifying the
-request to be in XML.
-
 POST /locker/v1/albums/3433435/media HTTP/1.1 
 host: api.att.com
 content-type: application/xml
@@ -61,42 +52,16 @@ accept: application/xml
     &lt;id&gt;125&lt;/id&gt;
     &lt;index&gt;1&lt;/index&gt;  	
 &lt;/mediaIds&gt;
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
        <div id="add-media-to-an-album-in-json" class="code">
-            <div class="code">
+          <p>This demonstrates how to add media to an album, and specifying the request to be in JSON. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-
-
-This demonstrates how to add media to an album, and specifying the
-request to be in XML.
-
-POST /locker/v1/albums/3433435/media HTTP/1.1 
-host: api.att.com
-content-type: application/xml
-authorization: Bearer abcdef12345678
-accept: application/xml
-
-&lt;mediaIds&gt;
-    &lt;id&gt;112&lt;/id&gt;
-    &lt;id&gt;125&lt;/id&gt;
-    &lt;index&gt;1&lt;/index&gt;  	
-&lt;/mediaIds&gt;
-}
-
-This demonstrates how to add media to an album, and specifying the
-request to be in JSON.
-
 POST /locker/v1/folders/3433435/files HTTP/1.1 
 Host: api.att.com
 content-type: application/json
@@ -109,217 +74,34 @@ accept: application/json
     &quot;index&quot;: 1
   }
 }
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
-       <div id="add-media-to-an-album-in-xml" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-
-
-This demonstrates how to add media to an album, and specifying the
-request to be in XML.
-
-POST /locker/v1/albums/3433435/media HTTP/1.1 
-host: api.att.com
-content-type: application/xml
-authorization: Bearer abcdef12345678
-accept: application/xml
-
-&lt;mediaIds&gt;
-    &lt;id&gt;112&lt;/id&gt;
-    &lt;id&gt;125&lt;/id&gt;
-    &lt;index&gt;1&lt;/index&gt;  	
-&lt;/mediaIds&gt;
-}
-
-This demonstrates how to add media to an album, and specifying the
-request to be in JSON.
-
-POST /locker/v1/folders/3433435/files HTTP/1.1 
-Host: api.att.com
-content-type: application/json
-authorization: Bearer abcdef12345678
-accept: application/json
-
-{
-  &quot;mediaIds&quot;: {
-    &quot;id&quot;: [112,125],
-    &quot;index&quot;: 1
-  }
-}
-}
-
-This shows the response to a an add file to folder request.
-
-\texttt{}
-HTTP/1.1 204 No Content
-date: Thu, 04 Jun 2010 02:51:59 GMT
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
-            
-            <header>Response Examples</header>
+            </div>
+<header>Response Examples</header>
                         <div class="tabs">
                         <ul class="tab_nav">
 <li><a href="#add-media-to-an-album-in-xml"class="selected">Add media to an album in XML</a></li>
-<li><a href="#add-media-to-an-album-in-json">Add media to an album in JSON</a></li>
-<li><a href="#add-media-to-an-album-in-xml">Add media to an album in XML</a></li>
 
-        
             </ul>
         
        <div id="add-media-to-an-album-in-xml" class="code">
-            <div class="code">
+          <p>This shows the response to a an add file to folder request. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-
-
-This demonstrates how to add media to an album, and specifying the
-request to be in XML.
-
-POST /locker/v1/albums/3433435/media HTTP/1.1 
-host: api.att.com
-content-type: application/xml
-authorization: Bearer abcdef12345678
-accept: application/xml
-
-&lt;mediaIds&gt;
-    &lt;id&gt;112&lt;/id&gt;
-    &lt;id&gt;125&lt;/id&gt;
-    &lt;index&gt;1&lt;/index&gt;  	
-&lt;/mediaIds&gt;
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
-       <div id="add-media-to-an-album-in-json" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-
-
-This demonstrates how to add media to an album, and specifying the
-request to be in XML.
-
-POST /locker/v1/albums/3433435/media HTTP/1.1 
-host: api.att.com
-content-type: application/xml
-authorization: Bearer abcdef12345678
-accept: application/xml
-
-&lt;mediaIds&gt;
-    &lt;id&gt;112&lt;/id&gt;
-    &lt;id&gt;125&lt;/id&gt;
-    &lt;index&gt;1&lt;/index&gt;  	
-&lt;/mediaIds&gt;
-}
-
-This demonstrates how to add media to an album, and specifying the
-request to be in JSON.
-
-POST /locker/v1/folders/3433435/files HTTP/1.1 
-Host: api.att.com
-content-type: application/json
-authorization: Bearer abcdef12345678
-accept: application/json
-
-{
-  &quot;mediaIds&quot;: {
-    &quot;id&quot;: [112,125],
-    &quot;index&quot;: 1
-  }
-}
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
-       <div id="add-media-to-an-album-in-xml" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-
-
-This demonstrates how to add media to an album, and specifying the
-request to be in XML.
-
-POST /locker/v1/albums/3433435/media HTTP/1.1 
-host: api.att.com
-content-type: application/xml
-authorization: Bearer abcdef12345678
-accept: application/xml
-
-&lt;mediaIds&gt;
-    &lt;id&gt;112&lt;/id&gt;
-    &lt;id&gt;125&lt;/id&gt;
-    &lt;index&gt;1&lt;/index&gt;  	
-&lt;/mediaIds&gt;
-}
-
-This demonstrates how to add media to an album, and specifying the
-request to be in JSON.
-
-POST /locker/v1/folders/3433435/files HTTP/1.1 
-Host: api.att.com
-content-type: application/json
-authorization: Bearer abcdef12345678
-accept: application/json
-
-{
-  &quot;mediaIds&quot;: {
-    &quot;id&quot;: [112,125],
-    &quot;index&quot;: 1
-  }
-}
-}
-
-This shows the response to a an add file to folder request.
-
-\texttt{}
 HTTP/1.1 204 No Content
 date: Thu, 04 Jun 2010 02:51:59 GMT
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
-           
         </section><!--end of example-->
 
- <section id="resources-add-media-to-album-parameters" class="level-3">
+<section id="resources-add-media-to-album-parameters" class="level-3">
     <header>Request Parameters</header>
     <label>
         <span class="required form-icon"></span>
@@ -353,7 +135,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -368,7 +149,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -384,7 +164,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -399,7 +178,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -419,7 +197,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
 </li></ul>  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -435,7 +212,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -451,7 +227,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -467,7 +242,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -482,12 +256,8 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
-    </div>
-</section>
-
- <section id="resources-add-media-to-album-parameters" class="level-3">
-    <header>Request Parameters</header>
+</div>
+    <header>Require Parameters</header>
     <label>
         <span class="required form-icon"></span>
         Required Parameters
@@ -519,7 +289,5 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
-    </div>
+</div>
 </section>
-

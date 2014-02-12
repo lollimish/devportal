@@ -31,236 +31,38 @@
             <div class="tabs">
             <ul class="tab_nav">
 <li><a href="#get-playlists-based-on-query-parameters"class="selected">Get playlists based on query parameters</a></li>
-<li><a href="#get-all-playlists-in-xml">Get All playlists in XML</a></li>
-<li><a href="#get-all-playlists-in-json">Get All playlists in JSON</a></li>
 
         
             </ul>
         
        <div id="get-playlists-based-on-query-parameters" class="code">
-            <div class="code">
+          <p>This demonstrates how to get playlists using GET, and specifying the response to be in XML. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-
-
-This demonstrates how to get playlists using GET, and specifying the
-response to be in XML.
-
 GET /locker/v1/playlists?limit=100&amp;offset=15&amp;orderBy=name&amp;order=asc HTTP/1.1 
 host: api.att.com
 authorization: Bearer abcdef12345678
 accept: application/xml
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
-       <div id="get-all-playlists-in-xml" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-
-
-This demonstrates how to get playlists using GET, and specifying the
-response to be in XML.
-
-GET /locker/v1/playlists?limit=100&amp;offset=15&amp;orderBy=name&amp;order=asc HTTP/1.1 
-host: api.att.com
-authorization: Bearer abcdef12345678
-accept: application/xml
-}
-
-This shows the response to a Get All playlists in XML format.
-
-\texttt{}
-HTTP/1.1 200 OK
-date: wed, 27 apr 2011 14:11:31 gmt
-content-length: 223
-content-type: application/xml
-
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
-&lt;playlists&gt;
-    &lt;count&gt;2&lt;/count&gt;
-    &lt;playlist&gt;
-        &lt;count&gt;0&lt;/count&gt;
-        &lt;creationDate&gt;01-01-2012 11:01:58 +0000&lt;/creationDate&gt;
-        &lt;description&gt;ONLY A TEST&lt;/description&gt;
-        &lt;id&gt;683&lt;/id&gt;
-        &lt;name&gt;Album&lt;/name&gt;
-        &lt;size&gt;0&lt;/size&gt;
-    &lt;/playlist&gt;
-    &lt;playlist&gt;
-        &lt;count&gt;0&lt;/count&gt;
-        &lt;creationDate&gt;01-01-2012 11:01:58 +0000&lt;/creationDate&gt;
-        &lt;description&gt;ONLY A TEST&lt;/description&gt;
-        &lt;id&gt;747&lt;/id&gt;
-        &lt;name&gt;Album&lt;/name&gt;
-        &lt;size&gt;0&lt;/size&gt;
-    &lt;/playlist&gt;
-    &lt;total&gt;2&lt;/total&gt;
-&lt;/playlists&gt;
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
-       <div id="get-all-playlists-in-json" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-
-
-This demonstrates how to get playlists using GET, and specifying the
-response to be in XML.
-
-GET /locker/v1/playlists?limit=100&amp;offset=15&amp;orderBy=name&amp;order=asc HTTP/1.1 
-host: api.att.com
-authorization: Bearer abcdef12345678
-accept: application/xml
-}
-
-This shows the response to a Get All playlists in XML format.
-
-\texttt{}
-HTTP/1.1 200 OK
-date: wed, 27 apr 2011 14:11:31 gmt
-content-length: 223
-content-type: application/xml
-
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
-&lt;playlists&gt;
-    &lt;count&gt;2&lt;/count&gt;
-    &lt;playlist&gt;
-        &lt;count&gt;0&lt;/count&gt;
-        &lt;creationDate&gt;01-01-2012 11:01:58 +0000&lt;/creationDate&gt;
-        &lt;description&gt;ONLY A TEST&lt;/description&gt;
-        &lt;id&gt;683&lt;/id&gt;
-        &lt;name&gt;Album&lt;/name&gt;
-        &lt;size&gt;0&lt;/size&gt;
-    &lt;/playlist&gt;
-    &lt;playlist&gt;
-        &lt;count&gt;0&lt;/count&gt;
-        &lt;creationDate&gt;01-01-2012 11:01:58 +0000&lt;/creationDate&gt;
-        &lt;description&gt;ONLY A TEST&lt;/description&gt;
-        &lt;id&gt;747&lt;/id&gt;
-        &lt;name&gt;Album&lt;/name&gt;
-        &lt;size&gt;0&lt;/size&gt;
-    &lt;/playlist&gt;
-    &lt;total&gt;2&lt;/total&gt;
-&lt;/playlists&gt;
-}
-
-This shows the response to a Get All playlists in JSON format.
-
-HTTP/1.1 200 OK 
-content-type: application/json 
-content-length: 624 
-date: Thu, 04 Jun 2010 02:51:59 GMT
-
-{
-  &quot;playlists&quot;: {
-    &quot;count&quot;: 2,
-    &quot;playlist&quot;: [
-      {
-        &quot;count&quot;: 0,
-        &quot;creationDate&quot;: &quot;01-01-2012 11:01:58 +0000&quot;,
-        &quot;description&quot;: &quot;ONLY A TEST&quot;,
-        &quot;id&quot;: 683,
-        &quot;name&quot;: &quot;Album&quot;,
-        &quot;size&quot;: 0
-      },
-      {
-        &quot;count&quot;: 0,
-        &quot;creationDate&quot;: &quot;01-01-2012 11:01:58 +0000&quot;,
-        &quot;description&quot;: &quot;ONLY A TEST&quot;,
-        &quot;id&quot;: 747,
-        &quot;name&quot;: &quot;Album&quot;,
-        &quot;size&quot;: 0
-      }
-    ],
-    &quot;total&quot;: 2
-  }
-}
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
-            
-            <header>Response Examples</header>
+            </div>
+<header>Response Examples</header>
                         <div class="tabs">
                         <ul class="tab_nav">
-<li><a href="#get-playlists-based-on-query-parameters"class="selected">Get playlists based on query parameters</a></li>
-<li><a href="#get-all-playlists-in-xml">Get All playlists in XML</a></li>
+<li><a href="#get-all-playlists-in-xml"class="selected">Get All playlists in XML</a></li>
 <li><a href="#get-all-playlists-in-json">Get All playlists in JSON</a></li>
 
-        
             </ul>
         
-       <div id="get-playlists-based-on-query-parameters" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-
-
-This demonstrates how to get playlists using GET, and specifying the
-response to be in XML.
-
-GET /locker/v1/playlists?limit=100&amp;offset=15&amp;orderBy=name&amp;order=asc HTTP/1.1 
-host: api.att.com
-authorization: Bearer abcdef12345678
-accept: application/xml
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
        <div id="get-all-playlists-in-xml" class="code">
-            <div class="code">
+          <p>This shows the response to a Get All playlists in XML format. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-
-
-This demonstrates how to get playlists using GET, and specifying the
-response to be in XML.
-
-GET /locker/v1/playlists?limit=100&amp;offset=15&amp;orderBy=name&amp;order=asc HTTP/1.1 
-host: api.att.com
-authorization: Bearer abcdef12345678
-accept: application/xml
-}
-
-This shows the response to a Get All playlists in XML format.
-
-\texttt{}
 HTTP/1.1 200 OK
 date: wed, 27 apr 2011 14:11:31 gmt
 content-length: 223
@@ -287,65 +89,16 @@ content-type: application/xml
     &lt;/playlist&gt;
     &lt;total&gt;2&lt;/total&gt;
 &lt;/playlists&gt;
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
        <div id="get-all-playlists-in-json" class="code">
-            <div class="code">
+          <p>This shows the response to a Get All playlists in JSON format. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-
-
-This demonstrates how to get playlists using GET, and specifying the
-response to be in XML.
-
-GET /locker/v1/playlists?limit=100&amp;offset=15&amp;orderBy=name&amp;order=asc HTTP/1.1 
-host: api.att.com
-authorization: Bearer abcdef12345678
-accept: application/xml
-}
-
-This shows the response to a Get All playlists in XML format.
-
-\texttt{}
-HTTP/1.1 200 OK
-date: wed, 27 apr 2011 14:11:31 gmt
-content-length: 223
-content-type: application/xml
-
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
-&lt;playlists&gt;
-    &lt;count&gt;2&lt;/count&gt;
-    &lt;playlist&gt;
-        &lt;count&gt;0&lt;/count&gt;
-        &lt;creationDate&gt;01-01-2012 11:01:58 +0000&lt;/creationDate&gt;
-        &lt;description&gt;ONLY A TEST&lt;/description&gt;
-        &lt;id&gt;683&lt;/id&gt;
-        &lt;name&gt;Album&lt;/name&gt;
-        &lt;size&gt;0&lt;/size&gt;
-    &lt;/playlist&gt;
-    &lt;playlist&gt;
-        &lt;count&gt;0&lt;/count&gt;
-        &lt;creationDate&gt;01-01-2012 11:01:58 +0000&lt;/creationDate&gt;
-        &lt;description&gt;ONLY A TEST&lt;/description&gt;
-        &lt;id&gt;747&lt;/id&gt;
-        &lt;name&gt;Album&lt;/name&gt;
-        &lt;size&gt;0&lt;/size&gt;
-    &lt;/playlist&gt;
-    &lt;total&gt;2&lt;/total&gt;
-&lt;/playlists&gt;
-}
-
-This shows the response to a Get All playlists in JSON format.
-
 HTTP/1.1 200 OK 
 content-type: application/json 
 content-length: 624 
@@ -375,17 +128,14 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
     &quot;total&quot;: 2
   }
 }
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
-           
         </section><!--end of example-->
 
- <section id="resources-get-all-playlists-parameters" class="level-3">
+<section id="resources-get-all-playlists-parameters" class="level-3">
     <header>Request Parameters</header>
     <label>
         <span class="required form-icon"></span>
@@ -419,7 +169,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -434,7 +183,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -450,7 +198,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -467,7 +214,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
 %  {} 
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -483,7 +229,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -499,7 +244,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -515,12 +259,8 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
 %  {} 
             </div>
         </div>
-
-    </div>
-</section>
-
- <section id="resources-get-all-playlists-parameters" class="level-3">
-    <header>Request Parameters</header>
+</div>
+    <header>Require Parameters</header>
     <label>
         <span class="required form-icon"></span>
         Required Parameters
@@ -551,7 +291,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
 </li></ul>  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -566,7 +305,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -582,7 +320,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -598,7 +335,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -614,7 +350,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -630,7 +365,5 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
-    </div>
+</div>
 </section>
-

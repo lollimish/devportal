@@ -1,6 +1,6 @@
 <?php
 
-//php parse_introduction.php ../apis/webrtc/ATT_Service_Spec_WebRTC-Specification.tex html/intro.html
+//php parse_introduction.php ../apis/locker/ATT-Locker-Service-Specification.tex html/intro.html
 
 if (isset($argv)) {
     $inputfile = $argv[1];

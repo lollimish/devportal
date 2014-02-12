@@ -93,7 +93,7 @@ function findSectionInArray($array, $begin_line, $end_line) {
 }
 
 //use for other doc but param @@ return array
-function findSubSecByName($filename, $secName) {
+function findSubSubSecByName($filename, $secName) {
     $begin_line = '\subsubsection{' . $secName . '}';
     $end_line = '\subsubsection{';
     $file_handle = fopen($filename, 'r');
@@ -101,14 +101,14 @@ function findSubSecByName($filename, $secName) {
     $output = array();
     while (!\feof($file_handle)) {
         $line = fgets($file_handle);
-        if ($foundSection) {
-            $output[] = $line;
-        }
         if (startsWith($line, $begin_line)) {
             $foundSection = true;
         }
         if (startsWith($line, $end_line) && !startsWith($line, $begin_line)) {
             $foundSection = false;
+        }
+        if ($foundSection && !startsWith($line, $begin_line)) {
+            $output[] = $line;
         }
     }
     fclose($file_handle);
@@ -116,7 +116,30 @@ function findSubSecByName($filename, $secName) {
 }
 
 //use for other doc but param @@ return array
-function findSecByName($filename, $secName) {
+function findSubSecByName($filename, $secName) {
+    $begin_line = '\subsection{' . $secName . '}';
+    $end_line = '\subsection{';
+    $file_handle = fopen($filename, 'r');
+    $foundSection = false;
+    $output = array();
+    while (!\feof($file_handle)) {
+        $line = fgets($file_handle);
+        if (startsWith($line, $begin_line)) {
+            $foundSection = true;
+        }
+        if (startsWith($line, $end_line) && !startsWith($line, $begin_line)) {
+            $foundSection = false;
+        }
+        if ($foundSection && !startsWith($line, $begin_line)) {
+            $output[] = $line;
+        }
+    }
+    fclose($file_handle);
+    return $output;
+}
+
+//use for other doc but param @@ return array
+function oldfindSecByName($filename, $secName) {
     $begin_line = '\section{' . $secName . '}';
     $end_line = '\section{';
     $file_handle = fopen($filename, 'r');
@@ -124,14 +147,57 @@ function findSecByName($filename, $secName) {
     $output = array();
     while (!\feof($file_handle)) {
         $line = fgets($file_handle);
-        if ($foundSection) {
-            $output[] = $line;
-        }
         if (startsWith($line, $begin_line)) {
             $foundSection = true;
         }
         if (startsWith($line, $end_line) && !startsWith($line, $begin_line)) {
             $foundSection = false;
+        }
+        if ($foundSection && !startsWith($line, $begin_line)) {
+            $output[] = $line;
+        }
+    }
+    fclose($file_handle);
+    return $output;
+}
+
+function findSecByName($filename, $secName, $stoper) {
+    $begin_line = '\section{' . $secName . '}';
+    $end_line = $stoper;
+    $file_handle = fopen($filename, 'r');
+    $foundSection = false;
+    $comment = false;
+    $output = array();
+    $count = 0;
+    $str = '';
+    while (!\feof($file_handle)) {
+        $line = fgets($file_handle);
+        if (startsWith($line, $begin_line)) {
+            $foundSection = true;
+        }
+        if (startsWith($line, $end_line) && !startsWith($line, $begin_line)) {
+            $foundSection = false;
+        }
+        if ($foundSection && !startsWith($line, $begin_line)) {
+            //$output[] = $line;
+            if (startsWith($line, '\begin{comment}')) {
+                $comment = true;
+            }
+            if (startsWith($line, '\end{comment}')) {
+                $comment = false;
+            }
+            if (!$comment && !startsWith($line, '\end{comment}')) {
+
+                //$str .= $line;
+                if (startsWith($line, "\n")) {
+                    $count++;
+                    $str = '';
+//                   $output[] = $line;
+                } else {
+                    $str .= $line;
+                    $output[$count] = str_replace("\n", '', $str);
+                }
+            }
         }
     }
     fclose($file_handle);
@@ -208,21 +274,33 @@ function getExample($filename, $type) {
     $start = false;
     $count = 1;
     $code = '';
+    $intro = false;
+    $introstr = '';
     while (!\feof($file_handle)) {
         $line = fgets($file_handle);
-        if (startsWith($line, '\paragraph{', $type)) {
+        $line = str_replace('\texttt{}', '', $line);
+        if (startsWith($line, '\paragraph{' . $type)) {
             $name = trim(getInbetweenStrings('(', ')', $line));
             $output[$count]['name'] = $name;
             $output[$count]['id'] = id($name);
+            $intro = true;
             $start = true;
         }
-        if ($start && !startsWith($line, '\begin{lstlisting}') && !startsWith($line, '\end{lstlisting}') && !startsWith($line, '\paragraph')) {
+        if (startsWith($line, '\begin{lstlisting}')) {
+            $intro = false;
+            $introstr = '';
+        }
+        if ($intro && !startsWith($line, '\paragraph') && !startsWith($line, '}') && !startsWith($line, "\n")) {
+            $introstr .= str_replace("\n", ' ', $line);
+            $output[$count]['intro'] = $introstr;
+        }
+        if ($start && !$intro && !startsWith($line, '\begin{lstlisting}') && !startsWith($line, '\end{lstlisting}') && !startsWith($line, '\paragraph')) {
             $code .= htmlspecialchars($line);
-
             $output[$count]['code'] = $code;
         }
         if (startsWith($line, '\end{lstlisting}') && $start) {
             $count++;
+            $code = '';
             $start = false;
         }
     }
@@ -235,12 +313,13 @@ function id($string) {
     return strtolower(preg_replace('/[^A-Za-z0-9\-]/', '-', $string)); // Removes special chars.
 }
 
-function codeHeadTags($id) {
+function codeHeadTags($id, $intro) {
     $tags = "       <div id=\"$id\" class=\"code\">\n";
+    $tags .= "          <p>$intro</p>";
     $tags .= '            <div class="code">' . "\n";
     $tags .= '                <div class="code-block">' . "\n";
     $tags .= '                    <span class="copy-button">copy</span>' . "\n";
-    $tags .= '                    <pre>' . "\n";
+    $tags .= '                    <pre>';
     return $tags;
 }
 
@@ -303,12 +382,28 @@ function getRefFile($opfile) {
     $file_handle = fopen($opfile, 'r');
     while (!\feof($file_handle)) {
         $line = fgets($file_handle);
-        if(StartsWith($line, '{\footnotesize{\input{InputParam')){
-            $refFiles['input'] = trim(getInbetweenStrings('input{', '}', $line));;
+        if (StartsWith($line, '{\footnotesize{\input{InputParam')) {
+            $refFiles['input'] = trim(getInbetweenStrings('input{', '}', $line));
+            
         }
-        if(StartsWith($line, '{\footnotesize{\input{OutputParam')){
-            $refFiles['output'] = trim(getInbetweenStrings('input{', '}', $line));;
+        if (StartsWith($line, '{\footnotesize{\input{OutputParam')) {
+            $refFiles['output'] = trim(getInbetweenStrings('input{', '}', $line));
+        }
+        if(StartsWith($line, '\input{Object-')){
+            $refFiles['object'] = trim(getInbetweenStrings('input{', '}', $line));
         }
     }
     return $refFiles;
+}
+
+function getObjFile($paramFile) {
+    $objFiles = array();
+    $file_handle = fopen($paramFile, 'r');
+    while (!\feof($file_handle)) {
+        $line = fgets($file_handle);
+        if(StartsWith($line, '\input{Object-')){
+            $objFiles[] = trim(getInbetweenStrings('input{', '}', $line));
+        }
+    }
+    return $objFiles;
 }

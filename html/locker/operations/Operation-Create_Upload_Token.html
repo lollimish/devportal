@@ -31,183 +31,38 @@
             <div class="tabs">
             <ul class="tab_nav">
 <li><a href="#get-an-upload-ticket"class="selected">Get an upload ticket</a></li>
-<li><a href="#response-to-a-get-upload-ticket-in-xml">Response to a Get upload ticket in XML</a></li>
-<li><a href="#response-to-a-get-upload-ticket-in-json">Response to a Get upload ticket in JSON</a></li>
 
         
             </ul>
         
        <div id="get-an-upload-ticket" class="code">
-            <div class="code">
+          <p>This demonstrates how to get an upload ticket and specifying the response to be in XML. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-
-
-This demonstrates how to get an upload ticket and specifying the response
-to be in XML.
-
 GET /locker/v1/tickets?type=P HTTP/1.1 
 Host: api.att.com
 authorization: Bearer abcdef12345678
 accept: application/xml
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
-       <div id="response-to-a-get-upload-ticket-in-xml" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-
-
-This demonstrates how to get an upload ticket and specifying the response
-to be in XML.
-
-GET /locker/v1/tickets?type=P HTTP/1.1 
-Host: api.att.com
-authorization: Bearer abcdef12345678
-accept: application/xml
-}
-
-This shows the response to a Get upload ticket in XML format.
-
-\texttt{}
-HTTP/1.1 200 OK
-content-type: application/xml 
-content-length: 129 
-date: Thu, 04 Jun 2010 02:51:59 GMT
-
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
-&lt;uploadTicket&gt;
-    &lt;ticket&gt;dj8vzqmvhpy9y4JidJdpAU26NkdbF7OytGWoz82IDW0Qc&lt;/ticket&gt;
-&lt;/uploadTicket&gt;
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
-       <div id="response-to-a-get-upload-ticket-in-json" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-
-
-This demonstrates how to get an upload ticket and specifying the response
-to be in XML.
-
-GET /locker/v1/tickets?type=P HTTP/1.1 
-Host: api.att.com
-authorization: Bearer abcdef12345678
-accept: application/xml
-}
-
-This shows the response to a Get upload ticket in XML format.
-
-\texttt{}
-HTTP/1.1 200 OK
-content-type: application/xml 
-content-length: 129 
-date: Thu, 04 Jun 2010 02:51:59 GMT
-
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
-&lt;uploadTicket&gt;
-    &lt;ticket&gt;dj8vzqmvhpy9y4JidJdpAU26NkdbF7OytGWoz82IDW0Qc&lt;/ticket&gt;
-&lt;/uploadTicket&gt;
-}
-
-This shows the response to a Get upload ticket in JSON format
-
-HTTP/1.1 200 OK 
-content-type: application/json 
-content-length: 124 
-date: Thu, 04 Jun 2010 02:51:59 GMT
-
-{
-  &quot;uploadTicket&quot;: { 
-      &quot;ticket&quot;: &quot;dj8vzqmvhpy9y4JidJdpAU26NkdbF7OytGWoz82IDW0Qc&quot;
-  }
-}
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
-            
-            <header>Response Examples</header>
+            </div>
+<header>Response Examples</header>
                         <div class="tabs">
                         <ul class="tab_nav">
-<li><a href="#get-an-upload-ticket"class="selected">Get an upload ticket</a></li>
-<li><a href="#response-to-a-get-upload-ticket-in-xml">Response to a Get upload ticket in XML</a></li>
+<li><a href="#response-to-a-get-upload-ticket-in-xml"class="selected">Response to a Get upload ticket in XML</a></li>
 <li><a href="#response-to-a-get-upload-ticket-in-json">Response to a Get upload ticket in JSON</a></li>
 
-        
             </ul>
         
-       <div id="get-an-upload-ticket" class="code">
-            <div class="code">
-                <div class="code-block">
-                    <span class="copy-button">copy</span>
-                    <pre>
-
-}
-
-
-
-This demonstrates how to get an upload ticket and specifying the response
-to be in XML.
-
-GET /locker/v1/tickets?type=P HTTP/1.1 
-Host: api.att.com
-authorization: Bearer abcdef12345678
-accept: application/xml
-
-    
-                            </pre>
-                        </div>
-                    </div>
-                </div>
-        
        <div id="response-to-a-get-upload-ticket-in-xml" class="code">
-            <div class="code">
+          <p>This shows the response to a Get upload ticket in XML format. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-
-
-This demonstrates how to get an upload ticket and specifying the response
-to be in XML.
-
-GET /locker/v1/tickets?type=P HTTP/1.1 
-Host: api.att.com
-authorization: Bearer abcdef12345678
-accept: application/xml
-}
-
-This shows the response to a Get upload ticket in XML format.
-
-\texttt{}
 HTTP/1.1 200 OK
 content-type: application/xml 
 content-length: 129 
@@ -217,48 +72,16 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
 &lt;uploadTicket&gt;
     &lt;ticket&gt;dj8vzqmvhpy9y4JidJdpAU26NkdbF7OytGWoz82IDW0Qc&lt;/ticket&gt;
 &lt;/uploadTicket&gt;
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
        <div id="response-to-a-get-upload-ticket-in-json" class="code">
-            <div class="code">
+          <p>This shows the response to a Get upload ticket in JSON format </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
-
-}
-
-
-
-This demonstrates how to get an upload ticket and specifying the response
-to be in XML.
-
-GET /locker/v1/tickets?type=P HTTP/1.1 
-Host: api.att.com
-authorization: Bearer abcdef12345678
-accept: application/xml
-}
-
-This shows the response to a Get upload ticket in XML format.
-
-\texttt{}
-HTTP/1.1 200 OK
-content-type: application/xml 
-content-length: 129 
-date: Thu, 04 Jun 2010 02:51:59 GMT
-
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
-&lt;uploadTicket&gt;
-    &lt;ticket&gt;dj8vzqmvhpy9y4JidJdpAU26NkdbF7OytGWoz82IDW0Qc&lt;/ticket&gt;
-&lt;/uploadTicket&gt;
-}
-
-This shows the response to a Get upload ticket in JSON format
-
 HTTP/1.1 200 OK 
 content-type: application/json 
 content-length: 124 
@@ -269,17 +92,14 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
       &quot;ticket&quot;: &quot;dj8vzqmvhpy9y4JidJdpAU26NkdbF7OytGWoz82IDW0Qc&quot;
   }
 }
-
-    
-                            </pre>
+</pre>
                         </div>
                     </div>
                 </div>
         
-           
         </section><!--end of example-->
 
- <section id="resources-create-upload-token-parameters" class="level-3">
+<section id="resources-create-upload-token-parameters" class="level-3">
     <header>Request Parameters</header>
     <label>
         <span class="required form-icon"></span>
@@ -313,7 +133,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -329,7 +148,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -345,7 +163,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -361,7 +178,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -377,7 +193,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -393,12 +208,8 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
-    </div>
-</section>
-
- <section id="resources-create-upload-token-parameters" class="level-3">
-    <header>Request Parameters</header>
+</div>
+    <header>Require Parameters</header>
     <label>
         <span class="required form-icon"></span>
         Required Parameters
@@ -429,7 +240,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
 </li></ul>  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -444,7 +254,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -460,7 +269,6 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -476,7 +284,5 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  
             </div>
         </div>
-
-    </div>
+</div>
 </section>
-

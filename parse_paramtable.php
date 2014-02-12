@@ -1,6 +1,8 @@
 <?php
 
 //php parse_paramtable.php ../apis/locker/InputParam-Add_Tracks_To_Playlist.tex html/param.html
+//php parse_paramtable.php ../apis/locker/OutputParam-Create_Album.tex html/param.html
+
 
 if (isset($argv)) {
     $inputfile = $argv[1];
@@ -9,6 +11,7 @@ if (isset($argv)) {
 
 include 'functions.php';
 include 'func_parse_paramtable.php';
+
 
 if (!file_exists($inputfile)) {
     echo "input file is not exist\n";
@@ -19,6 +22,4 @@ if (!file_exists($inputfile)) {
     }
     parse_paramtable($inputfile, $outputfile);
 }
-
-
 ?>

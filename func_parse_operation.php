@@ -1,4 +1,5 @@
 <?php
+
 function parse_operation($inputfile, $outputfile) {
     if (file_exists($outputfile)) {
         unlink($outputfile);
@@ -8,7 +9,7 @@ function parse_operation($inputfile, $outputfile) {
 
     $funcBehav = array();
     $authTable = array();
-    $funcBehav = findSubSecByName($inputfile, 'Functional Behavior');
+    $funcBehav = findSubSubSecByName($inputfile, 'Functional Behavior');
     $overview = '';
     foreach ($funcBehav as $line) {
         $overview .= $line;
@@ -22,7 +23,7 @@ function parse_operation($inputfile, $outputfile) {
     $scope = '';
     $model = '';
     $authTbl = '';
-    $authTable = findSubSecByName($inputfile, 'Authentication and Authorization');
+    $authTable = findSubSubSecByName($inputfile, 'Authentication and Authorization');
     $begin_line = '\endhead';
     $end_line = '\end{longtable';
     $tbl = findSectionInArray($authTable, $begin_line, $end_line);
@@ -40,8 +41,8 @@ function parse_operation($inputfile, $outputfile) {
     }
     $scope = getCellValue($cell[1][2]);
 
-//get request examples
     $requestExample = getExample($inputfile, 'Request');
+
     $content = <<<"EOD"
 
  
@@ -82,7 +83,6 @@ EOD;
         $selected = $i === 1 ? "class=\"selected\"" : "";
         $tablist .= "<li><a href=\"#" . $requestExample[$i]['id'] . "\"" . $selected . ">" . $requestExample[$i]['name'] . "</a></li>\n";
     }
-//echo 'tablist: ' .$tablist;
     writehtml($tablist, $outputfile);
 
     $content = <<<"EOD"
@@ -92,29 +92,22 @@ EOD;
 EOD;
     writehtml($content, $outputfile);
     $codeendTags = <<<"EOD"
-    
-                            </pre>
                         </div>
                     </div>
                 </div>
         
 EOD;
     for ($i = 1; $i <= count($requestExample); $i++) {
-        writehtml(codeHeadTags($requestExample[$i]['id']), $outputfile);
-        writehtml($requestExample[$i]['code'], $outputfile);
+        $code = $requestExample[$i]['code'].'</pre>';
+        writehtml(codeHeadTags($requestExample[$i]['id'], $requestExample[$i]['intro']), $outputfile);
+        writehtml($code, $outputfile);
         writehtml($codeendTags, $outputfile);
     }
 
-//response example
     $responseExample = array();
     $responseExample = getExample($inputfile, 'Response');
-
-//    var_dump($responseExample);
-//    echo '$responseExample';
-
     $content = <<<"EOD"
-            
-            <header>Response Examples</header>
+            </div>\n<header>Response Examples</header>
                         <div class="tabs">
                         <ul class="tab_nav">
 EOD;
@@ -124,19 +117,18 @@ EOD;
         $selected = $i === 1 ? "class=\"selected\"" : "";
         $tablist .= "<li><a href=\"#" . $responseExample[$i]['id'] . "\"" . $selected . ">" . $responseExample[$i]['name'] . "</a></li>\n";
     }
-//echo 'tablist: ' .$tablist;
     writehtml($tablist, $outputfile);
 
     $content = <<<"EOD"
-        
             </ul>
         
 EOD;
     writehtml($content, $outputfile);
 
     for ($i = 1; $i <= count($responseExample); $i++) {
-        writehtml(codeHeadTags($responseExample[$i]['id']), $outputfile);
-        writehtml($responseExample[$i]['code'], $outputfile);
+        $code = $responseExample[$i]['code'].'</pre>';
+        writehtml(codeHeadTags($responseExample[$i]['id'], $responseExample[$i]['intro']), $outputfile);
+        writehtml($code, $outputfile);
         writehtml($codeendTags, $outputfile);
     }
 
@@ -144,7 +136,6 @@ EOD;
 
 //end of level2 section             
     $content = <<<"EOD"
-           
         </section><!--end of example-->
 
 EOD;
