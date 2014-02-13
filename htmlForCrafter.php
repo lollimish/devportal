@@ -7,6 +7,7 @@ include 'func_parse_introduction.php';
 include 'func_parse_oauth.php';
 include 'func_parse_operation.php';
 include 'func_parse_paramTable.php';
+include 'func_parse_leftnav.php';
 
 $api = $argv[1];
 if (!file_exists("../apis/$api/ATT-$api-Service-Specification.tex")) {
@@ -22,7 +23,8 @@ if (!file_exists("../apis/$api/ATT-$api-Service-Specification.tex")) {
 
     parse_introduction($inputfile, "html/$api/introductions/introduction.html");
     parse_oauth($inputfile, "html/$api/oauth/oauth.html");
-
+    parse_leftnav($inputfile, "html/$api/leftnav.html");
+    
     $operations[] = allOperationsFileNames($inputfile);
     foreach ($operations[0] as $op) {
         if (file_exists("../apis/$api/$op")) {
@@ -50,7 +52,9 @@ if (!file_exists("../apis/$api/ATT-$api-Service-Specification.tex")) {
                 parse_paramTable("../apis/$api/" . $obj, $outputfile);
             }
             unset($object);
-            writehtml('</section>', $outputfile);
+            writehtml('</section></section>', $outputfile);
+            //Leftnav
+            
         }
     }
 }

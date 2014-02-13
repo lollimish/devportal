@@ -1,4 +1,5 @@
 $(function() {
+    
     /* Initialize ZeroClipboard for copying text. */
 //    ZeroClipboard.setDefaults({moviePath: '/static-assets/flash/ZeroClipboard.swf'});
 //    var clip = new ZeroClipboard();
@@ -59,7 +60,6 @@ $(function() {
         }, 1);
         return false;
     });
-
     //Highlight menu active item functionality
     if ($('#toc').length > 0 && $('#technical-library').length < 1) {
         var menuItems = $("#toc a"),
