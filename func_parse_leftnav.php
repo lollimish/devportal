@@ -19,7 +19,7 @@ EOD;
     $allOperationNames = allOperationsFileNames($inputfile);    
     $subnav = '';
     foreach($allOperationNames as $op){
-        $subnav .= "<li id=\"nav_resources-".substr(id($op),0,strlen(id($op))-4)."\"><a href=\"#resources-".substr(id($op),0,strlen(id($op))-4)."\">".str_replace('-',' ',ucfirst(substr(id($op),10,strlen(id($op))-14)))."</a></li>\n";
+        $subnav .= "<li id=\"nav_resources-".substr(id($op),0,strlen(id($op))-4)."\"><a href=\"#resources-".substr(id($op),10,strlen(id($op))-14)."\">".str_replace('-',' ',ucfirst(substr(id($op),10,strlen(id($op))-14)))."</a></li>\n";
     }
     writehtml($subnav, $outputfile);                              
 $tail = <<<"EOD"

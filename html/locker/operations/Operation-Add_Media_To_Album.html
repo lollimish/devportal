@@ -1,6 +1,3 @@
-
- 
-
 <section id="resources-add-media-to-album" class="level-2">
         <header>Add media to album</header>
 
@@ -30,13 +27,13 @@
             <header>Request Examples</header>
             <div class="tabs">
             <ul class="tab_nav">
-<li><a href="#add-media-to-an-album-in-xml"class="selected">Add media to an album in XML</a></li>
-<li><a href="#add-media-to-an-album-in-json">Add media to an album in JSON</a></li>
+<li><a href="#add-media-to-an-album-in-xml-Request-add-media-to-album"class="selected">Add media to an album in XML</a></li>
+<li><a href="#add-media-to-an-album-in-json-Request-add-media-to-album">Add media to an album in JSON</a></li>
 
         
             </ul>
         
-       <div id="add-media-to-an-album-in-xml" class="code">
+       <div id="add-media-to-an-album-in-xml-Request-add-media-to-album" class="code">
           <p>This demonstrates how to add media to an album, and specifying the request to be in XML. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -57,7 +54,7 @@ accept: application/xml
                     </div>
                 </div>
         
-       <div id="add-media-to-an-album-in-json" class="code">
+       <div id="add-media-to-an-album-in-json-Request-add-media-to-album" class="code">
           <p>This demonstrates how to add media to an album, and specifying the request to be in JSON. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -83,11 +80,11 @@ accept: application/json
 <header>Response Examples</header>
                         <div class="tabs">
                         <ul class="tab_nav">
-<li><a href="#add-media-to-an-album-in-xml"class="selected">Add media to an album in XML</a></li>
+<li><a href="#add-media-to-an-album-in-xml-Response-add-media-to-album"class="selected">Add media to an album in XML</a></li>
 
             </ul>
         
-       <div id="add-media-to-an-album-in-xml" class="code">
+       <div id="add-media-to-an-album-in-xml-Response-add-media-to-album" class="code">
           <p>This shows the response to a an add file to folder request. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -273,9 +270,8 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">   content-type </span>
-                    <span class="required form-icon"></span>
-
-                    <span class="data-type"> string </span>
+                    
+                    <span class="data-type"> String </span>
                     <span class="placement"> Header    </span>
                 </div>
             </div>
@@ -286,6 +282,21 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
  </li>
 <li> <p>aplication/xml</p>
  </li></ul> <p>Note: If there is no entity body in a normal successful response, this parameter is still needed to specify the format in the case of an error response message.</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-encoding </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the type of encoding used on the data. Supported values are: identity or gzip</p>
+  <br><p><span style="font-style: italic">Note</span>:  If there is no entity body in a normal successful response, this parameter is still needed to specify the format in the case of an error response message.</p>
  
             </div>
         </div>

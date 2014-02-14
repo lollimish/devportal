@@ -268,7 +268,7 @@ function getCellValue($cell) {
     return $cell;
 }
 
-function getExample($filename, $type) {
+function getExample($filename, $type, $opname) {
     $file_handle = fopen($filename, 'r');
     $output = array();
     $start = false;
@@ -282,7 +282,7 @@ function getExample($filename, $type) {
         if (startsWith($line, '\paragraph{' . $type)) {
             $name = trim(getInbetweenStrings('(', ')', $line));
             $output[$count]['name'] = $name;
-            $output[$count]['id'] = id($name);
+            $output[$count]['id'] = id($name).'-'.$type.'-'.$opname;
             $intro = true;
             $start = true;
         }

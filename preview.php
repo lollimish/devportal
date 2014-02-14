@@ -41,7 +41,7 @@
         <script src="static-assets/js/jquery-1.9.1.min.js" type="text/javascript"></script>
         <script src="static-assets/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
         <script src="static-assets/js/ZeroClipboard.min.js" type="text/javascript"></script>
-        <!--<script src="static-assets/js/apidoc.js" type="text/javascript"></script>-->
+        <script src="static-assets/js/apidoc.js" type="text/javascript"></script>
         <script src="static-assets/js/crafterGATracker.js" type="text/javascript" ></script> 
 
         <!-- Favicons

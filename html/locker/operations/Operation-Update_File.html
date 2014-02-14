@@ -1,6 +1,3 @@
-
- 
-
 <section id="resources-update-file" class="level-2">
         <header>Update file</header>
 
@@ -30,13 +27,13 @@
             <header>Request Examples</header>
             <div class="tabs">
             <ul class="tab_nav">
-<li><a href="#update-a-file-using-xml"class="selected">Update a file using XML</a></li>
-<li><a href="#update-a-file-using-json">Update a file using JSON</a></li>
+<li><a href="#update-a-file-using-xml-Request-update-file"class="selected">Update a file using XML</a></li>
+<li><a href="#update-a-file-using-json-Request-update-file">Update a file using JSON</a></li>
 
         
             </ul>
         
-       <div id="update-a-file-using-xml" class="code">
+       <div id="update-a-file-using-xml-Request-update-file" class="code">
           <p>This demonstrates how to update a file using XML. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -55,7 +52,7 @@ content-type: application/xml
                     </div>
                 </div>
         
-       <div id="update-a-file-using-json" class="code">
+       <div id="update-a-file-using-json-Request-update-file" class="code">
           <p>This demonstrates how to update a file using JSON. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -80,12 +77,12 @@ accept: application/json
 <header>Response Examples</header>
                         <div class="tabs">
                         <ul class="tab_nav">
-<li><a href="#my-first-response-example-in-xml"class="selected">My First Response Example in XML</a></li>
-<li><a href="#my-second-example-response-in-json">My second example response in JSON</a></li>
+<li><a href="#my-first-response-example-in-xml-Response-update-file"class="selected">My First Response Example in XML</a></li>
+<li><a href="#my-second-example-response-in-json-Response-update-file">My second example response in JSON</a></li>
 
             </ul>
         
-       <div id="my-first-response-example-in-xml" class="code">
+       <div id="my-first-response-example-in-xml-Response-update-file" class="code">
           <p>This shows the response to a file update in XML format. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -130,7 +127,7 @@ content-type: application/xml
                     </div>
                 </div>
         
-       <div id="my-second-example-response-in-json" class="code">
+       <div id="my-second-example-response-in-json-Response-update-file" class="code">
           <p>This shows the response to a file update in JSON format. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -331,16 +328,16 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
                     <span class="label">   content-type </span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> string </span>
+                    <span class="data-type"> String </span>
                     <span class="placement"> Header    </span>
                 </div>
             </div>
             <div class="grid-right">
                  <p>Specifies the type of content of the body of the entity. Must be set to one of the following values:</p>
  <ul> </li>
-<li> <p>audio/wav (or audio/x-wav)</p>
+<li> <p>application/xml</p>
  </li>
-<li> <p>audio/amr</p>
+<li> <p>application/json</p>
 </li></ul>  
             </div>
         </div>
@@ -349,7 +346,7 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
                 <div class="parameter">
                     <span class="label">content-encoding </span>
                     
-                    <span class="data-type"> string </span>
+                    <span class="data-type"> String </span>
                     <span class="placement"> Header    </span>
                 </div>
             </div>
@@ -390,9 +387,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">   album </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -404,9 +402,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">artist </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -418,9 +417,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">audioBitrate </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> Integer  </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -432,9 +432,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">audiocChannels </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> Integer </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -446,9 +447,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">audiocCodec </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -460,9 +462,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">audioFrequency </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> Integer  </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -474,9 +477,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">author </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -488,9 +492,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">backgroundColor </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> Hex </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -502,9 +507,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">characterCount </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> Integer </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -516,9 +522,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">colorDepth </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -530,9 +537,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">colorSpace </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -544,9 +552,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">compression </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -558,9 +567,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">dimension </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -572,9 +582,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">drm </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> Boolean </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -586,9 +597,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">duration </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> Float </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -600,9 +612,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">fnumber %  {} </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -614,9 +627,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">focalLength </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> Float </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -628,9 +642,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">genre </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -642,9 +657,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">geometry </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -656,9 +672,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">interlace </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -670,9 +687,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">iso%  {} </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> Integer </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -684,9 +702,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">language </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -698,9 +717,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">lineCount </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> Integer </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -712,9 +732,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">make </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -726,9 +747,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">orientation </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> Integer </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -753,9 +775,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">   status </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String  </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -767,9 +790,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">detection </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -781,9 +805,10 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">message </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">

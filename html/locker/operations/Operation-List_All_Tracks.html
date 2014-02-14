@@ -1,12 +1,9 @@
-
- 
-
 <section id="resources-list-all-tracks" class="level-2">
         <header>List all tracks</header>
 
         <section id="resources-list-all-tracks-overview" class="level-3">
             <header>Overview</header>
-            <p></p><p></p><p>Lists all tracks belonging to a user. </p><p></p>
+            <p></p><p></p><p>Lists all tracks belonging to a user. If there are no entries, thanthe \emph{count} output parameter will be set to 0.</p><p></p>
         </section>
 
         <section id="resources-list-all-tracks-oauth" class="level-3">
@@ -30,12 +27,13 @@
             <header>Request Examples</header>
             <div class="tabs">
             <ul class="tab_nav">
-<li><a href="#get-a-tracks-listing"class="selected">Get a tracks listing</a></li>
+<li><a href="#get-a-tracks-listing-Request-list-all-tracks"class="selected">Get a tracks listing</a></li>
+<li><a href="#get-a-tracks-listing-by-specifying-track-ids-Request-list-all-tracks">Get a tracks listing by specifying track Ids</a></li>
 
         
             </ul>
         
-       <div id="get-a-tracks-listing" class="code">
+       <div id="get-a-tracks-listing-Request-list-all-tracks" class="code">
           <p>This demonstrates how to get a tracks listing. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -50,16 +48,31 @@ accept-encoding: gzip
                     </div>
                 </div>
         
+       <div id="get-a-tracks-listing-by-specifying-track-ids-Request-list-all-tracks" class="code">
+          <p>This demonstrates how to get a tracks listing by specifying track ids. </p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+GET /locker/v1/tracks?trackIds=62588%2C55888 HTTP/1.1 
+host: api.att.com
+authorization: Bearer abcdef12345678
+accept: application/xml
+accept-encoding: gzip
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
             </div>
 <header>Response Examples</header>
                         <div class="tabs">
                         <ul class="tab_nav">
-<li><a href="#get-tracks-listing-in-xml"class="selected">Get tracks listing in XML</a></li>
-<li><a href="#get-file-listing-in-json">Get file listing in JSON</a></li>
+<li><a href="#get-tracks-listing-in-xml-Response-list-all-tracks"class="selected">Get tracks listing in XML</a></li>
+<li><a href="#get-file-listing-in-json-Response-list-all-tracks">Get file listing in JSON</a></li>
 
             </ul>
         
-       <div id="get-tracks-listing-in-xml" class="code">
+       <div id="get-tracks-listing-in-xml-Response-list-all-tracks" class="code">
           <p>This shows the response to a Get tracks listing in XML format. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -265,7 +278,7 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
                     </div>
                 </div>
         
-       <div id="get-file-listing-in-json" class="code">
+       <div id="get-file-listing-in-json-Response-list-all-tracks" class="code">
           <p>This shows the response to a Get tracks listing in JSON format </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -539,6 +552,22 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
+                    <span class="label">trackIds </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> Query Parameter    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies a comma separate list of ids for which data should be retrieved for. This is an OR-based subset. If this parameter is supplied, then it will override any other parameter given. It will ignore the other parameters.</p>
+  <p>Max number of ids is 100</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
                     <span class="label">query </span>
                     
                     <span class="data-type"> String </span>
@@ -589,7 +618,7 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies the max number of results returned.</p>
+                 <p>Specifies the max number of results returned. Valid value range is 1 to 100.</p>
  
             </div>
         </div>
@@ -790,9 +819,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">   status </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String  </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -804,9 +834,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">detection </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -818,9 +849,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">message </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -848,7 +880,7 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
                     <span class="required form-icon"></span>
 
                     <span class="data-type"> String  </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -863,7 +895,7 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
                     <span class="required form-icon"></span>
 
                     <span class="data-type"> AnyURI  </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -878,7 +910,7 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
                     <span class="required form-icon"></span>
 
                     <span class="data-type"> Integer  </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -893,7 +925,7 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
                     <span class="required form-icon"></span>
 
                     <span class="data-type"> Integer  </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -908,7 +940,7 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
                     <span class="required form-icon"></span>
 
                     <span class="data-type"> Integer  </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -923,7 +955,7 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
                     <span class="required form-icon"></span>
 
                     <span class="data-type"> Integer  </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -948,9 +980,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">   album </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -962,9 +995,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">artist </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -976,9 +1010,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">audioBitrate </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> Integer  </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -990,9 +1025,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">audiocChannels </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> Integer </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -1004,9 +1040,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">audiocCodec </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -1018,9 +1055,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">audioFrequency </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> Integer  </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -1032,9 +1070,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">author </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -1046,9 +1085,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">backgroundColor </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> Hex </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -1060,9 +1100,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">characterCount </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> Integer </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -1074,9 +1115,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">colorDepth </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -1088,9 +1130,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">colorSpace </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -1102,9 +1145,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">compression </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -1116,9 +1160,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">dimension </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -1130,9 +1175,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">drm </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> Boolean </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -1144,9 +1190,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">duration </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> Float </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -1158,9 +1205,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">fnumber %  {} </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -1172,9 +1220,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">focalLength </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> Float </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -1186,9 +1235,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">genre </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -1200,9 +1250,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">geometry </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -1214,9 +1265,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">interlace </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -1228,9 +1280,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">iso%  {} </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> Integer </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -1242,9 +1295,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">language </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -1256,9 +1310,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">lineCount </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> Integer </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -1270,9 +1325,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">make </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> String </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -1284,9 +1340,10 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">orientation </span>
-                    
+                    <span class="required form-icon"></span>
+
                     <span class="data-type"> Integer </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">

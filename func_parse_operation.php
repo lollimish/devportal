@@ -6,7 +6,6 @@ function parse_operation($inputfile, $outputfile) {
     }
     $operation_name = getOperationName($inputfile);
     $operation_title = ucfirst(str_replace('-', ' ', $operation_name));
-
     $funcBehav = array();
     $authTable = array();
     $funcBehav = findSubSubSecByName($inputfile, 'Functional Behavior');
@@ -41,12 +40,9 @@ function parse_operation($inputfile, $outputfile) {
     }
     $scope = getCellValue($cell[1][2]);
 
-    $requestExample = getExample($inputfile, 'Request');
+    $requestExample = getExample($inputfile, 'Request', $operation_name);
 
     $content = <<<"EOD"
-
- 
-
 <section id="resources-{$operation_name}" class="level-2">
         <header>{$operation_title}</header>
 
@@ -105,7 +101,7 @@ EOD;
     }
 
     $responseExample = array();
-    $responseExample = getExample($inputfile, 'Response');
+    $responseExample = getExample($inputfile, 'Response', $operation_name);
     $content = <<<"EOD"
             </div>\n<header>Response Examples</header>
                         <div class="tabs">

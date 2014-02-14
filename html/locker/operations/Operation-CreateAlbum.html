@@ -1,12 +1,9 @@
-
- 
-
 <section id="resources-createalbum" class="level-2">
         <header>Createalbum</header>
 
         <section id="resources-createalbum-overview" class="level-3">
             <header>Overview</header>
-            <p></p>
+            <p></p><p></p><p>The Create Album method is used to create a new album . The user isallowed to create an album with the name of an existing album.</p><p></p>
         </section>
 
         <section id="resources-createalbum-oauth" class="level-3">
@@ -30,14 +27,14 @@
             <header>Request Examples</header>
             <div class="tabs">
             <ul class="tab_nav">
-<li><a href="#xml"class="selected">XML</a></li>
-<li><a href="#json">JSON</a></li>
+<li><a href="#xml-Request-createalbum"class="selected">XML</a></li>
+<li><a href="#json-Request-createalbum">JSON</a></li>
 
         
             </ul>
         
-       <div id="xml" class="code">
-          <p>This demonstrates how to create an album The response format will be in XML. </p>            <div class="code">
+       <div id="xml-Request-createalbum" class="code">
+          <p>This demonstrates how to create an album. The response format will be in XML. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
@@ -57,7 +54,7 @@ content-type: application/xml
                     </div>
                 </div>
         
-       <div id="json" class="code">
+       <div id="json-Request-createalbum" class="code">
           <p>This demonstrates how to create an album. The response format will be in JSON. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -83,12 +80,12 @@ content-type: application/json
 <header>Response Examples</header>
                         <div class="tabs">
                         <ul class="tab_nav">
-<li><a href="#xml"class="selected">XML</a></li>
-<li><a href="#json">JSON</a></li>
+<li><a href="#xml-Response-createalbum"class="selected">XML</a></li>
+<li><a href="#json-Response-createalbum">JSON</a></li>
 
             </ul>
         
-       <div id="xml" class="code">
+       <div id="xml-Response-createalbum" class="code">
           <p>This shows the response to an album creation in XML format.exception </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -114,7 +111,7 @@ location: https://api.att.com/locker/v1/albums/735
                     </div>
                 </div>
         
-       <div id="json" class="code">
+       <div id="json-Response-createalbum" class="code">
           <p>This shows the response to an album creation in JSON format </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -301,7 +298,7 @@ location: https://api.att.com/locker/v1/albums/735
                 <div class="parameter">
                     <span class="label">   content-encoding </span>
                     
-                    <span class="data-type"> string </span>
+                    <span class="data-type"> String </span>
                     <span class="placement"> Header    </span>
                 </div>
             </div>
@@ -316,7 +313,7 @@ location: https://api.att.com/locker/v1/albums/735
                     <span class="label">content-type </span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> string </span>
+                    <span class="data-type"> String </span>
                     <span class="placement"> Header    </span>
                 </div>
             </div>
@@ -380,7 +377,7 @@ location: https://api.att.com/locker/v1/albums/735
                     <span class="required form-icon"></span>
 
                     <span class="data-type"> String  </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -395,7 +392,7 @@ location: https://api.att.com/locker/v1/albums/735
                     <span class="required form-icon"></span>
 
                     <span class="data-type"> AnyURI  </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -410,7 +407,7 @@ location: https://api.att.com/locker/v1/albums/735
                     <span class="required form-icon"></span>
 
                     <span class="data-type"> Integer  </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -425,7 +422,7 @@ location: https://api.att.com/locker/v1/albums/735
                     <span class="required form-icon"></span>
 
                     <span class="data-type"> Integer  </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -440,7 +437,7 @@ location: https://api.att.com/locker/v1/albums/735
                     <span class="required form-icon"></span>
 
                     <span class="data-type"> Integer  </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
@@ -455,54 +452,11 @@ location: https://api.att.com/locker/v1/albums/735
                     <span class="required form-icon"></span>
 
                     <span class="data-type"> Integer  </span>
-                    <span class="placement"> body    </span>
+                    <span class="placement"> Body    </span>
                 </div>
             </div>
             <div class="grid-right">
                  <p>Specifies the audio channels (audio) </p>
- 
-            </div>
-        </div>
-</div>
-    <header>Property Object Parameters</header>
-    <label>
-        <span class="required form-icon"></span>
-        Required Parameters
-    </label>
-
-    <div class="grid">
-        <div class="grid-row">
-            <div class="grid-left">
-                <div class="header">Parameter</div>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label">   name </span>
-                    <span class="required form-icon"></span>
-
-                    <span class="data-type"> String </span>
-                    <span class="placement"> Body    </span>
-                </div>
-            </div>
-            <div class="grid-right">
-                 <p>Specifies the name of the property.</p>
- 
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label">value  </span>
-                    <span class="required form-icon"></span>
-
-                    <span class="data-type"> String </span>
-                    <span class="placement"> Body    </span>
-                </div>
-            </div>
-            <div class="grid-right">
-                 <p>Specifies the value of the property.</p>
  
             </div>
         </div>

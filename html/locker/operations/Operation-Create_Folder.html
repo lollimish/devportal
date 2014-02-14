@@ -1,6 +1,3 @@
-
- 
-
 <section id="resources-create-folder" class="level-2">
         <header>Create folder</header>
 
@@ -30,13 +27,13 @@
             <header>Request Examples</header>
             <div class="tabs">
             <ul class="tab_nav">
-<li><a href="#create-a-folder-using-xml-body"class="selected">Create a folder using XML body</a></li>
-<li><a href="#create-a-folder-using-json-body">Create a folder using JSON body</a></li>
+<li><a href="#create-a-folder-using-xml-body-Request-create-folder"class="selected">Create a folder using XML body</a></li>
+<li><a href="#create-a-folder-using-json-body-Request-create-folder">Create a folder using JSON body</a></li>
 
         
             </ul>
         
-       <div id="create-a-folder-using-xml-body" class="code">
+       <div id="create-a-folder-using-xml-body-Request-create-folder" class="code">
           <p>This demonstrates how to create a folder with a description. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -56,8 +53,8 @@ accept: application/xml
                     </div>
                 </div>
         
-       <div id="create-a-folder-using-json-body" class="code">
-          <p>This demonstrates how to create a folder with a description.. The response format will be in JSON. </p>            <div class="code">
+       <div id="create-a-folder-using-json-body-Request-create-folder" class="code">
+          <p>This demonstrates how to create a folder with a description. The response format will be in JSON. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
@@ -82,12 +79,12 @@ accept: application/json
 <header>Response Examples</header>
                         <div class="tabs">
                         <ul class="tab_nav">
-<li><a href="#xml"class="selected">XML</a></li>
-<li><a href="#json">JSON</a></li>
+<li><a href="#xml-Response-create-folder"class="selected">XML</a></li>
+<li><a href="#json-Response-create-folder">JSON</a></li>
 
             </ul>
         
-       <div id="xml" class="code">
+       <div id="xml-Response-create-folder" class="code">
           <p>This shows the response to a folder creation in XML format. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -112,7 +109,7 @@ location: https://api.att.com/locker/v1/folders/856
                     </div>
                 </div>
         
-       <div id="json" class="code">
+       <div id="json-Response-create-folder" class="code">
           <p>This shows the response to a folder creation in JSON format </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -310,6 +307,20 @@ location: https://api.att.com/locker/v1/folders/856
  </li>
 <li> <p>application/json</p>
 </li></ul>  
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-encoding </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the type of encoding used on the data. Supported values are: identity or gzip</p>
+ 
             </div>
         </div>
         <div class="grid-row">

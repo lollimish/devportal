@@ -1,6 +1,3 @@
-
- 
-
 <section id="resources-add-files-to-folder" class="level-2">
         <header>Add files to folder</header>
 
@@ -30,13 +27,13 @@
             <header>Request Examples</header>
             <div class="tabs">
             <ul class="tab_nav">
-<li><a href="#add-files-to-a-folder-in-xml"class="selected">Add files to a folder in XML</a></li>
-<li><a href="#add-files-to-a-folder-in-json">Add files to a folder in JSON</a></li>
+<li><a href="#add-files-to-a-folder-in-xml-Request-add-files-to-folder"class="selected">Add files to a folder in XML</a></li>
+<li><a href="#add-files-to-a-folder-in-json-Request-add-files-to-folder">Add files to a folder in JSON</a></li>
 
         
             </ul>
         
-       <div id="add-files-to-a-folder-in-xml" class="code">
+       <div id="add-files-to-a-folder-in-xml-Request-add-files-to-folder" class="code">
           <p>This demonstrates how to add a file to a folder, and specifying the request to be in XML. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -58,7 +55,7 @@ accept: application/xml
                     </div>
                 </div>
         
-       <div id="add-files-to-a-folder-in-json" class="code">
+       <div id="add-files-to-a-folder-in-json-Request-add-files-to-folder" class="code">
           <p>This demonstrates how to add a file to a folder, and specifying the request to be in JSON. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -84,11 +81,11 @@ accept: application/json
 <header>Response Examples</header>
                         <div class="tabs">
                         <ul class="tab_nav">
-<li><a href="#response-to-adding-files-to-a-folder"class="selected">Response to adding files to a folder</a></li>
+<li><a href="#response-to-adding-files-to-a-folder-Response-add-files-to-folder"class="selected">Response to adding files to a folder</a></li>
 
             </ul>
         
-       <div id="response-to-adding-files-to-a-folder" class="code">
+       <div id="response-to-adding-files-to-a-folder-Response-add-files-to-folder" class="code">
           <p>This shows the response to a an add file to folder request. </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
@@ -275,9 +272,8 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
             <div class="identifier">
                 <div class="parameter">
                     <span class="label">   content-type </span>
-                    <span class="required form-icon"></span>
-
-                    <span class="data-type"> string </span>
+                    
+                    <span class="data-type"> String </span>
                     <span class="placement"> Header    </span>
                 </div>
             </div>
@@ -288,6 +284,20 @@ Date: Thu, 04 Jun 2010 02:51:59 GMT
  </li>
 <li> <p>aplication/xml</p>
  </li></ul> <p>Note: If there is no entity body in a normal successful response, this parameter is still needed to specify the format in the case of an error response message.</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-encoding </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Note: If there is no entity body in a normal successful response, this parameter is still needed to specify the format in the case of an error response message.	</p>
  
             </div>
         </div>
