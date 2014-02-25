@@ -1,5 +1,5 @@
 <?php
-$list = '../list';
+$list = '../list/list.txt';
 ?>
 
 <!DOCTYPE html>

@@ -1,7 +1,7 @@
 <?php
 
 function writehtml($content, $outputfile) {
-    file_put_contents($outputfile, $content . "\r\n", FILE_APPEND);
+    file_put_contents($outputfile, $content. "\r\n", FILE_APPEND);
 }
 
 function startsWith($haystack, $needle) {

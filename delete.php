@@ -1,7 +1,7 @@
 <?php
 
 include 'functions.php';
-$list = '../list';
+$list = '../list/list.txt';
 
 if (isset($_POST['api'])) {
     $api = trim($_POST['api']);
