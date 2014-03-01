@@ -1,0 +1,867 @@
+<section id="resources-get-contacts" class="level-2">
+        <header>Get contacts</header>
+
+        <section id="resources-get-contacts-overview" class="level-3">
+            <header>Overview</header>
+            <p><p>The Get Contact method enables retrieving all the contact information with some order and pagination criteria. If a valid pagination criterion is specified, only a contacts’ subset is returned. If pagination contains invalid parameters, this method will return an empty list. </p>
+<p><strong> Quick Contacts: </strong> </p>
+<p>A Quick Contact is a limited set of popular fields in a contact, usually used for providing a better end user experience allowing a quick way of retrieving the contacts. AT&T Contact Services supports an operation to retrieve existing Contacts in the form of Quick Contacts using GET operation.  </p>
+<p>Return: </p>
+<p>• If the call is successful, it returns a Contact ss list data structure containing all the contacts.  </p>
+<p>• InvalidSubscriberException if the sub_id is incorrect or the subscriber’s account status is <strong> BLOCKED</strong>.  </p>
+<p>• SystemException for any other error.  </p>
+</p>
+        </section>
+
+        <section id="resources-get-contacts-oauth" class="level-3">
+            <ul class="oauth">
+                <li><span>OAuth Scope</span></li>
+                <li><p><span>Scope:</span> AAB </p></li>
+                <li><p><span>Model:</span> OAuth authorization_code </p></li>
+            </ul>
+            <ul class="oauth">
+                <li><span>Resource</span></li>
+                <li class="code">
+                    <div class="code-block">
+                        <span class="copy-button" data-clipboard-text="/speechToText">copy</span>
+                        <pre>/speechToText</pre>
+                    </div>
+                </li>
+            </ul>
+        </section>
+                
+        <section id="resources-get-contacts-examples" class="level-3">
+            <header>Request Examples</header>
+            <div class="tabs">
+            <ul class="tab_nav">
+<li><a href="#json-Request-get-contacts"class="selected">JSON</a></li>
+<li><a href="#xml-Request-get-contacts">XML</a></li>
+
+        
+            </ul>
+        
+       <div id="json-Request-get-contacts" class="code">
+          <p></p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+GET /addressBook/v1/contacts?order=ASC&amp;orderBy=firstName&amp;pageSize=10&amp;pageNo=1&amp;zipcode=98007 HTTP/1.1 
+host: api.att.com 
+accept: application/json 
+authorization: Bearer abcdef12345678 
+content-type: application/json 
+accept-encoding: gzip,deflate 
+x-fields: shallow 
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="xml-Request-get-contacts" class="code">
+          <p></p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+GET /addressBook/v1/contacts?order=ASC&amp;orderBy=firstName&amp;pageSize=10&amp;pageNo=1&amp; zipcode=98007 HTTP/1.1 
+host: api.att.com 
+accept: application/xml 
+authorization: Bearer abcdef12345678 
+content-type: application/xml 
+accept-encoding: gzip,deflate 
+x-fields: shallow 
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+<header>Response Examples</header>
+                        <div class="tabs">
+                        <ul class="tab_nav">
+<li><a href="#json-Response-get-contacts"class="selected">JSON</a></li>
+<li><a href="#xml-Response-get-contacts">XML</a></li>
+
+            </ul>
+        
+       <div id="json-Response-get-contacts" class="code">
+          <p></p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+HTTP/1.1 200 OK  
+cache-control: no-cache
+date: Thu, 04 Jun 2010 02:51:59 GMT 
+
+content-encoding : gzip,deflate
+content-length: 678 
+
+{
+   &quot;resultSet&quot;:{
+      &quot;currentPageIndex&quot;:&quot;2&quot;,
+      &quot;totalRecords&quot;:&quot;2&quot;,
+      &quot;totalPages&quot;:&quot;1&quot;,
+      &quot;previousPage&quot;:&quot;0&quot;,
+      &quot;nextPage&quot;:&quot;1&quot;,
+      &quot;quickContacts&quot;:{
+         &quot;quickContact&quot;:[
+            {
+               &quot;contactId&quot;:&quot;09876544321&gt;&quot;,
+               &quot;formattedName&quot;:&quot;GOOD BEST BOY&quot;,
+               &quot;firstName&quot;:&quot;BEST&quot;,
+               &quot;middleName&quot;:&quot;BOY&quot;,
+               &quot;lastName&quot;:&quot;GOOD&quot;,
+               &quot;prefix&quot;:&quot;SR.&quot;,
+               &quot;suffix&quot;:&quot;II&quot;,
+               &quot;nickName&quot;:&quot;TEST&quot;,
+               &quot;organization&quot;:&quot;ATT&quot;,
+               &quot;phone&quot;:{
+                  &quot;type&quot;:&quot;HOME&quot;,
+                  &quot;number&quot;:&quot;2223335555&quot;
+               },
+               &quot;address&quot;:{
+                  &quot;type&quot;:&quot;WORK&quot;,
+                  &quot;preferred&quot;:&quot;TRUE&quot;,
+                  &quot;poBox&quot;:&quot;3456&quot;,
+                  &quot;addressLine1&quot;:&quot;345 140TH PL NE&quot;,
+                  &quot;addressLine2&quot;:&quot;APT 456&quot;,
+                  &quot;city&quot;:&quot;REDMOND&quot;,
+                  &quot;state&quot;:&quot;WA&quot;,
+                  &quot;zip&quot;:&quot;90000&quot;,
+                  &quot;country&quot;:&quot;USA&quot;
+               },
+               &quot;email&quot;:{
+                  &quot;type&quot;:&quot;WORK&quot;,
+                  &quot;emailAddress&quot;:&quot;XYZ@ABC.COM&quot;
+               },
+               &quot;im&quot;:{
+                  &quot;type&quot;:&quot;AIM&quot;,
+                  &quot;imUri&quot;:&quot;ABC&quot;
+               }
+            },
+            {
+               &quot;contactId&quot;:&quot;0987654432123&quot;,
+               &quot;formattedName&quot;:&quot;GOODD BEST BOYY&quot;,
+               &quot;firstName&quot;:&quot;BEST&quot;,
+               &quot;middleName&quot;:&quot;BOYY&quot;,
+               &quot;lastName&quot;:&quot;GOODD&quot;,
+               &quot;prefix&quot;:&quot;SR.&quot;,
+               &quot;suffix&quot;:&quot;II&quot;,
+               &quot;nickName&quot;:&quot;TEST&quot;,
+               &quot;organization&quot;:&quot;ATT&quot;,
+               &quot;phone&quot;:{
+                  &quot;type&quot;:&quot;HOME&quot;,
+                  &quot;number&quot;:&quot;1223335555&quot;
+               },
+               &quot;address&quot;:{
+                  &quot;type&quot;:&quot;WORK&quot;,
+                  &quot;preferred&quot;:&quot;TRUE&quot;,
+                  &quot;poBox&quot;:&quot;3456&quot;,
+                  &quot;addressLine1&quot;:&quot;345 140TH PL NE&quot;,
+                  &quot;addressLine2&quot;:&quot;APT 456&quot;,
+                  &quot;city&quot;:&quot;REDMOND&quot;,
+                  &quot;state&quot;:&quot;WA&quot;,
+                  &quot;zip&quot;:&quot;90000&quot;,
+                  &quot;country&quot;:&quot;USA&quot;
+               },
+               &quot;email&quot;:{
+                  &quot;type&quot;:&quot;WORK&quot;,
+                  &quot;emailAddress&quot;:&quot;XYZ@ABC.COM&quot;
+               },
+               &quot;im&quot;:{
+                  &quot;type&quot;:&quot;AIM&quot;,
+                  &quot;imUri&quot;:&quot;ABC&quot;
+               }
+            }
+         ]
+      }
+   }
+}
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="xml-Response-get-contacts" class="code">
+          <p></p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+HTTP/1.1 200 OK  
+cache-control: no-cache
+date: Thu, 04 Jun 2010 02:51:59 GMT 
+
+content-encoding : gzip,deflate
+content-length: 678
+
+&lt;resultSet&gt;
+    &lt;currentPageIndex&gt;2&lt;/currentPageIndex&gt;
+    &lt;totalRecords&gt;2&lt;/totalRecords&gt;
+    &lt;totalPages&gt;1&lt;/totalPages&gt;
+    &lt;previousPage/&gt;
+    &lt;nextPage/&gt;
+    &lt;quickContacts&gt;
+        &lt;quickContact&gt;
+            &lt;contactId&gt;09876544321&amp;gt;&lt;/contactId&gt;
+            &lt;formattedName&gt;GOOD BEST BOY&lt;/formattedName&gt;
+            &lt;firstName&gt;BEST&lt;/firstName&gt;
+            &lt;middleName&gt;BOY&lt;/middleName&gt;
+            &lt;lastName&gt;GOOD&lt;/lastName&gt;
+            &lt;prefix&gt;SR.&lt;/prefix&gt;
+            &lt;suffix&gt;II&lt;/suffix&gt;
+            &lt;nickName&gt;TEST&lt;/nickName&gt;
+            &lt;organization&gt;ATT&lt;/organization&gt;
+            &lt;phone&gt;
+                &lt;type&gt;HOME&lt;/type&gt;
+                &lt;customLabel/&gt;
+                &lt;number&gt;2223335555&lt;/number&gt;
+            &lt;/phone&gt;
+            &lt;address&gt;
+                &lt;type&gt;WORK&lt;/type&gt;
+                &lt;preferred&gt;TRUE&lt;/preferred&gt;
+                &lt;poBox&gt;3456&lt;/poBox&gt;
+                &lt;addressLine1&gt;345 140TH PL NE&lt;/addressLine1&gt;
+                &lt;addressLine2&gt;APT 456&lt;/addressLine2&gt;
+                &lt;city&gt;REDMOND&lt;/city&gt;
+                &lt;state&gt;WA&lt;/state&gt;
+                &lt;zip&gt;90000&lt;/zip&gt;
+                &lt;country&gt;USA&lt;/country&gt;
+            &lt;/address&gt;
+            &lt;email&gt;
+                &lt;type&gt;WORK&lt;/type&gt;
+                &lt;emailAddress&gt;XYZ@ABC.COM&lt;/emailAddress&gt;
+            &lt;/email&gt;
+            &lt;im&gt;
+                &lt;type&gt;AIM&lt;/type&gt;
+                &lt;imUri&gt;ABC&lt;/imUri&gt;
+            &lt;/im&gt;
+        &lt;/quickContact&gt;
+        &lt;quickContact&gt;
+            &lt;contactId&gt;0987654432123&amp;gt;&lt;/contactId&gt;
+            &lt;formattedName&gt;GOODD BEST BOYY&lt;/formattedName&gt;
+            &lt;firstName&gt;BEST&lt;/firstName&gt;
+            &lt;middleName&gt;BOYY&lt;/middleName&gt;
+            &lt;lastName&gt;GOODD&lt;/lastName&gt;
+            &lt;prefix&gt;SR.&lt;/prefix&gt;
+            &lt;suffix&gt;II&lt;/suffix&gt;
+            &lt;nickName&gt;TEST&lt;/nickName&gt;
+            &lt;organization&gt;ATT&lt;/organization&gt;
+            &lt;phone&gt;
+                &lt;type&gt;HOME&lt;/type&gt;
+                &lt;customLabel/&gt;
+                &lt;number&gt;1223335555&lt;/number&gt;
+            &lt;/phone&gt;
+            &lt;address&gt;
+                &lt;type&gt;WORK&lt;/type&gt;
+                &lt;preferred&gt;TRUE&lt;/preferred&gt;
+                &lt;poBox&gt;3456&lt;/poBox&gt;
+                &lt;addressLine1&gt;345 140TH PL NE&lt;/addressLine1&gt;
+                &lt;addressLine2&gt;APT 456&lt;/addressLine2&gt;
+                &lt;city&gt;REDMOND&lt;/city&gt;
+                &lt;state&gt;WA&lt;/state&gt;
+                &lt;zip&gt;90000&lt;/zip&gt;
+                &lt;country&gt;USA&lt;/country&gt;
+            &lt;/address&gt;
+            &lt;email&gt;
+                &lt;type&gt;WORK&lt;/type&gt;
+                &lt;emailAddress&gt;XYZ@ABC.COM&lt;/emailAddress&gt;
+            &lt;/email&gt;
+            &lt;im&gt;
+                &lt;type&gt;AIM&lt;/type&gt;
+                &lt;imUri&gt;ABC&lt;/imUri&gt;
+            &lt;/im&gt;
+        &lt;/quickContact&gt;
+    &lt;/quickContacts&gt;
+&lt;/resultSet&gt;
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+        </section><!--end of example-->
+
+<section id="resources-get-contacts-parameters" class="level-3">
+    <header>Request Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   accept </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the format of the body of the response. Valid values are: </p>
+  <p>• application/json </p>
+  <p>• application/xml </p>
+  <p>The default value is application/json. Per rfc2616: \textquotedbl{}If no Accept header field is present, then it is assumed that the client accepts all media types.\textquotedbl{} By default our services return application/json. </p>
+  <p>Normal Accept header processing rules shall be followed according to rfc2616. </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">accept-encoding </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies accept encoding format </p>
+  <p>gzip,deflate </p>
+  <p>When this header is present, the gateway should compress the response to indicate the client that response is in compressed format </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">authorization </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies \textquotedbl{}Bearer\textquotedbl{} + OAuth Token – access\_token. If the Authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-type </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the representation format for the request. This is the content type for the </p>
+\textbf<p>whole</p>
+<p> message. The acceptable values for this parameter are: </p>
+  <p>• application/json </p>
+  <p>• application/xml </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">\multicolumn{5}{|l}{\textbfOutput filters}    </span>
+                    
+                    <span class="data-type"></span>
+                    <span class="placement"></span>
+                </div>
+            </div>
+            <div class="grid-right">
+                
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">x-fields </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies String of comma \%2C (,) delimited field names that are expected on the response. These field names should match the Contact object. Ref 3.2.1.</p>
+  <p>Accepted options: </p>
+  <p>1) </p>
+\textbf<p>x-fields: shallow (OR)</p>
+<p> shallow – Returns QuickContact Data model. If one or more search param are present in the request, then the x-fields value should set to shallow. </p>
+  <p>2) </p>
+\textbf<p>x-fields: {[}attribute names from</p>
+<p> Contact data structure Ref 3.2.1 with comma separated {]} </p>
+\textbf<p>{[}OR{]</p>
+}<p> </p>
+  <p>3) </p>
+\textbf<p>x-fields:<empty value> (OR) no x-field header parameter</p>
+<p> Returns all contacts will return all the attributes</p>
+  <p>Note: </p>
+  <p>a) Should use only one of the above options.</p>
+  <p>b) Combining options 1, 2, 3 are invalid. Return full contact object for this condition.</p>
+  <p>c) If a request contains search param and x-fields: {[}attribute names{]} or x-fields: <empty> or no x-fields header param, then default value for the x-fields is shallow {[}x-fields: shallow{]} should set in the request without returning any exception. </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">\multicolumn{5}{|l}{\textbfPagination Parameters – Invalid pagination parameter values should return empty list.}    </span>
+                    
+                    <span class="data-type"></span>
+                    <span class="placement"></span>
+                </div>
+            </div>
+            <div class="grid-right">
+                
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">order </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Query String    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the output sorting order. Valid values are </p>
+  <p>• ASC – ascending (Default) </p>
+  <p>• DESC – descending. </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">orderBy </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Query String    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the field name to be used for ordering the result set.</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">pageSize </span>
+                    
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> Query String    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Indicates page size. Must be equal to or greater than 1, if not specifies default as 10. </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">pageNo </span>
+                    
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> Query String    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Indicates page number. . Must be greater than 0, if not specifies default as 1.</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">\multicolumn{5}{|l}{\textbfSearch Parameters}    </span>
+                    
+                    <span class="data-type"></span>
+                    <span class="placement"></span>
+                </div>
+            </div>
+            <div class="grid-right">
+                
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">formattedName </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Query String    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies formatted name and it is derived information.</p>
+  \textbf<p>Personal type</p>
+<p> : “prefix firstName middleName lastName suffix” </p>
+  \textbf<p>Business type</p>
+<p> : organization </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">firstName </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Query String    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies first name of the contact. Mandatory if contact type is Personal</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">lastName </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Query String    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies middle name of the contact</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">nickName </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Query String    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies alternate name or familiar form of proper name</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">email </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Query String    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies Email addresses associated with the contact such as official mail address, personal mail address etc.</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">phone </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Query String    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies Phone numbers associated with the contacts, such as Personal phone number, office phone number. Can provide multiple phone numbers separated by a “\%2c” (,) to a maximum of 5 numbers.</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">organization </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Query String    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies Organization name. </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">addressLine1 </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Query String    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies Street Address Line 1</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">addressLine2 </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Query String    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies Street Address Line 2</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">city </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Query String    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies City</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">zipcode </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Query String    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies State</p>
+ 
+            </div>
+        </div>
+</div>
+    <header>Require Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   cache-control </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies whether the response can be cached. The response should be </p>
+\textbf<p>no-cache</p>
+<p> since we don’t currently don’t support caching</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">date </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Date Time </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies Date and time the response was returned (in RFC1123 format). For example Date: Sun, 06 Nov 1994 08:49:37 GMT</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label"> </span>
+                    
+                    <span class="data-type">  </span>
+                    <span class="placement">     </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                  
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-encoding </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies content encoding </p>
+  <p>gzip,deflate </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-length </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Indicates length of the request body in octets (8-bit bytes)</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">resultSet </span>
+                    
+                    <span class="data-type"> Object </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Contains ouput of the operation. (i.e.) list of contact/quick contact data models with pagination parameters.</p>
+ 
+            </div>
+        </div>
+</div>
+    <header>Object-ResultSet Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   totalRecords </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Indicates total number of contacts returned</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">totalPages </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Indicates total number of pages</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">currentPageIndex </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Indicates current page index</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">previousPage </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Indicates previous page</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">nextPage </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Indicates next page </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">contacts </span>
+                    
+                    <span class="data-type"> List of Contact objects </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies list of Contact data model. Should return only for the header x-fields: <empty> or x-fields: {[}attribute names{]</p>
+} 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">quickContacts </span>
+                    
+                    <span class="data-type"> List of QuickContact objects </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies list of Quick Contact data models. Should return only for the header x-fields: shallow or search param if present in the request.</p>
+ 
+            </div>
+        </div>
+</div>
+</section></section>

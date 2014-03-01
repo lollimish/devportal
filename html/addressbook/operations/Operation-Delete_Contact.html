@@ -1,0 +1,159 @@
+<section id="resources-delete-contact" class="level-2">
+        <header>Delete contact</header>
+
+        <section id="resources-delete-contact-overview" class="level-3">
+            <header>Overview</header>
+            <p><p>Contact identified by the contactId are moved to the trashcan. myInfo’s contact id considered as an invalid contactId. CSAB does not use trashcan. Then, when a user deletes a contact, it must be purged from the system and it isn’t possible to restore it later. </p>
+<p>Return:  </p>
+<ul> <li> If call is successful, an empty envelope with an HTTP code of 200.  </li><li> InvalidSubscriberException if the sub_id is incorrect or the subscriber’s account status is BLOCKED.  </li><li> InvalidContactException if one of the ContactId provided is invalid.  </li><li> SystemException for any other error.  </li></ul> </p>
+        </section>
+
+        <section id="resources-delete-contact-oauth" class="level-3">
+            <ul class="oauth">
+                <li><span>OAuth Scope</span></li>
+                <li><p><span>Scope:</span> AAB </p></li>
+                <li><p><span>Model:</span> OAuth authorization_code </p></li>
+            </ul>
+            <ul class="oauth">
+                <li><span>Resource</span></li>
+                <li class="code">
+                    <div class="code-block">
+                        <span class="copy-button" data-clipboard-text="/speechToText">copy</span>
+                        <pre>/speechToText</pre>
+                    </div>
+                </li>
+            </ul>
+        </section>
+                
+        <section id="resources-delete-contact-examples" class="level-3">
+            <header>Request Examples</header>
+            <div class="tabs">
+            <ul class="tab_nav">
+<li><a href="#json-Request-delete-contact"class="selected">JSON</a></li>
+<li><a href="#xml-Request-delete-contact">XML</a></li>
+
+        
+            </ul>
+        
+       <div id="json-Request-delete-contact" class="code">
+          <p></p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+DELETE /addressBook/v1/contacts/8080d3b674c4 HTTP/1.1
+host: api.att.com
+authorization: Bearer abcdef12345678
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="xml-Request-delete-contact" class="code">
+          <p></p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+DELETE /addressBook/v1/contacts/8080d3b674c4 HTTP/1.1
+host: api.att.com
+authorization: Bearer abcdef12345678
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+<header>Response Examples</header>
+                        <div class="tabs">
+                        <ul class="tab_nav">
+<li><a href="#-Response-delete-contact"class="selected">Example</a></li>
+
+            </ul>
+        
+       <div id="-Response-delete-contact" class="code">
+          <p></p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+HTTP/1.1 204 No Content  
+ 
+date: Thu, 04 Jun 2010 02:51:59 GMT  
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+        </section><!--end of example-->
+
+<section id="resources-delete-contact-parameters" class="level-3">
+    <header>Request Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   authorization </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies \textquotedbl{}Bearer\textquotedbl{} + OAuth Token – access\_token. If the Authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">contactId </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String </span>
+                    <span class="placement"> URI    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies contact id’s to delete. </p>
+ 
+            </div>
+        </div>
+</div>
+    <header>Require Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   date </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Date Time </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies Date and time the response was returned (in RFC1123 format). For example Date: Sun, 06 Nov 1994 08:49:37 GMT</p>
+ 
+            </div>
+        </div>
+</div>
+</section></section>

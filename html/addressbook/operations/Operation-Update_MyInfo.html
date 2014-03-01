@@ -1,0 +1,273 @@
+<section id="resources-update-myinfo" class="level-2">
+        <header>Update myinfo</header>
+
+        <section id="resources-update-myinfo-overview" class="level-3">
+            <header>Overview</header>
+            <p><p>The Update MyInfo method updates a subscriber personal profile MyInfo based on the provided contact data structure. The same rules regarding the picture size and format are applied.  </p>
+<p>Return:  </p>
+<ul> <li> If the call is successful, it returns 204 status codes with empty response. </li><li> If the sub_id is incorrect or the subscriber’s account status is BLOCKED, then return InvalidSubscriberException. </li><li> If any other error, then return SystemException. </li></ul> </p>
+        </section>
+
+        <section id="resources-update-myinfo-oauth" class="level-3">
+            <ul class="oauth">
+                <li><span>OAuth Scope</span></li>
+                <li><p><span>Scope:</span> AAB </p></li>
+                <li><p><span>Model:</span> OAuth authorization_code </p></li>
+            </ul>
+            <ul class="oauth">
+                <li><span>Resource</span></li>
+                <li class="code">
+                    <div class="code-block">
+                        <span class="copy-button" data-clipboard-text="/speechToText">copy</span>
+                        <pre>/speechToText</pre>
+                    </div>
+                </li>
+            </ul>
+        </section>
+                
+        <section id="resources-update-myinfo-examples" class="level-3">
+            <header>Request Examples</header>
+            <div class="tabs">
+            <ul class="tab_nav">
+<li><a href="#json-Request-update-myinfo"class="selected">JSON</a></li>
+<li><a href="#xml-Request-update-myinfo">XML</a></li>
+
+        
+            </ul>
+        
+       <div id="json-Request-update-myinfo" class="code">
+          <p></p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+PATCH /addressBook/v1/myInfo
+host: api.att.com
+authorization: Bearer abcdef12345678
+content-type: application/json
+accept-encoding: gzip,deflate
+{
+  &quot;myInfo&quot;: {
+    &quot;middleName&quot;: &quot;HAPPY&quot;,
+    &quot;lastName&quot;: &quot;Good&quot;,
+    
+    &quot;phones&quot;: {
+      &quot;phone&quot;: [
+        {
+          &quot;type&quot;: &quot;HOME&quot;,
+          &quot;number&quot;: &quot;2223335555&quot;,
+          &quot;preferred&quot;: &quot;TRUE&quot;
+        },
+        {
+          &quot;type&quot;: &quot;HOME&quot;,
+          &quot;number&quot;: &quot;2223335555&quot;,
+          &quot;preferred&quot;: &quot;TRUE&quot;
+        }
+      ]
+    }
+  }
+}
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="xml-Request-update-myinfo" class="code">
+          <p></p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+PATCH /addressBook/v1/myInfo 
+host: api.att.com
+authorization: Bearer abcdef12345678
+content-type: application/xml
+accept-encoding: gzip,deflate
+
+&lt;myInfo&gt;
+	&lt;middleName&gt;HAPPY&lt;/middleName&gt;
+	&lt;lastName&gt;Good&lt;/lastName&gt;
+	&lt;phones&gt;
+		&lt;phone&gt;
+			&lt;type&gt;HOME&lt;/type&gt;
+			&lt;number&gt;2223335555&lt;/number&gt;
+			&lt;preferred&gt;TRUE&lt;/preferred&gt;
+		&lt;/phone&gt;
+		&lt;phone&gt;
+			&lt;type&gt;HOME&lt;/type&gt;
+			&lt;number&gt;2223335555&lt;/number&gt;
+			&lt;preferred&gt;TRUE&lt;/preferred&gt;
+		&lt;/phone&gt;
+	&lt;/phones&gt;
+&lt;/myInfo&gt;
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+<header>Response Examples</header>
+                        <div class="tabs">
+                        <ul class="tab_nav">
+<li><a href="#json-Response-update-myinfo"class="selected">JSON</a></li>
+<li><a href="#xml-Response-update-myinfo">XML</a></li>
+
+            </ul>
+        
+       <div id="json-Response-update-myinfo" class="code">
+          <p></p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+HTTP/1.1 204 No Content 
+
+date: Thu, 04 Jun 2010 02:51:59 GMT 
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="xml-Response-update-myinfo" class="code">
+          <p></p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+HTTP/1.1 204 No Content 
+
+date: Thu, 04 Jun 2010 02:51:59 GMT 
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+        </section><!--end of example-->
+
+<section id="resources-update-myinfo-parameters" class="level-3">
+    <header>Request Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   accept-encoding </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies accept encoding format </p>
+  <p>gzip,deflate </p>
+  <p>When this header is present, the gateway should compress the response to indicate the client that response is in compressed format </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">authorization </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies \textquotedbl{}Bearer\textquotedbl{} + OAuth Token – access\_token. If the Authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-type </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the representation format for the request. This is the content type for the whole message. The acceptable values for this parameter are: </p>
+  <p>• application/json </p>
+  <p>• application/xml </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">myInfo </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Complex </span>
+                    <span class="placement">T Mobile Subscriber’s Contact data structure. Ref Section 3.2.1 </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies AT\
+            </div>
+        </div>
+</div>
+    <header>Require Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">    </span>
+                    
+                    <span class="data-type">  </span>
+                    <span class="placement">     </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                  
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">date </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Date Time </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies Date and time the response was returned (in RFC1123 format). For example Date: Sun, 06 Nov 1994 08:49:37 GMT</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label"> </span>
+                    
+                    <span class="data-type">  </span>
+                    <span class="placement">     </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                  
+            </div>
+        </div>
+</div>
+</section></section>

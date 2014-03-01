@@ -1,0 +1,557 @@
+<section id="resources-get-contact-groups" class="level-2">
+        <header>Get contact groups</header>
+
+        <section id="resources-get-contact-groups-overview" class="level-3">
+            <header>Overview</header>
+            <p><p>The Get Contact Groups enables retrieving the list of groups a contact is belonging to. It takes a contact id as an argument and returns a list of groups. If contactId is invalid, this API will return an InvalidContactException. </p>
+<p>If sortField contains invalid parameters, it is ignored. Default sorting is based on groups’ creation date, most recent first.  </p>
+<p>Return:  </p>
+<ul> <li> If the call is successful, it returns a list of group’s data structure.  </li><li> InvalidContactException if the contact identifier is invalid.  </li><li> InvalidSubscriberException if the sub_id is incorrect or the subscriber’s account status is <strong> BLOCKED</strong>.  </li><li> SystemException for any other error.  </li></ul> </p>
+        </section>
+
+        <section id="resources-get-contact-groups-oauth" class="level-3">
+            <ul class="oauth">
+                <li><span>OAuth Scope</span></li>
+                <li><p><span>Scope:</span> AAB </p></li>
+                <li><p><span>Model:</span> OAuth authorization_code </p></li>
+            </ul>
+            <ul class="oauth">
+                <li><span>Resource</span></li>
+                <li class="code">
+                    <div class="code-block">
+                        <span class="copy-button" data-clipboard-text="/speechToText">copy</span>
+                        <pre>/speechToText</pre>
+                    </div>
+                </li>
+            </ul>
+        </section>
+                
+        <section id="resources-get-contact-groups-examples" class="level-3">
+            <header>Request Examples</header>
+            <div class="tabs">
+            <ul class="tab_nav">
+<li><a href="#json-Request-get-contact-groups"class="selected">JSON</a></li>
+<li><a href="#xml-Request-get-contact-groups">XML</a></li>
+
+        
+            </ul>
+        
+       <div id="json-Request-get-contact-groups" class="code">
+          <p></p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+GET /addressBook/v1/contacts/eb765de8-9ea1-4113-ada2-8080d3b674c4/groups?order=ASC&amp;orderBy=groupType&amp;limit=10&amp;offset=1 HTTP/1.1
+host: api.att.com
+accept: application/json
+authorization: Bearer abcdef12345678
+accept-encoding: gzip,deflate
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="xml-Request-get-contact-groups" class="code">
+          <p></p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+GET /addressBook/v1/contacts/eb765de8-9ea1-4113-ada2-8080d3b674c4/groups?order=ASC&amp;orderBy=groupType&amp;limit=10&amp;offset=1 HTTP/1.1
+host: api.att.com
+accept: application/xml
+authorization: Bearer abcdef12345678
+accept-encoding: gzip,deflate
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+<header>Response Examples</header>
+                        <div class="tabs">
+                        <ul class="tab_nav">
+<li><a href="#json-Response-get-contact-groups"class="selected">JSON</a></li>
+<li><a href="#xml-Response-get-contact-groups">XML</a></li>
+
+            </ul>
+        
+       <div id="json-Response-get-contact-groups" class="code">
+          <p></p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+HTTP/1.1 200 OK  
+cache-control: no-cache
+date: Thu, 04 Jun 2010 02:51:59 GMT 
+
+content-encoding : gzip,deflate
+content-length: 678 
+
+{
+   &quot;resultSet&quot;:{
+      &quot;currentPageIndex&quot;:&quot;2&quot;,
+      &quot;totalRecords&quot;:&quot;2&quot;,
+      &quot;totalPages&quot;:&quot;1&quot;,
+      &quot;previousPage&quot;:&quot;0&quot;,
+      &quot;nextPage&quot;:&quot;0&quot;,
+      &quot;groups&quot;:{
+         &quot;group&quot;:[
+            {
+               &quot;groupId&quot;:&quot;12345&quot;,
+               &quot;groupName&quot;:&quot;COLLEGE&quot;,
+               &quot;groupType&quot;:&quot;USER&quot;
+            },
+            {
+               &quot;groupId&quot;:&quot;12346&quot;,
+               &quot;groupName&quot;:&quot;SCHOOL&quot;,
+               &quot;groupType&quot;:&quot;USER&quot;
+            },
+            {
+               &quot;groupId&quot;:&quot;12347&quot;,
+               &quot;groupName&quot;:&quot;OFFICE&quot;,
+               &quot;groupType&quot;:&quot;USER&quot;
+            },
+            {
+               &quot;groupId&quot;:&quot;12348&quot;,
+               &quot;groupName&quot;:&quot;FAMILY&quot;,
+               &quot;groupType&quot;:&quot;USER&quot;
+            }
+         ]
+      }
+   }
+}
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="xml-Response-get-contact-groups" class="code">
+          <p></p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+HTTP/1.1 200 OK  
+cache-control: no-cache
+date: Thu, 04 Jun 2010 02:51:59 GMT 
+
+content-encoding : gzip,deflate
+content-length: 678
+
+&lt;resultSet&gt;
+   &lt;currentPageIndex&gt;2&lt;/currentPageIndex&gt;
+   &lt;totalRecords&gt;2&lt;/totalRecords&gt;
+   &lt;totalPages&gt;1&lt;/totalPages&gt;
+   &lt;previousPage&gt;0&lt;/previousPage&gt;
+   &lt;nextPage&gt;0&lt;/nextPage&gt;
+   &lt;groups&gt;
+      &lt;group&gt;
+         &lt;groupId&gt;12345&lt;/groupId&gt;
+         &lt;groupName&gt;COLLEGE&lt;/groupName&gt;
+         &lt;groupType&gt;USER&lt;/groupType&gt;
+      &lt;/group&gt;
+      &lt;group&gt;
+         &lt;groupId&gt;12346&lt;/groupId&gt;
+         &lt;groupName&gt;SCHOOL&lt;/groupName&gt;
+         &lt;groupType&gt;USER&lt;/groupType&gt;
+      &lt;/group&gt;
+      &lt;group&gt;
+         &lt;groupId&gt;12347&lt;/groupId&gt;
+         &lt;groupName&gt;OFFICE&lt;/groupName&gt;
+         &lt;groupType&gt;USER&lt;/groupType&gt;
+      &lt;/group&gt;
+      &lt;group&gt;
+         &lt;groupId&gt;12348&lt;/groupId&gt;
+         &lt;groupName&gt;FAMILY&lt;/groupName&gt;
+         &lt;groupType&gt;USER&lt;/groupType&gt;
+      &lt;/group&gt;
+   &lt;/groups&gt;
+&lt;/resultSet&gt;
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+        </section><!--end of example-->
+
+<section id="resources-get-contact-groups-parameters" class="level-3">
+    <header>Request Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   accept </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the format of the body of the response. Valid values are: </p>
+ <ul> </li>
+<li> <p>application/json </p>
+ </li>
+<li> <p>application/xml </p>
+ </li></ul> <p>The default value is application/json. Per rfc2616: \textquotedbl{}If no Accept header field is present, then it is assumed that the client accepts all media types.\textquotedbl{} By default our services return application/json. </p>
+  <p>Normal Accept header processing rules shall be followed according to rfc2616. </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">accept-encoding </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies accept encoding format </p>
+  <p>gzip,deflate </p>
+  <p>When this header is present, the gateway should compress the response to indicate the client that response is in compressed format </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">authorization </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies \textquotedbl{}Bearer\textquotedbl{} + OAuth Token – access\_token. If the Authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-type </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the representation format for the request. This is the content type for the </p>
+\textbf<p>whole</p>
+<p> message. The acceptable values for this parameter are: </p>
+ <ul> </li>
+<li> <p>application/json </p>
+ </li>
+<li> <p>application/xml </p>
+</li></ul>  
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">contactId </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String </span>
+                    <span class="placement"> URI    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies subscriber contact ID. Note : Should not use </p>
+\textbf<p>“me”</p>
+<p> in URI to retrieve My User Profile data model. </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">\multicolumn{5}{|l}{\textbfPagination Parameters – Invalid pagination parameter values should return empty list.}    </span>
+                    
+                    <span class="data-type"></span>
+                    <span class="placement"></span>
+                </div>
+            </div>
+            <div class="grid-right">
+                
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">order </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Query String    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the output sorting order. Valid values are </p>
+ <ul> </li>
+<li> <p>ASC – ascending (Default) </p>
+ </li>
+<li> <p>DESC – descending. </p>
+</li></ul>  
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">orderBy </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Query String    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the field name to be used for ordering the result set. Default sorting is based on group’s creation date.</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">limit </span>
+                    
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> Query String    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Indicates limit value. Must be equal to or greater than 1, if not specifies default as 10. </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">offset </span>
+                    
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> Query String    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Indicates offset value. Defaults to 1, if no explicit value is specified.</p>
+ 
+            </div>
+        </div>
+</div>
+    <header>Require Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   cache-control </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies whether the response can be cached. The response should be </p>
+\textbf<p>no-cache</p>
+<p> since we don’t currently don’t support caching</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">date </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Date Time </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies Date and time the response was returned (in RFC1123 format). For example Date: Sun, 06 Nov 1994 08:49:37 GMT</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label"> </span>
+                    
+                    <span class="data-type">  </span>
+                    <span class="placement">     </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                  
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-encoding </span>
+                    
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies content encoding </p>
+  <p>gzip,deflate </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-length </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Indicates length of the request body in octets (8-bit bytes)</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">resultSet </span>
+                    
+                    <span class="data-type"> Complex </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Contains output of the operation. (i.e.) list of group data models with pagination parameters.</p>
+ 
+            </div>
+        </div>
+</div>
+    <header>Object-ResultSetGroup Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   totalRecords </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Indicates total number of contacts returned</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">totalPages </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Indicates total number of pages</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">currentPageIndex </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Indicates current page index</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">previousPage </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Indicates previous page</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">nextPage </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Integer </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Indicates next page </p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">groups </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> List of Group objects </span>
+                    <span class="placement"> Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies list of Group data structure. </p>
+ 
+            </div>
+        </div>
+</div>
+</section></section>

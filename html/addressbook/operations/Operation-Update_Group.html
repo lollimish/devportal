@@ -1,0 +1,210 @@
+<section id="resources-update-group" class="level-2">
+        <header>Update group</header>
+
+        <section id="resources-update-group-overview" class="level-3">
+            <header>Overview</header>
+            <p><p>The Update Group method enables updating an existing USER group identified by its Group ID and group ID is mandatory in a group.  </p>
+<p>If this UID is invalid or is a SYSTEM group’s UID, this API will return an InvalidGroupException. If group contains a non-empty name, this name will override the one server side if no already existing group has this name in subscriber’s address book. If a group already exists with this name, CSAB will return an InvalidGroupException (groups names are compared without taking into account the case). </p>
+<p>If group contains an empty name, this API will return an InvalidGroupException. </p>
+<p>If group does not contain a name, it will leave unchanged the name on the server side.  </p>
+<p>Return:  </p>
+<ul> <li> If successful, an empty envelope with an HTTP code of 204. </li><li> InvalidSubscriberException if the sub_id is incorrect or the subscriber’s account status is <strong> BLOCKED</strong>.  </li><li> InvalidContactException if one of the contacts UID is not valid.  </li><li> InvalidGroupException if the group UID is not valid.  </li><li> SystemException for any other error.  </li></ul> </p>
+        </section>
+
+        <section id="resources-update-group-oauth" class="level-3">
+            <ul class="oauth">
+                <li><span>OAuth Scope</span></li>
+                <li><p><span>Scope:</span> AAB </p></li>
+                <li><p><span>Model:</span> OAuth authorization_code </p></li>
+            </ul>
+            <ul class="oauth">
+                <li><span>Resource</span></li>
+                <li class="code">
+                    <div class="code-block">
+                        <span class="copy-button" data-clipboard-text="/speechToText">copy</span>
+                        <pre>/speechToText</pre>
+                    </div>
+                </li>
+            </ul>
+        </section>
+                
+        <section id="resources-update-group-examples" class="level-3">
+            <header>Request Examples</header>
+            <div class="tabs">
+            <ul class="tab_nav">
+<li><a href="#json-Request-update-group"class="selected">JSON</a></li>
+<li><a href="#xml-Request-update-group">XML</a></li>
+
+        
+            </ul>
+        
+       <div id="json-Request-update-group" class="code">
+          <p></p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+PATCH /addressBook/v1/groups/8080d3b674c4 HTTP/1.1 
+host: api.att.com 
+authorization: Bearer abcdef12345678 
+content-type: application/json 
+
+{
+   &quot;group&quot;:{
+      &quot;groupName&quot;:&quot;COLLEGE&quot;
+   }
+} 
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="xml-Request-update-group" class="code">
+          <p></p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+PATCH /addressBook/v1/groups/8080d3b674c4 HTTP/1.1
+host: api.att.com 
+authorization: Bearer abcdef12345678 
+content-type: application/xml
+
+&lt;group&gt;
+   &lt;groupName&gt;COLLEGE&lt;/groupName&gt;
+&lt;/group&gt; 
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+<header>Response Examples</header>
+                        <div class="tabs">
+                        <ul class="tab_nav">
+<li><a href="#-Response-update-group"class="selected">Example</a></li>
+
+            </ul>
+        
+       <div id="-Response-update-group" class="code">
+          <p></p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+HTTP/1.1 204 No Content  
+
+date: Thu, 04 Jun 2010 02:51:59 GMT  
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+        </section><!--end of example-->
+
+<section id="resources-update-group-parameters" class="level-3">
+    <header>Request Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   authorization </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies \textquotedbl{}Bearer\textquotedbl{} + OAuth Token – access\_token. If the Authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-type </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the representation format for the request. This is the content type for the </p>
+\textbf<p>whole</p>
+<p> message. The acceptable values for this parameter are: </p>
+ <ul> </li>
+<li> <p>application/json </p>
+ </li>
+<li> <p>application/xml </p>
+</li></ul>  
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">group </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Complex </span>
+                    <span class="placement"> Body     </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the subscriber’s contact group object</p>
+ 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">groupId </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> String </span>
+                    <span class="placement"> URI    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies the group’s identifiers to be update. </p>
+ 
+            </div>
+        </div>
+</div>
+    <header>Require Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   date </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type"> Date Time </span>
+                    <span class="placement"> Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                 <p>Specifies Date and time the response was returned (in RFC1123 format). For example Date: Sun, 06 Nov 1994 08:49:37 GMT</p>
+ 
+            </div>
+        </div>
+</div>
+</section></section>

@@ -65,7 +65,7 @@
 
                 <div id="att-header" class="container">
                     <?php
-                    include 'functions.php';
+                    include 'functions/functions.php';
                     $api = isset($_POST['api']) ? trim($_POST['api']) : 'locker';
                     if (!file_exists('html/' . $api)) {
                         echo "<center>API not exsist. <a href=index.php>Main page</a></center>";

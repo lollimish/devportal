@@ -1,6 +1,6 @@
 <?php
 
-include 'functions.php';
+include 'functions/functions.php';
 $list = '../list/list.txt';
 
 if (isset($_POST['api'])) {
