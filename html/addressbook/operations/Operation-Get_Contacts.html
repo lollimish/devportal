@@ -295,10 +295,10 @@ content-length: 678
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">   accept</span>
+                    <span class="label">accept</span>
                     
                     <span class="data-type">String</span>
-                    <span class="placement">Header     </span>
+                    <span class="placement">Header</span>
                 </div>
             </div>
             <div class="grid-right">
@@ -311,7 +311,7 @@ content-length: 678
                     <span class="label">accept-encoding</span>
                     
                     <span class="data-type">String</span>
-                    <span class="placement">Header     </span>
+                    <span class="placement">Header</span>
                 </div>
             </div>
             <div class="grid-right">
@@ -325,7 +325,7 @@ content-length: 678
                     <span class="required form-icon"></span>
 
                     <span class="data-type">String</span>
-                    <span class="placement">Header     </span>
+                    <span class="placement">Header</span>
                 </div>
             </div>
             <div class="grid-right">
@@ -339,258 +339,11 @@ content-length: 678
                     <span class="required form-icon"></span>
 
                     <span class="data-type">String</span>
-                    <span class="placement">Header     </span>
+                    <span class="placement">Header</span>
                 </div>
             </div>
             <div class="grid-right">
                 <p>Specifies the representation format for the request. This is the content type for the <strong> whole</strong> message. The acceptable values for this parameter are: </p><p>• application/json </p><p>• application/xml </p>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label">multicolumn{5}{|l}{textbfOutput filters}     </span>
-                    
-                    <span class="data-type"></span>
-                    <span class="placement"></span>
-                </div>
-            </div>
-            <div class="grid-right">
-                <p>Specifies the representation format for the request. This is the content type for the <strong> whole</strong> message. The acceptable values for this parameter are: </p><p>• application/json </p><p>• application/xml </p>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label">x-fields</span>
-                    
-                    <span class="data-type">String</span>
-                    <span class="placement">Header     </span>
-                </div>
-            </div>
-            <div class="grid-right">
-                <p>Specifies String of comma %2C (,) delimited field names that are expected on the response. These field names should match the Contact object. Ref 3.2.1.</p><p>Accepted options: </p><p>1) <strong> x-fields: shallow (OR)</strong> shallow – Returns QuickContact Data model. If one or more search param are present in the request, then the x-fields value should set to shallow. </p><p>2) <strong> x-fields: [</strong>attribute names from Contact data structure Ref 3.2.1 with comma separated ] textbf[OR] </p><p>3) <strong> x-fields:<empty value> (OR) no x-field header parameter</strong> Returns all contacts will return all the attributes</p><p>Note: </p><p>a) Should use only one of the above options.</p><p>b) Combining options 1, 2, 3 are invalid. Return full contact object for this condition.</p><p>c) If a request contains search param and x-fields: [attribute names] or x-fields: <empty> or no x-fields header param, then default value for the x-fields is shallow [x-fields: shallow] should set in the request without returning any exception. </p>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label">multicolumn{5}{|l}{textbfPagination Parameters – Invalid pagination parameter values should return empty list.}     </span>
-                    
-                    <span class="data-type"></span>
-                    <span class="placement"></span>
-                </div>
-            </div>
-            <div class="grid-right">
-                <p>Specifies String of comma %2C (,) delimited field names that are expected on the response. These field names should match the Contact object. Ref 3.2.1.</p><p>Accepted options: </p><p>1) <strong> x-fields: shallow (OR)</strong> shallow – Returns QuickContact Data model. If one or more search param are present in the request, then the x-fields value should set to shallow. </p><p>2) <strong> x-fields: [</strong>attribute names from Contact data structure Ref 3.2.1 with comma separated ] textbf[OR] </p><p>3) <strong> x-fields:<empty value> (OR) no x-field header parameter</strong> Returns all contacts will return all the attributes</p><p>Note: </p><p>a) Should use only one of the above options.</p><p>b) Combining options 1, 2, 3 are invalid. Return full contact object for this condition.</p><p>c) If a request contains search param and x-fields: [attribute names] or x-fields: <empty> or no x-fields header param, then default value for the x-fields is shallow [x-fields: shallow] should set in the request without returning any exception. </p>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label">order</span>
-                    
-                    <span class="data-type">String</span>
-                    <span class="placement">Query String     </span>
-                </div>
-            </div>
-            <div class="grid-right">
-                <p>Specifies the output sorting order. Valid values are </p><p>• ASC – ascending (Default) </p><p>• DESC – descending. </p>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label">orderBy</span>
-                    
-                    <span class="data-type">String</span>
-                    <span class="placement">Query String     </span>
-                </div>
-            </div>
-            <div class="grid-right">
-                <p>Specifies the field name to be used for ordering the result set.</p>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label">pageSize</span>
-                    
-                    <span class="data-type">Integer</span>
-                    <span class="placement">Query String     </span>
-                </div>
-            </div>
-            <div class="grid-right">
-                <p>Indicates page size. Must be equal to or greater than 1, if not specifies default as 10. </p>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label">pageNo</span>
-                    
-                    <span class="data-type">Integer</span>
-                    <span class="placement">Query String     </span>
-                </div>
-            </div>
-            <div class="grid-right">
-                <p>Indicates page number. . Must be greater than 0, if not specifies default as 1.</p>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label">multicolumn{5}{|l}{textbfSearch Parameters}     </span>
-                    
-                    <span class="data-type"></span>
-                    <span class="placement"></span>
-                </div>
-            </div>
-            <div class="grid-right">
-                <p>Indicates page number. . Must be greater than 0, if not specifies default as 1.</p>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label">formattedName</span>
-                    
-                    <span class="data-type">String</span>
-                    <span class="placement">Query String     </span>
-                </div>
-            </div>
-            <div class="grid-right">
-                <p>Specifies formatted name and it is derived information.</p>textbfPersonal type : “prefix firstName middleName lastName suffix”  textbfBusiness type : organization 
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label">firstName</span>
-                    
-                    <span class="data-type">String</span>
-                    <span class="placement">Query String     </span>
-                </div>
-            </div>
-            <div class="grid-right">
-                <p>Specifies first name of the contact. Mandatory if contact type is Personal</p>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label">lastName</span>
-                    
-                    <span class="data-type">String</span>
-                    <span class="placement">Query String     </span>
-                </div>
-            </div>
-            <div class="grid-right">
-                <p>Specifies middle name of the contact</p>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label">nickName</span>
-                    
-                    <span class="data-type">String</span>
-                    <span class="placement">Query String     </span>
-                </div>
-            </div>
-            <div class="grid-right">
-                <p>Specifies alternate name or familiar form of proper name</p>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label">email</span>
-                    
-                    <span class="data-type">String</span>
-                    <span class="placement">Query String     </span>
-                </div>
-            </div>
-            <div class="grid-right">
-                <p>Specifies Email addresses associated with the contact such as official mail address, personal mail address etc.</p>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label">phone</span>
-                    
-                    <span class="data-type">String</span>
-                    <span class="placement">Query String     </span>
-                </div>
-            </div>
-            <div class="grid-right">
-                <p>Specifies Phone numbers associated with the contacts, such as Personal phone number, office phone number. Can provide multiple phone numbers separated by a “%2c” (,) to a maximum of 5 numbers.</p>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label">organization</span>
-                    
-                    <span class="data-type">String</span>
-                    <span class="placement">Query String     </span>
-                </div>
-            </div>
-            <div class="grid-right">
-                <p>Specifies Organization name. </p>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label">addressLine1</span>
-                    
-                    <span class="data-type">String</span>
-                    <span class="placement">Query String     </span>
-                </div>
-            </div>
-            <div class="grid-right">
-                <p>Specifies Street Address Line 1</p>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label">addressLine2</span>
-                    
-                    <span class="data-type">String</span>
-                    <span class="placement">Query String     </span>
-                </div>
-            </div>
-            <div class="grid-right">
-                <p>Specifies Street Address Line 2</p>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label">city</span>
-                    
-                    <span class="data-type">String</span>
-                    <span class="placement">Query String     </span>
-                </div>
-            </div>
-            <div class="grid-right">
-                <p>Specifies City</p>
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
-                    <span class="label">zipcode</span>
-                    
-                    <span class="data-type">String</span>
-                    <span class="placement">Query String     </span>
-                </div>
-            </div>
-            <div class="grid-right">
-                <p>Specifies State</p>
             </div>
         </div>
 </div>
@@ -609,11 +362,11 @@ content-length: 678
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">   cache-control</span>
+                    <span class="label">cache-control</span>
                     <span class="required form-icon"></span>
 
                     <span class="data-type">String</span>
-                    <span class="placement">Header     </span>
+                    <span class="placement">Header</span>
                 </div>
             </div>
             <div class="grid-right">
@@ -627,7 +380,7 @@ content-length: 678
                     <span class="required form-icon"></span>
 
                     <span class="data-type">Date Time</span>
-                    <span class="placement">Header     </span>
+                    <span class="placement">Header</span>
                 </div>
             </div>
             <div class="grid-right">
@@ -637,23 +390,10 @@ content-length: 678
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label"></span>
-                    
-                    <span class="data-type"></span>
-                    <span class="placement">     </span>
-                </div>
-            </div>
-            <div class="grid-right">
-                
-            </div>
-        </div>
-        <div class="grid-row">
-            <div class="identifier">
-                <div class="parameter">
                     <span class="label">content-encoding</span>
                     
                     <span class="data-type">String</span>
-                    <span class="placement">Header     </span>
+                    <span class="placement">Header</span>
                 </div>
             </div>
             <div class="grid-right">
@@ -667,7 +407,7 @@ content-length: 678
                     <span class="required form-icon"></span>
 
                     <span class="data-type">Integer</span>
-                    <span class="placement">Header     </span>
+                    <span class="placement">Header</span>
                 </div>
             </div>
             <div class="grid-right">
@@ -680,7 +420,7 @@ content-length: 678
                     <span class="label">resultSet</span>
                     
                     <span class="data-type">Object</span>
-                    <span class="placement">Body     </span>
+                    <span class="placement">Body</span>
                 </div>
             </div>
             <div class="grid-right">
@@ -703,11 +443,11 @@ content-length: 678
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">   totalRecords</span>
+                    <span class="label">totalRecords</span>
                     <span class="required form-icon"></span>
 
                     <span class="data-type">Integer</span>
-                    <span class="placement">Body     </span>
+                    <span class="placement">Body</span>
                 </div>
             </div>
             <div class="grid-right">
@@ -721,7 +461,7 @@ content-length: 678
                     <span class="required form-icon"></span>
 
                     <span class="data-type">Integer</span>
-                    <span class="placement">Body     </span>
+                    <span class="placement">Body</span>
                 </div>
             </div>
             <div class="grid-right">
@@ -735,7 +475,7 @@ content-length: 678
                     <span class="required form-icon"></span>
 
                     <span class="data-type">Integer</span>
-                    <span class="placement">Body     </span>
+                    <span class="placement">Body</span>
                 </div>
             </div>
             <div class="grid-right">
@@ -749,7 +489,7 @@ content-length: 678
                     <span class="required form-icon"></span>
 
                     <span class="data-type">Integer</span>
-                    <span class="placement">Body     </span>
+                    <span class="placement">Body</span>
                 </div>
             </div>
             <div class="grid-right">
@@ -763,7 +503,7 @@ content-length: 678
                     <span class="required form-icon"></span>
 
                     <span class="data-type">Integer</span>
-                    <span class="placement">Body     </span>
+                    <span class="placement">Body</span>
                 </div>
             </div>
             <div class="grid-right">
@@ -776,7 +516,7 @@ content-length: 678
                     <span class="label">contacts</span>
                     
                     <span class="data-type">List of Contact objects</span>
-                    <span class="placement">Body     </span>
+                    <span class="placement">Body</span>
                 </div>
             </div>
             <div class="grid-right">
@@ -789,7 +529,7 @@ content-length: 678
                     <span class="label">quickContacts</span>
                     
                     <span class="data-type">List of QuickContact objects</span>
-                    <span class="placement">Body     </span>
+                    <span class="placement">Body</span>
                 </div>
             </div>
             <div class="grid-right">

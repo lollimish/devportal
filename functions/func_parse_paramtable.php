@@ -47,10 +47,10 @@ EOD;
     $description = '';
     $loc = '';
     foreach ($paramTbl as $line) {
-        if (substr($line, 0, 6) === '\hline' || startsWith($line, ' &')) {
+        if (substr($line, 0, 6) === '\hline') {
             $count++;
         }
-        if ($count >= 1) {
+        if ($count >= 1 && !startsWith($line, ' & ')) {
             $rowopen = true;
             $row .= $line;
             if ($rowopen && substr($line, 0, 6) === '\hline') {
@@ -59,15 +59,14 @@ EOD;
                     $row = noCommet($row);
                     //take out notes
                     $row = str_replace('\emph{\footnotesize{Note}}{\footnotesize{:', '<br><p><span style="font-style: italic">Note</span>: ', $row);
-                    $row = str_replace(array("\n", '\hline', '%{}', '\emph'), ' ', $row);
+                    $row = str_replace(array('\hline', '%{}', '\emph', "\n"), ' ', $row);
                     $cell = explode(' & ', $row);
                     for ($c = 0; $c < 5; $c++) {
                         if (isset($cell[$c])) {
-                            $cell[$c] = str_replace(array('\tabularnewline'), ' ', $cell[$c]);
+                            $cell[$c] = trim(str_replace(array('\tabularnewline'), ' ', $cell[$c]));
                             if ($c !== 3) {
-                                $cell[$c] = str_replace(array('{\footnotesize{', '}}'), "", $cell[$c]);
+                                $cell[$c] = trim(str_replace(array('{\footnotesize{', '}}'), "", $cell[$c]));
                             } else {
-
                                 $cell[3] = parseDesc(trim($cell[3]));
                                 $desc = '';
                                 foreach ($cell[3] as $d) {
@@ -84,13 +83,12 @@ EOD;
                     } else {
                         $req = '';
                     }
-
-                    $parameter = isset($cell[0]) ? $cell[0] : '';
-                    $datatype = isset($cell[1]) ? $cell[1] : '';
-                    $loc = isset($cell[4]) ? $cell[4] : '';
-                    $description = $desc;
-
-                    $content = <<<"EOD"
+                    $parameter = isset($cell[0]) ? trim($cell[0]) : '';
+                    $datatype = isset($cell[1]) ? trim($cell[1]) : '';
+                    $loc = isset($cell[4]) ? trim($cell[4]) : '';
+                    $description = isset($desc)?$desc:'';
+                    if ($parameter !== '' && strpos($parameter,'multicolumn')===false) {
+                                            $content = <<<"EOD"
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
@@ -107,9 +105,12 @@ EOD;
 EOD;
                     writehtml($content, $outputfile);
                     $row = '';
+                        
+                    }
                 }
             }
         }
+//        var_dump($cell);
     }
 
     writehtml('</div>', $outputfile);

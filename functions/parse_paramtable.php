@@ -2,6 +2,7 @@
 
 //php parse_paramtable.php ../apis/locker/InputParam-Add_Tracks_To_Playlist.tex html/param.html
 //php parse_paramtable.php ../../apis/addressbook/OutputParam-Get_Contact_Groups.tex ../html/param.html
+//php parse_paramtable.php ../../apis/addressbook/InputParam-Get_Contact_Groups.tex ../html/param.html
 
 
 if (isset($argv)) {
