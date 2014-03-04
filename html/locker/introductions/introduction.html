@@ -1,31 +1,27 @@
         
 <section id="introduction" class="level-1">
-    <header>1. Introduction</header>
+    <header>1. Introductiontest</header>
     <section id="introduction-overview" class="level-2">
     <header>Overview</header>
         
-<p><p>AT&T Locker API gives authorized applications the ability to store, socialize and share user content that resides on users PC and Devices. This document gives on overview of Locker API, Payload structure, Errors returned, etc that will help a client developer build Locker client application. This document lists how to invoke API’s but doesn’t discuss orchestrating the API’s to make a business function.  </p>
-<p>
+<p>AT&T Locker API gives authorized applications the ability to store, socialize and share user content that resides on users PC and Devices. This document gives on overview of Locker API, Payload structure, Errors returned, etc that will help a client developer build Locker client application. This document lists how to invoke API’s but doesn’t discuss orchestrating the API’s to make a business function.  </p>
+
 </section>
         
     <section id="introduction-considerations" class="level-2">
     <header>Considerations</header>
         
-<p><p>AT&T Locker API gives authorized applications the ability to store, socialize and share user content that resides on users PC and Devices. This Interface Document (IA) gives on overview of Locker API, Payload structure, Errors returned, etc that will help a client developer build Locker client application. This document lists how to invoke API’s but doesn’t discuss orchestrating the API’s to make a business function. The Getting Started Guide and Sequence Diagrams (not included here) will give a good overview of how to orchestrate these API’s to make a business function. </p>
-<p><p><p>\subsection*{HTTP Method Override} </p>
-<p><p><p>If the calling client does not support HTTP DELETE, PATCH and/or PUT, the client may use the following header and call the API using HTTP POST  </p>
-<p><p><p>x-http-method-override: DELETE  </p>
-<p><p><p>or  </p>
-<p><p><p>x-http-method-override: PATCH </p>
-<p><p><p>or </p>
-<p><p><p>x-http-method-override: PUT </p>
-<p><p><p>\subsection*{XML Declaration} </p>
-<p><p><p>The XML documentation declaration shall be optional for requests that have an XML body, but shall be required for responses that have an XML body. </p>
-<p><p><p>\subsection*{Source Device IP Address} </p>
-<p><p><p>The APIGW shall retrieve the source device IP address and send that with every request to the Locker enabler set in the HTTP header \emph{device-remote-address} </p>
-<p><p><p>\subsection*{Input and Output Parameters} </p>
-<p><p><p>All input parameters shall be case insensitive. Output parameters shall be returned as documented. </p>
-<p>
+<p>AT&T Locker API gives authorized applications the ability to store, socialize and share user content that resides on users PC and Devices. This Interface Document (IA) gives on overview of Locker API, Payload structure, Errors returned, etc that will help a client developer build Locker client application. This document lists how to invoke API’s but doesn’t discuss orchestrating the API’s to make a business function. The Getting Started Guide and Sequence Diagrams (not included here) will give a good overview of how to orchestrate these API’s to make a business function. </p>
+<h5>HTTP Method Override</h5> <p>If the calling client does not support HTTP DELETE, PATCH and/or PUT, the client may use the following header and call the API using HTTP POST  </p>
+<p>x-http-method-override: DELETE  </p>
+<p>or  </p>
+<p>x-http-method-override: PATCH </p>
+<p>or </p>
+<p>x-http-method-override: PUT </p>
+<h5>XML Declaration</h5> <p>The XML documentation declaration shall be optional for requests that have an XML body, but shall be required for responses that have an XML body. </p>
+<h5>Source Device IP Address</h5> <p>The APIGW shall retrieve the source device IP address and send that with every request to the Locker enabler set in the HTTP header <strong> device-remote-address</strong> </p>
+<h5>Input and Output Parameters</h5> <p>All input parameters shall be case insensitive. Output parameters shall be returned as documented. </p>
+
 </section>
         
     <section id="introduction-provisioning" class="level-2">

@@ -9,16 +9,14 @@ function parse_introduction($inputfile, $outputfile) {
     $intro = findSec($inputfile, 'Introduction', 'section', '\subsection{Audience}');
     foreach ($intro as $line) {
         if (!startsWith($line, '\subsection{Audience}') && !startsWith($line, '\input')) {
-            $line = '<p>' . $line . '<p>';
             $introduction .= $line;
         }
     }
-    $introduction = getItem($introduction);
-    $introduction = str_replace('\&', "&", $introduction);
+
     $content = <<<"EOD"
         
 <section id="introduction" class="level-1">
-    <header>1. Introduction</header>
+    <header>1. Introductiontest</header>
     <section id="introduction-overview" class="level-2">
     <header>Overview</header>
         
@@ -27,6 +25,7 @@ EOD;
     writehtml($content, $outputfile);
     writehtml($introduction, $outputfile);
     writehtml("</section>", $outputfile);
+    
     //consideration
     $content = <<<"EOD"
         
@@ -38,29 +37,16 @@ EOD;
     $rest = array();
     $restful = '';
     $rest = findSec($inputfile, 'RESTful Web Services Definition', 'section', '\subsection{REST Operation Summary}');
-    $count = 0;
+
     $hasLevel3 = false;
     foreach ($rest as $line) {
-
+        $restful .= $line;
         if (startsWith($line, '\subsection*')) {
             $count++;
             $hasLevel3 = true;
-
-            if ($count === 1) {
-                $line = str_replace("\\subsection*{", "<section class=\"level-3\">\n<header>", $line);
-            }
-            $line = str_replace("\\subsection*{", "</section>\n<section class=\"level-3\">\n<header>", $line);
-            $line = str_replace('}', "</header>\n", $line);
-        }
-        if (!startsWith($line, '\subsection{REST Operation Summary}')) {
-            $line = '<p>' . $line . '<p>';
-            $restful .= $line;
-        } else {
-            break;
         }
     }
-    $restful = getItem($restful);
-    $restful = str_replace(array("\n\n"), "<br>", $restful);
+
     writehtml($restful, $outputfile);
     if ($hasLevel3) {
         writehtml("</section>", $outputfile);
@@ -91,3 +77,4 @@ EOD;
     writehtml("</section>", $outputfile);
     writehtml("</section>", $outputfile);
 }
+//

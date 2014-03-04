@@ -5,7 +5,8 @@
             <header>Overview</header>
             <p><p>The Delete Group method enables deleting a list of groups. If an UID provided in the request is not valid, then this API will return an InvalidGroupException and no group will be removed. If the UID of the Favorites SYSTEM group is passed, this API will return an InvalidGroupException and no group will be removed.  </p>
 <p>Return: </p>
-<ul> <li> If the call is successful, an empty envelope with an HTTP code of 204 will be returned.  </li><li> If the subscriber number is incorrect or the subscriber’s account status is <strong> BLOCKED</strong> then return InvalidSubscriberException. </li><li> If an invalid group UID is present in the array, then return InvalidGroupException.  </li><li> If any other error, then the SystemException will be returned.  </li></ul> </p>
+<ul> <li> If the call is successful, an empty envelope with an HTTP code of 204 will be returned.  </li><li> If the subscriber number is incorrect or the subscriber’s account status is <strong> BLOCKED</strong> then return InvalidSubscriberException. </li><li> If an invalid group UID is present in the array, then return InvalidGroupException.  </li><li> If any other error, then the SystemException will be returned.  </li></ul>
+</p>
         </section>
 
         <section id="resources-delete-group-oauth" class="level-3">
@@ -100,31 +101,29 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">   authorization </span>
+                    <span class="label">   authorization</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> String </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">String</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies \textquotedbl{}Bearer\textquotedbl{} + OAuth Token – access\_token. If the Authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
- 
+                <p>Specifies textquotedblBearertextquotedbl + OAuth Token – access_token. If the Authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">groupId </span>
+                    <span class="label">groupId</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> String </span>
-                    <span class="placement"> URI    </span>
+                    <span class="data-type">String</span>
+                    <span class="placement">URI     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies group id to delete. </p>
- 
+                <p>Specifies group id to delete. </p>
             </div>
         </div>
 </div>
@@ -143,16 +142,15 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">   date </span>
+                    <span class="label">   date</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> Date Time </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">Date Time</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies Date and time the response was returned (in RFC1123 format). For example Date: Sun, 06 Nov 1994 08:49:37 GMT</p>
- 
+                <p>Specifies Date and time the response was returned (in RFC1123 format). For example Date: Sun, 06 Nov 1994 08:49:37 GMT</p>
             </div>
         </div>
 </div>

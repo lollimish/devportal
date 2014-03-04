@@ -2,18 +2,18 @@
 
 function parse_paramtable($inputfile, $outputfile) {
     //append to outputfile
-    
+
     $type = '';
     if (strpos($inputfile, 'Input') !== false) {
         $type = 'Request';
     } elseif (strpos($inputfile, 'Output') !== false) {
         $type = 'Require';
-    }elseif(strpos($inputfile, 'Object') !== false) {
+    } elseif (strpos($inputfile, 'Object') !== false) {
         $path = explode('/', $inputfile);
-        $file = explode('.', $path[count($path)-1]);
-        if(startsWith($file[0], 'Object-content_')){
-            $type = ucfirst(substr($file[0],15))." Object";
-        }else{
+        $file = explode('.', $path[count($path) - 1]);
+        if (startsWith($file[0], 'Object-content_')) {
+            $type = ucfirst(substr($file[0], 15)) . " Object";
+        } else {
             $type = $file[0];
         }
     }
@@ -47,7 +47,7 @@ EOD;
     $description = '';
     $loc = '';
     foreach ($paramTbl as $line) {
-        if (substr($line, 0, 6) === '\hline') {
+        if (substr($line, 0, 6) === '\hline' || startsWith($line, ' &')) {
             $count++;
         }
         if ($count >= 1) {
@@ -60,26 +60,36 @@ EOD;
                     //take out notes
                     $row = str_replace('\emph{\footnotesize{Note}}{\footnotesize{:', '<br><p><span style="font-style: italic">Note</span>: ', $row);
                     $row = str_replace(array("\n", '\hline', '%{}', '\emph'), ' ', $row);
-                    $cell = explode('&', $row);
+                    $cell = explode(' & ', $row);
                     for ($c = 0; $c < 5; $c++) {
-                        $cell[$c] = str_replace(array('\tabularnewline'), '', $cell[$c]);
-                        if ($c !== 3) {
-                            $cell[$c] = str_replace(array('{\footnotesize{', '}}'), "", $cell[$c]);
+                        if (isset($cell[$c])) {
+                            $cell[$c] = str_replace(array('\tabularnewline'), ' ', $cell[$c]);
+                            if ($c !== 3) {
+                                $cell[$c] = str_replace(array('{\footnotesize{', '}}'), "", $cell[$c]);
+                            } else {
+
+                                $cell[3] = parseDesc(trim($cell[3]));
+                                $desc = '';
+                                foreach ($cell[3] as $d) {
+                                    $desc .= $d;
+                                }
+                            }
                         } else {
-                            $cell[$c] = str_replace('{\footnotesize{', "<p>", $cell[$c]);
-                            $cell[$c] = str_replace(array('}}{\footnotesize \par}', '}}'), "</p>\n", $cell[$c]);
+                            continue;
                         }
                     }
-                    $temp = trim($cell[2]);
+                    $temp = isset($cell[2]) ? trim($cell[2]) : '';
                     if (startsWith(strtolower($temp), 'y')) {
                         $req = "<span class=\"required form-icon\"></span>\r\n";
                     } else {
                         $req = '';
                     }
-                    $parameter = $cell[0];
-                    $datatype = $cell[1];
-                    $loc = $cell[4];
-                    $description = parseParagraph($cell[3]);
+
+                    $parameter = isset($cell[0]) ? $cell[0] : '';
+                    $datatype = isset($cell[1]) ? $cell[1] : '';
+                    $loc = isset($cell[4]) ? $cell[4] : '';
+                    $description = $desc;
+
                     $content = <<<"EOD"
         <div class="grid-row">
             <div class="identifier">
@@ -103,5 +113,4 @@ EOD;
     }
 
     writehtml('</div>', $outputfile);
-
 }

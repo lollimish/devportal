@@ -1,0 +1,349 @@
+<section id="resources-get-account-info" class="level-2">
+        <header>Get account info</header>
+
+        <section id="resources-get-account-info-overview" class="level-3">
+            <header>Overview</header>
+            <p><p>Returns account information including usage, quota and a breakdown of images, movies, music and files. All are in bytes.  </p>
+</p>
+        </section>
+
+        <section id="resources-get-account-info-oauth" class="level-3">
+            <ul class="oauth">
+                <li><span>OAuth Scope</span></li>
+                <li><p><span>Scope:</span> LOCKER </p></li>
+                <li><p><span>Model:</span> OAuth authorization_code </p></li>
+            </ul>
+            <ul class="oauth">
+                <li><span>Resource</span></li>
+                <li class="code">
+                    <div class="code-block">
+                        <span class="copy-button" data-clipboard-text="/speechToText">copy</span>
+                        <pre>/speechToText</pre>
+                    </div>
+                </li>
+            </ul>
+        </section>
+                
+        <section id="resources-get-account-info-examples" class="level-3">
+            <header>Request Examples</header>
+            <div class="tabs">
+            <ul class="tab_nav">
+<li><a href="#et-account-infomation-Request-get-account-info"class="selected">ET account infomation</a></li>
+
+        
+            </ul>
+        
+       <div id="et-account-infomation-Request-get-account-info" class="code">
+          <p>This demonstrates how to get account information, and specifying the response to be in XML. </p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+GET /locker/v1/account HTTP/1.1 
+host: api.att.com
+authorization: Bearer abcdef12345678
+accept: application/xml
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+<header>Response Examples</header>
+                        <div class="tabs">
+                        <ul class="tab_nav">
+<li><a href="#get-account-infomation-in-xml-Response-get-account-info"class="selected">GET account infomation in XML</a></li>
+<li><a href="#get-account-information-in-json-Response-get-account-info">GET account information in JSON</a></li>
+
+            </ul>
+        
+       <div id="get-account-infomation-in-xml-Response-get-account-info" class="code">
+          <p>This shows the response to a Get account infomation in XML format. </p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+HTTP/1.1 200 OK
+content-type: application/xml 
+content-length: 929 
+date: Thu, 04 Jun 2010 02:51:59 GMT
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;accountInfo&gt;
+    &lt;fileCount&gt;8&lt;/fileCount&gt;
+    &lt;files&gt;4457066&lt;/files&gt;
+    &lt;imageCount&gt;43&lt;/imageCount&gt;
+    &lt;images&gt;72139885&lt;/images&gt;
+    &lt;music&gt;8165247&lt;/music&gt;
+    &lt;quota&gt;5368709120&lt;/quota&gt;
+    &lt;trackCount&gt;3&lt;/trackCount&gt;
+    &lt;usage&gt;86232895&lt;/usage&gt;
+    &lt;videoCount&gt;0&lt;/videoCount&gt;
+    &lt;videos&gt;0&lt;/videos&gt;
+&lt;/accountInfo&gt;
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="get-account-information-in-json-Response-get-account-info" class="code">
+          <p>This shows the response to a Get account infomation in JSON format </p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+HTTP/1.1 200 OK 
+content-type: application/json 
+content-length: 624 
+date: Thu, 04 Jun 2010 02:51:59 GMT
+
+{
+  &quot;accountInfo&quot;: {
+    &quot;fileCount&quot;: 8,
+    &quot;files&quot;: 4457066,
+    &quot;imageCount&quot;: 43,
+    &quot;images&quot;: 72139885,
+    &quot;music&quot;: 8165247,
+    &quot;quota&quot;: 5368709120,
+    &quot;trackCount&quot;: 3,
+    &quot;usage&quot;: 86232895,
+    &quot;videoCount&quot;: 0,
+    &quot;videos&quot;: 0
+  }
+}
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+        </section><!--end of example-->
+
+<section id="resources-get-account-info-parameters" class="level-3">
+    <header>Request Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   accept</span>
+                    
+                    <span class="data-type">String</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the format of the body of the response. Valid values are: </p>
+ <ul> </li>
+<li> <p>application/json</p>
+ </li>
+<li> <p>application/xml</p>
+ </li></ul> <p>The default value is application/json. Per rfc2616: "If no Accept header field is present, then it is assumed that the client accepts all media types." By default our services return application/json.</p>
+  <p>Normal Accept header processing rules shall be followed according to rfc2616.</p>
+  <br><p><span style="font-style: italic">Note</span>:  If there is no entity body in a normal successful response, this parameter is still needed to specify the format in the case of an error response message.</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">accept-encoding</span>
+                    
+                    <span class="data-type">String</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the accept encoding format. When this header is present, the gateway should compress the response to indicate the client that response is in compressed format. Valid values are: gzip</p>
+  <br><p><span style="font-style: italic">Note</span>:  If there is no entity body in a normal successful response, this parameter is still needed to specify the format in the case of an error response message.</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">authorization</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the authorization type and token. "Bearer" + OAuth Token – access_token. If the authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
+
+            </div>
+        </div>
+</div>
+    <header>Require Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   content-type</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the type of content of the body of the entity. Must be set to one of the following values:</p>
+ <ul> </li>
+<li> <p>application/xml</p>
+ </li>
+<li> <p>application/json</p>
+ </li></ul> <br><p><span style="font-style: italic">Note</span>:  If there is no entity body in a normal successful response, this parameter is still needed to specify the format in the case of an error response message.</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-encoding</span>
+                    
+                    <span class="data-type">String</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the type of encoding used on the data. Supported values are: identity or gzip</p>
+  <br><p><span style="font-style: italic">Note</span>:  If there is no entity body in a normal successful response, this parameter is still needed to specify the format in the case of an error response message.</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">accountInfo</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Object</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Contains the response information.</p>
+
+            </div>
+        </div>
+</div>
+    <header>Account Object Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   usage</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies how much space total used</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">quota</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies how much space in CE is allocated for a particular user</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">images</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies how much space all uploaded images is consuming</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">movies</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies how much space all uploaded movies is consuming</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">music</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies how much space all uploaded music is consuming.</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">files</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies how much space all uploaded files is consuming.</p>
+
+            </div>
+        </div>
+</div>
+</section></section>

@@ -1,0 +1,1103 @@
+<section id="resources-list-album-contents" class="level-2">
+        <header>List album contents</header>
+
+        <section id="resources-list-album-contents-overview" class="level-3">
+            <header>Overview</header>
+            <p><p>Get the entries of an album belonging to the specific user.  </p>
+</p>
+        </section>
+
+        <section id="resources-list-album-contents-oauth" class="level-3">
+            <ul class="oauth">
+                <li><span>OAuth Scope</span></li>
+                <li><p><span>Scope:</span> LOCKER </p></li>
+                <li><p><span>Model:</span> OAuth authorization_code </p></li>
+            </ul>
+            <ul class="oauth">
+                <li><span>Resource</span></li>
+                <li class="code">
+                    <div class="code-block">
+                        <span class="copy-button" data-clipboard-text="/speechToText">copy</span>
+                        <pre>/speechToText</pre>
+                    </div>
+                </li>
+            </ul>
+        </section>
+                
+        <section id="resources-list-album-contents-examples" class="level-3">
+            <header>Request Examples</header>
+            <div class="tabs">
+            <ul class="tab_nav">
+<li><a href="#get-album-listing-Request-list-album-contents"class="selected">Get album listing</a></li>
+
+        
+            </ul>
+        
+       <div id="get-album-listing-Request-list-album-contents" class="code">
+          <p>This demonstrates how to get album contents using GET with query parameters, and specifying the response to be in JSON. </p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+GET /locker/v1/albums/22323232?limit=5&amp;offset=5&amp;filter=all&amp;order=asc HTTP/1.1 
+host: api.att.com
+authorization: Bearer 38C2399A23999
+accept: application/json
+accept-encoding: gzip
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+<header>Response Examples</header>
+                        <div class="tabs">
+                        <ul class="tab_nav">
+<li><a href="#album-content-listing-in-xml-Response-list-album-contents"class="selected">album Content Listing in XML</a></li>
+<li><a href="#album-content-listing-in-json-Response-list-album-contents">album Content Listing in JSON</a></li>
+
+            </ul>
+        
+       <div id="album-content-listing-in-xml-Response-list-album-contents" class="code">
+          <p>This shows the response to a Get content listing request in XML format. </p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+HTTP/1.1 200 OK
+content-type: application/xml 
+content-length: 539
+date: Thu, 04 Jun 2010 02:51:59 GMT
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;content&gt;
+    &lt;count&gt;1&lt;/count&gt;
+    &lt;mediaList&gt;
+        &lt;media&gt;
+            &lt;accessBlocked&gt;false&lt;/accessBlocked&gt;
+            &lt;albums&gt;
+                &lt;album&gt;
+                    &lt;count&gt;1&lt;/count&gt;
+                    &lt;creationDate&gt;Wed, 27 Apr 2011 17:34:33 GMT&lt;/creationDate&gt;
+                    &lt;description&gt;rename album descriptionl&lt;/description&gt;
+                    &lt;id&gt;157&lt;/id&gt;
+                    &lt;name&gt;rename album&lt;/name&gt;
+                    &lt;previews&gt;
+                        &lt;preview&gt;
+                            &lt;format&gt;jpg&lt;/format&gt;
+                            &lt;height&gt;240&lt;/height&gt;
+                            &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;amp;preview=320x240xjpg&lt;/url&gt;
+                            &lt;width&gt;320&lt;/width&gt;
+                        &lt;/preview&gt;
+                        &lt;preview&gt;
+                            &lt;format&gt;jpg&lt;/format&gt;
+                            &lt;height&gt;90&lt;/height&gt;
+                            &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;amp;preview=120x90xjpg&lt;/url&gt;
+                            &lt;width&gt;120&lt;/width&gt;
+                        &lt;/preview&gt;
+                        &lt;preview&gt;
+                            &lt;format&gt;jpg&lt;/format&gt;
+                            &lt;height&gt;480&lt;/height&gt;
+                            &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;amp;preview=640x480xjpg&lt;/url&gt;
+                            &lt;width&gt;640&lt;/width&gt;
+                        &lt;/preview&gt;
+                    &lt;/previews&gt;
+                    &lt;size&gt;21564&lt;/size&gt;
+                &lt;/album&gt;
+            &lt;/albums&gt;
+            &lt;av&gt;
+                &lt;status&gt;ok&lt;/status&gt;
+            &lt;/av&gt;
+            &lt;contentSize&gt;21564&lt;/contentSize&gt;
+            &lt;creationDate&gt;Mon, 25 Apr 2011 22:31:19 GMT&lt;/creationDate&gt;
+            &lt;description&gt;UPDATING DESCRIPTION&lt;/description&gt;
+            &lt;extension&gt;jpg&lt;/extension&gt;
+            &lt;format&gt;jpeg; charset=binary&lt;/format&gt;
+            &lt;id&gt;54&lt;/id&gt;
+            &lt;metadataList&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;ColorSpace&lt;/name&gt;
+                    &lt;value&gt;RGB&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Compression&lt;/name&gt;
+                    &lt;value&gt;JPEG&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Dimension&lt;/name&gt;
+                    &lt;value&gt;640x422&lt;/value&gt;
+                &lt;/metadata&gt;
+                &lt;metadata&gt;
+                    &lt;name&gt;Geometry&lt;/name&gt;
+                    &lt;value&gt;raster&lt;/value&gt;
+                &lt;/metadata&gt;
+            &lt;/metadataList&gt;
+            &lt;name&gt;epic diving fail.jpg&lt;/name&gt;
+            &lt;previews&gt;
+                &lt;preview&gt;
+                    &lt;format&gt;jpg&lt;/format&gt;
+                    &lt;height&gt;240&lt;/height&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;amp;preview=320x240xjpg&lt;/url&gt;
+                    &lt;width&gt;320&lt;/width&gt;
+                &lt;/preview&gt;
+                &lt;preview&gt;
+                    &lt;format&gt;jpg&lt;/format&gt;
+                    &lt;height&gt;90&lt;/height&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;amp;preview=120x90xjpg&lt;/url&gt;
+                    &lt;width&gt;120&lt;/width&gt;
+                &lt;/preview&gt;
+                &lt;preview&gt;
+                    &lt;format&gt;jpg&lt;/format&gt;
+                    &lt;height&gt;480&lt;/height&gt;
+                    &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;amp;preview=640x480xjpg&lt;/url&gt;
+                    &lt;width&gt;640&lt;/width&gt;
+                &lt;/preview&gt;
+            &lt;/previews&gt;
+            &lt;shareCodes/&gt;
+            &lt;sharingBlocked&gt;false&lt;/sharingBlocked&gt;
+            &lt;tags/&gt;
+            &lt;url&gt;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&lt;/url&gt;
+        &lt;/media&gt;
+    &lt;/mediaList&gt;
+    &lt;total&gt;1&lt;/total&gt;
+&lt;/content&gt;
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="album-content-listing-in-json-Response-list-album-contents" class="code">
+          <p>This shows the response to a album content listing in JSON format </p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+HTTP/1.1 200 OK 
+content-type: application/json 
+content-length: 624 
+date: Thu, 04 Jun 2010 02:51:59 GMT
+
+{
+  &quot;content&quot;: {
+    &quot;count&quot;: 1,
+    &quot;mediaList&quot;: {
+      &quot;media&quot;: {
+        &quot;accessBlocked&quot;: false,
+        &quot;albums&quot;: {
+          &quot;album&quot;: {
+            &quot;count&quot;: 1,
+            &quot;creationDate&quot;: &quot;Wed, 27 Apr 2011 17:34:33 GMT&quot;,
+            &quot;description&quot;: &quot;rename album descriptionl&quot;,
+            &quot;id&quot;: 157,
+            &quot;name&quot;: &quot;rename album&quot;,
+            &quot;previews&quot;: {
+              &quot;preview&quot;: [
+                {
+                  &quot;format&quot;: &quot;jpg&quot;,
+                  &quot;height&quot;: 240,
+                  &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;preview=320x240xjpg&quot;,
+                  &quot;width&quot;: &quot;320&quot;
+                },
+                {
+                  &quot;format&quot;: &quot;jpg&quot;,
+                  &quot;height&quot;: 90,
+                  &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;preview=120x90xjpg&quot;,
+                  &quot;width&quot;: 120
+                },
+                {
+                  &quot;format&quot;: &quot;jpg&quot;,
+                  &quot;height&quot;: 480,
+                  &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;preview=640x480xjpg&quot;,
+                  &quot;width&quot;: 640
+                }
+              ]
+            },
+            &quot;size&quot;: 21564
+          }
+        },
+        &quot;av&quot;: { &quot;status&quot;: &quot;ok&quot; },
+        &quot;contentSize&quot;: 21564,
+        &quot;creationDate&quot;: &quot;Mon, 25 Apr 2011 22:31:19 GMT&quot;,
+        &quot;description&quot;: &quot;UPDATING DESCRIPTION&quot;,
+        &quot;extension&quot;: &quot;jpg&quot;,
+        &quot;format&quot;: &quot;jpeg; charset=binary&quot;,
+        &quot;id&quot;: 54,
+        &quot;metadataList&quot;: {
+          &quot;metadata&quot;: [
+            {
+              &quot;name&quot;: &quot;ColorSpace&quot;,
+              &quot;value&quot;: &quot;RGB&quot;
+            },
+            {
+              &quot;name&quot;: &quot;Compression&quot;,
+              &quot;value&quot;: &quot;JPEG&quot;
+            },
+            {
+              &quot;name&quot;: &quot;Dimension&quot;,
+              &quot;value&quot;: &quot;640x422&quot;
+            },
+            {
+              &quot;name&quot;: &quot;Geometry&quot;,
+              &quot;value&quot;: &quot;raster&quot;
+            }
+          ]
+        },
+        &quot;name&quot;: &quot;epic diving fail.jpg&quot;,
+        &quot;previews&quot;: {
+          &quot;preview&quot;: [
+            {
+              &quot;format&quot;: &quot;jpg&quot;,
+              &quot;height&quot;: 240,
+              &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;preview=320x240xjpg&quot;,
+              &quot;width&quot;: &quot;320&quot;
+            },
+            {
+              &quot;format&quot;: &quot;jpg&quot;,
+              &quot;height&quot;: 90,
+              &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;preview=120x90xjpg&quot;,
+              &quot;width&quot;: 120
+            },
+            {
+              &quot;format&quot;: &quot;jpg&quot;,
+              &quot;height&quot;: 480,
+              &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&amp;preview=640x480xjpg&quot;,
+              &quot;width&quot;: 640
+            }
+          ]
+        },
+        &quot;sharingBlocked&quot;: false,
+        &quot;url&quot;: &quot;https://data.att-integration4.sdc.f-secure.com/data/1_0_0/media/?content_id=54&amp;ticket=708eab48-b225-427b-a252-c2bbe520cefa&quot;
+      }
+    },
+    &quot;total&quot;: 1
+  }
+}
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+        </section><!--end of example-->
+
+<section id="resources-list-album-contents-parameters" class="level-3">
+    <header>Request Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   accept</span>
+                    
+                    <span class="data-type">String</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the format of the body of the response. Valid values are: </p>
+ <ul> </li>
+<li> <p>application/json</p>
+ </li>
+<li> <p>application/xml</p>
+ </li></ul> <p>The default value is application/json. Per rfc2616: "If no Accept header field is present, then it is assumed that the client accepts all media types." By default our services return application/json.</p>
+  <p>Normal Accept header processing rules shall be followed according to rfc2616.</p>
+  <br><p><span style="font-style: italic">Note</span>:  If there is no entity body in a normal successful response, this parameter is still needed to specify the format in the case of an error response message.</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">accept-encoding</span>
+                    
+                    <span class="data-type">String</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the accept encoding format. When this header is present, the gateway should compress the response to indicate the client that response is in compressed format. Valid values are: gzip</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">authorization</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the authorization type and token. "Bearer" + OAuth Token – access_token. If the authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">albumId</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer</span>
+                    <span class="placement">URI Path    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the album that is being accessed</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">limit</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer</span>
+                    <span class="placement">Query Parameter    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the max number of results returned. Valid value range is 1 to 100.</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">offset</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer</span>
+                    <span class="placement">Query Parameter    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the scroll set pointer on the results collection.</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">orderBy</span>
+                    
+                    <span class="data-type">String</span>
+                    <span class="placement">Query Parameter    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the sorting criteria. Constraints: name, creationdate, size, count</p>
+  <p>Default: name </p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">order</span>
+                    
+                    <span class="data-type">String</span>
+                    <span class="placement">Query Parameter    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the sorting order. Constraints: asc, desc </p>
+  <p>Default: asc </p>
+%  {}
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">filter</span>
+                    
+                    <span class="data-type">String</span>
+                    <span class="placement">Query Parameter    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies how to filter the results. Valid values are: picture, video, all</p>
+  <p>Default: All</p>
+
+            </div>
+        </div>
+</div>
+    <header>Require Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   content-type</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the type of content of the body of the entity. Must be set to one of the following values:</p>
+ <ul> </li>
+<li> <p>applciation/json</p>
+ </li>
+<li> <p>application/xml</p>
+</li></ul> 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-encoding</span>
+                    
+                    <span class="data-type">String</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the type of encoding used on the data. Supported values are: identity or gzip</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Object</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the object that contains the response info.</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">total</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the total number of folders in a user’s account</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">count</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the number of files returned in the response</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">mediaList</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Object</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the object that contains the files list.</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">media</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Object</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the object that contains the files information</p>
+
+            </div>
+        </div>
+</div>
+    <header>Metadata Object Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   album</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the Song album</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">artist</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the Artist</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">audioBitrate</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer </span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the audio bitrate in kb/s</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">audiocChannels</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the audio channels</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">audiocCodec</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the audio codec</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">audioFrequency</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer </span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the audio frequency in hz</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">author</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the author</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">backgroundColor</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Hex</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the background color eg: ff11aa</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">characterCount</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the character count</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">colorDepth</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the color depth eg: 8-bit</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">colorSpace</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the color space eg: cmyk</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">compression</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the compression eg: jpeg200</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">dimension</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the dimension <width>x<height></p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">drm</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Boolean</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the drm eg: 1 means file is drm protected</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">duration</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Float</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the duration in seconds</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">fnumber %  {}</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the fnumber eg: f/4.0</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">focalLength</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Float</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the focal length in millimeters</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">genre</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the genre</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">geometry</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the geometry “raster” or “vector”</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">interlace</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the interlace eg: line</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">iso%  {}</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the iso</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">language</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the language</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">lineCount</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the line count</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">make</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the make</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">orientation</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the orientation range: 0 to 8</p>
+
+            </div>
+        </div>
+</div>
+    <header>Preview Object Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   format </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String </span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the format of preview </p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">url </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">AnyURI </span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the download url </p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">width </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer </span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the width of preview (image/video) </p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">height </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer </span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the height of preview (image/video) </p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">bitrate </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer </span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the preview bitrate (audio) </p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">channels </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer </span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the audio channels (audio) </p>
+
+            </div>
+        </div>
+</div>
+    <header>Av Object Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   status</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String </span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the status, and the options are: pending, error, ok, infected, riskware, spyware, adware</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">detection</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the detection name if infected, missing otherwise</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">message</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the message for specifying state in case not clean, key missing otherwise.</p>
+
+            </div>
+        </div>
+</div>
+</section></section>

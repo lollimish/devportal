@@ -1,0 +1,307 @@
+<section id="resources-add-files-to-folder" class="level-2">
+        <header>Add files to folder</header>
+
+        <section id="resources-add-files-to-folder-overview" class="level-3">
+            <header>Overview</header>
+            <p><p>Add a list of file into an existing folder. Adding the same file twice in a folder is allowed. A folder “Antarctica” contains File1.txt </p>
+<p>If a user selects 3 files, File1.txt, File2.txt, File3.txt and adds them to the folder “Antarctica”, folder “Antarctica” will contain, the following: File1.txt, File1.txt, File2.txt and File3.txt. </p>
+</p>
+        </section>
+
+        <section id="resources-add-files-to-folder-oauth" class="level-3">
+            <ul class="oauth">
+                <li><span>OAuth Scope</span></li>
+                <li><p><span>Scope:</span> LOCKER </p></li>
+                <li><p><span>Model:</span> OAuth authorization_code </p></li>
+            </ul>
+            <ul class="oauth">
+                <li><span>Resource</span></li>
+                <li class="code">
+                    <div class="code-block">
+                        <span class="copy-button" data-clipboard-text="/speechToText">copy</span>
+                        <pre>/speechToText</pre>
+                    </div>
+                </li>
+            </ul>
+        </section>
+                
+        <section id="resources-add-files-to-folder-examples" class="level-3">
+            <header>Request Examples</header>
+            <div class="tabs">
+            <ul class="tab_nav">
+<li><a href="#add-files-to-a-folder-in-xml-Request-add-files-to-folder"class="selected">Add files to a folder in XML</a></li>
+<li><a href="#add-files-to-a-folder-in-json-Request-add-files-to-folder">Add files to a folder in JSON</a></li>
+
+        
+            </ul>
+        
+       <div id="add-files-to-a-folder-in-xml-Request-add-files-to-folder" class="code">
+          <p>This demonstrates how to add a file to a folder, and specifying the request to be in XML. </p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+POST /locker/v1/folders/3433435/files HTTP/1.1 
+Host: api.att.com
+content-type: application/xml
+authorization: Bearer abcdef12345678
+accept: application/xml
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;fileIds&gt;
+    &lt;id&gt;112&lt;/id&gt;
+    &lt;id&gt;125&lt;/id&gt;
+    &lt;index&gt;1&lt;/index&gt;  	
+&lt;/fileIds&gt;
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="add-files-to-a-folder-in-json-Request-add-files-to-folder" class="code">
+          <p>This demonstrates how to add a file to a folder, and specifying the request to be in JSON. </p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+POST /locker/v1/folders/3433435/files HTTP/1.1 
+Host: api.att.com
+content-type: application/json
+authorization: Bearer abcdef12345678
+accept: application/json
+
+{
+  &quot;fileIds&quot;: {
+    &quot;id&quot;: [112,125],
+    &quot;index&quot;: 1
+  }
+}
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+<header>Response Examples</header>
+                        <div class="tabs">
+                        <ul class="tab_nav">
+<li><a href="#response-to-adding-files-to-a-folder-Response-add-files-to-folder"class="selected">Response to adding files to a folder</a></li>
+
+            </ul>
+        
+       <div id="response-to-adding-files-to-a-folder-Response-add-files-to-folder" class="code">
+          <p>This shows the response to a an add file to folder request. </p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+HTTP/1.1 204 No Content
+Date: Thu, 04 Jun 2010 02:51:59 GMT
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+        </section><!--end of example-->
+
+<section id="resources-add-files-to-folder-parameters" class="level-3">
+    <header>Request Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   accept</span>
+                    
+                    <span class="data-type">String</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the format of the body of the response. Valid values are: </p>
+ <ul> </li>
+<li> <p>application/json</p>
+ </li>
+<li> <p>application/xml</p>
+ </li></ul> <p>The default value is application/json. Per rfc2616: "If no Accept header field is present, then it is assumed that the client accepts all media types." By default our services return application/json.</p>
+  <p>Normal Accept header processing rules shall be followed according to rfc2616.</p>
+  <br><p><span style="font-style: italic">Note</span>:  If there is no entity body in a normal successful response, this parameter can still be specified to determine the format in the case of an error response message.</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">accept-encoding</span>
+                    
+                    <span class="data-type">String</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the accept encoding format. When this header is present, the gateway should compress the response to indicate the client that response is in compressed format. Valid values are: gzip</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">authorization</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the authorization type and token. "Bearer" + OAuth Token – access_token. If the authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-length</span>
+                    
+                    <span class="data-type">Integer</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the length of the content in octets. This header parameter is only required for the non-streaming request.</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-type</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the type of content of the body of the entity. Must be set to one of the following values:</p>
+ <ul> </li>
+<li> <p>application/json</p>
+ </li>
+<li> <p>application/xml</p>
+</li></ul> 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">folderId</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer</span>
+                    <span class="placement">URI Path    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the id of the folder where the files will be placed.</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">fileIds</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Object</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Contains the file information to be added</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">id</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Array</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the ids of the files that are to be added to the folder.</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">index</span>
+                    
+                    <span class="data-type">Integer</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the absolute position where you want to place the new files. </p>
+  <p>Default is to put at the end of the folder.</p>
+
+            </div>
+        </div>
+</div>
+    <header>Require Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   content-type</span>
+                    
+                    <span class="data-type">String</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the type of content of the body of the entity. Must be set to one of the following values:</p>
+ <ul> </li>
+<li> <p>application/json</p>
+ </li>
+<li> <p>aplication/xml</p>
+ </li></ul> <p>Note: If there is no entity body in a normal successful response, this parameter is still needed to specify the format in the case of an error response message.</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-encoding</span>
+                    
+                    <span class="data-type">String</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Note: If there is no entity body in a normal successful response, this parameter is still needed to specify the format in the case of an error response message.	</p>
+
+            </div>
+        </div>
+</div>
+</section></section>

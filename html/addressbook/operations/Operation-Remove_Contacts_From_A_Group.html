@@ -4,7 +4,10 @@
         <section id="resources-remove-contacts-from-a-group-overview" class="level-3">
             <header>Overview</header>
             <p><p>This method will remove the association between the specified group and list of contacts.  </p>
-<ul> <li> If the provided group’s id is invalid, this API will return an InvalidGroupException.  </li><li> If one of the contactId in the array is invalid or is myInfo’s contact ID, this API will return an InvalidContactException and no association between the group and any contacts of the list will be removed. </li></ul> Return:  <ul> <li> If successful, an empty envelope with an HTTP code of 200.  </li><li> InvalidContactException if a contact identifier is invalid in the provided list.  </li><li> InvalidGroupException if the group identifier is invalid.  </li><li> InvalidSubscriberException if the sub_id is incorrect or the subscriber’s account status is BLOCKED.  </li><li> SystemException for any other error.  </li></ul> </p>
+<ul> <li> If the provided group’s id is invalid, this API will return an InvalidGroupException.  </li><li> If one of the contactId in the array is invalid or is myInfo’s contact ID, this API will return an InvalidContactException and no association between the group and any contacts of the list will be removed. </li></ul>
+<p>Return:  </p>
+<ul> <li> If successful, an empty envelope with an HTTP code of 200.  </li><li> InvalidContactException if a contact identifier is invalid in the provided list.  </li><li> InvalidGroupException if the group identifier is invalid.  </li><li> InvalidSubscriberException if the sub_id is incorrect or the subscriber’s account status is BLOCKED.  </li><li> SystemException for any other error.  </li></ul>
+</p>
         </section>
 
         <section id="resources-remove-contacts-from-a-group-oauth" class="level-3">
@@ -99,47 +102,43 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">   authorization </span>
+                    <span class="label">   authorization</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> String </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">String</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies \textquotedbl{}Bearer\textquotedbl{} + OAuth Token – access\_token. If the Authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
- 
+                <p>Specifies textquotedblBearertextquotedbl + OAuth Token – access_token. If the Authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">contactIds </span>
+                    <span class="label">contactIds</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> String </span>
-                    <span class="placement"> Query String    </span>
+                    <span class="data-type">String</span>
+                    <span class="placement">Query String     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies list of “\%2C” (,) delimited contact id’s to delete. Note: 20 group ids are allowed to delete.</p>
-  <p>Note: If no “contactIds” query parameter in the request, then remove all contacts from the group.</p>
- 
+                <p>Specifies list of “%2C” (,) delimited contact id’s to delete. Note: 20 group ids are allowed to delete.</p><p>Note: If no “contactIds” query parameter in the request, then remove all contacts from the group.</p>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">groupId </span>
+                    <span class="label">groupId</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> String </span>
-                    <span class="placement"> URI    </span>
+                    <span class="data-type">String</span>
+                    <span class="placement">URI     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies the group identifiers to be deleted. </p>
- 
+                <p>Specifies the group identifiers to be deleted. </p>
             </div>
         </div>
 </div>
@@ -158,42 +157,41 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">    </span>
+                    <span class="label">   </span>
                     
-                    <span class="data-type">  </span>
+                    <span class="data-type"></span>
                     <span class="placement">     </span>
                 </div>
             </div>
             <div class="grid-right">
-                  
+                
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">date </span>
+                    <span class="label">date</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> Date Time </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">Date Time</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies Date and time the response was returned (in RFC1123 format). For example Date: Sun, 06 Nov 1994 08:49:37 GMT</p>
- 
+                <p>Specifies Date and time the response was returned (in RFC1123 format). For example Date: Sun, 06 Nov 1994 08:49:37 GMT</p>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label"> </span>
+                    <span class="label"></span>
                     
-                    <span class="data-type">  </span>
+                    <span class="data-type"></span>
                     <span class="placement">     </span>
                 </div>
             </div>
             <div class="grid-right">
-                  
+                
             </div>
         </div>
 </div>

@@ -4,7 +4,10 @@
         <section id="resources-add-contacts-to-a-group-overview" class="level-3">
             <header>Overview</header>
             <p><p>This method associates a list of contacts to a group.  </p>
-<ol> <li> If an invalid group UID is provided, this method will return an InvalidGroupException.  </li><li> If a contact already belongs to the specified group, nothing is changed for it.  </li><li> If an invalid contactId is provided, this method will return an InvalidContactException.  </li></ol> Return:  <ul> <li> If successful, an empty envelope with an HTTP code of 204. </li><li> InvalidSubscriberException if the sub_id is incorrect or the subscriber’s account status is <strong> BLOCKED</strong>.  </li><li> InvalidContactException if one of the contacts UID is not valid. </li><li> InvalidGroupException if the group UID is not valid.  </li></ul> </p>
+<ol> <li> If an invalid group UID is provided, this method will return an InvalidGroupException.  </li><li> If a contact already belongs to the specified group, nothing is changed for it.  </li><li> If an invalid contactId is provided, this method will return an InvalidContactException.  </li></ol>
+<p>Return:  </p>
+<ul> <li> If successful, an empty envelope with an HTTP code of 204. </li><li> InvalidSubscriberException if the sub_id is incorrect or the subscriber’s account status is <strong> BLOCKED</strong>.  </li><li> InvalidContactException if one of the contacts UID is not valid. </li><li> InvalidGroupException if the group UID is not valid.  </li></ul>
+</p>
         </section>
 
         <section id="resources-add-contacts-to-a-group-oauth" class="level-3">
@@ -99,46 +102,43 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">   authorization </span>
+                    <span class="label">   authorization</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> String </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">String</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies \textquotedbl{}Bearer\textquotedbl{} + OAuth Token – access\_token. If the Authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
- 
+                <p>Specifies textquotedblBearertextquotedbl + OAuth Token – access_token. If the Authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">contactIds </span>
+                    <span class="label">contactIds</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> String </span>
-                    <span class="placement"> Query String    </span>
+                    <span class="data-type">String</span>
+                    <span class="placement">Query String     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies list of “\%2C” (,) delimited contact id’s to add. Note: 20 group ids are allowed to add.</p>
- 
+                <p>Specifies list of “%2C” (,) delimited contact id’s to add. Note: 20 group ids are allowed to add.</p>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">groupId </span>
+                    <span class="label">groupId</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> String </span>
-                    <span class="placement"> URI    </span>
+                    <span class="data-type">String</span>
+                    <span class="placement">URI     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies the group identifiers to be deleted. </p>
- 
+                <p>Specifies the group identifiers to be deleted. </p>
             </div>
         </div>
 </div>
@@ -157,16 +157,15 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">   date </span>
+                    <span class="label">   date</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> Date Time </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">Date Time</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies Date and time the response was returned (in RFC1123 format). For example Date: Sun, 06 Nov 1994 08:49:37 GMT</p>
- 
+                <p>Specifies Date and time the response was returned (in RFC1123 format). For example Date: Sun, 06 Nov 1994 08:49:37 GMT</p>
             </div>
         </div>
 </div>

@@ -1,44 +1,11 @@
 <?php
 
 function writehtml($content, $outputfile) {
-    file_put_contents($outputfile, $content . "\r\n", FILE_APPEND);
+    file_put_contents($outputfile, stripslashes($content) . "\r\n", FILE_APPEND);
 }
 
 function startsWith($haystack, $needle) {
     return $needle === "" || strpos($haystack, $needle) === 0;
-}
-
-function parsePara($paragraph) {
-    $htmlblock = array();
-    $htmlstring = '';
-    $ulopen = false;
-    $end_layout = false;
-    for ($i = 0; $i < count($paragraph); $i++) {
-        if (substr($paragraph[$i], 0, 13) === '\begin_layout' && substr($paragraph[$i], 0, 21) !== '\begin_layout Itemize') {
-            $htmlblock[$i] = "<p>";
-            $closetag = "</p>";
-        } elseif (substr($paragraph[$i], 0, 21) === '\begin_layout Itemize') {
-            $htmlblock[$i] = "<ul>\r\n<li>";
-            $closetag = "</li>\r\n</ul>";
-            $end_layout = false;
-        } elseif (substr($paragraph[$i], 0, 11) === '\end_layout') {
-            $htmlblock[$i] = $closetag;
-            $closetag = '';
-            $end_layout = true;
-        } elseif (substr($paragraph[$i], 0, 1) === '\\') {
-            $htmlblock[$i] = '';
-        } else {
-            $htmlblock[$i] = $paragraph[$i];
-        }
-    }
-    for ($j = 0; $j < count($paragraph); $j++) {
-        $htmlstring .= $htmlblock[$j];
-    }
-    return $htmlstring;
-}
-
-function echohtml($htmlblock) {
-    return strtr($htmlblock, Array("<" => "&lt;", "&" => "&amp;")) . '<br>';
 }
 
 function getOperationName($filename) {
@@ -115,29 +82,6 @@ function findSubSubSecByName($filename, $secName) {
     return $output;
 }
 
-//use for other doc but param @@ return array
-function findSubSecByName($filename, $secName) {
-    $begin_line = '\subsection{' . $secName . '}';
-    $end_line = '\subsection{';
-    $file_handle = fopen($filename, 'r');
-    $foundSection = false;
-    $output = array();
-    while (!\feof($file_handle)) {
-        $line = fgets($file_handle);
-        if (startsWith($line, $begin_line)) {
-            $foundSection = true;
-        }
-        if (startsWith($line, $end_line) && !startsWith($line, $begin_line)) {
-            $foundSection = false;
-        }
-        if ($foundSection && !startsWith($line, $begin_line)) {
-            $output[] = $line;
-        }
-    }
-    fclose($file_handle);
-    return $output;
-}
-
 function findSec($filename, $secName, $level, $end) {
     $begin_line = '\\' . $level . '{' . $secName . '}';
     $end_line = $end;
@@ -176,11 +120,15 @@ function findSec($filename, $secName, $level, $end) {
                     if (startsWith($str, '\begin{itemize}')) {
                         $str = str_replace('\begin{itemize}', '<ul>', $str);
                     } elseif (startsWith($str, '\end{itemize}')) {
-                        $str = str_replace('\end{itemize}', '</ul>', $str);
+                        $output[$count] = str_replace('\end{itemize}', '</ul>', $str);
+                        $count++;
+                        $str = '';
                     } elseif (startsWith($str, '\begin{enumerate}')) {
                         $str = str_replace('\begin{enumerate}', '<ol>', $str);
                     } elseif (startsWith($str, '\end{enumerate}')) {
-                        $str = str_replace('\end{enumerate}', '</ol>', $str);
+                        $output[$count] = str_replace('\end{enumerate}', '</ol>', $str);
+                        $count++;
+                        $str = '';
                     } elseif (startsWith($str, '\item')) {
                         $str = str_replace('\item', '<li>', $str);
                     } elseif (startsWith($str, '\paragraph{')) {
@@ -195,13 +143,15 @@ function findSec($filename, $secName, $level, $end) {
                         $output[$count] = '</table>';
                         $count++;
                         $str = '';
+                    } elseif(startsWith($str, '\subsection*')){
+                        $output[$count] = '<h5>';
+                        $count++;
+                        $str = '';
                     }
                 } else {
                     $str .= $line;
                 }
                 $output[$count] = str_replace("\n", ' ', $str);
-                $output[$count] = str_replace("\_", '_', $output[$count]);
-                $output[$count] = str_replace('\&', "&", $output[$count]);
             }
         }
     }
@@ -223,13 +173,20 @@ function findSec($filename, $secName, $level, $end) {
         } elseif (startsWith($line, '\textbf{\footnotesize') || startsWith($line, '\endhead')) {
             $output[$k] = '';
             continue;
-        } elseif (startsWith($line, '<li>')) {
+        } elseif(startsWith($line, '\subsection*{')){
+            $output[$k] = str_replace('\subsection*{', '<h5>',$line);
+            $output[$k] = str_replace('}', '</h5>',$output[$k]);
+        }elseif (startsWith($line, '<li>')) {
             $output[$k] = $line . '</li>';
         } elseif (!startsWith($line, '<')) {
             $output[$k] = '<p>' . str_replace("\n", ' ', $line) . "</p>\n";
         }
         if (strpos($line, '\textbf{') || startsWith($line, '\textbf{')) {
             $output[$k] = str_replace('\textbf{', '<strong> ', $output[$k]);
+            $output[$k] = str_replace('}', '</strong>', $output[$k]);
+        }
+        if (strpos($line, '\emph{') || startsWith($line, '\emph{')) {
+            $output[$k] = str_replace('\emph{', '<strong> ', $output[$k]);
             $output[$k] = str_replace('}', '</strong>', $output[$k]);
         }
     }
@@ -258,20 +215,6 @@ function getItem($string) {
     return $string;
 }
 
-//ol
-function getEnumerate($string) {
-    if (strpos($string, 'begin{enumerate}') !== false) {
-        $item = getInbetweenStrings('\begin{enumerate}', '\end{enumerate}', $string);
-        $originalStr = '\begin{enumerate}' . $item . '\end{enumerate}';
-        $item = str_replace("\item ", "<li>", $item);
-        $item = str_replace("\n", "</li>\n", $item);
-        $item = '<ol>' . $item . '</ol>';
-        $ol = str_replace($originalStr, $item, $string);
-        return $ol;
-    }
-    return $string;
-}
-
 //take out comments
 function noCommet($string) {
     $comment = getInbetweenStrings('\begin{comment}', '\end{comment}', $string);
@@ -280,12 +223,32 @@ function noCommet($string) {
     return $noCommet;
 }
 
-//parse paragraph in tex
-function parseParagraph($string) {
-
-    $string = getItem($string);
-
-    return $string;
+function parseDesc($string){
+    $row = array();
+    $row = preg_split( '/(par}|mize}|erate}|end{| ,)/', $string);
+    foreach($row as $k => $r){
+        $row[$k] = stripslashes(trim(str_replace(array('}{\footnotesize','{\footnotesize' ), '', $r)));
+        if(startsWith($row[$k], '{')){
+            $row[$k] = '<p>'.substr($row[$k], 1, strlen($row[$k])-3).'</p>';
+        }elseif(startsWith($row[$k], "begin{enum")){
+            $row[$k] = str_replace( "begin{enum", '<ol>', $row[$k]);
+        }elseif(startsWith($row[$k], "begin{ite")){
+            $row[$k] = str_replace( "begin{ite", '<ul>', $row[$k]);
+        }elseif(startsWith($row[$k], "item")){
+            $row[$k] = str_replace( "item {", '<li>', $row[$k]).'</li>';
+        }else{
+            $row[$k] = str_replace( "enum", '</ol>', $row[$k]);
+            $row[$k] = str_replace( "ite", '</ul>', $row[$k]);
+        }
+        if(strpos($row[$k], '}}textbf{')){
+            $strong = getInbetweenStrings('}}textbf{', '}', $row[$k]);
+            $start = strpos($row[$k], '}}textbf{');
+            $len = strlen('}}textbf{')+strlen($strong)+1;
+            $row[$k] = substr($row[$k], 0, $start).'<strong> '. $strong .'</strong>'.substr($row[$k], $start+ $len);
+        }
+        $row[$k] = str_replace(array('{', '}'), '', $row[$k]);
+    }
+    return array_filter($row);
 }
 
 //get cell value when there are more than one value and separate them with a space

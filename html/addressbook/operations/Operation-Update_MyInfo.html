@@ -5,7 +5,8 @@
             <header>Overview</header>
             <p><p>The Update MyInfo method updates a subscriber personal profile MyInfo based on the provided contact data structure. The same rules regarding the picture size and format are applied.  </p>
 <p>Return:  </p>
-<ul> <li> If the call is successful, it returns 204 status codes with empty response. </li><li> If the sub_id is incorrect or the subscriber’s account status is BLOCKED, then return InvalidSubscriberException. </li><li> If any other error, then return SystemException. </li></ul> </p>
+<ul> <li> If the call is successful, it returns 204 status codes with empty response. </li><li> If the sub_id is incorrect or the subscriber’s account status is BLOCKED, then return InvalidSubscriberException. </li><li> If any other error, then return SystemException. </li></ul>
+</p>
         </section>
 
         <section id="resources-update-myinfo-oauth" class="level-3">
@@ -156,63 +157,56 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">   accept-encoding </span>
+                    <span class="label">   accept-encoding</span>
                     
-                    <span class="data-type"> String </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">String</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies accept encoding format </p>
-  <p>gzip,deflate </p>
-  <p>When this header is present, the gateway should compress the response to indicate the client that response is in compressed format </p>
- 
+                <p>Specifies accept encoding format </p><p>gzip,deflate </p><p>When this header is present, the gateway should compress the response to indicate the client that response is in compressed format </p>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">authorization </span>
+                    <span class="label">authorization</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> String </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">String</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies \textquotedbl{}Bearer\textquotedbl{} + OAuth Token – access\_token. If the Authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
- 
+                <p>Specifies textquotedblBearertextquotedbl + OAuth Token – access_token. If the Authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">content-type </span>
+                    <span class="label">content-type</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> String </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">String</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies the representation format for the request. This is the content type for the whole message. The acceptable values for this parameter are: </p>
-  <p>• application/json </p>
-  <p>• application/xml </p>
- 
+                <p>Specifies the representation format for the request. This is the content type for the whole message. The acceptable values for this parameter are: </p><p>• application/json </p><p>• application/xml </p>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">myInfo </span>
+                    <span class="label">myInfo</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> Complex </span>
-                    <span class="placement">T Mobile Subscriber’s Contact data structure. Ref Section 3.2.1 </span>
+                    <span class="data-type">Complex</span>
+                    <span class="placement">Body     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies AT\
+                <p>Specifies AT&T Mobile Subscriber’s Contact data structure. Ref Section 3.2.1</p>
             </div>
         </div>
 </div>
@@ -231,42 +225,41 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">    </span>
+                    <span class="label">   </span>
                     
-                    <span class="data-type">  </span>
+                    <span class="data-type"></span>
                     <span class="placement">     </span>
                 </div>
             </div>
             <div class="grid-right">
-                  
+                
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">date </span>
+                    <span class="label">date</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> Date Time </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">Date Time</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies Date and time the response was returned (in RFC1123 format). For example Date: Sun, 06 Nov 1994 08:49:37 GMT</p>
- 
+                <p>Specifies Date and time the response was returned (in RFC1123 format). For example Date: Sun, 06 Nov 1994 08:49:37 GMT</p>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label"> </span>
+                    <span class="label"></span>
                     
-                    <span class="data-type">  </span>
+                    <span class="data-type"></span>
                     <span class="placement">     </span>
                 </div>
             </div>
             <div class="grid-right">
-                  
+                
             </div>
         </div>
 </div>

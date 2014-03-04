@@ -1,7 +1,7 @@
 <?php
-
+//TODO: param tables..!
 //php htmlForCrafter.php locker
-
+//php htmlForCrafter.php addressbook
 include 'functions/functions.php';
 include 'functions/func_parse_introduction.php';
 include 'functions/func_parse_oauth.php';

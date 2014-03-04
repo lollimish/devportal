@@ -6,7 +6,8 @@
             <p><p>The Create Group method enables creating a USER group, if the subscriber’s address book did not reach its configurable maximum number of groups (configurable at the system level, 200 by default). Favorites group is not taken into account for this maximum number. The only mandatory field in group is a non-empty group name. If a group with the same name already exists on the server, this method will return an InvalidGroupException. The group names are case insensitive during the comparison. </p>
 <p>If a group id (groupId) is present in group, it will be ignored. If a type different from USER is present in group, it will be ignored and reset to USER by default. This method returns the group id of the created group to be used for further operations.  </p>
 <p>Return:  </p>
-<ul> <li> If call is successful, then it returns a new group id (groupId) with the 201 OK.  </li><li> InvalidSubscriberException if the subscriber id is incorrect or the subscriber’s account status is BLOCKED.  </li><li> If group name already exists on the server, then it returns InvalidGroupExceptionName.  </li><li> If any other error, then the SystemException will be returned.  </li></ul> </p>
+<ul> <li> If call is successful, then it returns a new group id (groupId) with the 201 OK.  </li><li> InvalidSubscriberException if the subscriber id is incorrect or the subscriber’s account status is BLOCKED.  </li><li> If group name already exists on the server, then it returns InvalidGroupExceptionName.  </li><li> If any other error, then the SystemException will be returned.  </li></ul>
+</p>
         </section>
 
         <section id="resources-create-group-oauth" class="level-3">
@@ -117,52 +118,43 @@ location: https://api.att.com/addressBook/v1/groups/09876541234
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">   authorization </span>
+                    <span class="label">   authorization</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> String </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">String</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies \textquotedbl{}Bearer\textquotedbl{} + OAuth Token – access\_token. If the Authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
- 
+                <p>Specifies textquotedblBearertextquotedbl + OAuth Token – access_token. If the Authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">content-type </span>
+                    <span class="label">content-type</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> String </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">String</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies the representation format for the request. This is the content type for the </p>
-\textbf<p>whole</p>
-<p> message. The acceptable values for this parameter are: </p>
- <ul> </li>
-<li> <p>application/json </p>
- </li>
-<li> <p>application/xml </p>
-</li></ul>  
+                <p>Specifies the representation format for the request. This is the content type for the <strong> whole</strong> message. The acceptable values for this parameter are: </p><ul><li>application/json  </li><li>application/xml </li></ul>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">group </span>
+                    <span class="label">group</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> Complex </span>
-                    <span class="placement"> Body     </span>
+                    <span class="data-type">Complex</span>
+                    <span class="placement">Body      </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies ATT’s subscriber group data model</p>
- 
+                <p>Specifies ATT’s subscriber group data model</p>
             </div>
         </div>
 </div>
@@ -181,57 +173,55 @@ location: https://api.att.com/addressBook/v1/groups/09876541234
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">    </span>
+                    <span class="label">   </span>
                     
-                    <span class="data-type">  </span>
+                    <span class="data-type"></span>
                     <span class="placement">     </span>
                 </div>
             </div>
             <div class="grid-right">
-                  
+                
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">date </span>
+                    <span class="label">date</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> Date Time </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">Date Time</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies Date and time the response was returned (in RFC1123 format). For example Date: Sun, 06 Nov 1994 08:49:37 GMT</p>
- 
+                <p>Specifies Date and time the response was returned (in RFC1123 format). For example Date: Sun, 06 Nov 1994 08:49:37 GMT</p>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label"> </span>
+                    <span class="label"></span>
                     
-                    <span class="data-type">  </span>
+                    <span class="data-type"></span>
                     <span class="placement">     </span>
                 </div>
             </div>
             <div class="grid-right">
-                  
+                
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">location </span>
+                    <span class="label">location</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> String </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">String</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies the location of a newly created resource.</p>
- 
+                <p>Specifies the location of a newly created resource.</p>
             </div>
         </div>
 </div>

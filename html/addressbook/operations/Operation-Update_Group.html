@@ -8,7 +8,8 @@
 <p>If group contains an empty name, this API will return an InvalidGroupException. </p>
 <p>If group does not contain a name, it will leave unchanged the name on the server side.  </p>
 <p>Return:  </p>
-<ul> <li> If successful, an empty envelope with an HTTP code of 204. </li><li> InvalidSubscriberException if the sub_id is incorrect or the subscriber’s account status is <strong> BLOCKED</strong>.  </li><li> InvalidContactException if one of the contacts UID is not valid.  </li><li> InvalidGroupException if the group UID is not valid.  </li><li> SystemException for any other error.  </li></ul> </p>
+<ul> <li> If successful, an empty envelope with an HTTP code of 204. </li><li> InvalidSubscriberException if the sub_id is incorrect or the subscriber’s account status is <strong> BLOCKED</strong>.  </li><li> InvalidContactException if one of the contacts UID is not valid.  </li><li> InvalidGroupException if the group UID is not valid.  </li><li> SystemException for any other error.  </li></ul>
+</p>
         </section>
 
         <section id="resources-update-group-oauth" class="level-3">
@@ -115,67 +116,57 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">   authorization </span>
+                    <span class="label">   authorization</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> String </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">String</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies \textquotedbl{}Bearer\textquotedbl{} + OAuth Token – access\_token. If the Authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
- 
+                <p>Specifies textquotedblBearertextquotedbl + OAuth Token – access_token. If the Authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">content-type </span>
+                    <span class="label">content-type</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> String </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">String</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies the representation format for the request. This is the content type for the </p>
-\textbf<p>whole</p>
-<p> message. The acceptable values for this parameter are: </p>
- <ul> </li>
-<li> <p>application/json </p>
- </li>
-<li> <p>application/xml </p>
-</li></ul>  
+                <p>Specifies the representation format for the request. This is the content type for the <strong> whole</strong> message. The acceptable values for this parameter are: </p><ul><li>application/json  </li><li>application/xml </li></ul>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">group </span>
+                    <span class="label">group</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> Complex </span>
-                    <span class="placement"> Body     </span>
+                    <span class="data-type">Complex</span>
+                    <span class="placement">Body      </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies the subscriber’s contact group object</p>
- 
+                <p>Specifies the subscriber’s contact group object</p>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">groupId </span>
+                    <span class="label">groupId</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> String </span>
-                    <span class="placement"> URI    </span>
+                    <span class="data-type">String</span>
+                    <span class="placement">URI     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies the group’s identifiers to be update. </p>
- 
+                <p>Specifies the group’s identifiers to be update. </p>
             </div>
         </div>
 </div>
@@ -194,16 +185,15 @@ date: Thu, 04 Jun 2010 02:51:59 GMT
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">   date </span>
+                    <span class="label">   date</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> Date Time </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">Date Time</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies Date and time the response was returned (in RFC1123 format). For example Date: Sun, 06 Nov 1994 08:49:37 GMT</p>
- 
+                <p>Specifies Date and time the response was returned (in RFC1123 format). For example Date: Sun, 06 Nov 1994 08:49:37 GMT</p>
             </div>
         </div>
 </div>

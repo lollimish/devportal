@@ -1,0 +1,523 @@
+<section id="resources-update-album" class="level-2">
+        <header>Update album</header>
+
+        <section id="resources-update-album-overview" class="level-3">
+            <header>Overview</header>
+            <p><p>Modifies the information of a specific album belonging to the specified user. If a user attempts to update a album instance with name of an already existing album instance, service will throw an exception.  </p>
+</p>
+        </section>
+
+        <section id="resources-update-album-oauth" class="level-3">
+            <ul class="oauth">
+                <li><span>OAuth Scope</span></li>
+                <li><p><span>Scope:</span> LOCKER </p></li>
+                <li><p><span>Model:</span> OAuth authorization_code </p></li>
+            </ul>
+            <ul class="oauth">
+                <li><span>Resource</span></li>
+                <li class="code">
+                    <div class="code-block">
+                        <span class="copy-button" data-clipboard-text="/speechToText">copy</span>
+                        <pre>/speechToText</pre>
+                    </div>
+                </li>
+            </ul>
+        </section>
+                
+        <section id="resources-update-album-examples" class="level-3">
+            <header>Request Examples</header>
+            <div class="tabs">
+            <ul class="tab_nav">
+<li><a href="#update-an-album---xml-Request-update-album"class="selected">Update an album - XML</a></li>
+<li><a href="#update-an-album---json-Request-update-album">Update an album - JSON</a></li>
+
+        
+            </ul>
+        
+       <div id="update-an-album---xml-Request-update-album" class="code">
+          <p>This demonstrates how to update an album, and specifying the response to be in XML. </p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+PATCH /locker/v1/albums/856 HTTP/1.1 
+host: api.att.com
+content-type: application/xml
+authorization: Bearer 38C2399A23999
+accept: application/xml
+
+&lt;album&gt;
+      &lt;name&gt;rename album&lt;/name&gt;
+      &lt;description&gt;rename album description&lt;/description&gt;
+      &lt;reorder&gt;
+          &lt;indexes&gt;1&lt;/indexes&gt;
+          &lt;after&gt;1&lt;/after&gt;
+      &lt;/reorder&gt;
+&lt;/album&gt;
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="update-an-album---json-Request-update-album" class="code">
+          <p>This demonstrates how to update an album, the response format will be in JSON. </p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+PATCH /locker/v1/albums/856 HTTP/1.1 
+host: api.att.com
+content-type: application/json
+authorization: Bearer 38C2399A23999
+accept: application/json
+
+{
+  &quot;album&quot;: {
+    &quot;name&quot;: &quot;rename album&quot;,
+    &quot;description&quot;: &quot;rename album description&quot;,
+    &quot;reorder&quot;: {
+      &quot;indexes&quot;: 1,
+      &quot;after&quot;: 1
+    }
+  }
+}
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+<header>Response Examples</header>
+                        <div class="tabs">
+                        <ul class="tab_nav">
+<li><a href="#update-album---xml-Response-update-album"class="selected">Update album - XML</a></li>
+<li><a href="#update-album---json-Response-update-album">Update album - JSON</a></li>
+
+            </ul>
+        
+       <div id="update-album---xml-Response-update-album" class="code">
+          <p>This shows the response to a Update album in XML format. </p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+HTTP/1.1 200 OK
+date: Wed, 27 Apr 2011 14:11:31 GMT
+content-length: 223
+content-type: application/xml
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;album&gt;
+    &lt;count&gt;0&lt;/count&gt;
+    &lt;creationDate&gt;05-05-2011 14:17:27 +0000&lt;/creationDate&gt;
+    &lt;description&gt;rename album description&lt;/description&gt;
+    &lt;id&gt;856&lt;/id&gt;
+    &lt;name&gt;rename album&lt;/name&gt;
+    &lt;size&gt;0&lt;/size&gt;
+&lt;/album&gt;
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+       <div id="update-album---json-Response-update-album" class="code">
+          <p>This shows the response to a Update album in JSON format </p>            <div class="code">
+                <div class="code-block">
+                    <span class="copy-button">copy</span>
+                    <pre>
+HTTP/1.1 200 OK
+date: Wed, 27 Apr 2011 14:11:31 GMT
+content-length: 223
+content-type: application/json
+
+{
+    &quot;album&quot;: {
+      &quot;count&quot;: 0,
+      &quot;creationDate&quot;: &quot;05-05-2011 14:17:27 +0000&quot;,
+      &quot;name&quot;: &quot;rename album&quot;,
+      &quot;description&quot;: &quot;rename album description&quot;,
+      &quot;id&quot;: 856,
+      &quot;size&quot;: 0
+    }
+}
+</pre>
+                        </div>
+                    </div>
+                </div>
+        
+        </section><!--end of example-->
+
+<section id="resources-update-album-parameters" class="level-3">
+    <header>Request Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   accept</span>
+                    
+                    <span class="data-type">String</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the format of the body of the response. Valid values are: </p>
+ <ul> </li>
+<li> <p>application/json</p>
+ </li>
+<li> <p>application/xml</p>
+ </li></ul> <p>The default value is application/json. Per rfc2616: "If no Accept header field is present, then it is assumed that the client accepts all media types." By default our services return application/json.</p>
+  <p>Normal Accept header processing rules shall be followed according to rfc2616.</p>
+  <br><p><span style="font-style: italic">Note</span>:  If there is no entity body in a normal successful response, this parameter can still be specified to determine the format in the case of an error response message.</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">accept-encoding</span>
+                    
+                    <span class="data-type">String</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the accept encoding format. When this header is present, the gateway should compress the response to indicate the client that response is in compressed format. Valid values are: gzip</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">authorization</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the authorization type and token. "Bearer" + OAuth Token – access_token. If the authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-length</span>
+                    
+                    <span class="data-type">Integer</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the length of the content in octets. This header parameter is only required for the non-streaming request.</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-type</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the type of content of the body of the entity. Must be set to one of the following values:</p>
+ <ul> </li>
+<li> <p>application/json</p>
+ </li>
+<li> <p>application/xml</p>
+</li></ul> 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">albumId</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer</span>
+                    <span class="placement">URI Path    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies id of the album that is being updated</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">album</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Object</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the object that contains the album information</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">name</span>
+                    
+                    <span class="data-type">String</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the name of the album</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">description</span>
+                    
+                    <span class="data-type">String</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the description of the album</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">reorder</span>
+                    
+                    <span class="data-type">Object</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Contains the reorder information</p>
+
+            </div>
+        </div>
+</div>
+    <header>Reorder Object Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   indexes%  % \begin{comment} are these Integers or Strings?? \end{comment} {}</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Array</span>
+                    <span class="placement">body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the indexes of the files that need to move.</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">after%  {\footnotesize \par}  % \begin{comment} are these Integers or Strings?? \end{comment} {}</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer</span>
+                    <span class="placement">body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the index where the files should be moved after.</p>
+
+            </div>
+        </div>
+</div>
+    <header>Require Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   content-type</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the type of content of the body of the entity. Must be set to one of the following values:</p>
+ <ul> </li>
+<li> <p>application/xml</p>
+ </li>
+<li> <p>application/json</p>
+</li></ul> 
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">content-encoding</span>
+                    
+                    <span class="data-type">String</span>
+                    <span class="placement">Header    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the type of encoding used on the data. Supported values are: identity or gzip</p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">album</span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Object</span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the object which contain album information</p>
+
+            </div>
+        </div>
+</div>
+    <header>Preview Object Parameters</header>
+    <label>
+        <span class="required form-icon"></span>
+        Required Parameters
+    </label>
+
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-left">
+                <div class="header">Parameter</div>
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">   format </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">String </span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the format of preview </p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">url </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">AnyURI </span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the download url </p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">width </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer </span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the width of preview (image/video) </p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">height </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer </span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the height of preview (image/video) </p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">bitrate </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer </span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the preview bitrate (audio) </p>
+
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="identifier">
+                <div class="parameter">
+                    <span class="label">channels </span>
+                    <span class="required form-icon"></span>
+
+                    <span class="data-type">Integer </span>
+                    <span class="placement">Body    </span>
+                </div>
+            </div>
+            <div class="grid-right">
+                <p>Specifies the audio channels (audio) </p>
+
+            </div>
+        </div>
+</div>
+</section></section>

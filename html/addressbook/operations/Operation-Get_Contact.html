@@ -5,7 +5,8 @@
             <header>Overview</header>
             <p><p>The Get Contact Id method enables retrieving the contact data structure via a contactId. This API will return an InvalidContactException if an invalid contactId is provided or if myInfo contact id is provided.  </p>
 <p>Return:  </p>
-<ul> <li> If the call is successful, it returns a Contact data structure containing all the contact details.  </li><li> InvalidContactException if an invalid contactId has been provided. </li><li> InvalidSubscriberException if the sub_id is incorrect or the subscriber’s account status is <strong> BLOCKED</strong>.  </li><li> SystemException for any other error.  </li></ul> </p>
+<ul> <li> If the call is successful, it returns a Contact data structure containing all the contact details.  </li><li> InvalidContactException if an invalid contactId has been provided. </li><li> InvalidSubscriberException if the sub_id is incorrect or the subscriber’s account status is <strong> BLOCKED</strong>.  </li><li> SystemException for any other error.  </li></ul>
+</p>
         </section>
 
         <section id="resources-get-contact-oauth" class="level-3">
@@ -36,7 +37,7 @@
             </ul>
         
        <div id="json-Request-get-contact" class="code">
-          <p>\textbf{Example: x-field: shallow} </p>            <div class="code">
+          <p>textbf{Example: x-field: shallow} </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
@@ -52,7 +53,7 @@ x-fields: shallow
                 </div>
         
        <div id="xml-Request-get-contact" class="code">
-          <p>\textbf{Example: x-field: shallow} </p>            <div class="code">
+          <p>textbf{Example: x-field: shallow} </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
@@ -76,7 +77,7 @@ accept-encoding: gzip,deflatex-fields: shallow
             </ul>
         
        <div id="json-Response-get-contact" class="code">
-          <p>\textbf{Example: x-field: shallow} </p>            <div class="code">
+          <p>textbf{Example: x-field: shallow} </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
@@ -129,7 +130,7 @@ content-length: 678
                 </div>
         
        <div id="xml-Response-get-contact" class="code">
-          <p>\textbf{Example: x-field: shallow} </p>            <div class="code">
+          <p>textbf{Example: x-field: shallow} </p>            <div class="code">
                 <div class="code-block">
                     <span class="copy-button">copy</span>
                     <pre>
@@ -197,52 +198,41 @@ content-length: 678
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">   accept </span>
+                    <span class="label">   accept</span>
                     
-                    <span class="data-type"> String </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">String</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies the format of the body of the response. Valid values are: </p>
- <ul> </li>
-<li> <p>application/json </p>
- </li>
-<li> <p>application/xml </p>
- </li></ul> <p>The default value is application/json. Per rfc2616: \textquotedbl{}If no Accept header field is present, then it is assumed that the client accepts all media types.\textquotedbl{} By default our services return application/json. </p>
-  <p>Normal Accept header processing rules shall be followed according to rfc2616. </p>
- 
+                <p>Specifies the format of the body of the response. Valid values are: </p><ul><li>application/json  </li><li>application/xml  </li></ul><p>The default value is application/json. Per rfc2616: textquotedblIf no Accept header field is present, then it is assumed that the client accepts all media types.textquotedbl By default our services return application/json. </p><p>Normal Accept header processing rules shall be followed according to rfc2616. </p>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">accept-encoding </span>
+                    <span class="label">accept-encoding</span>
                     
-                    <span class="data-type"> String </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">String</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies accept encoding format </p>
-  <p>gzip,deflate </p>
-  <p>When this header is present, the gateway should compress the response to indicate the client that response is in compressed format </p>
- 
+                <p>Specifies accept encoding format </p><p>gzip,deflate </p><p>When this header is present, the gateway should compress the response to indicate the client that response is in compressed format </p>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">authorization </span>
+                    <span class="label">authorization</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> String </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">String</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies \textquotedbl{}Bearer\textquotedbl{} + OAuth Token – access\_token. If the Authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
- 
+                <p>Specifies textquotedblBearertextquotedbl + OAuth Token – access_token. If the Authorization header is missing, the system shall return an HTTP 400 Invalid Request message. If the token is invalid the system shall return an HTTP 401 Unauthorized message with a WWW-Authenticate HTTP header.</p>
             </div>
         </div>
 </div>
@@ -261,103 +251,95 @@ content-length: 678
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">   cache-control </span>
+                    <span class="label">   cache-control</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> String </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">String</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies whether the response can be cached. The response should be </p>
-\textbf<p>no-cache</p>
-<p> since we don’t currently don’t support caching</p>
- 
+                <p>Specifies whether the response can be cached. The response should be <strong> no-cache</strong> since we don’t currently don’t support caching</p>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">date </span>
+                    <span class="label">date</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> Date Time </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">Date Time</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies Date and time the response was returned (in RFC1123 format). For example Date: Sun, 06 Nov 1994 08:49:37 GMT</p>
- 
+                <p>Specifies Date and time the response was returned (in RFC1123 format). For example Date: Sun, 06 Nov 1994 08:49:37 GMT</p>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label"> </span>
+                    <span class="label"></span>
                     
-                    <span class="data-type">  </span>
+                    <span class="data-type"></span>
                     <span class="placement">     </span>
                 </div>
             </div>
             <div class="grid-right">
-                  
+                
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">content-encoding </span>
+                    <span class="label">content-encoding</span>
                     
-                    <span class="data-type"> String </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">String</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies content encoding </p>
-  <p>gzip,deflate </p>
- 
+                <p>Specifies content encoding </p><p>gzip,deflate </p>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">content-length </span>
+                    <span class="label">content-length</span>
                     <span class="required form-icon"></span>
 
-                    <span class="data-type"> Integer </span>
-                    <span class="placement"> Header    </span>
+                    <span class="data-type">Integer</span>
+                    <span class="placement">Header     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Indicates length of the request body in octets (8-bit bytes)</p>
- 
+                <p>Indicates length of the request body in octets (8-bit bytes)</p>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">contact </span>
+                    <span class="label">contact</span>
                     
-                    <span class="data-type"> Complex </span>
-                    <span class="placement">T Mobile Subscriber’s Contact object. Return when x-fields:<no-value> or x-fields:{[}attribute names{]}. Ref Section 3.2.1 </span>
+                    <span class="data-type">Complex</span>
+                    <span class="placement">Body     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies AT\
+                <p>Specifies AT&T Mobile Subscriber’s Contact object. Return when x-fields:<no-value> or x-fields:[attribute names]. Ref Section 3.2.1</p>
             </div>
         </div>
         <div class="grid-row">
             <div class="identifier">
                 <div class="parameter">
-                    <span class="label">quickContact </span>
+                    <span class="label">quickContact</span>
                     
-                    <span class="data-type"> Complex </span>
-                    <span class="placement"> Body    </span>
+                    <span class="data-type">Complex</span>
+                    <span class="placement">Body     </span>
                 </div>
             </div>
             <div class="grid-right">
-                 <p>Specifies Quick Contact data model. Return when x-fields: shallow. Refer section 3.2.3</p>
- 
+                <p>Specifies Quick Contact data model. Return when x-fields: shallow. Refer section 3.2.3</p>
             </div>
         </div>
 </div>
