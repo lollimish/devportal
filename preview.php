@@ -23,34 +23,34 @@
 
         <!-- CSS
         ================================================== -->
-        <link rel="stylesheet" href="static-assets/css/default.css" />
-        <link rel="stylesheet" href="static-assets/css/skeleton.css" />
-        <link rel="stylesheet" href="static-assets/css/api-doc-clean.css" />
-        <link rel="stylesheet" href="static-assets/css/modular.css" />
-        <link rel="stylesheet" href="static-assets/css/button.css" />
-        <link rel="stylesheet" href="static-assets/css/footer.css" />
-        <link rel="stylesheet" href="static-assets/css/font.css" />
-        <link rel="stylesheet" href="static-assets/css/header-common.css" />
-        <link rel="stylesheet" href="static-assets/css/header-title.css" />
-        <link rel="stylesheet" href="static-assets/css/responsive.css">
+        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/default.css" />
+        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/skeleton.css" />
+        <link rel="stylesheet" href="static-assets/css/api-doc.css" />
+        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/modular.css" />
+        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/button.css" />
+        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/footer.css" />
+        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/font.css" />
+        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/header-common.css" />
+        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/header-title.css" />
+        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/responsive.css">
 
 
         <!--[if lt IE 9]>
-        <script src="static-assets/js/html5.js" type="text/javascript"></script>
+        <script src="https://stg-devcentral.cingular.com/static-assets/js/html5.js" type="text/javascript"></script>
         <![endif]-->
-        <script src="static-assets/js/jquery-1.9.1.min.js" type="text/javascript"></script>
-        <script src="static-assets/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
-        <script src="static-assets/js/ZeroClipboard.min.js" type="text/javascript"></script>
-        <script src="static-assets/js/apidoc.js" type="text/javascript"></script>
-        <script src="static-assets/js/crafterGATracker.js" type="text/javascript" ></script> 
+        <script src="https://stg-devcentral.cingular.com/static-assets/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+        <script src="https://stg-devcentral.cingular.com/static-assets/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+        <script src="https://stg-devcentral.cingular.com/static-assets/js/ZeroClipboard.min.js" type="text/javascript"></script>
+        <script src="https://stg-devcentral.cingular.com/static-assets/js/apidoc.js" type="text/javascript"></script>
+        <script src="https://stg-devcentral.cingular.com/static-assets/js/crafterGATracker.js" type="text/javascript" ></script> 
 
         <!-- Favicons
         ================================================== -->
-        <link rel="shortcut icon" href="static-assets/images/favicon.ico">
-        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="static-assets/icons/apple-touch-icon-iphone.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="static-assets/icons/apple-touch-icon-ipad.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="static-assets/icons/apple-touch-icon-iphone4.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="static-assets/icons/touch-icon-ipad-retina.png" />
+        <link rel="shortcut icon" href="https://stg-devcentral.cingular.com/static-assets/images/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://stg-devcentral.cingular.com/static-assets/icons/apple-touch-icon-iphone.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://stg-devcentral.cingular.com/static-assets/icons/apple-touch-icon-ipad.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://stg-devcentral.cingular.com/static-assets/icons/apple-touch-icon-iphone4.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://stg-devcentral.cingular.com/static-assets/icons/touch-icon-ipad-retina.png" />
     </head>
 
     <body>
@@ -73,7 +73,7 @@
                     }
                     ?>
                     <a class="logo" href="/">
-                        <img class="att-logo" title="AT&T Developer" alt="AT&T Developer" src="static-assets/images/logo-developer.png" data-at2x="static-assets/images/hi-res/logo-developer.png" width="127" />
+                        <img class="att-logo" title="AT&T Developer" alt="AT&T Developer" src="https://stg-devcentral.cingular.com/static-assets/images/logo-developer.png" data-at2x="https://stg-devcentral.cingular.com/static-assets/images/hi-res/logo-developer.png" width="127" />
                     </a>
 
                     <form id="quick-search" class="hide-border" action="/search-results">
@@ -124,12 +124,12 @@
             <div id="att-header-responsive" class="container show-on-mobile hide">
                 <nav>
                     <a id="mobile-menu" href="#">
-                        <img title="Touch to see menu" alt="Mobile Menu" src="static-assets/images/responsive/dropdown-menu.png" data-at2x="/images/responsive/dropdown-menu.png">
+                        <img title="Touch to see menu" alt="Mobile Menu" src="https://stg-devcentral.cingular.com/static-assets/images/responsive/dropdown-menu.png" data-at2x="/images/responsive/dropdown-menu.png">
                     </a>
                 </nav>
 
                 <a class="logo" href="/">
-                    <img class="att-logo" title="AT&T Developer" alt="AT&T Developer" src="static-assets/images/responsive/logo-developer.png" data-at2x="/images/responsive/logo-developer.png" width="212">
+                    <img class="att-logo" title="AT&T Developer" alt="AT&T Developer" src="https://stg-devcentral.cingular.com/static-assets/images/responsive/logo-developer.png" data-at2x="/images/responsive/logo-developer.png" width="212">
                 </a>
             </div>
             <header id="header-title">
@@ -378,7 +378,7 @@
 
                                         <DIV class="footer-bottom">
                                             <A class="att-logo" href="http://www.att.com/" target="_blank" title="AT&amp;T">
-                                                <IMG alt="AT&T Developer" src="static-assets/images/logo-globe.png" data-at2x="static-assets/images/hi-res/logo-globe.png">
+                                                <IMG alt="AT&T Developer" src="https://stg-devcentral.cingular.com/static-assets/images/logo-globe.png" data-at2x="https://stg-devcentral.cingular.com/static-assets/images/hi-res/logo-globe.png">
                                             </a>
 
                                             <DIV id="links">
@@ -402,7 +402,7 @@
                                     </div>
 
                                     <!-- Webtrends Tracker================================================== -->
-                                    <script type="text/javascript" src="static-assets/js/webtrends.js"></script>
+                                    <script type="text/javascript" src="https://stg-devcentral.cingular.com/static-assets/js/webtrends.js"></script>
                                     <!-- ----------------------------------------------------------------------------------- -->
                                     <!-- Warning: The two script blocks below must remain inline. Moving them to an external -->
                                     <!-- JavaScript include file can cause serious problems with cross-domain tracking. -->

@@ -19,12 +19,13 @@ html .container, body .container {
     padding: 0;
 }
 span.info.required, span.required.required {
-padding-right: 15px;
+    padding-right: 15px;
+    margin: 0
 }
 #content-area {
     background: none repeat scroll 0 0 #FFFFFF;
-    border-left: 1px solid #E2E2E2;
-    border-right: 1px solid #E2E2E2;
+    border-left: 0;
+    border-right: 0;
     box-shadow: 0 -3px 100px #E2E2E2;
     margin: 0 auto;
     max-width: 1200px;
@@ -104,11 +105,11 @@ padding-right: 15px;
     color: #333333;
     font-family: 'helvetica neue', helvetica, arial, sans-serif;
     display:table;
+    width: 100%;
     margin: 0 auto;
 }
 span{
     color: #000;
-    /* font-family: 'helvetica neue', helvetica, arial, sans-serif; */
 }
 .api-docs a {
     text-decoration: none;
@@ -124,33 +125,27 @@ span{
     border-right: 1px solid #e2e2e2;
 }
 .api-docs .sub-header-container .sub-header {
-
     height: 90px;
     z-index: 1000;
     margin-left: 0%;
     width: 100%;
 }
 .api-docs .sub-header-container .fixed-scroll {
-    height: 90px;
     z-index: 1000;
     position: fixed;
     top: 0;
     width: 1200px;
-    border-right: 1px solid #e2e2e2;
 }
 .api-docs #document-area {
     position: relative;
-    overflow-x: hidden;
 }
 .api-docs #document-area #api-docs-content aside #toc {
     font-family: 'helvetica neue', helvetica, arial, sans-serif;
     font-weight: bold;
-    padding: 25px 20px 35px 0px;
-    width: 207px;
+    padding: 25px 0 35px 0;
     overflow-y: auto;
     overflow-x: hidden;
     z-index: 0;
-
 }
 
 #footer-common{
@@ -187,21 +182,20 @@ span{
 }
 .api-docs #document-area #api-docs-content aside #toc .level-2 li a {
     color: #009add;
+    height: 27px;
+    margin-top: 2px;
 }
 .api-docs #document-area #api-docs-content aside #toc .level-2 li a:hover {
     color: #05689a;
 }
 .api-docs #document-area #api-docs-content aside #toc.fixed-scroll {
     position: fixed;
-    top: 162px;
 }
 
 .api-docs #document-area #api-docs-content .main {
     border-left: 1px solid #ececec;
     box-shadow: 2px 0 5px #f4f4f4 inset;
-    padding: 5px 0 0 20px;
-    margin-left: 19.89%;
-    //overflow-wrap: break-word;
+    display: table-cell;
 }
 .api-docs #document-area #api-docs-content .main .deprecated {
     background: #e66a6d;
@@ -260,7 +254,7 @@ span{
     font-family: omnes_attmedium, 'helvetica neue', helvetica, sans-serif;
     font-size: 2em;
     margin: 0;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 .api-docs #document-area #api-docs-content .main .level-1 header .form-icon {
     background: url("/static-assets/images/form-icons-sprite.png") no-repeat scroll 0 0 transparent;
@@ -297,6 +291,21 @@ span{
     margin: 10px 0;
     padding: 0;
 }
+
+.api-docs #document-area #api-docs-content .main .level-2 h5 {
+    border: 0 none;
+    color: #333;
+    font-family: 'helvetica neue', helvetica, arial, sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 5px 0;
+}
+.api-docs #document-area #api-docs-content .main .level-2 table {
+    width: 85%;
+    margin: 20px;
+    text-align: center;
+}
+
 .api-docs #document-area #api-docs-content .main .level-2 .title {
     font-size: 15px;
     font-weight: bold;
@@ -306,16 +315,22 @@ span{
     font-family: 'helvetica neue', helvetica, arial, sans-serif;
     font-size: 1em;
     margin: 0;
+    color: #333333;
+    font-weight: 400;
 }
 
-.api-docs #document-area #api-docs-content .main .level-2 .level-3> p:before{
-    content: '- ';
-}
+/*.api-docs #document-area #api-docs-content .main .level-2 .level-3> p:before{
+    content: '\25CF   ';
+    font-size: 10px;
+}*/
 
 api-docs #document-area #api-docs-content .main .level-2 .level-3 p {
-    font-size: 1em;
     line-height: 1.5em;
-    margin: 10px 0;
+    font-family: 'helvetica neue', helvetica, arial, sans-serif;
+    font-size: 1em;
+    margin: 0;
+    color: #333333;
+    font-weight: 400;
 }
 
 .api-docs #document-area #api-docs-content .main .level-2 .level-3 li {
@@ -330,7 +345,7 @@ api-docs #document-area #api-docs-content .main .level-2 .level-3 p {
     font-family: 'helvetica neue', helvetica, arial, sans-serif;
     font-size: 1.15em;
     font-weight: bold;
-    padding: 10px 0;
+    padding: 5px 0;
 }
 .api-docs #document-area #api-docs-content .main .level-3 label {
     -webkit-border-radius: 5px;
@@ -355,6 +370,7 @@ api-docs #document-area #api-docs-content .main .level-2 .level-3 p {
     color: #333333;
     font-family: 'helvetica neue', helvetica, arial, sans-serif;
     margin: 0;
+    font-weight: 400;
 }
 
 .api-docs #document-area #api-docs-content .main ul li span {
@@ -387,7 +403,7 @@ api-docs #document-area #api-docs-content .main .level-2 .level-3 p {
     color: #000000;
 }
 .api-docs #document-area #api-docs-content .main ul:last-child {
-    /* margin: 5px; */
+    margin: 7px;
 }
 .api-docs #document-area #api-docs-content .main ul.small {
     width: 100%;
@@ -399,6 +415,7 @@ api-docs #document-area #api-docs-content .main .level-2 .level-3 p {
 }
 .api-docs #document-area #api-docs-content .main ul.oauth:first-child {
     border-top: 1px dashed #e4e4e4;
+    margin-top: 18px;
 }
 .api-docs #document-area #api-docs-content .main ul.oauth li {
     -moz-border-left-colors: none;
@@ -548,7 +565,7 @@ api-docs #document-area #api-docs-content .main .level-2 .level-3 p {
     display: table-cell;
     border-bottom: 1px dotted #eaeaea;
     padding-top: 11px;
-vertical-align: -webkit-baseline-middle;
+    vertical-align: -webkit-baseline-middle;
 }
 .api-docs #document-area #api-docs-content .main .grid ul {
     border: 0 none;
@@ -618,7 +635,7 @@ vertical-align: -webkit-baseline-middle;
 }
 .api-docs #document-area #api-docs-content .code .code-caption {
     margin-bottom: 0;
-    color: #666666;
+    color: #444444;
     font-family: 'helvetica neue', helvetica, arial, sans-serif;
     font-size: 1.15em;
     font-weight: bold;
@@ -643,14 +660,13 @@ vertical-align: -webkit-baseline-middle;
 .api-docs #api-docs-header aside select {
     display: inline-block;
     width: 110px;
+    margin: 0;
 }
 
 .api-docs #api-docs-header .main {
     border-left: 1px solid #ececec;
     box-shadow: 2px 0 5px #f4f4f4 inset;
-    margin-left: 19.89%;
     height: 70px;
-    padding: 5px 0 0 20px;
 }
 .api-docs #api-docs-header .main .status {
     font-size: 1.06em;
@@ -659,11 +675,12 @@ vertical-align: -webkit-baseline-middle;
     height: 70px;
     position: relative;
     display: table;
-    text-align: center;
+    text-align: justify;
 }
 .api-docs #api-docs-header .inner .main .status .form-icon{
     width: 31px; 
     display: table-cell;
+    padding-left: 30px;
 }
 .api-docs #api-docs-header .inner .main .status .notification-icon {
     background: url("/static-assets/images/yellow_alert.png") no-repeat scroll center transparent;
@@ -675,14 +692,14 @@ vertical-align: -webkit-baseline-middle;
 .api-docs #api-docs-header .inner .main .status .status-status{
     display: table-cell;
     vertical-align: middle;
-    text-align: justify;
     padding:0 10px;
 }
 .api-docs #api-docs-header .main .status a.button{
-    padding: 10px!important;
-    min-width: 80px;
-    margin-top: 17px;
+    padding: 8px!important;
+    min-width: 90px;
+    margin-top: 19px;
     float:right;
+    text-align: center;
 }
 .api-docs #api-docs-header.fixed-scroll {
     position: fixed;
@@ -764,35 +781,38 @@ vertical-align: -webkit-baseline-middle;
 }
 
 #api-docs-content{
-    width: 1200px;
-}
-
-.api-docs #document-area:before,
-.api-docs #document-area:after {
-    content: "";
-    display: table;
+    width: 1200px;;
 }
 .api-docs #api-docs-header .inner,
 .api-docs #document-area #api-docs-content .inner {
     margin: 0 auto;
-    width: 95%;
+    width: 97%;
+    display: table;
+    position: relative;
 }
 .api-docs #api-docs-header .inner  > aside,
 .api-docs #document-area #api-docs-content .inner  > aside {
-    float: left;
-    width: 18%;
+    width: 19.2%;
+    min-width: 180px;
 }
 .api-docs #document-area #api-docs-content .inner  > aside {
-    position: absolute;
+    //min-width: 140px;
 }
-.api-docs #api-docs-header .inner > aside {
-    padding-top: 28px;
+
+.api-docs #api-docs-header .inner > aside{
+    display: table-cell; vertical-align: middle;  
+    padding: 0;
+}
+
+.api-docs #document-area #api-docs-content .inner  > aside {
+    position: relative;
+    display: table-cell;
 }
 .api-docs #api-docs-header .inner  > .main {
-    width: 80%;
+    width: 100%;
 }
 .api-docs #document-area #api-docs-content .inner  > .main {
-    width: 80%;
+    width: 100%;
 }
 .api-docs #document-area #api-docs-content aside #toc .level-1 li,
 .api-docs #document-area #api-docs-content aside #toc .level-2 li,
@@ -815,12 +835,22 @@ vertical-align: -webkit-baseline-middle;
 td {
     color: #333333;
     font-family: 'helvetica neue', helvetica, arial, sans-serif;
+    line-height: 1.5em;
+    font-family: 'helvetica neue', helvetica, arial, sans-serif;
+    font-size: 1em;
+    margin: 0;
+    color: #333333;
+    /*    line-height: 18px;*/
+    font-weight: 400;
 }
-.api-docs #document-area #api-docs-content .main .level-1,
+.api-docs #document-area #api-docs-content .main .level-1{
+    margin-left: 20px;
+}
 .api-docs #document-area #api-docs-content .main .level-2,
 .api-docs #document-area #api-docs-content .main .level-3 {
     margin: 0;
     padding: 0;
+    margin-left: 20px;
 }
 .api-docs #document-area #api-docs-content .main .level-1:before,
 .api-docs #document-area #api-docs-content .main .level-2:before {
@@ -1001,12 +1031,6 @@ td {
     color: #606;
 }
 
-#content-area {
-    border-left: 0;
-    border-right: 0;
-    min-width:1200px;
-
-}
 /*error page*/
 .api-docs #errors .sub-banner {
     width: 960px;
@@ -1154,6 +1178,9 @@ td {
 .api-docs #errors .errors-grid .links {
     margin-left: 30%;
 }
+.api-docs #errors .errors-grid .links.status-code {
+    cursor: pointer;
+}
 .api-docs #errors .errors-grid .links a {
     font-size: 1em;
     font-weight: bold;
@@ -1185,46 +1212,47 @@ td {
     cursor: pointer;
 }
 
-@media screen and (max-width: 880px){
-    .api-docs #api-docs-header .inner .main .status .form-icon{
-        display: none;
+@media screen and (max-width: 1200px){
+    .api-docs,
+    .api-docs .sub-header-container,
+    .api-docs .sub-header-container .fixed-scroll, 
+    .api-docs #api-docs-header,
+    #api-docs-content,
+    #footer-common{
+        width: 100%;
+    }
+    #content-area {
+        max-width: 100%;
+        min-width: 100%;
+    }
+}
+@media screen and (max-width: 960px){
+    .container{
+        width: 98%;
     }    
 }
 
-@media screen and (max-width: 600px) {
-    #toc, .api-docs #api-docs-header .inner > aside{
+@media screen and (max-width: 768px) {
+    .api-docs #api-docs-header .inner > aside, 
+    .api-docs #document-area #api-docs-content .inner > aside{
         display:none;
     }
-    .api-docs #api-docs-header .inner span.toggleMenu{
-        display: block;
-    }
-    .api-docs #api-docs-header {
-        width:600px;
-    }
-    .api-docs #api-docs-header .inner > aside {
-        margin: 3px 9px 0 3px;
-        padding: 0;
-        border: 0;
-        vertical-align: middle;
-    }
-    .api-docs #api-docs-header .inner > .main {
-        margin: 3px 3px 0 9px;
-        padding: 0;
-        border: 0;
-        box-shadow: none;
-    }
-    .api-docs #document-area #api-docs-content .inner {
-        margin: 0;
-        padding: 0;
-    }
+    .api-docs #api-docs-header .inner > .main, 
     .api-docs #document-area #api-docs-content .inner > .main {
-        margin-left: 0px;
+        /*        margin: 0;
+                padding: 0 0 0 5px;*/
         border: 0;
-        width: 45%;
         box-shadow: none;
     }
     .api-docs #api-docs-header .main .status{
-        padding:0;
+        text-align: center;
     }
-}
+    .sub-header nav ul li a {
+        border: none!important;
+        padding: 7px!important;
+    }
+    .sub-header nav ul {
+        border: none!important;
+    }
 
+}
