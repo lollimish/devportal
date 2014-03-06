@@ -1,4 +1,6 @@
-
+<?php
+$livesite = 'https://stg-devcentral.cingular.com/';
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
@@ -24,20 +26,20 @@
 
         <!-- CSS
         ================================================== -->
-        <link rel="stylesheet" href="static-assets/css/default.css" />
-        <link rel="stylesheet" href="static-assets/css/skeleton.css" />
-        <link rel="stylesheet" href="static-assets/css/api-doc-clean.css" />
-        <link rel="stylesheet" href="static-assets/css/modular.css" />
-        <link rel="stylesheet" href="static-assets/css/button.css" />
-        <link rel="stylesheet" href="static-assets/css/footer.css" />
-        <link rel="stylesheet" href="static-assets/css/header-common.css" />
-        <link rel="stylesheet" href="static-assets/css/header-title.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/default.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/skeleton.css" />
+        <link rel="stylesheet" href="static-assets/css/api-doc.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/modular.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/button.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/footer.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/header-common.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/header-title.css" />
         <!--[if lt IE 9]>
-          <script src="/static-assets/js/html5.js" type="text/javascript"></script>
+          <script src="/<?=$livesite?>static-assets/js/html5.js" type="text/javascript"></script>
         <![endif]-->
-        <script src="static-assets/js/jquery-1.9.1.min.js" type="text/javascript"></script>
-        <script src="static-assets/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
-        <script src="static-assets/js/errors.js" type="text/javascript"></script>
+        <script src="<?=$livesite?>static-assets/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+        <script src="<?=$livesite?>static-assets/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+        <script src="<?=$livesite?>static-assets/js/errors.js" type="text/javascript"></script>
 
 
 
@@ -52,8 +54,8 @@
             <div id="att-header" class="container">
 
                 <a class="logo" href="/">
-                    <img class="att-logo" title="AT&T Developer" alt="AT&T Developer" src="static-assets/images/logo-developer.png"
-                         data-at2x="static-assets/images/hi-res/logo-developer.png" width="127" />
+                    <img class="att-logo" title="AT&T Developer" alt="AT&T Developer" src="<?=$livesite?>static-assets/images/logo-developer.png"
+                         data-at2x="<?=$livesite?>static-assets/images/hi-res/logo-developer.png" width="127" />
                 </a>
                 <form id="quick-search" class="hide-border" action="/search-results">
                     <button class="magnifying-glass form-icon" type="submit" value="Search" title="Click here to see search results"></button>
@@ -76,35 +78,35 @@
                             <ul>
                                 <li>
                                     <a href="/apis/speech">
-                                        <img class="api-icon" title="Speech API" alt="Speech API" src="/static-assets/images/api-icons/speech-icon.png" data-at2x="/static-assets/images/hi-res/api-icons/speech-icon.png" width="20">
+                                        <img class="api-icon" title="Speech API" alt="Speech API" src="/<?=$livesite?>static-assets/images/api-icons/speech-icon.png" data-at2x="/<?=$livesite?>static-assets/images/hi-res/api-icons/speech-icon.png" width="20">
                                         Speech
                                     </a>
                                     <a class="docs-link" href="/apis/speech/docs">Docs</a>
                                 </li>
                                 <li>
                                     <a href="/apis/call-management">
-                                        <img class="api-icon" title="Call Management API" alt="Call Management API" src="/static-assets/images/api-icons/call-management-icon.png" data-at2x="/static-assets/images/hi-res/api-icons/call-management-icon.png" width="20">
+                                        <img class="api-icon" title="Call Management API" alt="Call Management API" src="/<?=$livesite?>static-assets/images/api-icons/call-management-icon.png" data-at2x="/<?=$livesite?>static-assets/images/hi-res/api-icons/call-management-icon.png" width="20">
                                         Call Management (Beta)
                                     </a>
                                     <a class="docs-link" href="/apis/call-management/docs">Docs</a>
                                 </li>
                                 <li>
                                     <a href="/apis/msm-mms">
-                                        <img class="api-icon" title="SMS API" alt="SMS API" src="/static-assets/images/api-icons/sms-icon.png" data-at2x="/static-assets/images/hi-res/api-icons/sms-icon.png" width="20">
+                                        <img class="api-icon" title="SMS API" alt="SMS API" src="/<?=$livesite?>static-assets/images/api-icons/sms-icon.png" data-at2x="/<?=$livesite?>static-assets/images/hi-res/api-icons/sms-icon.png" width="20">
                                         SMS
                                     </a>
                                     <a class="docs-link" href="/apis/sms/docs">Docs</a>
                                 </li>
                                 <li>
                                     <a href="/apis/msm-mms">
-                                        <img class="api-icon" title="MMS API" alt="MMS API" src="/static-assets/images/api-icons/mms-icon.png" data-at2x="/static-assets/images/hi-res/api-icons/mms-icon.png" width="20">
+                                        <img class="api-icon" title="MMS API" alt="MMS API" src="/<?=$livesite?>static-assets/images/api-icons/mms-icon.png" data-at2x="/<?=$livesite?>static-assets/images/hi-res/api-icons/mms-icon.png" width="20">
                                         MMS
                                     </a>
                                     <a class="docs-link" href="/apis/msm-mms/docs">Docs</a>
                                 </li>
                                 <li>
                                     <a href="/apis/in-app-messaging">
-                                        <img class="api-icon" title="IMMN API" alt="IMMN API" src="/static-assets/images/api-icons/immn-icon.png" data-at2x="/static-assets/images/hi-res/api-icons/immn-icon.png" width="20">
+                                        <img class="api-icon" title="IMMN API" alt="IMMN API" src="/<?=$livesite?>static-assets/images/api-icons/immn-icon.png" data-at2x="/<?=$livesite?>static-assets/images/hi-res/api-icons/immn-icon.png" width="20">
                                         In-App Messaging
                                     </a>
                                     <a class="docs-link" href="/apis/in-app-messaging/docs">Docs</a>
@@ -175,7 +177,7 @@
                     <div class="sub-banner">
                         <form id="filters" class="detail_filter">
                             <div class="filter">
-                                <label for="api-selector">Filter by API</label>
+                                <label for="api-selector">Fine API</label>
                                 <select id="api-selector" name="api"
                                         data-value="speech">
                                     <option value="all">All APIs</option>
@@ -286,8 +288,8 @@
 
                     <div class="footer-bottom">
                         <a class="logo" href="http://www.att.com/" title="AT&amp;T">
-                            <img class="att-logo" alt="AT&T Developer" src="static-assets/images/logo-globe.png"
-                                 data-at2x="static-assets/images/hi-res/logo-globe.png" width="30">
+                            <img class="att-logo" alt="AT&T Developer" src="<?=$livesite?>static-assets/images/logo-globe.png"
+                                 data-at2x="<?=$livesite?>static-assets/images/hi-res/logo-globe.png" width="30">
                         </a>
 
                         <div id="links">
@@ -363,8 +365,8 @@
                         </div>
 
                         <a class="logo" href="http://www.att.com/" title="AT&amp;T">
-                            <img class="att-logo" alt="AT&T Developer" src="static-assets/images/logo-globe.png"
-                                 data-at2x="static-assets/images/hi-res/logo-globe.png" width="60">
+                            <img class="att-logo" alt="AT&T Developer" src="<?=$livesite?>static-assets/images/logo-globe.png"
+                                 data-at2x="<?=$livesite?>static-assets/images/hi-res/logo-globe.png" width="60">
                         </a>
 
                         <div id="trademark-notes">
@@ -376,7 +378,7 @@
 
 
             </div>
-            <!--<script src="static-assets/js/fancy-select.js" type="text/javascript"></script>-->
+            <!--<script src="<?=$livesite?>static-assets/js/fancy-select.js" type="text/javascript"></script>-->
 
 
             <link rel="stylesheet" href="/css/hi-res.css" />

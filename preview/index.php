@@ -1,5 +1,7 @@
 <?php
-$list = '../list/list.txt';
+$list = '../../list/list.txt';
+$livesite = 'https://stg-devcentral.cingular.com/';
+
 ?>
 
 <!DOCTYPE html>
@@ -27,16 +29,16 @@ $list = '../list/list.txt';
 
         <!-- CSS
         ================================================== -->
-        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/default.css" />
-        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/skeleton.css" />
-        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/api-doc-clean.css" />
-        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/modular.css" />
-        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/button.css" />
-        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/footer.css" />
-        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/font.css" />
-        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/header-common.css" />
-        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/header-title.css" />
-        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/responsive.css">
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/default.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/skeleton.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/api-doc-clean.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/modular.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/button.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/footer.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/font.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/header-common.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/header-title.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/responsive.css">
 
 
         <!--[if lt IE 9]>
@@ -68,7 +70,7 @@ $list = '../list/list.txt';
 
                 <div id="att-header" class="container">
                     <a class="logo" href="/">
-                        <img class="att-logo" title="AT&T Developer" alt="AT&T Developer" src="https://stg-devcentral.cingular.com/static-assets/images/logo-developer.png" data-at2x="https://stg-devcentral.cingular.com/static-assets/images/hi-res/logo-developer.png" width="127" />
+                        <img class="att-logo" title="AT&T Developer" alt="AT&T Developer" src="<?=$livesite?>static-assets/images/logo-developer.png" data-at2x="<?=$livesite?>static-assets/images/hi-res/logo-developer.png" width="127" />
                     </a>
 
 
@@ -78,12 +80,12 @@ $list = '../list/list.txt';
             <div id="att-header-responsive" class="container show-on-mobile hide">
                 <nav>
                     <a id="mobile-menu" href="#">
-                        <img title="Touch to see menu" alt="Mobile Menu" src="https://stg-devcentral.cingular.com/static-assets/images/responsive/dropdown-menu.png" data-at2x="/images/responsive/dropdown-menu.png">
+                        <img title="Touch to see menu" alt="Mobile Menu" src="<?=$livesite?>static-assets/images/responsive/dropdown-menu.png" data-at2x="/images/responsive/dropdown-menu.png">
                     </a>
                 </nav>
 
                 <a class="logo" href="/">
-                    <img class="att-logo" title="AT&T Developer" alt="AT&T Developer" src="https://stg-devcentral.cingular.com/static-assets/images/responsive/logo-developer.png" data-at2x="/images/responsive/logo-developer.png" width="212">
+                    <img class="att-logo" title="AT&T Developer" alt="AT&T Developer" src="<?=$livesite?>static-assets/images/responsive/logo-developer.png" data-at2x="/images/responsive/logo-developer.png" width="212">
                 </a>
             </div>
             <header id="header-title">

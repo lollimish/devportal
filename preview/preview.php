@@ -1,3 +1,6 @@
+<?php
+$livesite = 'https://stg-devcentral.cingular.com/';
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
@@ -23,34 +26,34 @@
 
         <!-- CSS
         ================================================== -->
-        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/default.css" />
-        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/skeleton.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/default.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/skeleton.css" />
         <link rel="stylesheet" href="static-assets/css/api-doc.css" />
-        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/modular.css" />
-        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/button.css" />
-        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/footer.css" />
-        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/font.css" />
-        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/header-common.css" />
-        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/header-title.css" />
-        <link rel="stylesheet" href="https://stg-devcentral.cingular.com/static-assets/css/responsive.css">
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/modular.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/button.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/footer.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/font.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/header-common.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/header-title.css" />
+        <link rel="stylesheet" href="<?=$livesite?>static-assets/css/responsive.css">
 
 
         <!--[if lt IE 9]>
-        <script src="https://stg-devcentral.cingular.com/static-assets/js/html5.js" type="text/javascript"></script>
+        <script src="<?=$livesite?>static-assets/js/html5.js" type="text/javascript"></script>
         <![endif]-->
-        <script src="https://stg-devcentral.cingular.com/static-assets/js/jquery-1.9.1.min.js" type="text/javascript"></script>
-        <script src="https://stg-devcentral.cingular.com/static-assets/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
-        <script src="https://stg-devcentral.cingular.com/static-assets/js/ZeroClipboard.min.js" type="text/javascript"></script>
-        <script src="https://stg-devcentral.cingular.com/static-assets/js/apidoc.js" type="text/javascript"></script>
-        <script src="https://stg-devcentral.cingular.com/static-assets/js/crafterGATracker.js" type="text/javascript" ></script> 
+        <script src="<?=$livesite?>static-assets/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+        <script src="<?=$livesite?>static-assets/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+        <script src="<?=$livesite?>static-assets/js/ZeroClipboard.min.js" type="text/javascript"></script>
+        <script src="<?=$livesite?>static-assets/js/apidoc.js" type="text/javascript"></script>
+        <script src="<?=$livesite?>static-assets/js/crafterGATracker.js" type="text/javascript" ></script> 
 
         <!-- Favicons
         ================================================== -->
-        <link rel="shortcut icon" href="https://stg-devcentral.cingular.com/static-assets/images/favicon.ico">
-        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://stg-devcentral.cingular.com/static-assets/icons/apple-touch-icon-iphone.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://stg-devcentral.cingular.com/static-assets/icons/apple-touch-icon-ipad.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://stg-devcentral.cingular.com/static-assets/icons/apple-touch-icon-iphone4.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://stg-devcentral.cingular.com/static-assets/icons/touch-icon-ipad-retina.png" />
+        <link rel="shortcut icon" href="<?=$livesite?>static-assets/images/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?=$livesite?>static-assets/icons/apple-touch-icon-iphone.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?=$livesite?>static-assets/icons/apple-touch-icon-ipad.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?=$livesite?>static-assets/icons/apple-touch-icon-iphone4.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?=$livesite?>static-assets/icons/touch-icon-ipad-retina.png" />
     </head>
 
     <body>
@@ -65,15 +68,15 @@
 
                 <div id="att-header" class="container">
                     <?php
-                    include 'functions/functions.php';
+//                    include 'functions/functions.php';
                     $api = isset($_POST['api']) ? trim($_POST['api']) : 'locker';
-                    if (!file_exists('html/' . $api)) {
+                    if (!file_exists('../html/' . $api)) {
                         echo "<center>API not exsist. <a href=index.php>Main page</a></center>";
                         exit;
                     }
                     ?>
                     <a class="logo" href="/">
-                        <img class="att-logo" title="AT&T Developer" alt="AT&T Developer" src="https://stg-devcentral.cingular.com/static-assets/images/logo-developer.png" data-at2x="https://stg-devcentral.cingular.com/static-assets/images/hi-res/logo-developer.png" width="127" />
+                        <img class="att-logo" title="AT&T Developer" alt="AT&T Developer" src="<?=$livesite?>static-assets/images/logo-developer.png" data-at2x="<?=$livesite?>static-assets/images/hi-res/logo-developer.png" width="127" />
                     </a>
 
                     <form id="quick-search" class="hide-border" action="/search-results">
@@ -124,12 +127,12 @@
             <div id="att-header-responsive" class="container show-on-mobile hide">
                 <nav>
                     <a id="mobile-menu" href="#">
-                        <img title="Touch to see menu" alt="Mobile Menu" src="https://stg-devcentral.cingular.com/static-assets/images/responsive/dropdown-menu.png" data-at2x="/images/responsive/dropdown-menu.png">
+                        <img title="Touch to see menu" alt="Mobile Menu" src="<?=$livesite?>static-assets/images/responsive/dropdown-menu.png" data-at2x="/images/responsive/dropdown-menu.png">
                     </a>
                 </nav>
 
                 <a class="logo" href="/">
-                    <img class="att-logo" title="AT&T Developer" alt="AT&T Developer" src="https://stg-devcentral.cingular.com/static-assets/images/responsive/logo-developer.png" data-at2x="/images/responsive/logo-developer.png" width="212">
+                    <img class="att-logo" title="AT&T Developer" alt="AT&T Developer" src="<?=$livesite?>static-assets/images/responsive/logo-developer.png" data-at2x="/images/responsive/logo-developer.png" width="212">
                 </a>
             </div>
             <header id="header-title">
@@ -190,7 +193,7 @@
                                     <!-- Begin Content: Left Nav -->
                                     <?php
 //operation
-                                    $param_sec = file_get_contents('html/' . $api . '/leftnav.html');
+                                    $param_sec = file_get_contents('../html/' . $api . '/leftnav.html');
                                     echo $param_sec;
                                     ?>
                                     <!-- End Content: Left Nav -->
@@ -208,8 +211,8 @@
 
                                         <?php
 //intro
-//                                    $param_sec = file_get_contents('html/intro.html');
-                                        $param_sec = file_get_contents('html/' . $api . '/introductions/introduction.html');
+//                                    $param_sec = file_get_contents('../html/intro.html');
+                                        $param_sec = file_get_contents('../html/' . $api . '/introductions/introduction.html');
                                         echo $param_sec;
                                         ?>
 
@@ -222,7 +225,7 @@
 
                                             <?php
 //intro
-                                            $param_sec = file_get_contents('html/' . $api . '/oauth/oauth.html');
+                                            $param_sec = file_get_contents('../html/' . $api . '/oauth/oauth.html');
                                             echo $param_sec;
                                             ?>
 
@@ -293,11 +296,11 @@
                                             <?php
 //operation
 
-                                            $dir_files = scandir('html/' . $api . '/operations/');
+                                            $dir_files = scandir('../html/' . $api . '/operations/');
                                             $i = 0;
                                             foreach ($dir_files as $file) {
                                                 if (startsWith($file, "Operation")) {
-                                                    $param_sec = file_get_contents('html/' . $api . '/operations/' . $file);
+                                                    $param_sec = file_get_contents('../html/' . $api . '/operations/' . $file);
                                                     echo $param_sec;
                                                 }
                                             }
@@ -378,7 +381,7 @@
 
                                         <DIV class="footer-bottom">
                                             <A class="att-logo" href="http://www.att.com/" target="_blank" title="AT&amp;T">
-                                                <IMG alt="AT&T Developer" src="https://stg-devcentral.cingular.com/static-assets/images/logo-globe.png" data-at2x="https://stg-devcentral.cingular.com/static-assets/images/hi-res/logo-globe.png">
+                                                <IMG alt="AT&T Developer" src="<?=$livesite?>static-assets/images/logo-globe.png" data-at2x="<?=$livesite?>static-assets/images/hi-res/logo-globe.png">
                                             </a>
 
                                             <DIV id="links">
@@ -402,7 +405,7 @@
                                     </div>
 
                                     <!-- Webtrends Tracker================================================== -->
-                                    <script type="text/javascript" src="https://stg-devcentral.cingular.com/static-assets/js/webtrends.js"></script>
+                                    <script type="text/javascript" src="<?=$livesite?>static-assets/js/webtrends.js"></script>
                                     <!-- ----------------------------------------------------------------------------------- -->
                                     <!-- Warning: The two script blocks below must remain inline. Moving them to an external -->
                                     <!-- JavaScript include file can cause serious problems with cross-domain tracking. -->
