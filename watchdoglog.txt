@@ -1,0 +1,76 @@
+
+Mon, 24 Feb 2014 22:50:26: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 22:50:26: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 22:50:39: List has been changed, restarting watchdog.
+Mon, 24 Feb 2014 22:50:39: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 22:50:39: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 22:50:39: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 22:52:23: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 22:52:23: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 22:53:03: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 22:53:03: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 22:53:19: List has been changed, restarting watchdog.
+Mon, 24 Feb 2014 22:53:19: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 22:53:19: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 22:53:19: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 22:55:46: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 22:55:46: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 22:57:36: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 22:57:36: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 22:57:36: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 22:57:50: List has been changed, restarting watchdog.
+Mon, 24 Feb 2014 22:57:50: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 22:57:50: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 22:59:13: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 22:59:13: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 22:59:13: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:00:42: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:00:42: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 23:00:42: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:01:15: List has been changed, restarting watchdog.
+Mon, 24 Feb 2014 23:01:15: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:01:15: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 23:03:33: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:03:33: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 23:03:43: List has been changed, restarting watchdog.
+Mon, 24 Feb 2014 23:03:43: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:03:43: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 23:03:43: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:05:16: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:05:16: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 23:05:16: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:05:41: List has been changed, restarting watchdog.
+Mon, 24 Feb 2014 23:05:41: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:05:41: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 23:06:37: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:06:37: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 23:08:10: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:08:10: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 23:08:10: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:18:48: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:18:48: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 23:19:08: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:19:08: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 23:19:20: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:19:20: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 23:19:27: List has been changed, restarting watchdog.
+Mon, 24 Feb 2014 23:19:27: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:19:27: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 23:19:27: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:19:32: List has been changed, restarting watchdog.
+Mon, 24 Feb 2014 23:19:32: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:19:32: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 23:19:36: List has been changed, restarting watchdog.
+Mon, 24 Feb 2014 23:19:36: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:19:36: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 23:19:36: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:25:11: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:25:11: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 23:25:11: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:25:34: Generating new html files for api: 'locker' .
+Mon, 24 Feb 2014 23:28:36: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:28:36: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 23:28:36: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:29:48: Starting watchdog on  apis: 'locker'.
+Mon, 24 Feb 2014 23:29:48: Starting watchdog on  apis: 'webrtc'.
+Mon, 24 Feb 2014 23:29:48: Starting watchdog on  apis: 'locker'.

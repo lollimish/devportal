@@ -5,34 +5,15 @@ To generates all the files in the file structure:
 	example:
 	php htmlForCrafter.php locker
 
-To generate specific introduction section
+To preview API document page have list/list.txt in the directory a level up from devportal:
 
-	php parse_introduction.php <input file.tex> <output file.html>
-	
-	example:
-	php parse_introduction.php ../apis/webrtc/ATT_Service_Spec_WebRTC-Specification.tex html/intro.html
+	devpotal/preview/index.php
 
 
-To generate specific oath section
+Call watchdog to watch the file from list: 
 
-	php parse_oauth.php <input file.tex> <output file.html>
+	python watch.py 
 
-	example:
-	php parse_oauth.php ../apis/locker/ATT-Locker-Service-Specification.tex html/oauth.html
 
-To generate specific operation section
 
-	php parse_operation.php <input file.tex> <output file.html>	
-	example:
-	php parse_operation.php ../apis/locker/Operation-Add_Files_To_Folder.tex html/op.html
-	
-	
-To generate each input, output, object section
-
-	php parse_paramtable.php <input file.tex> <output file.html>
-	
-	example:
-	php parse_paramtable.php ../apis/locker/InputParam-Add_Tracks_To_Playlist.tex html/param.html
-	
-	
 	
