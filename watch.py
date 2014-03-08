@@ -61,6 +61,5 @@ if __name__ == "__main__":
     #Monitor list file
     observer_list.schedule(list_event_handler, "../list", recursive=False)
     observer_list.start()
-    Keybreak(test)
     
     
