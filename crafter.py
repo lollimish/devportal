@@ -13,15 +13,22 @@
 
 # python ~/sites/devcontent/devportal/crafter.py /Applications/LyX.app/Contents/Resources/ /Users/michellepai/Sites/devcontent/apis/locker/ATT-Locker-Service.lyx
 # python ~/sites/devcontent/devportal/crafter.py $$s $$i
-
+# python /Users/michellepai/sites/devcontent/devportal/crafter.py /Applications/LyX.app/Contents/Resources/ /Users/michellepai/Sites/devcontent/apis/locker/ATT-Locker-Service.lyx
+# python crafter.py ATT-Locker-Service-Specification.tex
 import sys
 import time
 import subprocess
 import string
+import time
+from time import gmtime, strftime
+
+def test_log(str):
+    with open("/Users/michellepai/sites/devcontent/devportal/text.txt", "a") as testlog:
+        testlog.write(strftime("\n%a, %d %b %Y %H:%M:%S", gmtime()) + ": "+ str)
 
 if __name__ == "__main__":
-	lyx_sys_path =  sys.argv[1]
-	lyx_file_name = sys.argv[2]
+	lyx_file_name = sys.argv[1]
+	# lyx_sys_path =  sys.argv[2]
 	# for arg in sys.argv: 
 	# 	print arg
 
@@ -31,8 +38,10 @@ if __name__ == "__main__":
 	# proc_tex.wait()
 	# print proc_tex.returncode
 
-	api =  lyx_file_name.split('-')[1]
+	api =  lyx_file_name.split('-')[1].lower()
+	test_log(api)
+	subprocess.call(["php", "/Users/michellepai/sites/devcontent/devportal/htmlForCrafter.php", api],)
 
+	# with open("phplog.txt","a") as out, open("phperr.txt","a") as err:
+	#     subprocess.Popen(["php", "/Users/michellepai/sites/devcontent/devportal/htmlForCrafter.php", api],stdout=out,stderr=err)
 
-	subprocess.call(["php", "~/sites/devcontent/devportal/htmlForCrafter.php", api]);
-	#see screen shot to know where i left off

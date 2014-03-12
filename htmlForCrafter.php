@@ -2,53 +2,81 @@
 
 //php htmlForCrafter.php locker
 //php htmlForCrafter.php addressbook
+//php htmlForCrafter.php lyx /var/folders/dm/lz3mh3ts7rj62mdscftpy8600000gn/T/lyx_tmpdir.L49626/lyx_tmpbuf0/ ATT-Locker-Service-Specification.tex /Users/michellepai/Sites/devcontent/apis/locker/trunk/
 
-$api = $argv[1];
 
-if (!file_exists("../apis/$api/trunk/ATT-$api-Service-Specification.tex")) {
-    echo "Can't find spec file\n";
-} else {
-    if (file_exists("html/$api")) {
-        rrmdir("html/$api");
+if ($argv[1] === 'lyx') {
+    writehtml($argv[2] . "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
+    writehtml($argv[3] . "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
+    writehtml($argv[4] . "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
+
+    $input_dir = $argv[2]; //temp path
+    $tex_file_name = $argv[3];
+    $output_dir = $argv[4]; //original path
+    $temp = explode('-', $tex_file_name);
+    $api = $temp[1];
+    $dir_files = scandir($input_dir);
+    foreach ($dir_files as $file) {
+        $temp = explode('_trunk_', $file);
+        $new_name = $temp[1];
+        rename($input_dir . $file, $input_dir . $new_name);
+        writehtml($file . "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
     }
-    mkdir("html/$api/introductions", 0777, true);
-    mkdir("html/$api/oauth", 0777, true);
-    mkdir("html/$api/operations", 0777, true);
-    mkdir("html/$api/errors", 0777, true);
+} 
 
-    $inputfile = "../apis/$api/trunk/ATT-$api-Service-Specification.tex";
+if (!file_exists($input_dir . "ATT-$api-Service-Specification.tex")) {
+    echo "Can't find spec file\n";
+    writehtml("Can't find spec file\n" . "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
+} else {
+    writehtml("File found?\n" . "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
+    if (file_exists($output_dir . "html/$api")) {
+        rrmdir($output_dir . "html/$api");
+    }
+    mkdir($output_dir . "html/$api/introductions", 0777, true);
+    mkdir($output_dir . "html/$api/oauth", 0777, true);
+    mkdir($output_dir . "html/$api/operations", 0777, true);
+    mkdir($output_dir . "html/$api/errors", 0777, true);
 
-    parse_introduction($inputfile, "html/$api/introductions/introduction.html");
-    parse_oauth($inputfile, "html/$api/oauth/oauth.html");
-    parse_leftnav($inputfile, "html/$api/leftnav.html");
+    $inputfile = $input_dir . "ATT-$api-Service-Specification.tex";
+
+    parse_introduction($inputfile, $output_dir . "html/$api/introductions/introduction.html");
+    parse_oauth($inputfile, $output_dir . "html/$api/oauth/oauth.html");
+    parse_leftnav($inputfile, $output_dir . "html/$api/leftnav.html");
 
     $operations[] = allOperationsFileNames($inputfile);
+    echo $inputfile;
+    $temp_ops = var_dump($operations);
+    writehtml("var_dump: \n" . $temp_ops . "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
+
     foreach ($operations[0] as $op) {
-        if (file_exists("../apis/$api/trunk/$op")) {
+        $temp = explode('_trunk_', $op);
+        $op = $temp[1];
+        if (file_exists($input_dir . $op)) {
+            writehtml("op: " . $input_dir . $op . "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
             $op_filename = substr($op, 0, strlen($op) - 3) . 'html';
-            $outputfile = "html/$api/operations/$op_filename";
-            parse_operation("../apis/$api/trunk/$op", $outputfile);
+            $outputfile = $output_dir . "html/$api/operations/$op_filename";
+            parse_operation($input_dir . $op, $outputfile);
 
             //parameter head
             $operation_name = getOperationName("../apis/$api/trunk/$op");
             $content = "<section id=\"resources-{$operation_name}-parameters\" class=\"level-3\">";
             writehtml($content, $outputfile);
             //Input param
-            $file = getRefFile("../apis/$api/trunk/$op");
-            parse_paramTable("../apis/$api/trunk/" . $file['input'], $outputfile);
-            $object = getObjFile("../apis/$api/trunk/" . $file['input']);
+            $file = getRefFile($input_dir . $op);
+            parse_paramTable($input_dir . $file['input'], $outputfile);
+            $object = getObjFile($input_dir . $file['input']);
             foreach ($object as $obj) {
-                parse_paramTable("../apis/$api/trunk/" . $obj, $outputfile);
+                parse_paramTable($input_dir . $obj, $outputfile);
             }
             unset($object);
             //Output param
-            parse_paramTable("../apis/$api/trunk/" . $file['output'], $outputfile);
-            $object = getObjFile("../apis/$api/trunk/" . $file['output']);
+            parse_paramTable($input_dir . $file['output'], $outputfile);
+            $object = getObjFile($input_dir . $file['output']);
             $object = array_filter($object);
             count($object);
 
             foreach ($object as $obj) {
-                parse_paramTable("../apis/$api/trunk/" . $obj, $outputfile);
+                parse_paramTable($input_dir . $obj, $outputfile);
             }
             unset($object);
             writehtml('</section></section>', $outputfile);
@@ -57,13 +85,13 @@ if (!file_exists("../apis/$api/trunk/ATT-$api-Service-Specification.tex")) {
     }
     //errors
 
-    $dir_files = scandir("../apis/$api/trunk/");
+    $dir_files = scandir($input_dir);
     $j = 0;
     $allerrors = array();
     $errorcodes = array();
     foreach ($dir_files as $file) {
         if (startsWith($file, "Errors") && substr($file, strlen($file) - 3) === 'tex') {
-            $errors = parse_error("../apis/$api/trunk/$file");
+            $errors = parse_error($input_dir . $file);
             for ($i = 0; $i < count($errors); $i++) {
                 if (!in_array($errors[$i][0], $errorcodes)) {
                     $errorcodes[$j] = $errors[$i][0];
@@ -81,7 +109,7 @@ if (!file_exists("../apis/$api/trunk/ATT-$api-Service-Specification.tex")) {
     asort($errorcodes);
 
     foreach ($allerrors as $error) {
-        $outputfile = "html/$api/errors/" . strtolower($error[0]) . '.html';
+        $outputfile = $output_dir . "html/$api/errors/" . strtolower($error[0]) . '.html';
         $error_code = $error[0];
         $error_msg = htmlspecialchars($error[1]);
         $error_var = htmlspecialchars($error[2]);
@@ -122,7 +150,7 @@ EOD;
         writehtml($content, $outputfile);
         foreach ($ops as $operation) {
             $operation_name = str_replace('-', ' ', ucwords($operation));
-        writehtml("<a class=\"api icon-after\" href=\"/api/$api/docs/#$operation\">$api - $operation_name </a>", $outputfile);
+            writehtml("<a class=\"api icon-after\" href=\"/api/$api/docs/#$operation\">$api - $operation_name </a>", $outputfile);
 //            writehtml("                        <a class=\"api icon-after\" href=\"/api/in-app-messaging/docs\">In-App Messaging - $operation_name method</a>", $outputfile);
         }
         $content = <<<"EOD"
@@ -900,7 +928,7 @@ function allOperationsFileNames($filename) {
     $file_handle = fopen($filename, 'r');
     while (!\feof($file_handle)) {
         $line = fgets($file_handle);
-        if (startsWith($line, '\input{Operation-')) {
+        if (startsWith($line, '\input{') && strpos($line, 'Operation')!==false) {
             $operations[] = getInbetweenStrings('{', '}', $line);
         }
     }

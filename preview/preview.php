@@ -297,7 +297,6 @@ $livesite = 'https://stg-devcentral.cingular.com/';
 //operation
 
                                             $dir_files = scandir('../html/' . $api . '/operations/');
-                                            $i = 0;
                                             foreach ($dir_files as $file) {
                                                 if (startsWith($file, "Operation")) {
                                                     $param_sec = file_get_contents('../html/' . $api . '/operations/' . $file);
