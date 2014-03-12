@@ -17,44 +17,43 @@ if ($argv[1] === 'lyx') {
     $api = $temp[1];
     $dir_files = scandir($input_dir);
     foreach ($dir_files as $file) {
-        $temp = explode('_trunk_', $file);
-        $new_name = $temp[1];
-        rename($input_dir . $file, $input_dir . $new_name);
-        writehtml($file . "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
+        if (substr($file, strlen($file) - 3) === 'tex') {
+            writehtml(substr($file, strlen($file) - 3) . "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
+            writehtml($file. "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
+
+            $temp = explode('_trunk_', $file);
+            $new_name = isset($temp[1]) ? $temp[1] : NULL;
+            rename($input_dir . $file, $input_dir . $new_name);
+        }
     }
-} 
+}
 
 if (!file_exists($input_dir . "ATT-$api-Service-Specification.tex")) {
     echo "Can't find spec file\n";
     writehtml("Can't find spec file\n" . "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
 } else {
-    writehtml("File found?\n" . "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
-    if (file_exists($output_dir . "html/$api")) {
-        rrmdir($output_dir . "html/$api");
+//    writehtml("File found?\n" . "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
+    if (file_exists($output_dir . "DevDocs(html)")) {
+        rrmdir($output_dir . "DevDocs(html)");
     }
-    mkdir($output_dir . "html/$api/introductions", 0777, true);
-    mkdir($output_dir . "html/$api/oauth", 0777, true);
-    mkdir($output_dir . "html/$api/operations", 0777, true);
-    mkdir($output_dir . "html/$api/errors", 0777, true);
+    mkdir($output_dir . "DevDocs(html)/introductions", 0777, true);
+    mkdir($output_dir . "DevDocs(html)/oauth", 0777, true);
+    mkdir($output_dir . "DevDocs(html)/operations", 0777, true);
+    mkdir($output_dir . "DevDocs(html)/errors", 0777, true);
 
     $inputfile = $input_dir . "ATT-$api-Service-Specification.tex";
 
-    parse_introduction($inputfile, $output_dir . "html/$api/introductions/introduction.html");
-    parse_oauth($inputfile, $output_dir . "html/$api/oauth/oauth.html");
-    parse_leftnav($inputfile, $output_dir . "html/$api/leftnav.html");
+    parse_introduction($inputfile, $output_dir . "DevDocs(html)/introductions/introduction.html");
+    parse_oauth($inputfile, $output_dir . "DevDocs(html)/oauth/oauth.html");
+    parse_leftnav($inputfile, $output_dir . "DevDocs(html)/leftnav.html");
+    $operations = array();
+    $operations = allOperationsFileNames($inputfile);
 
-    $operations[] = allOperationsFileNames($inputfile);
-    echo $inputfile;
-    $temp_ops = var_dump($operations);
-    writehtml("var_dump: \n" . $temp_ops . "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
 
-    foreach ($operations[0] as $op) {
-        $temp = explode('_trunk_', $op);
-        $op = $temp[1];
+    foreach ($operations as $op) {
         if (file_exists($input_dir . $op)) {
-            writehtml("op: " . $input_dir . $op . "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
             $op_filename = substr($op, 0, strlen($op) - 3) . 'html';
-            $outputfile = $output_dir . "html/$api/operations/$op_filename";
+            $outputfile = $output_dir . "DevDocs(html)/operations/$op_filename";
             parse_operation($input_dir . $op, $outputfile);
 
             //parameter head
@@ -63,7 +62,10 @@ if (!file_exists($input_dir . "ATT-$api-Service-Specification.tex")) {
             writehtml($content, $outputfile);
             //Input param
             $file = getRefFile($input_dir . $op);
+
+//            writehtml("$file: " . $file . "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
             parse_paramTable($input_dir . $file['input'], $outputfile);
+
             $object = getObjFile($input_dir . $file['input']);
             foreach ($object as $obj) {
                 parse_paramTable($input_dir . $obj, $outputfile);
@@ -109,7 +111,7 @@ if (!file_exists($input_dir . "ATT-$api-Service-Specification.tex")) {
     asort($errorcodes);
 
     foreach ($allerrors as $error) {
-        $outputfile = $output_dir . "html/$api/errors/" . strtolower($error[0]) . '.html';
+        $outputfile = $output_dir . "DevDocs(html)/errors/" . strtolower($error[0]) . '.html';
         $error_code = $error[0];
         $error_msg = htmlspecialchars($error[1]);
         $error_var = htmlspecialchars($error[2]);
@@ -928,11 +930,13 @@ function allOperationsFileNames($filename) {
     $file_handle = fopen($filename, 'r');
     while (!\feof($file_handle)) {
         $line = fgets($file_handle);
-        if (startsWith($line, '\input{') && strpos($line, 'Operation')!==false) {
-            $operations[] = getInbetweenStrings('{', '}', $line);
+        if (startsWith($line, '\input{') && strpos($line, 'Operation') !== false) {
+            $temp = getInbetweenStrings('{', '}', $line);
+            $temparr = explode('_trunk_', $temp);
+            $operations[] = isset($temparr[1]) ? $temparr[1] : null;
         }
     }
-    return $operations;
+    return array_filter($operations);
 }
 
 function getAllOpsName($filename) {
@@ -981,14 +985,14 @@ function getRefFile($opfile) {
     $file_handle = fopen($opfile, 'r');
     while (!\feof($file_handle)) {
         $line = fgets($file_handle);
-        if (StartsWith($line, '{\footnotesize{\input{InputParam')) {
-            $refFiles['input'] = trim(getInbetweenStrings('input{', '}', $line));
+        if (StartsWith($line, '{\footnotesize{\input{') && strpos($line, 'InputParam') !== false) {
+            $refFiles['input'] = trim(getInbetweenStrings('_trunk_', '}', $line));
         }
-        if (StartsWith($line, '{\footnotesize{\input{OutputParam')) {
-            $refFiles['output'] = trim(getInbetweenStrings('input{', '}', $line));
+        if (StartsWith($line, '{\footnotesize{\input{') && strpos($line, 'OutputParam') !== false) {
+            $refFiles['output'] = trim(getInbetweenStrings('_trunk_', '}', $line));
         }
-        if (StartsWith($line, '\input{Object-')) {
-            $refFiles['object'] = trim(getInbetweenStrings('input{', '}', $line));
+        if (StartsWith($line, '\input{') && strpos($line, 'Object-') !== false) {
+            $refFiles['object'] = trim(getInbetweenStrings('_trunk_s', '}', $line));
         }
     }
     return $refFiles;

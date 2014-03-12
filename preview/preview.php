@@ -70,7 +70,7 @@ $livesite = 'https://stg-devcentral.cingular.com/';
                     <?php
 //                    include 'functions/functions.php';
                     $api = isset($_POST['api']) ? trim($_POST['api']) : 'locker';
-                    if (!file_exists('../html/' . $api)) {
+                    if (!file_exists('../../apis/' . $api.'/trunk/DevDocs(html)/')) {
                         echo "<center>API not exsist. <a href=index.php>Main page</a></center>";
                         exit;
                     }
@@ -193,7 +193,7 @@ $livesite = 'https://stg-devcentral.cingular.com/';
                                     <!-- Begin Content: Left Nav -->
                                     <?php
 //operation
-                                    $param_sec = file_get_contents('../html/' . $api . '/leftnav.html');
+                                    $param_sec = file_get_contents('../../apis/' . $api.'/trunk/DevDocs(html)/leftnav.html');
                                     echo $param_sec;
                                     ?>
                                     <!-- End Content: Left Nav -->
@@ -212,7 +212,7 @@ $livesite = 'https://stg-devcentral.cingular.com/';
                                         <?php
 //intro
 //                                    $param_sec = file_get_contents('../html/intro.html');
-                                        $param_sec = file_get_contents('../html/' . $api . '/introductions/introduction.html');
+                                        $param_sec = file_get_contents('../../apis/' . $api.'/trunk/DevDocs(html)/introductions/introduction.html');
                                         echo $param_sec;
                                         ?>
 
@@ -225,7 +225,7 @@ $livesite = 'https://stg-devcentral.cingular.com/';
 
                                             <?php
 //intro
-                                            $param_sec = file_get_contents('../html/' . $api . '/oauth/oauth.html');
+                                            $param_sec = file_get_contents('../../apis/' . $api.'/trunk/DevDocs(html)/oauth/oauth.html');
                                             echo $param_sec;
                                             ?>
 
@@ -296,10 +296,10 @@ $livesite = 'https://stg-devcentral.cingular.com/';
                                             <?php
 //operation
 
-                                            $dir_files = scandir('../html/' . $api . '/operations/');
+                                            $dir_files = scandir('../../apis/' . $api.'/trunk/DevDocs(html)/operations/');
                                             foreach ($dir_files as $file) {
-                                                if (startsWith($file, "Operation")) {
-                                                    $param_sec = file_get_contents('../html/' . $api . '/operations/' . $file);
+                                                if (strpos($file, "Operation")!==false) {
+                                                    $param_sec = file_get_contents('../../apis/' . $api.'/trunk/DevDocs(html)/operations/' . $file);
                                                     echo $param_sec;
                                                 }
                                             }
