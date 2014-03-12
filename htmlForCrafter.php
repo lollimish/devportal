@@ -3,34 +3,33 @@
 //php htmlForCrafter.php locker
 //php htmlForCrafter.php addressbook
 //php htmlForCrafter.php lyx /var/folders/dm/lz3mh3ts7rj62mdscftpy8600000gn/T/lyx_tmpdir.L49626/lyx_tmpbuf0/ ATT-Locker-Service-Specification.tex /Users/michellepai/Sites/devcontent/apis/locker/trunk/
+$input_dir = $argv[1]; //temp path
+$tex_file_name = $argv[2];
+$output_dir = $argv[3]; //original path
+$api = getInbetweenStrings('ATT-', '-Service', $tex_file_name);
+$log = "/Users/michellepai/Sites/devcontent/devportal/log.txt";
+
+writehtml($argv[1] . "\n", $log);
+writehtml($argv[2] . "\n", $log);
+writehtml($argv[3] . "\n", $log);
 
 
-if ($argv[1] === 'lyx') {
-    writehtml($argv[2] . "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
-    writehtml($argv[3] . "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
-    writehtml($argv[4] . "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
 
-    $input_dir = $argv[2]; //temp path
-    $tex_file_name = $argv[3];
-    $output_dir = $argv[4]; //original path
-    $temp = explode('-', $tex_file_name);
-    $api = $temp[1];
-    $dir_files = scandir($input_dir);
-    foreach ($dir_files as $file) {
-        if (substr($file, strlen($file) - 3) === 'tex') {
-            writehtml(substr($file, strlen($file) - 3) . "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
-            writehtml($file. "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
+$dir_files = scandir($input_dir);
+foreach ($dir_files as $file) {
+    if (substr($file, strlen($file) - 3) === 'tex') {
+        writehtml(substr($file, strlen($file) - 3) . "\n", $log);
+        writehtml($file . "\n", $log);
 
-            $temp = explode('_trunk_', $file);
-            $new_name = isset($temp[1]) ? $temp[1] : NULL;
-            rename($input_dir . $file, $input_dir . $new_name);
-        }
+        $temp = explode('_trunk_', $file);
+        $new_name = isset($temp[1]) ? $temp[1] : NULL;
+        rename($input_dir . $file, $input_dir . $new_name);
     }
 }
 
-if (!file_exists($input_dir . "ATT-$api-Service-Specification.tex")) {
+if (!file_exists($input_dir . $tex_file_name)) {
     echo "Can't find spec file\n";
-    writehtml("Can't find spec file\n" . "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
+    writehtml("Can't find spec file\n" . "\n", $log);
 } else {
 //    writehtml("File found?\n" . "\n", "/Users/michellepai/Sites/devcontent/devportal/log.txt");
     if (file_exists($output_dir . "DevDocs(html)")) {
@@ -41,7 +40,7 @@ if (!file_exists($input_dir . "ATT-$api-Service-Specification.tex")) {
     mkdir($output_dir . "DevDocs(html)/operations", 0777, true);
     mkdir($output_dir . "DevDocs(html)/errors", 0777, true);
 
-    $inputfile = $input_dir . "ATT-$api-Service-Specification.tex";
+    $inputfile = $input_dir . $tex_file_name;
 
     parse_introduction($inputfile, $output_dir . "DevDocs(html)/introductions/introduction.html");
     parse_oauth($inputfile, $output_dir . "DevDocs(html)/oauth/oauth.html");
@@ -57,7 +56,7 @@ if (!file_exists($input_dir . "ATT-$api-Service-Specification.tex")) {
             parse_operation($input_dir . $op, $outputfile);
 
             //parameter head
-            $operation_name = getOperationName("../apis/$api/trunk/$op");
+            $operation_name = getOperationName($input_dir . $op);
             $content = "<section id=\"resources-{$operation_name}-parameters\" class=\"level-3\">";
             writehtml($content, $outputfile);
             //Input param
@@ -709,8 +708,7 @@ function findSec($filename, $secName, $level, $end) {
                 if (startsWith($line, "\n")) {
                     $count++;
                     $str = '';
-//                   $output[] = $line;
-                } elseif (startsWith($line, '\item') || startsWith($line, '\begin') || startsWith($line, '\paragraph') || startsWith($line, '\begin') || startsWith($line, '\end') || startsWith($line, '{\footnotesize{')) {
+                } elseif (startsWith($line, '\item') || startsWith($line, '\begin') || startsWith($line, '\paragraph') || startsWith($line, '\begin') || startsWith($line, '\end')) {
                     $str = '';
                     $str .= $line;
                     $count++;
@@ -754,22 +752,37 @@ function findSec($filename, $secName, $level, $end) {
     }
     $output = array_filter($output);
     $tr = '';
+    $row = array();
     foreach ($output as $k => $line) {
-        if (startsWith($line, '\endfirsthead') || startsWith($line, '{\footnotesize{')) {
-            $row = array();
+        if (startsWith($line, '\endfirsthead')) {
             unset($row);
             $row = explode('&', $line);
             foreach ($row as $i => $col) {
-                $row[$i] = '<td>' . getInbetweenStrings('{\footnotesize{', '}}', $col) . '</td>';
+                $row[$i] = '<th>' . getInbetweenStrings('{\footnotesize{', '}}', $col) . '</th>';
                 $tr .= $row[$i];
             }
             $tr = '<tr>' . $tr . "</tr>";
             $output[$k] = $tr;
             $tr = '';
-            continue;
+        } elseif (startsWith($line, '\endhead')) {
+            unset($row);
+            $rows = explode('\tabularnewline ', $line);
+            $rows = array_filter($rows);
+            
+            foreach ($rows as $row) {
+                $cols = explode('&', $row);
+                $cols = array_filter($cols);
+                foreach ($cols as $i => $col) {
+                    $cols[$i] = '<td>' . getInbetweenStrings('{\footnotesize{', '}}', $col) . "</td>\n";
+                    
+                    $tr .= $cols[$i];
+                }
+                $tr = "<tr>\n" . $tr . "</tr>\n";
+            }
+            $output[$k] = $tr;
+            $tr = '';
         } elseif (startsWith($line, '\textbf{\footnotesize') || startsWith($line, '\endhead')) {
             $output[$k] = '';
-            continue;
         } elseif (startsWith($line, '\subsection*{')) {
             $output[$k] = str_replace('\subsection*{', '<h5>', $line);
             $output[$k] = str_replace('}', '</h5>', $output[$k]);
@@ -1011,14 +1024,3 @@ function getObjFile($paramFile) {
     return $objFiles;
 }
 
-function switchTags($val, $oldStart, $oldEnd, $newStart, $newEnd) {
-    if (startsWith($val, $oldStart)) {
-        preg_match_all('/' . $oldStart . '(.*?)' . $oldEnd . '/s', $val, $matches);
-        $output = '';
-        foreach ($matches[1] as $m) {
-            $output .= $m . ' ';
-        }
-        return str_replace('\_', '_', $output);
-    }
-    return $newStart . $val . $newEnd;
-}
